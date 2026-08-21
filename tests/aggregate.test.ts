@@ -94,6 +94,14 @@ describe("mergeArticles", () => {
     expect(res.changed).toBe(true);
   });
 
+  it("reports changed=true when an existing article's content is corrected (regression: verifier M3)", () => {
+    const existing = [toArticle(source, raw)!];
+    const edited: typeof existing = [{ ...existing[0]!, excerpt: "corrected excerpt" }];
+    const res = mergeArticles(existing, edited);
+    expect(res.changed).toBe(true);
+    expect(res.articles[0]!.excerpt).toBe("corrected excerpt");
+  });
+
   it("caps the corpus at maxArticles, keeping the newest", () => {
     const items = Array.from({ length: 30 }, (_, i) =>
       toArticle(source, {

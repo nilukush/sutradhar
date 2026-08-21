@@ -16,8 +16,8 @@ export const CORPUS_GENERATED_AT = parsed.data.generatedAt;
 
 export const sourceById: ReadonlyMap<string, Source> = new Map(SOURCES.map((s) => [s.id, s]));
 
-export function sourceOf(article: Article): Source | undefined {
-  return sourceById.get(article.sourceId);
+export function sourceOf(articleOrId: Article | string): Source | undefined {
+  return sourceById.get(typeof articleOrId === "string" ? articleOrId : articleOrId.sourceId);
 }
 
 /** Number of weeks of digest pages to publish (keeps page count bounded on deep archives). */

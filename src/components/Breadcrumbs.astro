@@ -1,4 +1,6 @@
 ---
+import { SITE } from "@/lib/site";
+
 interface Crumb {
   label: string;
   href?: string;
@@ -10,17 +12,24 @@ interface Props {
 }
 const { crumbs, currentUrl } = Astro.props;
 
+// Only ancestor crumbs get absolute `item` URLs; the current page appears once, last.
+const ancestors = crumbs.filter((c) => c.href);
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    ...crumbs.map((c, i) => ({
+    ...ancestors.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: c.label,
-      ...(c.href ? { item: c.href } : {}),
+      item: new URL(c.href!, SITE.url).toString(),
     })),
-    { "@type": "ListItem", position: crumbs.length + 1, name: crumbs[crumbs.length - 1]?.label ?? "", item: currentUrl },
+    {
+      "@type": "ListItem",
+      position: ancestors.length + 1,
+      name: crumbs[crumbs.length - 1]?.label ?? "",
+      item: currentUrl,
+    },
   ],
 };
 ---

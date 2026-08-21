@@ -6,7 +6,7 @@
  * Usage: pnpm fetch [--dry-run]
  * Exit codes: 0 = ok (partial source failures tolerated), 1 = total failure.
  */
-import { appendFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
+import { appendFileSync, existsSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { resolve } from "node:path";
 import { SOURCES } from "../src/data/sources";
@@ -18,9 +18,16 @@ const root = resolve(fileURLToPath(import.meta.url), "../..");
 const corpusPath = resolve(root, "src/data/articles.json");
 const dryRun = process.argv.includes("--dry-run");
 
-function readCorpus(): { generatedAt: string; articles: [] } | { generatedAt: string; articles: import("../src/lib/schema").Article[] } {
+function readCorpus(): { generatedAt: string; articles: import("../src/lib/schema").Article[] } {
   if (!existsSync(corpusPath)) return { generatedAt: new Date(0).toISOString(), articles: [] };
-  const parsed = CorpusSchema.safeParse(JSON.parse(readFileSync(corpusPath, "utf8")));
+  let raw: unknown;
+  try {
+    raw = JSON.parse(readFileSync(corpusPath, "utf8"));
+  } catch {
+    console.warn("⚠ existing corpus is not valid JSON (truncated write?) — rebuilding from scratch");
+    return { generatedAt: new Date(0).toISOString(), articles: [] };
+  }
+  const parsed = CorpusSchema.safeParse(raw);
   if (parsed.success) return parsed.data;
   console.warn("⚠ existing corpus failed schema validation — rebuilding from scratch");
   return { generatedAt: new Date(0).toISOString(), articles: [] };
@@ -45,7 +52,10 @@ async function main() {
 
   if (!dryRun && merged.changed) {
     const corpus = { generatedAt: new Date().toISOString(), articles: merged.articles };
-    writeFileSync(corpusPath, JSON.stringify(corpus, null, 2) + "\n", "utf8");
+    // Atomic write: a runner killed mid-write must never leave a truncated corpus.
+    const tmpPath = corpusPath + ".tmp";
+    writeFileSync(tmpPath, JSON.stringify(corpus, null, 2) + "\n", "utf8");
+    renameSync(tmpPath, corpusPath);
     console.log(`wrote ${corpusPath}`);
   }
 

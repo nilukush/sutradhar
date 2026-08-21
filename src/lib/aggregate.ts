@@ -97,6 +97,9 @@ export function mergeArticles(
     .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : a.publishedAt > b.publishedAt ? -1 : a.id.localeCompare(b.id)))
     .slice(0, max);
 
-  const key = (list: Article[]) => list.map((a) => a.id).join(",");
+  // Content-aware change key: id-only keys would never persist edits to already-stored
+  // articles (title/excerpt/topic fixes would silently no-op the write).
+  const key = (list: Article[]) =>
+    list.map((a) => `${a.id}:${a.title}:${a.excerpt}:${a.topics.join("+")}:${a.publishedAt}`).join(",");
   return { articles, changed: key(articles) !== key(existing) };
 }

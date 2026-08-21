@@ -100,7 +100,7 @@ export function parseRssOrAtom(xml: string): RawItem[] {
       return {
         title: textOf(item.title).trim(),
         url,
-        publishedAt: toIso(textOf(item.pubDate) || textOf(item.published) || textOf(item.updated) || textOf(item["dc:date"])),
+        publishedAt: toIso(textOf(item.pubDate) || textOf(item.published) || textOf(item.updated) || textOf(item.date)),
         excerpt: description ? excerptFrom(htmlToText(description)) : undefined,
         contentHtml: encoded || undefined,
         authors: [textOf(item.creator) || textOf(item.author)].filter(Boolean),

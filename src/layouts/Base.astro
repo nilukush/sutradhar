@@ -40,6 +40,11 @@ const baseJsonLd: Record<string, unknown>[] = [
   },
 ];
 const allJsonLd = [...baseJsonLd, ...jsonLd];
+
+/** JSON-LD payload with < and > escaped — a `</script>` inside feed-sourced titles must never terminate the block. */
+function safeJsonLd(object: Record<string, unknown>): string {
+  return JSON.stringify(object).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+}
 ---
 
 <!doctype html>
@@ -73,7 +78,7 @@ const allJsonLd = [...baseJsonLd, ...jsonLd];
         document.documentElement.dataset.theme = t;
       })();
     </script>
-    {allJsonLd.map((object) => <script type="application/ld+json" set:html={JSON.stringify(object)} />)}
+    {allJsonLd.map((object) => <script type="application/ld+json" set:html={safeJsonLd(object)} />)}
   </head>
   <body>
     <SiteHeader />

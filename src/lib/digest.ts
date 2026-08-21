@@ -10,8 +10,9 @@ export function isoWeek(input: string | Date): IsoWeek {
   const d = new Date(input);
   if (Number.isNaN(d.getTime())) throw new Error(`Invalid date: ${String(input)}`);
   // Shift to the Thursday of that week — then the ISO year == calendar year.
+  // ISO weekday is 1–7 (Sunday = 7), but getUTCDay() returns 0 for Sunday.
   const shifted = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  shifted.setUTCDate(shifted.getUTCDate() + 4 - shifted.getUTCDay());
+  shifted.setUTCDate(shifted.getUTCDate() + 4 - (shifted.getUTCDay() || 7));
   const year = shifted.getUTCFullYear();
   const jan1 = Date.UTC(year, 0, 1);
   const week = Math.floor((shifted.getTime() - jan1) / 7 / 86400000) + 1;
@@ -34,7 +35,7 @@ export interface WeeklyDigest {
 
 function weekStart(date: Date): Date {
   const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-  d.setUTCDate(d.getUTCDate() - (d.getUTCDay() - 1)); // back to Monday
+  d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() || 7) - 1)); // back to Monday (Sunday counts as 7)
   return d;
 }
 
