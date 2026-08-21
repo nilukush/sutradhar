@@ -19,6 +19,7 @@ const validArticle = {
   sourceId: "phonepe",
   publishedAt: "2026-08-20T10:00:00.000Z",
   excerpt: "How PhonePe handles billions of UPI collection requests.",
+  content: "How PhonePe handles billions of UPI collection requests every day across India.",
   topics: ["fintech-payments"],
   authors: ["Anon Engineer"],
 };
@@ -67,6 +68,17 @@ describe("ArticleSchema", () => {
     const parsed = ArticleSchema.safeParse(rest);
     expect(parsed.success).toBe(true);
     if (parsed.success) expect(parsed.data.authors).toEqual([]);
+  });
+
+  it("defaults content to an empty string (older corpus entries)", () => {
+    const { content, ...rest } = validArticle;
+    const parsed = ArticleSchema.safeParse(rest);
+    expect(parsed.success).toBe(true);
+    if (parsed.success) expect(parsed.data.content).toBe("");
+  });
+
+  it("rejects content longer than the editorial cap", () => {
+    expect(ArticleSchema.safeParse({ ...validArticle, content: "x".repeat(1601) }).success).toBe(false);
   });
 
   it("rejects non-hex ids, bad urls, non-iso dates and long excerpts", () => {

@@ -60,6 +60,8 @@ export function toArticle(source: Source, item: RawItem): Article | null {
     htmlToText(item.excerpt || item.contentHtml || ""),
     280,
   );
+  // Extended excerpt for the in-site reading page — an excerpt, never full text.
+  const content = excerptFrom(htmlToText(item.contentHtml || item.excerpt || ""), 1200);
 
   return {
     id: articleId(url),
@@ -68,6 +70,7 @@ export function toArticle(source: Source, item: RawItem): Article | null {
     sourceId: source.id,
     publishedAt: date.toISOString(),
     excerpt: excerpt.slice(0, 400),
+    content: content.slice(0, 1600),
     topics: inferTopics(source, item),
     authors: item.authors.slice(0, 4),
   };
@@ -100,6 +103,6 @@ export function mergeArticles(
   // Content-aware change key: id-only keys would never persist edits to already-stored
   // articles (title/excerpt/topic fixes would silently no-op the write).
   const key = (list: Article[]) =>
-    list.map((a) => `${a.id}:${a.title}:${a.excerpt}:${a.topics.join("+")}:${a.publishedAt}`).join(",");
+    list.map((a) => `${a.id}:${a.title}:${a.excerpt}:${a.content}:${a.topics.join("+")}:${a.publishedAt}`).join(",");
   return { articles, changed: key(articles) !== key(existing) };
 }

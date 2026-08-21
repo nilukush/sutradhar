@@ -66,6 +66,8 @@ export const ArticleSchema = z.object({
   sourceId: z.string().regex(/^[a-z0-9-]+$/),
   publishedAt: z.iso.datetime(),
   excerpt: z.string().max(400),
+  /** Extended excerpt shown on the in-site /read page. Editorial cap enforced here. */
+  content: z.string().max(1600).default(""),
   topics: z.array(TopicSchema),
   authors: z.array(z.string()).default([]),
 });

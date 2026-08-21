@@ -2,6 +2,7 @@
 import SourceBadge from "@/components/SourceBadge.astro";
 import TopicPill from "@/components/TopicPill.astro";
 import { formatDate, hostOf, sourceOf } from "@/lib/view";
+import { articleHref } from "@/lib/read";
 import type { Article } from "@/lib/schema";
 
 interface Props {
@@ -13,7 +14,7 @@ const origin = hostOf(article.url);
 ---
 
 <article class="card">
-  <a class="card-link" href={article.url} rel="noopener" target="_blank">
+  <a class="card-link" href={articleHref(article)}>
     <span class="visually-hidden">{article.title}</span>
   </a>
   <div class="card-meta">

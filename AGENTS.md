@@ -19,7 +19,8 @@ engineering blogs. Beautiful, developer-friendly, SEO/GEO-first, $0 infra.
 
 ## Non-negotiables
 
-- Link-out editorial model: excerpts only, never full text, always attribute.
+- In-site reading model: `/read/<slug>` pages carry extended excerpts (≤1,200 chars stored,
+  schema-capped at 1,600) with attribution and a link to the original article — never full text.
 - Self-canonical pages; never canonical to external articles.
 - AI crawlers allowed (GEO posture).
 - No paid services in the critical path. No secrets in the repo.

@@ -25,6 +25,7 @@ narrative — which is exactly what this pipeline does with many blogs.
                               │
                               ├── /                latest stories + topics + sources
                               ├── /articles        full firehose (paginated)
+                              ├── /read/<slug>     in-site reading page per article
                               ├── /topics/<t>      topic hubs
                               ├── /sources/<co>    per-company hubs
                               ├── /digest/<week>   weekly digest pages
@@ -36,8 +37,10 @@ narrative — which is exactly what this pipeline does with many blogs.
   fetches every source hourly and commits the corpus only when new articles exist — the push
   triggers a rebuild. Public repos get free Actions minutes.
 - **Extensible**: sources live in one registry file — adding one is a one-line PR.
-- **Link-out editorial model**: cards carry short excerpts and always link to the original
-  article. Full text is never republished (copyright + Google site-reputation-abuse policy).
+- **In-site reading pages**: every article opens at `/read/<slug>` on Sutradhar with an
+  extended excerpt (~1,200 chars), attribution, related stories and a prominent
+  "continue reading" link to the original. Full text is never republished (copyright +
+  Google site-reputation-abuse policy).
 - **SEO + GEO**: static HTML, self-canonical pages, JSON-LD (`WebSite`, `Organization`,
   `CollectionPage`+`ItemList`, `BreadcrumbList`, `BlogPosting`, `FAQPage`), sitemap with honest
   `lastmod`, `llms.txt`, and a robots.txt that explicitly welcomes AI crawlers (GPTBot,

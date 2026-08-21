@@ -2,9 +2,12 @@
 
 ## Status
 
-- **v0.1 complete & verified** (2026-08-21): 57 tests green, 80 pages built, 829-article corpus
-  from 16 live sources, verifier-reviewed and fixed. Two commits on `main`
-  (`feat: Sutradhar v0.1`, `fix: verifier findings`).
+- **v0.2 complete & verified** (2026-08-21): in-site reading model. Every article now opens at
+  `/read/<slug>-<id16>` on Sutradhar (extended excerpt ≤1,200 chars + attribution + prominent
+  "continue reading" link to the original + related stories). All cards, digest links, ItemLists,
+  RSS (internal link, original in description) and JSON Feed (`external_url`) point in-site.
+  65 tests green, 909 pages built (829 reading pages), 829/829 articles carry extended content.
+- v0.1 (2026-08-21): link-out model, 57 tests, verifier-reviewed (docs/VERIFICATION.md).
 
 ## Decisions (why)
 
@@ -13,7 +16,8 @@
 | Name: **Sutradhar** | Sanskrit "thread-holder/narrator" — exact aggregator metaphor; `sutradhar.dev` unregistered (RDAP 2026-08-21); maximal distance from InfoQ trademark | docs/ANALYSIS.md §6 |
 | Astro static + GitHub Actions cron + CF Pages | Only $0 option that is hourly-fresh AND SEO-perfect; public repo → free Actions minutes; Vercel Hobby cron is daily-only | docs/ANALYSIS.md §4 |
 | Meesho via Ghost Content API | No RSS exists; public key ships in their client bundle; URL rewrite `admin-v2.meesho.io/ → meesho.io/blog/` verified | src/data/sources.ts |
-| Link-out model, self-canonical | Copyright + Google site-reputation-abuse; Google no longer recommends cross-domain canonicals for syndication | docs/ANALYSIS.md §5 |
+| In-site reading pages (`/read/<slug>`), extended excerpts not full text | User wants content opened in-site; full republication = copyright + Google site-reputation-abuse risk; NewsArticle JSON-LD with `isBasedOn` the original | src/pages/read/[slug].astro |
+| Self-canonical, never to originals | Google no longer recommends cross-domain canonicals for syndicated summaries | docs/ANALYSIS.md §5 |
 | AI crawlers allowed | Citability is the moat; blocking measurably costs traffic (Wharton/Rutgers ~7%) | src/pages/robots.txt.js |
 | Newsletter = digest artifact + beehiiv free | No free RSS-to-email exists in 2026; pipeline generates the weekly HTML | docs/ANALYSIS.md §4 |
 

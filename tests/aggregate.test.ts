@@ -35,6 +35,22 @@ describe("toArticle", () => {
     expect(a.topics).toContain("scale");
   });
 
+  it("carries an extended excerpt in `content` (in-site reading page), capped at 1200 chars", () => {
+    const a = toArticle(source, {
+      ...raw,
+      contentHtml: `<p>${"long body text ".repeat(300)}</p>`,
+    });
+    expect(a!.content.length).toBeGreaterThan(0);
+    expect(a!.content.length).toBeLessThanOrEqual(1201); // 1200 + ellipsis
+    // prefers feed html over the short excerpt when both exist
+    expect(a!.content).not.toBe(a!.excerpt);
+  });
+
+  it("falls back content to the short excerpt when no html body exists", () => {
+    const a = toArticle(source, { ...raw, contentHtml: undefined });
+    expect(a!.content).toBe(a!.excerpt);
+  });
+
   it("returns null for items without a parsable date", () => {
     expect(toArticle(source, { ...raw, publishedAt: "" })).toBeNull();
     expect(toArticle(source, { ...raw, publishedAt: "not-a-date" })).toBeNull();

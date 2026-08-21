@@ -2,7 +2,7 @@
  * Post-build route inventory check (CI gate for the site layer).
  * Verifies the pages that must exist for SEO/GEO coverage actually built.
  */
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createInterface } from "node:readline";
@@ -40,6 +40,15 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
+// Every article must have its in-site reading page.
+const readCount = readdirSync(resolve(dist, "read"), { withFileTypes: true })
+  .filter((d) => d.isDirectory())
+  .filter((d) => existsSync(resolve(dist, "read", d.name, "index.html"))).length;
+if (readCount < corpus.articles.length) {
+  console.error(`✗ reading pages incomplete: ${readCount}/${corpus.articles.length}`);
+  process.exit(1);
+}
+
 // SEO spot checks on generated HTML
 const home = readFileSync(resolve(dist, "index.html"), "utf8");
 const checks: [string, boolean][] = [
@@ -55,4 +64,4 @@ if (failed.length > 0) {
   process.exit(1);
 }
 
-console.log(`✓ ${required.length} required routes present, SEO checks passed`);
+console.log(`✓ ${required.length} required routes + ${readCount} reading pages present, SEO checks passed`);

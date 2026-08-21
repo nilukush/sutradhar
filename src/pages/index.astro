@@ -7,7 +7,8 @@ import DigestCard from "@/components/DigestCard.astro";
 import SourceBadge from "@/components/SourceBadge.astro";
 import Logo from "@/components/Logo.astro";
 import { SITE } from "@/lib/site";
-import { ARTICLES, DIGESTS, topicsWithCounts } from "@/lib/view";
+import { ARTICLES, DIGESTS, canonicalFor, topicsWithCounts } from "@/lib/view";
+import { articleHref } from "@/lib/read";
 import { SOURCES } from "@/data/sources";
 
 const latest = ARTICLES.slice(0, 12);
@@ -27,7 +28,7 @@ const itemList = {
     itemListElement: latest.map((a, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: a.url,
+      url: canonicalFor(articleHref(a)),
       name: a.title,
     })),
   },

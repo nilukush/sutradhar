@@ -28,8 +28,10 @@ via `src/lib/view.ts`. Digests are derived at build time by `src/lib/digest.ts`.
 
 ## Critical conventions
 
-- **Never republish full article text** — excerpts ≤ 280 chars + attribution + link out only
-  (copyright + Google site-reputation-abuse policy).
+- **Never republish full article text** — `/read/<slug>` pages show an extended excerpt
+  (≤1,200 chars stored, `ArticleSchema.content` hard-caps at 1,600) + attribution + link to the
+  original (copyright + Google site-reputation-abuse policy).
+- **All cards/feeds link to `/read/<slug>` in-site pages**, which carry the outbound link.
 - **Never cross-domain-canonical** to source articles; every page is self-canonical.
 - **AI crawlers are welcome** (robots.txt, GEO posture) — don't add blocks.
 - Adding a source = one entry in `src/data/sources.ts`; CI validates the schema. Ghost sources
@@ -37,6 +39,8 @@ via `src/lib/view.ts`. Digests are derived at build time by `src/lib/digest.ts`.
 - `src/lib/site.ts` is the single source of identity truth; entity strings must stay
   byte-identical across site/README/socials (GEO entity consistency).
 - JSON-LD is emitted via `safeJsonLd()` in Base.astro — always escape `<`/`>` (verifier H3).
+- Article routes: `articleSlug()` in `src/lib/read.ts` = slugified title + 16-hex id;
+  related surfaces import `articleHref()`/`articleSlug()` from there.
 - Data commits from the bot must NOT contain `[skip ci]` (hosts honor it and skip deploys).
 - Tests are written before implementation (Red→Green→Refactor); regressions found in review
   become regression tests.

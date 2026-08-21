@@ -4,6 +4,7 @@ import ArticleCard from "@/components/ArticleCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import NewsletterBox from "@/components/NewsletterBox.astro";
 import { TOPIC_DESCRIPTIONS, TOPIC_LABELS, articlesForTopic, canonicalFor, topicsWithCounts } from "@/lib/view";
+import { articleHref } from "@/lib/read";
 import { TOPICS } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
@@ -35,7 +36,7 @@ const itemList = {
     itemListElement: articles.slice(0, 50).map((a, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: a.url,
+      url: canonicalFor(articleHref(a)),
       name: a.title,
     })),
   },
