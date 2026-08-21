@@ -1,0 +1,130 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import SourceBadge from "@/components/SourceBadge.astro";
+import TopicPill from "@/components/TopicPill.astro";
+import NewsletterBox from "@/components/NewsletterBox.astro";
+import { DIGESTS, canonicalFor, formatDate, sourceOf } from "@/lib/view";
+import { SITE } from "@/lib/site";
+
+export async function getStaticPaths() {
+  return DIGESTS.map((digest) => ({
+    params: { week: digest.id },
+    props: { digest },
+  }));
+}
+
+interface Props {
+  digest: (typeof DIGESTS)[number];
+}
+const { digest } = Astro.props;
+
+const sourcesCovered = new Set(digest.articles.map((a) => a.sourceId)).size;
+const title = `Indian engineering digest, week ${digest.id} — ${SITE.name}`;
+
+// Answer-shaped lede: stands alone as a summary for retrieval/LLM citation.
+const lede = digest.articles.length > 0
+  ? `In week ${digest.id} (${digest.startDate} to ${digest.endDate}), ${digest.articles.length} engineering ${digest.articles.length === 1 ? "story was" : "stories were"} published across ${sourcesCovered} Indian tech ${sourcesCovered === 1 ? "company" : "companies"}${digest.articles[0] ? `, including “${digest.articles[0].title}” from ${sourceOf(digest.articles[0])?.name ?? digest.articles[0].sourceId}` : ""}.`
+  : `No stories in week ${digest.id}.`;
+
+const blogPosting = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: `Indian engineering digest, week ${digest.id}`,
+  description: lede,
+  datePublished: digest.endDate,
+  dateModified: digest.endDate,
+  url: canonicalFor(`/digest/${digest.id}`),
+  author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  isBasedOn: digest.articles.slice(0, 30).map((a) => a.url),
+};
+---
+
+<Base title={title} description={lede} jsonLd={[blogPosting]}>
+  <article class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Digests", href: "/digest" }, { label: digest.id }]} currentUrl={canonicalFor(Astro.url.pathname)} />
+    <p class="eyebrow">Weekly thread</p>
+    <h1>Week {digest.id}</h1>
+    <p class="meta">{digest.startDate} → {digest.endDate} · {digest.articles.length} stories · {sourcesCovered} sources</p>
+    <p class="lede prose">{lede}</p>
+
+    <ol class="stories">
+      {digest.articles.map((article) => {
+        const source = sourceOf(article.sourceId);
+        return (
+          <li>
+            <div class="meta">
+              <SourceBadge sourceId={article.sourceId} size={20} />
+              <span class="src">{source?.name ?? article.sourceId}</span>
+              <span aria-hidden="true">·</span>
+              <time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+            </div>
+            <a class="story-link thread-link" href={article.url} rel="noopener" target="_blank">{article.title}</a>
+            {article.excerpt && <p class="excerpt">{article.excerpt}</p>}
+            <div class="pills">
+              {article.topics.slice(0, 3).map((t) => <TopicPill topic={t} />)}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+
+    <div class="newsletter-wrap">
+      <NewsletterBox compact />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+  }
+  .lede {
+    margin-top: var(--space-4);
+  }
+  .stories {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-5);
+    max-width: var(--measure);
+  }
+  .stories li {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: var(--space-5);
+    display: grid;
+    gap: var(--space-2);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--ink-soft);
+  }
+  .src {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: var(--fs-sm);
+  }
+  .story-link {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .excerpt {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: var(--fs-sm);
+  }
+  .pills {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .newsletter-wrap {
+    margin-top: var(--space-7);
+  }
+</style>

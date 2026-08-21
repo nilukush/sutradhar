@@ -1,0 +1,38 @@
+{
+  "name": "sutradhar",
+  "description": "Sutradhar — every engineering story from India, woven into one thread. An aggregator + newsletter for engineering blogs of Indian companies and startups.",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --port 4321",
+    "build": "astro build",
+    "preview": "astro preview --port 4321",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "fetch": "tsx scripts/fetch-feeds.ts",
+    "verify:routes": "tsx scripts/verify-routes.ts"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.4",
+    "fast-xml-parser": "^5.11.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@fontsource-variable/fraunces": "^5.2.8",
+    "@fontsource-variable/inter": "^5.2.6",
+    "@fontsource/ibm-plex-mono": "^5.2.8",
+    "@fontsource/ibm-plex-sans-devanagari": "^5.2.8",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp"]
+  }
+}

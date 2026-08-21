@@ -1,0 +1,84 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { TOPIC_DESCRIPTIONS, TOPIC_LABELS, canonicalFor, topicsWithCounts } from "@/lib/view";
+import { SITE } from "@/lib/site";
+
+const topics = topicsWithCounts();
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Topics",
+  url: canonicalFor("/topics"),
+  isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: topics.map((t, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: canonicalFor(`/topics/${t.topic}`),
+      name: t.label,
+    })),
+  },
+};
+---
+
+<Base title={`Topics — ${SITE.name}`} description="Topic hubs across Indian engineering writing: backend, AI & ML, scale, fintech & payments and more." jsonLd={[itemList]}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Topics" }]} currentUrl={canonicalFor("/topics")} />
+    <h1>Topics</h1>
+    <p class="prose">The sutras — every story woven into thematic threads.</p>
+    <div class="list">
+      {topics.map((t) => (
+        <a class="row" href={`/topics/${t.topic}`}>
+          <div>
+            <h2>{t.label}</h2>
+            <p>{TOPIC_DESCRIPTIONS[t.topic]}</p>
+          </div>
+          <span class="count">{t.count}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+  }
+  .list {
+    margin-top: var(--space-5);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    color: var(--ink);
+  }
+  .row:hover {
+    border-color: var(--teal);
+    text-decoration: none;
+  }
+  .row h2 {
+    font-size: var(--fs-lg);
+    margin-bottom: var(--space-1);
+  }
+  .row p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: var(--fs-sm);
+  }
+  .count {
+    font-family: var(--font-mono);
+    color: var(--teal);
+    flex: none;
+  }
+</style>

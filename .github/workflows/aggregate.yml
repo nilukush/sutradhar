@@ -1,0 +1,44 @@
+name: Aggregate feeds
+
+# Near-real-time freshness: fetch every source hourly (at :23 — GitHub docs warn
+# scheduled workflows suffer congestion/drops at the top of the hour), commit the
+# corpus only when it changed. The push triggers the hosting provider's rebuild.
+# NOTE: do NOT put "[skip ci]" in the data-commit message — Cloudflare Pages and
+# other hosts honor it and would skip deploying the new data.
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aggregate
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run fetch
+      - name: Commit and push if the corpus changed
+        run: |
+          if git diff --quiet src/data/articles.json; then
+            echo "No new articles — nothing to commit."
+            exit 0
+          fi
+          git config user.name "sutradhar-bot"
+          git config user.email "bot@sutradhar.dev"
+          git add src/data/articles.json
+          git commit -m "chore(data): aggregate new articles $(date -u +%FT%TZ)"
+          git push

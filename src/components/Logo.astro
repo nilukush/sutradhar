@@ -1,0 +1,25 @@
+---
+/** The Sutradhar mark: a saffron thread weaving through three ink dots. */
+interface Props {
+  size?: number;
+}
+const { size = 28 } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 32 32"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    d="M3 22 C 8 10, 13 30, 18 16 S 27 6, 29 12"
+    stroke="var(--saffron)"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    fill="none"></path>
+  <circle cx="6" cy="24" r="2.6" fill="currentColor"></circle>
+  <circle cx="16" cy="20" r="2.6" fill="currentColor"></circle>
+  <circle cx="29" cy="11" r="2.6" fill="var(--saffron)"></circle>
+</svg>

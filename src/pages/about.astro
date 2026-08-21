@@ -1,0 +1,118 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { canonicalFor } from "@/lib/view";
+import { ARTICLES } from "@/lib/view";
+import { SOURCES } from "@/data/sources";
+import { SITE } from "@/lib/site";
+
+const faq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is Sutradhar?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: `Sutradhar is an aggregator and newsletter for engineering blogs published by Indian companies and startups — ${SOURCES.length} sources and ${ARTICLES.length} stories, refreshed automatically about every hour.`,
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does the name mean?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "In Sanskrit theatre, the sutradhar (सूत्रधर) is the narrator who literally holds the threads (sutra) of the story and weaves them into one narrative — what an aggregator does with many blogs.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does content stay fresh?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "An open-source pipeline fetches every source's feed roughly hourly, merges and de-duplicates new articles, and redeploys the site only when something changed. New posts usually appear within an hour of publishing.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I add a new source?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Sources live in a single registry file in the public repository. Adding one is a one-line pull request; it joins the next hourly run automatically.",
+      },
+    },
+  ],
+};
+---
+
+<Base title={`About — ${SITE.name}`} description={SITE.oneLiner} jsonLd={[faq]}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "About" }]} currentUrl={canonicalFor("/about")} />
+    <h1>About <span class="deva" lang="hi">सूत्रधर</span></h1>
+    <p class="lede prose">
+      In Sanskrit theatre, the <em>sutradhar</em> is the narrator — the one who holds the threads
+      of the story and weaves them into one narrative. This site does exactly that for Indian
+      engineering writing.
+    </p>
+
+    <h2>Why this exists</h2>
+    <p class="prose">
+      India's best product companies publish world-class engineering writing — scaling UPI to
+      billions of requests, running cricket's biggest live streams, building recommendation
+      systems for hundreds of millions of users. But it's scattered across a dozen platforms and
+      publications, and global aggregators barely cover it. Sutradhar gathers all of it into one
+      live thread: {ARTICLES.length} stories from {SOURCES.length} sources so far.
+    </p>
+
+    <h2>How it works</h2>
+    <ul class="prose list">
+      <li>An <a href={SITE.repoUrl}>open-source pipeline</a> fetches every source's feed about once an hour.</li>
+      <li>New articles are normalized, de-duplicated by canonical URL, tagged into topics and committed to a public dataset.</li>
+      <li>The site rebuilds only when something changed — near-real-time freshness, zero human effort.</li>
+      <li>Every story links to the original article on the publisher's site. We never republish full text — only short excerpts with attribution.</li>
+    </ul>
+
+    <h2>Add a source</h2>
+    <p class="prose">
+      Know an Indian engineering blog that's missing? The source registry is one file in the
+      <a href={SITE.repoUrl}>public repository</a> — open a pull request adding one entry and it
+      joins the next hourly run.
+    </p>
+
+    <h2>Editorial policy</h2>
+    <p class="prose">
+      Sutradhar links out, always. Excerpts are kept short (a few sentences), every card names its
+      source, and full text lives only on the publisher's own site. Sources that stop publishing
+      stay listed, flagged as dormant. Global companies with substantial India-based engineering
+      teams are marked <em>india-linked</em>.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+    max-width: var(--measure);
+  }
+  h1 {
+    margin-bottom: var(--space-4);
+  }
+  .deva {
+    color: var(--saffron);
+    font-weight: 500;
+  }
+  .lede {
+    margin-bottom: var(--space-6);
+  }
+  h2 {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-xl);
+  }
+  .list {
+    padding-left: 1.2em;
+    display: grid;
+    gap: var(--space-2);
+  }
+</style>

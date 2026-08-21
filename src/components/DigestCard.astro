@@ -1,0 +1,50 @@
+---
+import { formatDate } from "@/lib/view";
+import type { WeeklyDigest } from "@/lib/digest";
+
+interface Props {
+  digest: WeeklyDigest;
+}
+const { digest } = Astro.props;
+const highlights = digest.articles.slice(0, 3);
+---
+
+<a class="digest-card" href={`/digest/${digest.id}`}>
+  <p class="eyebrow">{digest.id}</p>
+  <h3 class="title">{digest.articles.length} {digest.articles.length === 1 ? "story" : "stories"}</h3>
+  <p class="range meta">{digest.startDate} → {digest.endDate}</p>
+  <ul class="highlights">
+    {highlights.map((a) => <li>{a.title}</li>)}
+  </ul>
+</a>
+
+<style>
+  .digest-card {
+    display: grid;
+    gap: var(--space-2);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    color: var(--ink);
+    transition: border-color 160ms ease;
+  }
+  .digest-card:hover {
+    border-color: var(--saffron);
+    text-decoration: none;
+  }
+  .title {
+    font-size: var(--fs-lg);
+  }
+  .range {
+    margin: 0;
+  }
+  .highlights {
+    margin: var(--space-2) 0 0;
+    padding-left: 1.1em;
+    color: var(--ink-soft);
+    font-size: var(--fs-sm);
+    display: grid;
+    gap: 6px;
+  }
+</style>

@@ -1,0 +1,52 @@
+---
+interface Crumb {
+  label: string;
+  href?: string;
+}
+interface Props {
+  crumbs: Crumb[];
+  /** Absolute canonical of the current page — last breadcrumb. */
+  currentUrl: string;
+}
+const { crumbs, currentUrl } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    ...crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.label,
+      ...(c.href ? { item: c.href } : {}),
+    })),
+    { "@type": "ListItem", position: crumbs.length + 1, name: crumbs[crumbs.length - 1]?.label ?? "", item: currentUrl },
+  ],
+};
+---
+
+<nav aria-label="Breadcrumb" class="crumbs">
+  {crumbs.map((c, i) => (
+    <span>
+      {i > 0 && <span class="sep" aria-hidden="true">›</span>}
+      {c.href ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+    </span>
+  ))}
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<style>
+  .crumbs {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--ink-faint);
+    margin-bottom: var(--space-4);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .sep {
+    margin: 0 2px;
+  }
+</style>

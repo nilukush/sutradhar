@@ -1,0 +1,57 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import DigestCard from "@/components/DigestCard.astro";
+import NewsletterBox from "@/components/NewsletterBox.astro";
+import { DIGESTS, canonicalFor } from "@/lib/view";
+import { SITE } from "@/lib/site";
+
+const description = `Weekly digests of everything published on Indian engineering blogs, woven by ${SITE.name}.`;
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Weekly digests",
+  url: canonicalFor("/digest"),
+  isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: DIGESTS.length,
+    itemListElement: DIGESTS.map((d, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: canonicalFor(`/digest/${d.id}`),
+      name: `Indian engineering digest, week ${d.id}`,
+    })),
+  },
+};
+---
+
+<Base title={`Weekly digest — ${SITE.name}`} description={description} jsonLd={[itemList]}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Digests" }]} currentUrl={canonicalFor("/digest")} />
+    <h1>The weekly thread</h1>
+    <p class="prose">Everything India's engineering teams published, week by week.</p>
+    <div class="grid">
+      {DIGESTS.map((digest) => <DigestCard digest={digest} />)}
+    </div>
+    <div class="newsletter-wrap">
+      <NewsletterBox />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+  .newsletter-wrap {
+    margin-top: var(--space-7);
+  }
+</style>

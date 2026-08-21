@@ -1,0 +1,29 @@
+---
+import { TOPIC_LABELS } from "@/lib/view";
+import type { Topic } from "@/lib/schema";
+
+interface Props {
+  topic: Topic;
+}
+const { topic } = Astro.props;
+const label = TOPIC_LABELS[topic] ?? topic;
+---
+
+<a href={`/topics/${topic}`} class="pill">{label}</a>
+
+<style>
+  .pill {
+    display: inline-block;
+    background: var(--teal-wash);
+    color: var(--teal);
+    font-size: var(--fs-sm);
+    line-height: 1;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    font-weight: 500;
+  }
+  .pill:hover {
+    filter: brightness(0.96);
+    text-decoration: none;
+  }
+</style>

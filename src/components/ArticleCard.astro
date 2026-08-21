@@ -1,0 +1,119 @@
+---
+import SourceBadge from "@/components/SourceBadge.astro";
+import TopicPill from "@/components/TopicPill.astro";
+import { formatDate, hostOf, sourceOf } from "@/lib/view";
+import type { Article } from "@/lib/schema";
+
+interface Props {
+  article: Article;
+}
+const { article } = Astro.props;
+const source = sourceOf(article.sourceId);
+const origin = hostOf(article.url);
+---
+
+<article class="card">
+  <a class="card-link" href={article.url} rel="noopener" target="_blank">
+    <span class="visually-hidden">{article.title}</span>
+  </a>
+  <div class="card-meta">
+    <SourceBadge sourceId={article.sourceId} />
+    <span class="source-name">{source?.name ?? article.sourceId}</span>
+    <span class="dot" aria-hidden="true">·</span>
+    <time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+  </div>
+  <h3 class="card-title thread-link">{article.title}</h3>
+  {article.excerpt && <p class="card-excerpt">{article.excerpt}</p>}
+  <div class="card-foot">
+    <div class="pills">
+      {article.topics.slice(0, 3).map((t) => <TopicPill topic={t} />)}
+    </div>
+    {origin && <span class="origin">{origin}</span>}
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-5);
+    transition: border-color 160ms ease;
+  }
+  .card:hover {
+    border-color: var(--saffron);
+  }
+  .card-link {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-md);
+    z-index: 1;
+  }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-sm);
+    color: var(--ink-soft);
+  }
+  .source-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .dot {
+    color: var(--ink-faint);
+  }
+  time {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--ink-faint);
+  }
+  .card-title {
+    font-size: var(--fs-lg);
+    line-height: 1.25;
+    z-index: 0;
+  }
+  .card-title.thread-link {
+    background-image: linear-gradient(var(--saffron), var(--saffron));
+  }
+  .card:hover .card-title,
+  .card:focus-within .card-title {
+    background-size: 100% 2px;
+    text-decoration: none;
+  }
+  .card-excerpt {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: var(--fs-base);
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-foot {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .pills {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  .origin {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--ink-faint);
+  }
+</style>

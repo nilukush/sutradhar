@@ -1,0 +1,49 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import NewsletterBox from "@/components/NewsletterBox.astro";
+import { canonicalFor } from "@/lib/view";
+import { SITE } from "@/lib/site";
+---
+
+<Base title={`Newsletter — ${SITE.name}`} description={`The ${SITE.name} weekly newsletter: every engineering story from India's tech teams, in one email a week.`}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Newsletter" }]} currentUrl={canonicalFor("/newsletter")} />
+    <h1>The weekly thread, by email</h1>
+    <p class="lede prose">
+      One email a week carrying everything Indian engineering teams published — the same thread
+      as the site, woven into your inbox. Free, no spam, unsubscribe anytime.
+    </p>
+    <div class="wrap">
+      <NewsletterBox />
+    </div>
+
+    <h2>Prefer a feed?</h2>
+    <p class="prose">
+      The site is a first-class RSS citizen — subscribe from any reader:
+    </p>
+    <ul class="prose list">
+      <li><a href="/rss.xml">RSS feed</a> — newest 60 stories</li>
+      <li><a href="/feed.json">JSON Feed</a> — same thread, JSON flavor</li>
+      <li>Per-company and per-topic pages are linked from every story</li>
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+  }
+  .wrap {
+    margin: var(--space-5) 0;
+  }
+  h2 {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+  .list {
+    padding-left: 1.2em;
+    display: grid;
+    gap: var(--space-2);
+  }
+</style>

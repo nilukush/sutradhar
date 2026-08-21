@@ -1,0 +1,206 @@
+---
+import Base from "@/layouts/Base.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import SectionHeading from "@/components/SectionHeading.astro";
+import NewsletterBox from "@/components/NewsletterBox.astro";
+import DigestCard from "@/components/DigestCard.astro";
+import SourceBadge from "@/components/SourceBadge.astro";
+import Logo from "@/components/Logo.astro";
+import { SITE } from "@/lib/site";
+import { ARTICLES, DIGESTS, topicsWithCounts } from "@/lib/view";
+import { SOURCES } from "@/data/sources";
+
+const latest = ARTICLES.slice(0, 12);
+const topics = topicsWithCounts().slice(0, 10);
+const activeSources = SOURCES.filter((s) => !s.dormant).length;
+const latestDigest = DIGESTS[0];
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `${SITE.name} — Latest Indian engineering stories`,
+  url: SITE.url,
+  isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: latest.length,
+    itemListElement: latest.map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: a.url,
+      name: a.title,
+    })),
+  },
+};
+---
+
+<Base title={`${SITE.name} — ${SITE.shortTagline}`} jsonLd={[itemList]}>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow"><span class="deva" lang="hi">सूत्रधर</span> · the thread-holder</p>
+      <h1>{SITE.tagline}</h1>
+      <p class="lede prose">
+        The engineering blogs of India's tech companies — PhonePe, Razorpay, Flipkart, Swiggy,
+        Meesho, Groww, CRED, JioHotstar and {Math.max(SOURCES.length - 8, 0)} more — aggregated
+        live into one feed, topic hubs and a weekly digest.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="/articles">Browse the latest →</a>
+        <a class="button ghost" href={latestDigest ? `/digest/${latestDigest.id}` : "/digest"}>Read this week's digest</a>
+      </div>
+      <p class="meta stats">
+        {activeSources} active sources · {ARTICLES.length} stories · refreshed hourly
+        <Logo size={14} />
+      </p>
+    </div>
+  </section>
+
+  <section class="container section">
+    <SectionHeading eyebrow="The thread" title="Latest from India's engineering teams" href="/articles" linkLabel="All stories" />
+    <div class="grid">
+      {latest.map((article) => <ArticleCard article={article} />)}
+    </div>
+  </section>
+
+  <section class="container section">
+    <SectionHeading eyebrow="Sutras" title="Follow a topic" href="/topics" linkLabel="All topics" />
+    <div class="topic-strip">
+      {topics.map((t) => (
+        <a class="topic" href={`/topics/${t.topic}`}>
+          <span class="topic-label">{t.label}</span>
+          <span class="topic-count">{t.count}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="container section">
+    <SectionHeading eyebrow="The warp" title="Sources on the loom" href="/sources" linkLabel="All sources" />
+    <div class="source-strip">
+      {SOURCES.filter((s) => !s.dormant).map((s) => (
+        <a class="source" href={`/sources/${s.id}`}>
+          <SourceBadge sourceId={s.id} size={24} />
+          <span>{s.name}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  {latestDigest && (
+    <section class="container section">
+      <SectionHeading eyebrow="Weekly" title="The weekly thread" href="/digest" linkLabel="All digests" />
+      <div class="digest-wrap">
+        <DigestCard digest={latestDigest} />
+      </div>
+    </section>
+  )}
+
+  <section class="container section">
+    <NewsletterBox />
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: var(--space-8) 0 var(--space-7);
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(ellipse 80% 60% at 70% -10%, var(--saffron-wash), transparent),
+      var(--paper);
+  }
+  .hero h1 {
+    max-width: 21ch;
+  }
+  .lede {
+    margin-top: var(--space-4);
+  }
+  .hero-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+    flex-wrap: wrap;
+  }
+  .button {
+    display: inline-block;
+    background: var(--saffron);
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+  }
+  .button:hover {
+    background: var(--saffron-deep);
+    text-decoration: none;
+  }
+  .button.ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .button.ghost:hover {
+    border-color: var(--saffron);
+    color: var(--saffron-deep);
+  }
+  .stats {
+    margin-top: var(--space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .section {
+    padding: var(--space-7) 0 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-5);
+  }
+  .topic-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .topic {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 8px 16px;
+    color: var(--ink);
+  }
+  .topic:hover {
+    border-color: var(--teal);
+    text-decoration: none;
+  }
+  .topic-count {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--teal);
+  }
+  .source-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .source {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 8px 14px 8px 8px;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: var(--fs-sm);
+  }
+  .source:hover {
+    border-color: var(--saffron);
+    text-decoration: none;
+  }
+  .digest-wrap {
+    max-width: 560px;
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import Base from "@/layouts/Base.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import SourceBadge from "@/components/SourceBadge.astro";
+import { TOPIC_LABELS, articlesForSource, canonicalFor, hostOf } from "@/lib/view";
+import { SOURCES } from "@/data/sources";
+import { SITE } from "@/lib/site";
+
+export async function getStaticPaths() {
+  return SOURCES.map((source) => ({
+    params: { company: source.id },
+    props: { source },
+  }));
+}
+
+interface Props {
+  source: (typeof SOURCES)[number];
+}
+const { source } = Astro.props;
+const articles = articlesForSource(source.id);
+const title = `${source.name} engineering blog — stories — ${SITE.name}`;
+const description = `Every engineering article ${source.name} has published, aggregated by ${SITE.name}: ${articles.length} stories.`;
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `${source.name} engineering stories`,
+  url: canonicalFor(`/sources/${source.id}`),
+  isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: articles.length,
+    itemListElement: articles.slice(0, 50).map((a, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: a.url,
+      name: a.title,
+    })),
+  },
+};
+---
+
+<Base title={title} description={description} jsonLd={[itemList]}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Sources", href: "/sources" }, { label: source.name }]} currentUrl={canonicalFor(Astro.url.pathname)} />
+    <header class="head">
+      <SourceBadge sourceId={source.id} size={48} />
+      <div>
+        <h1>{source.name} engineering</h1>
+        <p class="meta">
+          {articles.length} stories
+          {source.dormant && " · no recent posts"}
+          {source.region === "india-linked" && " · global company, India-based teams"}
+          · <a href={source.siteUrl} rel="noopener" target="_blank">{hostOf(source.siteUrl)}</a>
+        </p>
+        <div class="pills">
+          {source.topics.map((t) => <a class="mini" href={`/topics/${t}`}>{TOPIC_LABELS[t]}</a>)}
+        </div>
+      </div>
+    </header>
+    {source.notes && <p class="prose note">{source.notes}</p>}
+    <div class="grid">
+      {articles.slice(0, 48).map((article) => <ArticleCard article={article} />)}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+  }
+  .head {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+  }
+  .pills {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-top: var(--space-2);
+  }
+  .mini {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--teal-wash);
+    color: var(--teal);
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+  }
+  .note {
+    margin-top: var(--space-4);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+</style>

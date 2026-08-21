@@ -1,0 +1,97 @@
+---
+import Logo from "@/components/Logo.astro";
+import { SITE } from "@/lib/site";
+import { CORPUS_GENERATED_AT } from "@/lib/view";
+---
+
+<footer class="site-footer">
+  <div class="container grid">
+    <div class="brand-col">
+      <div class="brand">
+        <Logo size={22} />
+        <span>{SITE.name}</span>
+      </div>
+      <p class="tagline">{SITE.tagline}</p>
+      <p class="deva meta" lang="hi">सूत्रधर — कथा के धागों को बुनने वाला</p>
+    </div>
+    <nav aria-label="Footer" class="links">
+      <a href="/articles">Latest</a>
+      <a href="/topics">Topics</a>
+      <a href="/sources">Sources</a>
+      <a href="/digest">Digests</a>
+      <a href="/about">About</a>
+      <a href="/newsletter">Newsletter</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="/feed.json">JSON Feed</a>
+    </nav>
+    <div class="contribute">
+      <p class="eyebrow">Add a source</p>
+      <p class="small">Know an Indian engineering blog we're missing?</p>
+      <a class="cta thread-link" href={SITE.repoUrl}>Open a PR on GitHub →</a>
+    </div>
+  </div>
+  <div class="container base meta">
+    <span>{SITE.oneLiner}</span>
+    <span>Corpus generated {CORPUS_GENERATED_AT.slice(0, 10)} · Aggregated hourly</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: var(--space-8);
+    padding: var(--space-7) 0 var(--space-5);
+    background: var(--paper-sunk);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: var(--space-6);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .tagline {
+    color: var(--ink-soft);
+    font-size: var(--fs-sm);
+    margin: var(--space-3) 0 var(--space-2);
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .links a {
+    color: var(--ink-soft);
+    font-size: var(--fs-sm);
+  }
+  .small {
+    color: var(--ink-soft);
+    font-size: var(--fs-sm);
+    margin: 0 0 var(--space-3);
+  }
+  .cta {
+    color: var(--saffron-deep);
+    font-weight: 500;
+    font-size: var(--fs-sm);
+  }
+  .base {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 720px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+}
+</style>

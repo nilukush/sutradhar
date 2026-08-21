@@ -1,0 +1,80 @@
+---
+import type { Page } from "astro";
+import Base from "@/layouts/Base.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { ARTICLES, canonicalFor } from "@/lib/view";
+import type { Article } from "@/lib/schema";
+import { SITE } from "@/lib/site";
+
+export async function getStaticPaths({ paginate }) {
+  return paginate(ARTICLES, { pageSize: 24 });
+}
+
+interface Props {
+  page: Page<Article>;
+}
+const { page } = Astro.props;
+const title = page.currentPage > 1 ? `Latest stories (page ${page.currentPage}) — ${SITE.name}` : `Latest Indian engineering stories — ${SITE.name}`;
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Latest Indian engineering stories",
+  url: canonicalFor(Astro.url.pathname),
+  isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: page.data.length,
+    itemListElement: page.data.map((a: Article, i: number) => ({
+      "@type": "ListItem",
+      position: (page.currentPage - 1) * 24 + i + 1,
+      url: a.url,
+      name: a.title,
+    })),
+  },
+};
+---
+
+<Base title={title} description={`Every engineering article aggregated from ${ARTICLES.length} posts across India's tech company blogs, newest first.`} jsonLd={[itemList]}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Latest" }]} currentUrl={canonicalFor(Astro.url.pathname)} />
+    <h1>Latest stories</h1>
+    <p class="meta">{page.total} stories · page {page.currentPage} of {page.lastPage}</p>
+    <div class="grid">
+      {page.data.map((article) => <ArticleCard article={article} />)}
+    </div>
+
+    <nav class="pagination" aria-label="Pagination">
+      {page.url.prev && <a class="page-link" href={page.url.prev}>← Newer</a>}
+      <span class="meta">Page {page.currentPage} / {page.lastPage}</span>
+      {page.url.next && <a class="page-link" href={page.url.next}>Older →</a>}
+    </nav>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+  }
+  h1 {
+    margin-bottom: var(--space-2);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+  .pagination {
+    margin-top: var(--space-7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+  }
+  .page-link {
+    font-weight: 600;
+    color: var(--saffron-deep);
+  }
+</style>

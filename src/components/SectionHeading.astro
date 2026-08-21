@@ -1,0 +1,34 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  href?: string;
+  linkLabel?: string;
+}
+const { eyebrow, title, href, linkLabel = "View all" } = Astro.props;
+---
+
+<div class="heading">
+  <div>
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+  </div>
+  {href && <a class="view-all thread-link" href={href}>{linkLabel} <span aria-hidden="true">→</span></a>}
+</div>
+
+<style>
+  .heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+  .view-all {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--ink-soft);
+    white-space: nowrap;
+    padding-bottom: 4px;
+  }
+</style>

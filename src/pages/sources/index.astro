@@ -1,0 +1,125 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import SourceBadge from "@/components/SourceBadge.astro";
+import { TOPIC_LABELS, articlesForSource, canonicalFor, hostOf } from "@/lib/view";
+import { SOURCES } from "@/data/sources";
+import { SITE } from "@/lib/site";
+
+const description = `The directory of engineering blogs aggregated by ${SITE.name} — every Indian tech company blog we follow, with feeds.`;
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Engineering blog sources",
+  url: canonicalFor("/sources"),
+  isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: SOURCES.length,
+    itemListElement: SOURCES.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: canonicalFor(`/sources/${s.id}`),
+      name: `${s.name} engineering blog`,
+    })),
+  },
+};
+---
+
+<Base title={`Sources — Indian engineering blogs — ${SITE.name}`} description={description} jsonLd={[itemList]}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Sources" }]} currentUrl={canonicalFor("/sources")} />
+    <h1>Sources</h1>
+    <p class="prose">
+      Every engineering blog on the loom. Missing one?
+      <a href={SITE.repoUrl}>Open a pull request</a> — adding a source is a one-line change.
+    </p>
+    <div class="table" role="table">
+      {SOURCES.map((source) => {
+        const count = articlesForSource(source.id).length;
+        return (
+          <a class="row" role="row" href={`/sources/${source.id}`}>
+            <SourceBadge sourceId={source.id} size={32} />
+            <div class="who">
+              <span class="name">
+                {source.name}
+                {source.dormant && <span class="flag" title="No recent posts"> · dormant</span>}
+                {source.region === "india-linked" && <span class="flag" title="Global company with major India-based engineering teams"> · india-linked</span>}
+              </span>
+              <span class="host meta">{hostOf(source.siteUrl)}</span>
+            </div>
+            <div class="topics">
+              {source.topics.slice(0, 3).map((t) => <span class="mini">{TOPIC_LABELS[t]}</span>)}
+            </div>
+            <span class="count">{count}</span>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+  }
+  .table {
+    margin-top: var(--space-5);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: auto 1.4fr 1fr auto;
+    align-items: center;
+    gap: var(--space-4);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    color: var(--ink);
+  }
+  .row:hover {
+    border-color: var(--saffron);
+    text-decoration: none;
+  }
+  .who {
+    display: grid;
+    gap: 2px;
+  }
+  .name {
+    font-weight: 600;
+  }
+  .flag {
+    color: var(--ink-faint);
+    font-weight: 400;
+    font-size: var(--fs-sm);
+  }
+  .topics {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .mini {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    background: var(--teal-wash);
+    color: var(--teal);
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+  }
+  .count {
+    font-family: var(--font-mono);
+    color: var(--teal);
+    text-align: right;
+  }
+  @media (max-width: 720px) {
+    .row {
+      grid-template-columns: auto 1fr auto;
+    }
+    .topics {
+      display: none;
+    }
+  }
+</style>
