@@ -31,6 +31,8 @@
 - Astro paginated index needs `articles/[...page].astro` rest-param naming.
 - Ghost Content API limit max 15/page — forward coverage complete, archive backfill capped (accepted).
 
+| Excerpt policy research (2026-08-21) | /read/ model legally grey-zone-defensible (§52(1)(a)(iii) + Berne 10(1); RSS ≠ licence); product-wise 1,200 chars is long — recommended ~400 cap + per-source opt-out + 21-day takedown; see docs/RESEARCH-EXCERPT-POLICY.md | pending owner sign-off |
+
 ## Open items / next steps
 
 - [ ] Register `sutradhar.dev`, set `SITE_URL`, update `sameAs` with real socials
