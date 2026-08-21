@@ -1,0 +1,57 @@
+# CLAUDE.md — project guide for AI coding agents
+
+## What this is
+
+**Sutradhar** (सूत्रधर) — an InfoQ-style aggregator website + newsletter for engineering blogs of
+Indian companies/startups. Static Astro site + hourly GitHub Actions aggregation pipeline.
+$0 infrastructure. See README.md for the architecture diagram and docs/ for the full decision record.
+
+## Commands
+
+```bash
+pnpm install
+pnpm test            # vitest — 57 tests (MUST be green before any commit)
+pnpm fetch           # fetch all sources → src/data/articles.json (-- --dry-run to preview)
+pnpm dev             # dev server on :4321 (non-standard port per project convention)
+pnpm build           # static build → dist/
+pnpm verify:routes   # post-build route + SEO inventory gate (CI runs this too)
+```
+
+## Architecture in one paragraph
+
+`src/data/sources.ts` (the registry — one entry per blog, Zod-validated in CI) →
+`scripts/fetch-feeds.ts` (run by the hourly Action) → `src/lib/pipeline.ts` fetches with a
+browser UA (Cloudflare-fronted feeds 403 bare bots) → `src/lib/feeds.ts` parses RSS/Atom/Ghost →
+`src/lib/aggregate.ts` canonicalizes URLs, dedupes by content-hash id, infers topics →
+`src/data/articles.json` (committed corpus, atomic write) → Astro pages in `src/pages/` read it
+via `src/lib/view.ts`. Digests are derived at build time by `src/lib/digest.ts`.
+
+## Critical conventions
+
+- **Never republish full article text** — excerpts ≤ 280 chars + attribution + link out only
+  (copyright + Google site-reputation-abuse policy).
+- **Never cross-domain-canonical** to source articles; every page is self-canonical.
+- **AI crawlers are welcome** (robots.txt, GEO posture) — don't add blocks.
+- Adding a source = one entry in `src/data/sources.ts`; CI validates the schema. Ghost sources
+  need `ghostKey` + optional `urlRewrite` (see Meesho).
+- `src/lib/site.ts` is the single source of identity truth; entity strings must stay
+  byte-identical across site/README/socials (GEO entity consistency).
+- JSON-LD is emitted via `safeJsonLd()` in Base.astro — always escape `<`/`>` (verifier H3).
+- Data commits from the bot must NOT contain `[skip ci]` (hosts honor it and skip deploys).
+- Tests are written before implementation (Red→Green→Refactor); regressions found in review
+  become regression tests.
+
+## Gotchas learned (from verification)
+
+- `getUTCDay()` returns 0 for Sunday; ISO weekday is 7. Always `(day || 7)` in week math.
+- fast-xml-parser runs with `removeNSPrefix: true` — `dc:creator` arrives as `creator`.
+- Ghost Content API caps `limit=15`; forward coverage is complete but archive backfill is not
+  (accepted tradeoff, see docs/VERIFICATION.md L1).
+- Astro pagination for "/articles + /articles/N" requires the rest-param filename
+  `articles/[...page].astro`.
+
+## Environments
+
+Local only (this repo). Production = Cloudflare Pages (or any static host) building from `main`.
+`SITE_URL` env overrides the canonical origin at build time. No secrets in repo (the Meesho
+Ghost content key is public by design — it ships in their client bundle).
