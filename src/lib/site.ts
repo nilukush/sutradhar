@@ -3,10 +3,10 @@
  * feeds and llms.txt so the entity stays consistent everywhere (GEO requirement).
  */
 /**
- * Set REPO_URL at build time (or edit here) once the GitHub repo exists — the
- * subscribe form, footer PR link and sameAs entity links activate automatically.
+ * Set REPO_URL at build time to override (or edit here) — the subscribe form,
+ * footer PR link and sameAs entity links all derive from it.
  */
-const repoUrl = process.env.REPO_URL ?? "https://github.com/TODO-OWNER/sutradhar";
+const repoUrl = process.env.REPO_URL ?? "https://github.com/nilushush/sutradhar";
 
 export const SITE = {
   name: "Sutradhar",
@@ -20,10 +20,8 @@ export const SITE = {
   repoUrl,
   /** Identity strings must stay byte-identical across site, README, socials (entity consistency). */
   oneLiner: "Sutradhar — the aggregator of Indian engineering blogs.",
-  sameAs: [
-    "https://www.linkedin.com/company/sutradhar",
-    "https://github.com/TODO-OWNER/sutradhar",
-  ],
+  // Only profiles that actually exist (GEO entity consistency).
+  sameAs: ["https://github.com/nilushush/sutradhar"],
 } as const;
 
 export type Site = typeof SITE;
