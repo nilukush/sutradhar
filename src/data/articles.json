@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-08-24T08:37:07.051Z",
+  "generatedAt": "2026-08-24T10:58:00.276Z",
   "articles": [
+    {
+      "id": "a3e61564425e4946",
+      "title": "How Razorpay Cut Its Metrics Bill by 62% Without Losing a Dashboard",
+      "url": "https://engineering.razorpay.com/how-razorpay-cut-its-metrics-bill-by-62-without-losing-a-dashboard-2a7d5467df37",
+      "sourceId": "razorpay",
+      "publishedAt": "2026-08-24T10:25:21.000Z",
+      "excerpt": "Contributor: Saijal Shrivastava We cut our metrics ingestion by 62% without deleting a single useful dashboard or breaking an alert. Daily ingestion dropped from about 450 billion samples to about 170 billion. The surprising part was not one large optimization. It was three…",
+      "content": "Contributor: Saijal Shrivastava We cut our metrics ingestion by 62% without deleting a single useful dashboard or breaking an alert. Daily ingestion dropped from about 450 billion samples to about 170 billion. The surprising part was not one large optimization. It was three simple discoveries hiding in plain sight: Scrape intervals can multiply ingestion. High-availability scraping can silently…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science"
+      ],
+      "authors": [
+        "Dhairya Mehta"
+      ]
+    },
     {
       "id": "754db45bf82cc0bd",
       "title": "The 350 KB Hidden in Our XML Layouts",
