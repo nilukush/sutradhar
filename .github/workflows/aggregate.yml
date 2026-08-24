@@ -38,8 +38,7 @@ jobs:
             exit 0
           fi
           git config user.name "sutradhar-bot"
-          git config user.email "bot@sutradhar.dev"
+          git config user.email "nilukush@users.noreply.github.com"
           git add src/data/articles.json
           git commit -m "chore(data): aggregate new articles $(date -u +%FT%TZ)"
           git push
-# The hourly aggregation workflow. (registered-check: re-push if GitHub has not indexed this file)

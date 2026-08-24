@@ -9,10 +9,9 @@
 const repoUrl = process.env.REPO_URL ?? "https://github.com/nilukush/sutradhar";
 
 /**
- * Canonical origin. Defaults to the live Cloudflare deployment; once
- * sutradhar.dev is registered, set SITE_URL=https://sutradhar.dev at build
- * time (both here and in astro.config.mjs) to flip every canonical, feed and
- * sitemap URL — canonicals must always point at an origin we actually control.
+ * Canonical origin — the permanent Cloudflare Workers deployment (owner
+ * decision 2026-08-24: no custom domain will be purchased; $0 constraint).
+ * SITE_URL remains available as a build-time override, e.g. for previews.
  */
 const siteUrl = process.env.SITE_URL ?? "https://sutradhar.nilukush.workers.dev";
 

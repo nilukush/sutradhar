@@ -7,6 +7,7 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SOURCES } from "../src/data/sources";
 import { WINDOW_H } from "../src/lib/trending";
+import { SITE } from "../src/lib/site";
 
 const root = resolve(fileURLToPath(import.meta.url), "../..");
 const dist = resolve(root, "dist");
@@ -81,8 +82,8 @@ const checks: [string, boolean][] = [
   ],
   ["robots allows GPTBot", readFileSync(resolve(dist, "robots.txt"), "utf8").includes("GPTBot")],
   ["llms.txt lists sources", readFileSync(resolve(dist, "llms.txt"), "utf8").includes("## Sources")],
-  ["rss links are absolute", rss.includes("https://sutradhar.dev/read/")],
-  ["rss links match slashless canonicals", !/<link>https:\/\/sutradhar\.dev\/read\/[^<]+\/<\/link>/.test(rss)],
+  ["rss links are absolute", rss.includes(`${SITE.url}/read/`)],
+  ["rss links match slashless canonicals", !new RegExp(`<link>${SITE.url.replaceAll(".", "\\.")}/read/[^<]+/</link>`).test(rss)],
   ["newsletter has a subscribe form or working link", newsletter.includes('method="get" action="https://github.com') || newsletter.includes('class="button" href="/rss.xml"')],
   ["no TODO-OWNER link in home", !home.includes('href="https://github.com/TODO-OWNER')],
 ];

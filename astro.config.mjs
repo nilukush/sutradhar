@@ -2,8 +2,8 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
-// Canonical production origin — must match src/lib/site.ts. Override with
-// SITE_URL (e.g. https://sutradhar.dev once the domain is registered).
+// Canonical production origin — must match src/lib/site.ts. The Workers URL
+// is the permanent home (no custom domain; owner decision 2026-08-24).
 const SITE_URL = process.env.SITE_URL ?? "https://sutradhar.nilukush.workers.dev";
 
 export default defineConfig({

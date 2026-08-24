@@ -2,10 +2,10 @@
 
 ## Status
 
-- **LIVE at https://sutradhar.nilukush.workers.dev** (Cloudflare Workers deploy, connected
-  2026-08-24). The full autonomous loop is proven: hourly Action → bot data commit
-  (73baf56) → CF rebuild. Canonical origin defaults to the workers.dev URL (SITE_URL flips
-  it when sutradhar.dev is registered — canonicals must never point at an unregistered domain).
+- **LIVE at https://sutradhar.nilukush.workers.dev — the PERMANENT origin** (owner decision
+  2026-08-24: no domain will be purchased; $0 constraint). The full autonomous loop is proven:
+  hourly Action → bot data commit (73baf56) → CF rebuild. All URLs (canonicals, feeds, sitemap,
+  llms.txt, UA contact string, bot commit email) now reference the workers.dev origin only.
 - **Publishing cadence (computed 2026-08-24 from the 829-article corpus)**: corpus-wide ~0.52
   posts/day (92 posts/178 days); active sources median inter-post gaps ~6-28 days (freshworks
   2.6d, meesho 6.9d, browserstack 5.9d, phonepe 12.6d, groww 15.1d, razorpay 18.8d); 6 of 16
@@ -20,7 +20,7 @@
 
 | Decision | Rationale | Where |
 |---|---|---|
-| Name: **Sutradhar** | Sanskrit "thread-holder/narrator" — exact aggregator metaphor; `sutradhar.dev` unregistered (RDAP 2026-08-21); maximal distance from InfoQ trademark | docs/ANALYSIS.md §6 |
+| Name: **Sutradhar** | Sanskrit "thread-holder/narrator" — exact aggregator metaphor; maximal distance from InfoQ trademark; permanent home sutradhar.nilukush.workers.dev (sutradhar.dev never purchased — owner decision 2026-08-24) | docs/ANALYSIS.md §6 |
 | Astro static + GitHub Actions cron + CF Pages | Only $0 option that is hourly-fresh AND SEO-perfect; public repo → free Actions minutes; Vercel Hobby cron is daily-only | docs/ANALYSIS.md §4 |
 | Meesho via Ghost Content API | No RSS exists; public key ships in their client bundle; URL rewrite `admin-v2.meesho.io/ → meesho.io/blog/` verified | src/data/sources.ts |
 | In-site reading pages (`/read/<slug>`), extended excerpts not full text | User wants content opened in-site; full republication = copyright + Google site-reputation-abuse risk; NewsArticle JSON-LD with `isBasedOn` the original | src/pages/read/[slug].astro |
@@ -48,6 +48,9 @@
       aggregate workflow registered + manually validated (16/16 sources, 0 errors, commit-on-change
       works), subscribe form/footer/sameAs all live via the real repoUrl.
 - [x] ~~Connect Cloudflare~~ → **live via Workers deploy at sutradhar.nilukush.workers.dev** (build `pnpm build`, deploy `npx wrangler deploy`)
-- [ ] Register `sutradhar.dev`, add custom domain, set `SITE_URL=https://sutradhar.dev` in CF build env; verify AI crawlers allowed on the zone (Security → Bots)
+- [x] ~~Register `sutradhar.dev`~~ → **not planned** (owner decision 2026-08-24, $0 constraint);
+      workers.dev is the permanent origin. AI-crawler note: no zone config exists on
+      `*.workers.dev`; robots.txt welcomes AI bots and the site serves them. Only if a custom
+      zone is ever added: allow AI crawlers under Security → Bots.
 - [ ] Create beehiiv publication; switch subscribe provider in `src/lib/subscribe.ts`
 - [ ] Later: HN-Algolia trending enrichment; Meesho archive backfill; scraper adapters for Zerodha/ShareChat/Juspay; search (pagefind)

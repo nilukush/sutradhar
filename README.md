@@ -84,12 +84,13 @@ the next hourly run picks it up.
    `dist/`. Unlimited bandwidth; ~500 git-builds/month is ample because the pipeline only
    pushes when articles change. Alternatives: Vercel Hobby (fine as a host; its cron is
    daily-only, which is why aggregation lives in Actions), GitHub Pages.
-3. **Important (Cloudflare)**: Cloudflare defaults new zones to *blocking* AI crawlers
-   (July 2025 policy). For Sutradhar's GEO posture, go to your zone → Security → Bots →
-   allow AI crawlers (or at minimum don't block search/citation bots).
-4. When you own a domain, set `SITE_URL` at build time and update `url`/`sameAs` in
-   `src/lib/site.ts` (entity consistency matters for GEO). `sutradhar.dev` was unregistered
-   as of 2026-08-21.
+3. **AI crawlers**: on the `*.workers.dev` deployment there is no separate zone to configure —
+   the site serves all crawlers and `robots.txt` explicitly welcomes AI bots. If a custom
+   domain/zone is ever added, remember Cloudflare defaults new zones to *blocking* AI crawlers
+   (July 2025 policy) — allow them under Security → Bots to keep the GEO posture.
+4. **Canonical origin**: `https://sutradhar.nilukush.workers.dev` is the permanent home
+   (owner decision, 2026-08-24 — no domain purchase). `SITE_URL` remains as a build-time
+   override for previews or a future domain.
 
 ### Ops notes
 
