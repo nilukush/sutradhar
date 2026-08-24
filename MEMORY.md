@@ -44,6 +44,18 @@
 
 ## Open items / next steps
 
+- [ ] **Subscribe UX challenged by owner (24 Aug 2026)**: "why does subscribe open a GitHub
+  issue? poor UX — did you research?" Research trail: the 24-Aug Analyzer agent DID evaluate
+  options (beehiiv embed = best UX but needs free account; Kit/Buttondown forms need accounts;
+  GitHub issue = only zero-signup option that day; mailto = weak). GitHub flow was explicitly
+  the "ship today" compromise, beehiiv the "5-minute upgrade". Owner pushback is fair — real
+  inline email form is expected UX. **Two $0 paths presented, awaiting owner choice:**
+  (a) owner creates free beehiiv publication (2,500 subs, unlimited sends — also solves
+  EMAIL SENDING, which GitHub capture never could; no free RSS-to-email exists) → wire
+  provider swap in src/lib/subscribe.ts; or (b) build CF Worker /api/subscribe + KV capture
+  (no new account, but owner must create one KV binding in CF dashboard; still no send path).
+  Recommendation: (a).
+
 - [x] ~~Push to public GitHub repo~~ → **github.com/nilukush/sutradhar live (2026-08-24)**: CI green,
       aggregate workflow registered + manually validated (16/16 sources, 0 errors, commit-on-change
       works), subscribe form/footer/sameAs all live via the real repoUrl.
