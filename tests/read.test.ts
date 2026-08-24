@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { articleSlug, readHref, absoluteReadHref, isExternalRead, isOptedOut } from "@/lib/read";
+import { SITE } from "@/lib/site";
 import type { Article, Source } from "@/lib/schema";
 
 function makeArticle(overrides: Partial<Article> = {}): Article {
@@ -73,6 +74,6 @@ describe("per-source opt-out (excerptLimit 0)", () => {
     const article = makeArticle();
     expect(isExternalRead(article)).toBe(false);
     expect(readHref(article)).toBe(`/read/${articleSlug(article)}`);
-    expect(absoluteReadHref(article)).toBe(`https://sutradhar.dev/read/${articleSlug(article)}`);
+    expect(absoluteReadHref(article)).toBe(`${SITE.url}/read/${articleSlug(article)}`);
   });
 });
