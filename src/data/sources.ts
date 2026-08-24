@@ -1,11 +1,18 @@
-import type { Source } from "@/lib/schema";
+import { SourceSchema, type Source } from "@/lib/schema";
+import type { z } from "zod";
 
 /**
  * The source registry — adding a source is a one-entry change here (or a PR).
  * Feed URLs verified live on 2026-08-21 (see docs/ANALYSIS.md §3).
  * Registry integrity is enforced in CI by tests/sources.test.ts.
+ *
+ * Entries are written as SourceInput (optional fields may be omitted) and
+ * parsed through the schema, so defaults like excerptLimit: 400 materialize
+ * exactly once, here.
  */
-export const SOURCES: Source[] = [
+type SourceInput = z.input<typeof SourceSchema>;
+
+const REGISTRY: SourceInput[] = [
   // ---------- Tier 1: active, engineering-focused ----------
   {
     id: "phonepe",
@@ -171,5 +178,7 @@ export const SOURCES: Source[] = [
     notes: "Stale since Mar 2025.",
   },
 ];
+
+export const SOURCES: Source[] = REGISTRY.map((entry) => SourceSchema.parse(entry));
 
 export const ACTIVE_SOURCES = SOURCES.filter((s) => !s.dormant);

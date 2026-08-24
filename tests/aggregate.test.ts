@@ -35,15 +35,28 @@ describe("toArticle", () => {
     expect(a.topics).toContain("scale");
   });
 
-  it("carries an extended excerpt in `content` (in-site reading page), capped at 1200 chars", () => {
+  it("carries an extended excerpt in `content` (in-site reading page), capped by the policy: min(excerptLimit, max(160, 10% of body))", () => {
     const a = toArticle(source, {
       ...raw,
-      contentHtml: `<p>${"long body text ".repeat(300)}</p>`,
+      contentHtml: `<p>${"long body text ".repeat(300)}</p>`, // ~4,800 chars → 10% = 480 > 400 → cap 400
     });
     expect(a!.content.length).toBeGreaterThan(0);
-    expect(a!.content.length).toBeLessThanOrEqual(1201); // 1200 + ellipsis
+    expect(a!.content.length).toBeLessThanOrEqual(401); // 400 + ellipsis
     // prefers feed html over the short excerpt when both exist
     expect(a!.content).not.toBe(a!.excerpt);
+  });
+
+  it("applies 10% of body for medium-length posts (body 2,000 → cap 200)", () => {
+    const a = toArticle(source, { ...raw, contentHtml: `x`.repeat(2000) });
+    expect(a!.content.length).toBeLessThanOrEqual(201);
+    expect(a!.content.length).toBeGreaterThanOrEqual(160);
+  });
+
+  it("stores no excerpt or content when the source opts out (excerptLimit 0)", () => {
+    const optedOut = { ...source, excerptLimit: 0 };
+    const a = toArticle(optedOut, raw);
+    expect(a!.excerpt).toBe("");
+    expect(a!.content).toBe("");
   });
 
   it("falls back content to the short excerpt when no html body exists", () => {

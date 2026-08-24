@@ -2,7 +2,7 @@
 import SourceBadge from "@/components/SourceBadge.astro";
 import TopicPill from "@/components/TopicPill.astro";
 import { formatDate, hostOf, sourceOf } from "@/lib/view";
-import { articleHref } from "@/lib/read";
+import { readHref, isExternalRead } from "@/lib/read";
 import type { Article } from "@/lib/schema";
 
 interface Props {
@@ -11,10 +11,12 @@ interface Props {
 const { article } = Astro.props;
 const source = sourceOf(article.sourceId);
 const origin = hostOf(article.url);
+const external = isExternalRead(article);
+const linkProps = external ? { rel: "noopener", target: "_blank" } : {};
 ---
 
 <article class="card">
-  <a class="card-link" href={articleHref(article)}>
+  <a class="card-link" href={readHref(article)} {...linkProps}>
     <span class="visually-hidden">{article.title}</span>
   </a>
   <div class="card-meta">
@@ -24,7 +26,7 @@ const origin = hostOf(article.url);
     <time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
   </div>
   <h3 class="card-title thread-link">{article.title}</h3>
-  {article.excerpt && <p class="card-excerpt">{article.excerpt}</p>}
+  {article.excerpt && !external && <p class="card-excerpt">{article.excerpt}</p>}
   <div class="card-foot">
     <div class="pills">
       {article.topics.slice(0, 3).map((t) => <TopicPill topic={t} />)}

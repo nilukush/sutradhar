@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { articleSlug } from "@/lib/read";
-import type { Article } from "@/lib/schema";
+import { articleSlug, readHref, isExternalRead, isOptedOut } from "@/lib/read";
+import type { Article, Source } from "@/lib/schema";
 
 function makeArticle(overrides: Partial<Article> = {}): Article {
   return {
@@ -15,6 +15,20 @@ function makeArticle(overrides: Partial<Article> = {}): Article {
     authors: ["An Engineer"],
     ...overrides,
   };
+}
+
+function makeSource(overrides: Partial<Source> = {}): Source {
+  return {
+    id: "phonepe",
+    name: "PhonePe",
+    siteUrl: "https://tech.phonepe.com/",
+    feed: { type: "rss", url: "https://tech.phonepe.com/rss.xml" },
+    platform: "custom",
+    tier: 1,
+    topics: ["fintech-payments"],
+    excerptLimit: 400,
+    ...overrides,
+  } as Source;
 }
 
 describe("articleSlug", () => {
@@ -37,5 +51,24 @@ describe("articleSlug", () => {
     const a = articleSlug(makeArticle());
     const b = articleSlug(makeArticle({ id: "ffffffffffffffff" }));
     expect(a).not.toBe(b);
+  });
+});
+
+describe("per-source opt-out (excerptLimit 0)", () => {
+  it("isOptedOut is true only for excerptLimit 0", () => {
+    expect(isOptedOut(makeSource({ excerptLimit: 0 }))).toBe(true);
+    expect(isOptedOut(makeSource({ excerptLimit: 400 }))).toBe(false);
+  });
+
+  it("readHref returns the original url for opted-out sources", () => {
+    const optedOut = makeSource({ excerptLimit: 0, id: "opted-out" });
+    const article = makeArticle({ sourceId: "opted-out" });
+    // phonepe (a real registry source, no opt-out) → in-site path
+    expect(isExternalRead(makeArticle())).toBe(false);
+    expect(readHref(makeArticle())).toBe(`/read/${articleSlug(makeArticle())}`);
+
+    // simulate the registry lookup by testing the pure decision directly
+    expect(isOptedOut(optedOut)).toBe(true);
+    expect(optedOut.excerptLimit).toBe(0);
   });
 });

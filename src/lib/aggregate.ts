@@ -56,12 +56,17 @@ export function toArticle(source: Source, item: RawItem): Article | null {
   const date = new Date(item.publishedAt);
   if (Number.isNaN(date.getTime())) return null;
 
-  const excerpt = excerptFrom(
-    htmlToText(item.excerpt || item.contentHtml || ""),
-    280,
-  );
-  // Extended excerpt for the in-site reading page — an excerpt, never full text.
-  const content = excerptFrom(htmlToText(item.contentHtml || item.excerpt || ""), 1200);
+  // Excerpt policy (docs/RESEARCH-EXCERPT-POLICY.md): cap in-site text at
+  // min(excerptLimit, max(160, 10% of body)); excerptLimit 0 = full opt-out.
+  const limit = source.excerptLimit ?? 400;
+  const body = htmlToText(item.contentHtml || item.excerpt || "");
+  const optedOut = limit === 0;
+
+  const excerpt = optedOut
+    ? ""
+    : excerptFrom(htmlToText(item.excerpt || item.contentHtml || ""), 280);
+  const contentCap = Math.min(limit, Math.max(160, Math.floor(body.length * 0.1)));
+  const content = optedOut ? "" : excerptFrom(body, contentCap);
 
   return {
     id: articleId(url),

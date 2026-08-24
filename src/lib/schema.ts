@@ -52,6 +52,12 @@ export const SourceSchema = z.object({
   tier: z.union([z.literal(1), z.literal(2)]),
   region: z.enum(["india", "india-linked"]).default("india"),
   topics: z.array(TopicSchema).min(1),
+  /**
+   * Max chars of article text shown in-site (reading pages + card excerpts).
+   * 0 = opt-out: headline + direct link to the original only, no /read page.
+   * Policy basis: docs/RESEARCH-EXCERPT-POLICY.md.
+   */
+  excerptLimit: z.number().int().min(0).max(1200).default(400),
   notes: z.string().optional(),
   /** Stale/mixed-content sources stay listed but flagged. */
   dormant: z.boolean().default(false),

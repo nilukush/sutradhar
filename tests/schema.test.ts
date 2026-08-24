@@ -10,6 +10,7 @@ const validSource = {
   tier: 1,
   region: "india",
   topics: ["fintech-payments", "backend"],
+  excerptLimit: 400,
 };
 
 const validArticle = {
@@ -55,6 +56,15 @@ describe("SourceSchema", () => {
   it("rejects unknown topics and empty topic lists", () => {
     expect(SourceSchema.safeParse({ ...validSource, topics: ["nonsense-topic"] }).success).toBe(false);
     expect(SourceSchema.safeParse({ ...validSource, topics: [] }).success).toBe(false);
+  });
+
+  it("defaults excerptLimit to 400 and bounds it (0 = link-out only, max 1200)", () => {
+    const { excerptLimit, ...rest } = validSource;
+    const parsed = SourceSchema.safeParse(rest);
+    expect(parsed.success).toBe(true);
+    if (parsed.success) expect(parsed.data.excerptLimit).toBe(400);
+    expect(SourceSchema.safeParse({ ...validSource, excerptLimit: 0 }).success).toBe(true);
+    expect(SourceSchema.safeParse({ ...validSource, excerptLimit: 1300 }).success).toBe(false);
   });
 });
 

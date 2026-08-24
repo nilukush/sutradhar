@@ -25,6 +25,7 @@ const required: string[] = [
   "digest/index.html",
   "about/index.html",
   "newsletter/index.html",
+  "publishers/index.html",
   "404.html",
   "rss.xml",
   "feed.json",
@@ -51,12 +52,33 @@ if (readCount < corpus.articles.length) {
 
 // SEO spot checks on generated HTML
 const home = readFileSync(resolve(dist, "index.html"), "utf8");
+const rss = readFileSync(resolve(dist, "rss.xml"), "utf8");
+const newsletter = readFileSync(resolve(dist, "newsletter/index.html"), "utf8");
+
+// Trending section renders only when articles exist inside the 5-day window —
+// mirror that eligibility here so the check is data-aware, not unconditional.
+const generatedAt = new Date(
+  (JSON.parse(readFileSync(resolve(root, "src/data/articles.json"), "utf8")) as { generatedAt: string }).generatedAt,
+).getTime();
+const newestAgeH = Math.max(
+  ...corpus.articles.map((a) => (generatedAt - new Date(a.publishedAt).getTime()) / 3_600_000),
+);
+const trendingEligible = newestAgeH <= 120;
+
 const checks: [string, boolean][] = [
   ["home has canonical", home.includes('rel="canonical"')],
   ["home has JSON-LD", home.includes("application/ld+json")],
   ["home has CollectionPage", home.includes("CollectionPage")],
+  [
+    trendingEligible ? "home has trending section (fresh corpus)" : "trending correctly absent (no articles in 5-day window)",
+    trendingEligible ? home.includes("Gaining momentum") : !home.includes("Gaining momentum"),
+  ],
   ["robots allows GPTBot", readFileSync(resolve(dist, "robots.txt"), "utf8").includes("GPTBot")],
   ["llms.txt lists sources", readFileSync(resolve(dist, "llms.txt"), "utf8").includes("## Sources")],
+  ["rss links are absolute", rss.includes("https://sutradhar.dev/read/")],
+  ["rss links match slashless canonicals", !/<link>https:\/\/sutradhar\.dev\/read\/[^<]+\/<\/link>/.test(rss)],
+  ["newsletter has a subscribe form or working link", newsletter.includes('method="get" action="https://github.com') || newsletter.includes('class="button" href="/rss.xml"')],
+  ["no TODO-OWNER link in home", !home.includes('href="https://github.com/TODO-OWNER')],
 ];
 const failed = checks.filter(([, ok]) => !ok);
 if (failed.length > 0) {

@@ -5,7 +5,7 @@ import SourceBadge from "@/components/SourceBadge.astro";
 import TopicPill from "@/components/TopicPill.astro";
 import NewsletterBox from "@/components/NewsletterBox.astro";
 import { DIGESTS, canonicalFor, formatDate, sourceOf } from "@/lib/view";
-import { articleSlug } from "@/lib/read";
+import { readHref, isExternalRead } from "@/lib/read";
 import { SITE } from "@/lib/site";
 
 export async function getStaticPaths() {
@@ -60,7 +60,12 @@ const blogPosting = {
               <span aria-hidden="true">·</span>
               <time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
             </div>
-            <a class="story-link thread-link" href={`/read/${articleSlug(article)}`}>{article.title}</a>
+            <a
+              class="story-link thread-link"
+              href={readHref(article)}
+              rel={isExternalRead(article) ? "noopener" : undefined}
+              target={isExternalRead(article) ? "_blank" : undefined}
+            >{article.title}</a>
             {article.excerpt && <p class="excerpt">{article.excerpt}</p>}
             <div class="pills">
               {article.topics.slice(0, 3).map((t) => <TopicPill topic={t} />)}

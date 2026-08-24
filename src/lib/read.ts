@@ -1,5 +1,6 @@
 import { slugify } from "@/lib/normalize";
-import type { Article } from "@/lib/schema";
+import { sourceOf } from "@/lib/view";
+import type { Article, Source } from "@/lib/schema";
 
 /** Max characters of the title portion in a /read URL. */
 const MAX_SLUG_TITLE = 80;
@@ -20,4 +21,22 @@ export function articleSlug(article: Pick<Article, "id" | "title">): string {
 /** In-site reading page path for an article. */
 export function articleHref(article: Pick<Article, "id" | "title">): string {
   return `/read/${articleSlug(article)}`;
+}
+
+/** A source with excerptLimit 0 has opted out of in-site excerpts entirely. */
+export function isOptedOut(source: Source | undefined): boolean {
+  return (source?.excerptLimit ?? 400) === 0;
+}
+
+/** True when the article's card should link straight to the original publisher. */
+export function isExternalRead(article: Article): boolean {
+  return isOptedOut(sourceOf(article));
+}
+
+/**
+ * Link target for any article surface: the in-site reading page, or the
+ * original article when its source opted out.
+ */
+export function readHref(article: Article): string {
+  return isExternalRead(article) ? article.url : articleHref(article);
 }

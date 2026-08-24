@@ -9,9 +9,11 @@ import Logo from "@/components/Logo.astro";
 import { SITE } from "@/lib/site";
 import { ARTICLES, DIGESTS, canonicalFor, topicsWithCounts } from "@/lib/view";
 import { articleHref } from "@/lib/read";
+import { trendingArticles } from "@/lib/trending";
 import { SOURCES } from "@/data/sources";
 
 const latest = ARTICLES.slice(0, 12);
+const trending = trendingArticles(ARTICLES, SOURCES, { now: new Date(), limit: 6 });
 const topics = topicsWithCounts().slice(0, 10);
 const activeSources = SOURCES.filter((s) => !s.dormant).length;
 const latestDigest = DIGESTS[0];
@@ -55,6 +57,18 @@ const itemList = {
       </p>
     </div>
   </section>
+
+  {trending.length > 0 && (
+    <section class="container section">
+      <SectionHeading eyebrow="Trending" title="Gaining momentum this week" href="/articles" linkLabel="All stories" />
+      <p class="meta trending-note">
+        Ranked by recency and source weight — updated hourly with the corpus.
+      </p>
+      <div class="grid">
+        {trending.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </section>
+  )}
 
   <section class="container section">
     <SectionHeading eyebrow="The thread" title="Latest from India's engineering teams" href="/articles" linkLabel="All stories" />
@@ -150,6 +164,9 @@ const itemList = {
   }
   .section {
     padding: var(--space-7) 0 0;
+  }
+  .trending-note {
+    margin: calc(-1 * var(--space-3)) 0 var(--space-4);
   }
   .grid {
     display: grid;

@@ -2,6 +2,12 @@
  * Single source of truth for site identity — used by pages, JSON-LD,
  * feeds and llms.txt so the entity stays consistent everywhere (GEO requirement).
  */
+/**
+ * Set REPO_URL at build time (or edit here) once the GitHub repo exists — the
+ * subscribe form, footer PR link and sameAs entity links activate automatically.
+ */
+const repoUrl = process.env.REPO_URL ?? "https://github.com/TODO-OWNER/sutradhar";
+
 export const SITE = {
   name: "Sutradhar",
   devanagari: "सूत्रधर",
@@ -11,7 +17,7 @@ export const SITE = {
     "Sutradhar aggregates the engineering blogs of Indian companies and startups — PhonePe, Razorpay, Flipkart, Swiggy, Meesho, Groww, CRED, JioHotstar and more — into one live feed, topic hubs and a weekly digest.",
   url: "https://sutradhar.dev",
   locale: "en-IN",
-  repoUrl: "https://github.com/TODO-OWNER/sutradhar",
+  repoUrl,
   /** Identity strings must stay byte-identical across site, README, socials (entity consistency). */
   oneLiner: "Sutradhar — the aggregator of Indian engineering blogs.",
   sameAs: [

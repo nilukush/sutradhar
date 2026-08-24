@@ -3,13 +3,14 @@ import Base from "@/layouts/Base.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import SourceBadge from "@/components/SourceBadge.astro";
 import TopicPill from "@/components/TopicPill.astro";
-import { articleSlug } from "@/lib/read";
+import { articleSlug, isExternalRead } from "@/lib/read";
 import { ARTICLES, TOPIC_LABELS, canonicalFor, formatDate, hostOf, relativeTime, sourceOf } from "@/lib/view";
 import type { Article } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
 export async function getStaticPaths() {
-  return ARTICLES.map((article) => ({
+  // Sources with excerptLimit 0 opted out of in-site reading pages.
+  return ARTICLES.filter((a) => !isExternalRead(a)).map((article) => ({
     params: { slug: articleSlug(article) },
     props: { article },
   }));

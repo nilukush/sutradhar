@@ -8,6 +8,7 @@ import "@fontsource/ibm-plex-sans-devanagari/500.css";
 import SiteHeader from "@/components/SiteHeader.astro";
 import SiteFooter from "@/components/SiteFooter.astro";
 import { SITE } from "@/lib/site";
+import { isRepoConfigured } from "@/lib/subscribe";
 import { canonicalFor } from "@/lib/view";
 
 interface Props {
@@ -36,7 +37,8 @@ const baseJsonLd: Record<string, unknown>[] = [
     name: SITE.name,
     url: SITE.url,
     description: SITE.oneLiner,
-    sameAs: SITE.sameAs,
+    // Entity consistency (GEO): only claim profiles that actually exist.
+    sameAs: SITE.sameAs.filter((u) => isRepoConfigured(u) || !u.includes("github.com")),
   },
 ];
 const allJsonLd = [...baseJsonLd, ...jsonLd];

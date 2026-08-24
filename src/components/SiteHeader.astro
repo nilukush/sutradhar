@@ -18,9 +18,22 @@ const nav = [
       <span class="brand-name">{SITE.name}</span>
       <span class="brand-deva deva" lang="hi" aria-hidden="true">सूत्रधर</span>
     </a>
-    <nav aria-label="Primary" class="nav">
+
+    <details class="menu" data-menu>
+      <summary aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </summary>
+      <nav aria-label="Primary" class="nav">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </details>
+
+    <nav aria-label="Primary" class="nav nav-desktop">
       {nav.map((item) => <a href={item.href}>{item.label}</a>)}
     </nav>
+
     <div class="actions">
       <a href="/rss.xml" class="rss" aria-label="RSS feed" title="RSS feed">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -63,6 +76,9 @@ const nav = [
     align-items: center;
     gap: var(--space-6);
     height: 60px;
+  }
+  .menu {
+    display: none;
   }
   .brand {
     display: flex;
@@ -128,9 +144,45 @@ const nav = [
     display: none;
   }
   @media (max-width: 720px) {
-    .nav {
-      gap: var(--space-3);
-      font-size: var(--fs-xs);
+    .nav-desktop {
+      display: none;
+    }
+    .menu {
+      display: block;
+      margin-left: auto;
+      position: relative;
+    }
+    .menu summary {
+      display: inline-flex;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--paper-raised);
+      color: var(--ink-soft);
+      cursor: pointer;
+      list-style: none;
+    }
+    .menu summary::-webkit-details-marker {
+      display: none;
+    }
+    .menu[open] summary {
+      color: var(--saffron);
+      border-color: var(--saffron);
+    }
+    .menu .nav {
+      position: absolute;
+      top: calc(100% + var(--space-2));
+      left: 0;
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      background: var(--paper-raised);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-pop);
+      padding: var(--space-4);
+      min-width: 160px;
     }
     .brand-deva {
       display: none;

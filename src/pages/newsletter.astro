@@ -18,6 +18,15 @@ import { SITE } from "@/lib/site";
       <NewsletterBox />
     </div>
 
+    <h2>How the email list works today</h2>
+    <p class="prose">
+      Sutradhar runs on $0 infrastructure, so subscriptions are currently captured through this
+      site's public GitHub repository: the form above opens a pre-filled subscribe issue (a
+      GitHub account is all you need — no forms vendor, no tracking). The maintainer adds each
+      address to the mailing list before the next edition. When the list moves to a proper
+      email platform, this page — and nothing else — changes.
+    </p>
+
     <h2>Prefer a feed?</h2>
     <p class="prose">
       The site is a first-class RSS citizen — subscribe from any reader:
@@ -25,7 +34,6 @@ import { SITE } from "@/lib/site";
     <ul class="prose list">
       <li><a href="/rss.xml">RSS feed</a> — newest 60 stories</li>
       <li><a href="/feed.json">JSON Feed</a> — same thread, JSON flavor</li>
-      <li>Per-company and per-topic pages are linked from every story</li>
     </ul>
   </div>
 </Base>

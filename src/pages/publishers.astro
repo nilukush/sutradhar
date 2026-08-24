@@ -1,0 +1,99 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { canonicalFor } from "@/lib/view";
+import { SITE } from "@/lib/site";
+
+const description = `How ${SITE.name} treats publisher content: excerpt policy, per-source opt-out, and takedown.`;
+
+const faq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Does Sutradhar republish full articles?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Every story page shows a short attributed excerpt (at most a few hundred characters, never more than 10% of the article) plus the title, author, date and a prominent link to the original article on the publisher's site. Full text always stays with its publisher.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How can a publisher opt out or request a takedown?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Open a GitHub issue titled Takedown or Opt-out (or reply through any contact channel). Sutradhar honors written requests within 21 days: full removal, headline-and-link-only display, or excerpt-limit reduction — publisher's choice.",
+      },
+    },
+  ],
+};
+---
+
+<Base title={`For publishers — ${SITE.name}`} description={description} jsonLd={[faq]}>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "For publishers" }]} currentUrl={canonicalFor("/publishers")} />
+    <h1>For publishers</h1>
+    <p class="lede prose">
+      Your words stay yours. Sutradhar is a thread that leads readers <em>to</em> your blog,
+      never a substitute for it.
+    </p>
+
+    <h2>What we show</h2>
+    <ul class="prose list">
+      <li>Title, author, publish date and source attribution, always.</li>
+      <li>A short excerpt — capped at <strong>min(400 characters, 10% of the article)</strong>, and never images or diagrams.</li>
+      <li>A prominent "continue reading" link straight to the original on your site (no redirects, no wrappers).</li>
+      <li>Structured data that credits the original article as the source (<code>isBasedOn</code>).</li>
+    </ul>
+
+    <h2>Opt-out &amp; takedown</h2>
+    <p class="prose">
+      Any publisher can change how we treat their content — at any time, no questions asked:
+    </p>
+    <ul class="prose list">
+      <li><strong>Link-out only</strong> — we list headlines linking to you, no excerpt shown (set <code>excerptLimit: 0</code>).</li>
+      <li><strong>Shorter excerpt</strong> — any limit from 0 to 400 characters.</li>
+      <li><strong>Full removal</strong> — the source and all its stories disappear from the site.</li>
+    </ul>
+    <p class="prose">
+      Requests are honored within <strong>21 days</strong> (the rhythm of the linking exception in
+      India's Copyright Act §52(1)(c)). To make one, open an issue titled
+      <em>Takedown</em> or <em>Opt-out</em> on this site's public GitHub repository — the direct
+      link appears here as soon as the repo launches.
+    </p>
+
+    <h2>Why aggregation helps</h2>
+    <p class="prose">
+      Engineering blogs exist to be found by engineers. Independent research on news
+      aggregators (Calzada &amp; Gil, 2020, <em>Marketing Science</em>) found that aggregator
+      shutdowns cut publisher traffic by 8–14% — with the deepest losses for smaller
+      publishers. Sutradhar exists to send India's engineering writing more of the readers
+      it deserves.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+    max-width: var(--measure);
+  }
+  .lede {
+    margin-bottom: var(--space-6);
+  }
+  h2 {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--fs-xl);
+  }
+  .list {
+    padding-left: 1.2em;
+    display: grid;
+    gap: var(--space-2);
+  }
+  .mono {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+  }
+</style>

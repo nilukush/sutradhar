@@ -22,5 +22,8 @@ export function GET(context) {
       };
     }),
     customData: "<language>en-in</language>",
+    // Canonicals and sitemaps are slashless (trailingSlash: "never"); the feed
+    // must match or every item 308-redirects.
+    trailingSlash: false,
   });
 }

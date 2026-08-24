@@ -1,7 +1,10 @@
 ---
 import Logo from "@/components/Logo.astro";
 import { SITE } from "@/lib/site";
+import { isRepoConfigured } from "@/lib/subscribe";
 import { CORPUS_GENERATED_AT } from "@/lib/view";
+
+const repoReady = isRepoConfigured();
 ---
 
 <footer class="site-footer">
@@ -21,13 +24,18 @@ import { CORPUS_GENERATED_AT } from "@/lib/view";
       <a href="/digest">Digests</a>
       <a href="/about">About</a>
       <a href="/newsletter">Newsletter</a>
+      <a href="/publishers">For publishers</a>
       <a href="/rss.xml">RSS</a>
       <a href="/feed.json">JSON Feed</a>
     </nav>
     <div class="contribute">
       <p class="eyebrow">Add a source</p>
       <p class="small">Know an Indian engineering blog we're missing?</p>
-      <a class="cta thread-link" href={SITE.repoUrl}>Open a PR on GitHub →</a>
+      {repoReady ? (
+        <a class="cta thread-link" href={SITE.repoUrl}>Open a PR on GitHub →</a>
+      ) : (
+        <span class="small">The public repo launches shortly — sources can be suggested meanwhile via /publishers.</span>
+      )}
     </div>
   </div>
   <div class="container base meta">
