@@ -28,7 +28,7 @@ export interface SubscribeOptions {
   /** Form action (github-issue) or link href (beehiiv-hosted). */
   action?: string;
   href?: string;
-  fields: { title: string; labels: string };
+  fields: { title: string; template: string };
   fallbacks: { rss: string };
 }
 
@@ -49,19 +49,21 @@ export function subscribeOptions(override: SubscribeOverride = {}): SubscribeOpt
       provider,
       method: "link",
       href: override.beehiivUrl ?? "",
-      fields: { title: "", labels: "" },
+      fields: { title: "", template: "" },
       fallbacks,
     };
   }
 
   // github-issue: GET form → GitHub's new-issue page, pre-filled via query
-  // params (title/body/labels). Classic prefills work without any JS or backend.
+  // params. `template` selects subscribe.md directly (skips the chooser);
+  // `labels` is deliberately NOT sent — outsiders lack label permission and
+  // GitHub 404s on disallowed params. The template's front matter sets labels.
   const base = SITE.repoUrl.replace(/\/+$/, "");
   return {
     provider: "github-issue",
     method: "get",
     action: `${base}/issues/new`,
-    fields: { title: "Subscribe request", labels: "subscribe" },
+    fields: { title: "Subscribe request", template: "subscribe.md" },
     fallbacks,
   };
 }
@@ -69,7 +71,10 @@ export function subscribeOptions(override: SubscribeOverride = {}): SubscribeOpt
 export function subscribeAction() {
   const options = subscribeOptions();
   return {
-    /** Body pre-fill for the GitHub issue (carries the entered email). */
+    /**
+     * Body pre-fill for the GitHub issue (carries the entered email). Used by
+     * tests; the no-JS form sends the raw email as `body` directly.
+     */
     buildBody(email: string): string {
       return [
         "Subscribe request",

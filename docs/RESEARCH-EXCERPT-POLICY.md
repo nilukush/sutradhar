@@ -49,10 +49,13 @@ topics, timeline), and add a per-source opt-out. That single adjustment moves th
 - Intermediate pages are hated when they're **tollbooths**; they earn their keep only via
   context the publisher doesn't offer.
 
-## Adopted policy direction (pending owner sign-off)
+## Adopted policy direction (owner approved 2026-08-24; implemented in src/lib/aggregate.ts)
 
-1. Cap in-site excerpt at ~**400 chars** (one solid paragraph), never more than 10% of the
-   post (`min(400, 10% of plaintext)`).
+1. Cap in-site excerpt at **min(excerptLimit, max(160, 10% of body))** chars — default
+   excerptLimit 400, per-source overridable down to 0 (= headline + link-out only).
+   The 160-char floor (a deliberate deviation from pure 10%) exists so summary-only
+   feeds/short posts still produce a meaningful snippet; it is disclosed verbatim on
+   /publishers.
 2. Per-source `excerptLimit` override in `src/data/sources.ts` — `0` = headline + link-out only
    (the Google News Publisher Center degrade pattern; the §52(1)(c) opt-out posture).
 3. Public **takedown/opt-out contact**; honor written complaints within **21 days** (statutory

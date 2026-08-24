@@ -5,15 +5,17 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { createInterface } from "node:readline";
+import { SOURCES } from "../src/data/sources";
 
 const root = resolve(fileURLToPath(import.meta.url), "../..");
 const dist = resolve(root, "dist");
 
 const corpus = JSON.parse(readFileSync(resolve(root, "src/data/articles.json"), "utf8")) as {
-  articles: { sourceId: string }[];
+  generatedAt: string;
+  articles: { sourceId: string; publishedAt: string }[];
 };
 const sourceIds = [...new Set(corpus.articles.map((a) => a.sourceId))];
+const limitById = new Map(SOURCES.map((s) => [s.id, s.excerptLimit]));
 
 const required: string[] = [
   "index.html",
@@ -41,12 +43,14 @@ if (missing.length > 0) {
   process.exit(1);
 }
 
-// Every article must have its in-site reading page.
+// Every eligible article must have its in-site reading page (opted-out
+// sources with excerptLimit 0 legitimately have none).
+const expectedRead = corpus.articles.filter((a) => (limitById.get(a.sourceId) ?? 400) !== 0).length;
 const readCount = readdirSync(resolve(dist, "read"), { withFileTypes: true })
   .filter((d) => d.isDirectory())
   .filter((d) => existsSync(resolve(dist, "read", d.name, "index.html"))).length;
-if (readCount < corpus.articles.length) {
-  console.error(`✗ reading pages incomplete: ${readCount}/${corpus.articles.length}`);
+if (readCount < expectedRead) {
+  console.error(`✗ reading pages incomplete: ${readCount}/${expectedRead}`);
   process.exit(1);
 }
 
@@ -57,12 +61,12 @@ const newsletter = readFileSync(resolve(dist, "newsletter/index.html"), "utf8");
 
 // Trending section renders only when articles exist inside the 5-day window —
 // mirror that eligibility here so the check is data-aware, not unconditional.
-const generatedAt = new Date(
-  (JSON.parse(readFileSync(resolve(root, "src/data/articles.json"), "utf8")) as { generatedAt: string }).generatedAt,
-).getTime();
-const newestAgeH = Math.max(
-  ...corpus.articles.map((a) => (generatedAt - new Date(a.publishedAt).getTime()) / 3_600_000),
-);
+// (Math.MIN over ages = the NEWEST article's age; max would be the oldest.)
+const generatedAt = new Date(corpus.generatedAt).getTime();
+const newestAgeH =
+  corpus.articles.length > 0
+    ? Math.min(...corpus.articles.map((a) => (generatedAt - new Date(a.publishedAt).getTime()) / 3_600_000))
+    : Number.POSITIVE_INFINITY;
 const trendingEligible = newestAgeH <= 120;
 
 const checks: [string, boolean][] = [

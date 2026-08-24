@@ -8,7 +8,7 @@ describe("subscribe config (provider switch is config-only)", () => {
     expect(options.action).toContain("/issues/new");
     expect(options.method).toBe("get");
     expect(options.fields.title).toBe("Subscribe request");
-    expect(options.fields.labels).toBe("subscribe");
+    expect(options.fields.template).toBe("subscribe.md");
   });
 
   it("builds a pre-filled issue body carrying the entered email", () => {

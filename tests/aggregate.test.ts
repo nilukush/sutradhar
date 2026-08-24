@@ -59,6 +59,13 @@ describe("toArticle", () => {
     expect(a!.content).toBe("");
   });
 
+  it("applies excerptLimit below 280 to card/digest excerpts too (regression: verifier F5)", () => {
+    const limited = { ...source, excerptLimit: 100 };
+    const long = { ...raw, description: undefined, excerpt: "word ".repeat(80).trim(), contentHtml: `<p>${"body ".repeat(200)}</p>` };
+    const a = toArticle(limited, long);
+    expect(a!.excerpt.length).toBeLessThanOrEqual(101);
+  });
+
   it("falls back content to the short excerpt when no html body exists", () => {
     const a = toArticle(source, { ...raw, contentHtml: undefined });
     expect(a!.content).toBe(a!.excerpt);

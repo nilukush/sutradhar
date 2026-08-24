@@ -15,7 +15,7 @@ const faq = {
       name: "Does Sutradhar republish full articles?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "No. Every story page shows a short attributed excerpt (at most a few hundred characters, never more than 10% of the article) plus the title, author, date and a prominent link to the original article on the publisher's site. Full text always stays with its publisher.",
+        text: "No. Every story page shows a short attributed excerpt (at most 400 characters, never more than 10% of longer articles, with a 160-character floor for very short posts) plus the title, author, date and a prominent link to the original article on the publisher's site. Full text always stays with its publisher.",
       },
     },
     {
@@ -42,7 +42,7 @@ const faq = {
     <h2>What we show</h2>
     <ul class="prose list">
       <li>Title, author, publish date and source attribution, always.</li>
-      <li>A short excerpt — capped at <strong>min(400 characters, 10% of the article)</strong>, and never images or diagrams.</li>
+      <li>A short excerpt — at most 400 characters and never more than 10% of longer articles (with a 160-character floor so very short posts still get a meaningful snippet), and never images or diagrams.</li>
       <li>A prominent "continue reading" link straight to the original on your site (no redirects, no wrappers).</li>
       <li>Structured data that credits the original article as the source (<code>isBasedOn</code>).</li>
     </ul>
@@ -53,7 +53,7 @@ const faq = {
     </p>
     <ul class="prose list">
       <li><strong>Link-out only</strong> — we list headlines linking to you, no excerpt shown (set <code>excerptLimit: 0</code>).</li>
-      <li><strong>Shorter excerpt</strong> — any limit from 0 to 400 characters.</li>
+      <li><strong>Shorter excerpt</strong> — any limit from 0 to 400 characters, applied to reading pages, cards and digests alike.</li>
       <li><strong>Full removal</strong> — the source and all its stories disappear from the site.</li>
     </ul>
     <p class="prose">

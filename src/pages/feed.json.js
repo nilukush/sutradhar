@@ -1,5 +1,5 @@
 import { ARTICLES, sourceOf } from "@/lib/view";
-import { articleSlug } from "@/lib/read";
+import { absoluteReadHref } from "@/lib/read";
 import { SITE } from "@/lib/site";
 
 export function GET() {
@@ -11,8 +11,8 @@ export function GET() {
     description: SITE.description,
     language: "en-IN",
     items: ARTICLES.slice(0, 60).map((article) => ({
-      id: `${SITE.url}/read/${articleSlug(article)}`,
-      url: `${SITE.url}/read/${articleSlug(article)}`,
+      id: absoluteReadHref(article),
+      url: absoluteReadHref(article),
       // JSON Feed native field for the publisher's original article.
       external_url: article.url,
       title: article.title,

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { articleSlug, readHref, isExternalRead, isOptedOut } from "@/lib/read";
+import { articleSlug, readHref, absoluteReadHref, isExternalRead, isOptedOut } from "@/lib/read";
 import type { Article, Source } from "@/lib/schema";
 
 function makeArticle(overrides: Partial<Article> = {}): Article {
@@ -55,20 +55,24 @@ describe("articleSlug", () => {
 });
 
 describe("per-source opt-out (excerptLimit 0)", () => {
+  const optedOutSource = makeSource({ excerptLimit: 0, id: "opted-out" });
+  const optedOutArticle = makeArticle({ sourceId: "opted-out" });
+
   it("isOptedOut is true only for excerptLimit 0", () => {
-    expect(isOptedOut(makeSource({ excerptLimit: 0 }))).toBe(true);
+    expect(isOptedOut(optedOutSource)).toBe(true);
     expect(isOptedOut(makeSource({ excerptLimit: 400 }))).toBe(false);
   });
 
-  it("readHref returns the original url for opted-out sources", () => {
-    const optedOut = makeSource({ excerptLimit: 0, id: "opted-out" });
-    const article = makeArticle({ sourceId: "opted-out" });
-    // phonepe (a real registry source, no opt-out) → in-site path
-    expect(isExternalRead(makeArticle())).toBe(false);
-    expect(readHref(makeArticle())).toBe(`/read/${articleSlug(makeArticle())}`);
+  it("readHref returns the original url for opted-out sources (no /read 404s)", () => {
+    expect(readHref(optedOutArticle, optedOutSource)).toBe(optedOutArticle.url);
+    expect(absoluteReadHref(optedOutArticle, optedOutSource)).toBe(optedOutArticle.url);
+  });
 
-    // simulate the registry lookup by testing the pure decision directly
-    expect(isOptedOut(optedOut)).toBe(true);
-    expect(optedOut.excerptLimit).toBe(0);
+  it("readHref returns the in-site path for normal sources (regression: verifier F2)", () => {
+    // phonepe is a real registry source with no opt-out
+    const article = makeArticle();
+    expect(isExternalRead(article)).toBe(false);
+    expect(readHref(article)).toBe(`/read/${articleSlug(article)}`);
+    expect(absoluteReadHref(article)).toBe(`https://sutradhar.dev/read/${articleSlug(article)}`);
   });
 });

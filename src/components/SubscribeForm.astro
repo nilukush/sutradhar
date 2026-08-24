@@ -12,14 +12,19 @@ import { SITE } from "@/lib/site";
 const options = subscribeOptions();
 const repoReady = isRepoConfigured();
 const showForm = options.provider === "github-issue" && repoReady;
-const href = showForm ? undefined : options.provider === "beehiiv-hosted" ? options.href : options.fallbacks.rss;
+// Never render an empty href — that links to the current page (the original bug).
+const href = showForm
+  ? undefined
+  : options.provider === "beehiiv-hosted"
+    ? options.href || options.fallbacks.rss
+    : options.fallbacks.rss;
 const fallbackLabel = options.provider === "beehiiv-hosted" ? "Subscribe on beehiiv →" : "Follow via RSS until the repo is live →";
 ---
 
 {showForm ? (
   <form class="form" method="get" action={options.action}>
+    <input type="hidden" name="template" value={options.fields.template} />
     <input type="hidden" name="title" value={options.fields.title} />
-    <input type="hidden" name="labels" value={options.fields.labels} />
     <label class="visually-hidden" for="subscribe-email">Email address</label>
     <input
       id="subscribe-email"

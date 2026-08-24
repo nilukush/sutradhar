@@ -4,7 +4,7 @@ import ArticleCard from "@/components/ArticleCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import SourceBadge from "@/components/SourceBadge.astro";
 import { TOPIC_LABELS, articlesForSource, canonicalFor, hostOf } from "@/lib/view";
-import { articleHref } from "@/lib/read";
+import { absoluteReadHref } from "@/lib/read";
 import { SOURCES } from "@/data/sources";
 import { SITE } from "@/lib/site";
 
@@ -35,7 +35,7 @@ const itemList = {
     itemListElement: articles.slice(0, 50).map((a, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: canonicalFor(articleHref(a)),
+      url: absoluteReadHref(a),
       name: a.title,
     })),
   },

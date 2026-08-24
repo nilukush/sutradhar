@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
 import { ARTICLES, sourceOf } from "@/lib/view";
-import { articleSlug } from "@/lib/read";
+import { readHref } from "@/lib/read";
 import { SITE } from "@/lib/site";
 
 export function GET(context) {
@@ -12,8 +12,9 @@ export function GET(context) {
       const sourceName = sourceOf(article)?.name ?? article.sourceId;
       return {
         title: article.title,
-        // In-site reading page; the original article is linked inside.
-        link: `/read/${articleSlug(article)}`,
+        // In-site reading page (or the original when the source opted out);
+        // the original article is always linked inside.
+        link: readHref(article),
         pubDate: new Date(article.publishedAt),
         description: article.excerpt
           ? `${article.excerpt} — continue reading the original from ${sourceName}: ${article.url}`

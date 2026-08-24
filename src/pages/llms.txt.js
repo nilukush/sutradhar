@@ -1,5 +1,5 @@
 import { ARTICLES, TOPIC_LABELS, topicsWithCounts } from "@/lib/view";
-import { articleSlug } from "@/lib/read";
+import { absoluteReadHref } from "@/lib/read";
 import { SOURCES } from "@/data/sources";
 import { SITE } from "@/lib/site";
 
@@ -16,7 +16,7 @@ export function GET() {
     (s) => `- [${s.name} engineering blog](${s.siteUrl}) — [all ${s.name} stories](${SITE.url}/sources/${s.id})`,
   ).join("\n");
   const latest = ARTICLES.slice(0, 10)
-    .map((a) => `- [${a.title}](${SITE.url}/read/${articleSlug(a)}) — original: ${a.url}`)
+    .map((a) => `- [${a.title}](${absoluteReadHref(a)}) — original: ${a.url}`)
     .join("\n");
 
   const body = `# ${SITE.name}

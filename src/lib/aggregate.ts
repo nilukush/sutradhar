@@ -64,7 +64,7 @@ export function toArticle(source: Source, item: RawItem): Article | null {
 
   const excerpt = optedOut
     ? ""
-    : excerptFrom(htmlToText(item.excerpt || item.contentHtml || ""), 280);
+    : excerptFrom(htmlToText(item.excerpt || item.contentHtml || ""), Math.min(280, limit));
   const contentCap = Math.min(limit, Math.max(160, Math.floor(body.length * 0.1)));
   const content = optedOut ? "" : excerptFrom(body, contentCap);
 

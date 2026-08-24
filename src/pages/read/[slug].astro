@@ -3,7 +3,7 @@ import Base from "@/layouts/Base.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import SourceBadge from "@/components/SourceBadge.astro";
 import TopicPill from "@/components/TopicPill.astro";
-import { articleSlug, isExternalRead } from "@/lib/read";
+import { articleSlug, isExternalRead, readHref } from "@/lib/read";
 import { ARTICLES, TOPIC_LABELS, canonicalFor, formatDate, hostOf, relativeTime, sourceOf } from "@/lib/view";
 import type { Article } from "@/lib/schema";
 import { SITE } from "@/lib/site";
@@ -25,9 +25,11 @@ const sourceName = source?.name ?? article.sourceId;
 const body = article.content || article.excerpt;
 const truncated = article.content.endsWith("…") || !article.content;
 
-const sameSource = ARTICLES.filter((a) => a.sourceId === article.sourceId && a.id !== article.id).slice(0, 3);
+const sameSource = ARTICLES.filter(
+  (a) => a.sourceId === article.sourceId && a.id !== article.id && !isExternalRead(a),
+).slice(0, 3);
 const sameTopic = ARTICLES.filter(
-  (a) => a.id !== article.id && a.sourceId !== article.sourceId && a.topics.some((t) => article.topics.includes(t)),
+  (a) => a.id !== article.id && a.sourceId !== article.sourceId && !isExternalRead(a) && a.topics.some((t) => article.topics.includes(t)),
 ).slice(0, 4);
 
 const selfUrl = canonicalFor(`/read/${articleSlug(article)}`);
@@ -106,7 +108,7 @@ const newsArticle = {
         <h2>More from {sourceName}</h2>
         <ul>
           {sameSource.map((a) => (
-            <li><a class="thread-link" href={`/read/${articleSlug(a)}`}>{a.title}</a></li>
+            <li><a class="thread-link" href={readHref(a)}>{a.title}</a></li>
           ))}
         </ul>
       </section>
@@ -118,7 +120,7 @@ const newsArticle = {
         <ul>
           {sameTopic.map((a) => (
             <li>
-              <a class="thread-link" href={`/read/${articleSlug(a)}`}>{a.title}</a>
+              <a class="thread-link" href={readHref(a)}>{a.title}</a>
               <span class="meta"> · {sourceOf(a)?.name ?? a.sourceId}</span>
             </li>
           ))}

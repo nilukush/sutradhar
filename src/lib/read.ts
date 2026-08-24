@@ -1,5 +1,6 @@
 import { slugify } from "@/lib/normalize";
 import { sourceOf } from "@/lib/view";
+import { SITE } from "@/lib/site";
 import type { Article, Source } from "@/lib/schema";
 
 /** Max characters of the title portion in a /read URL. */
@@ -37,6 +38,15 @@ export function isExternalRead(article: Article): boolean {
  * Link target for any article surface: the in-site reading page, or the
  * original article when its source opted out.
  */
-export function readHref(article: Article): string {
-  return isExternalRead(article) ? article.url : articleHref(article);
+export function readHref(article: Article, source: Source | undefined = sourceOf(article)): string {
+  return isOptedOut(source) ? article.url : articleHref(article);
+}
+
+/**
+ * Absolute href for feeds and JSON-LD contexts: the in-site reading page on
+ * this origin, or the publisher's URL when the source opted out.
+ */
+export function absoluteReadHref(article: Article, source: Source | undefined = sourceOf(article)): string {
+  const href = readHref(article, source);
+  return href.startsWith("http") ? href : `${SITE.url}${href}`;
 }
