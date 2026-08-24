@@ -2,6 +2,9 @@
 dist/
 .astro/
 
+# generated send artifacts (newsletters)
+.generated/
+
 # dependencies
 node_modules/
 

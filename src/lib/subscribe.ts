@@ -5,19 +5,28 @@ import { SITE } from "@/lib/site";
  * is a config change here (plus, for embed providers, pasting embed markup into
  * the SubscribeForm slot) — never a component rewrite.
  *
- * Default: "github-issue" — a plain GET <form> to GitHub's new-issue page
- * (template=subscribe.yml). Zero backend, zero signup, zero JS; perfect for a
- * dev audience and a public repo. When the real repo URL is configured in
- * src/lib/site.ts, the form lights up automatically.
+ * Default: "beehiiv-hosted" once BEEHIIV_URL is set (owner is on beehiiv's
+ * Launch plan — $0, 2,500 subscribers, unlimited sends; the best subscribe UX
+ * AND the sending platform in one). Until then: "github-issue" — a plain GET
+ * <form> to GitHub's new-issue page (zero backend, zero signup, zero JS).
  */
 export type SubscribeProvider =
   | "github-issue"
   | "beehiiv-hosted"
   | "mailto";
 
+/**
+ * The beehiiv publication (Launch plan — $0, 2,500 subscribers, unlimited
+ * sends). Default is our publication; BEEHIIV_URL overrides at build time.
+ * Read lazily so config resolves at build/render time, not import time.
+ */
+function beehiivUrlFromEnv(): string {
+  return process.env.BEEHIIV_URL ?? "https://sutradhar.beehiiv.com";
+}
+
 export interface SubscribeOverride {
   provider?: SubscribeProvider;
-  /** e.g. https://www.beehiiv.com/subscribe/<publication> */
+  /** e.g. https://<publication>.beehiiv.com */
   beehiivUrl?: string;
 }
 
@@ -41,14 +50,16 @@ export function isRepoConfigured(repoUrl: string = SITE.repoUrl): boolean {
 }
 
 export function subscribeOptions(override: SubscribeOverride = {}): SubscribeOptions {
-  const provider = override.provider ?? "github-issue";
+  const beehiivUrl = override.beehiivUrl ?? beehiivUrlFromEnv();
+  // beehiiv once configured; the zero-config GitHub form until then.
+  const provider = override.provider ?? (beehiivUrl ? "beehiiv-hosted" : "github-issue");
   const fallbacks = { rss: "/rss.xml" };
 
   if (provider === "beehiiv-hosted") {
     return {
       provider,
       method: "link",
-      href: override.beehiivUrl ?? "",
+      href: beehiivUrl,
       fields: { title: "", template: "" },
       fallbacks,
     };

@@ -1,8 +1,23 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi, afterEach } from "vitest";
 import { subscribeAction, subscribeOptions, isRepoConfigured } from "@/lib/subscribe";
 
+afterEach(() => vi.unstubAllEnvs());
+
 describe("subscribe config (provider switch is config-only)", () => {
-  it("defaults to the GitHub issue-form flow when no provider is set up", () => {
+  it("defaults to the beehiiv hosted page (our publication, baked in)", () => {
+    const options = subscribeOptions();
+    expect(options.provider).toBe("beehiiv-hosted");
+    expect(options.method).toBe("link");
+    expect(options.href).toBe("https://sutradhar.beehiiv.com");
+  });
+
+  it("BEEHIIV_URL can override the publication at build time", () => {
+    vi.stubEnv("BEEHIIV_URL", "https://other.beehiiv.com");
+    expect(subscribeOptions().href).toBe("https://other.beehiiv.com");
+  });
+
+  it("falls back to the GitHub issue-form flow when BEEHIIV_URL is explicitly emptied", () => {
+    vi.stubEnv("BEEHIIV_URL", "");
     const options = subscribeOptions();
     expect(options.provider).toBe("github-issue");
     expect(options.action).toContain("/issues/new");
@@ -20,10 +35,10 @@ describe("subscribe config (provider switch is config-only)", () => {
     expect(subscribeOptions().fallbacks.rss).toBe("/rss.xml");
   });
 
-  it("switches to a beehiiv hosted page with a plain link", () => {
-    const options = subscribeOptions({ provider: "beehiiv-hosted", beehiivUrl: "https://www.beehiiv.com/subscribe/x" });
+  it("an explicit beehiiv override wins even without env config", () => {
+    const options = subscribeOptions({ provider: "beehiiv-hosted", beehiivUrl: "https://x.beehiiv.com" });
     expect(options.provider).toBe("beehiiv-hosted");
-    expect(options.href).toBe("https://www.beehiiv.com/subscribe/x");
+    expect(options.href).toBe("https://x.beehiiv.com");
     expect(options.method).toBe("link");
   });
 });

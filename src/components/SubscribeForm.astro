@@ -18,7 +18,10 @@ const href = showForm
   : options.provider === "beehiiv-hosted"
     ? options.href || options.fallbacks.rss
     : options.fallbacks.rss;
-const fallbackLabel = options.provider === "beehiiv-hosted" ? "Subscribe on beehiiv →" : "Follow via RSS until the repo is live →";
+const fallbackLabel =
+  options.provider === "beehiiv-hosted"
+    ? "Subscribe with email →"
+    : "Follow via RSS until the repo is live →";
 ---
 
 {showForm ? (
@@ -44,7 +47,7 @@ const fallbackLabel = options.provider === "beehiiv-hosted" ? "Subscribe on beeh
 )}
 <p class="alt">
   Prefer a feed? <a href="/rss.xml">RSS</a> · <a href="/feed.json">JSON Feed</a>
-  {repoReady && <span> · subscribe opens a pre-filled GitHub issue (no signup needed)</span>}
+  {options.provider === "github-issue" && repoReady && <span> · subscribe opens a pre-filled GitHub issue (no signup needed)</span>}
 </p>
 
 <style>
