@@ -6,7 +6,7 @@
  * Set REPO_URL at build time to override (or edit here) — the subscribe form,
  * footer PR link and sameAs entity links all derive from it.
  */
-const repoUrl = process.env.REPO_URL ?? "https://github.com/nilushush/sutradhar";
+const repoUrl = process.env.REPO_URL ?? "https://github.com/nilukush/sutradhar";
 
 export const SITE = {
   name: "Sutradhar",
@@ -21,7 +21,7 @@ export const SITE = {
   /** Identity strings must stay byte-identical across site, README, socials (entity consistency). */
   oneLiner: "Sutradhar — the aggregator of Indian engineering blogs.",
   // Only profiles that actually exist (GEO entity consistency).
-  sameAs: ["https://github.com/nilushush/sutradhar"],
+  sameAs: ["https://github.com/nilukush/sutradhar"],
 } as const;
 
 export type Site = typeof SITE;
