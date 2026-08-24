@@ -44,17 +44,15 @@
 
 ## Open items / next steps
 
-- [ ] **Subscribe UX challenged by owner (24 Aug 2026)**: "why does subscribe open a GitHub
-  issue? poor UX — did you research?" Research trail: the 24-Aug Analyzer agent DID evaluate
-  options (beehiiv embed = best UX but needs free account; Kit/Buttondown forms need accounts;
-  GitHub issue = only zero-signup option that day; mailto = weak). GitHub flow was explicitly
-  the "ship today" compromise, beehiiv the "5-minute upgrade". Owner pushback is fair — real
-  inline email form is expected UX. **Two $0 paths presented, awaiting owner choice:**
-  (a) owner creates free beehiiv publication (2,500 subs, unlimited sends — also solves
-  EMAIL SENDING, which GitHub capture never could; no free RSS-to-email exists) → wire
-  provider swap in src/lib/subscribe.ts; or (b) build CF Worker /api/subscribe + KV capture
-  (no new account, but owner must create one KV binding in CF dashboard; still no send path).
-  Recommendation: (a).
+- [x] ~~Subscribe UX~~ → **beehiiv Launch wired & live (24 Aug 2026)**: owner confirmed
+  Launch plan is genuinely $0 (the 14-day screen is the Scale-trial upsell — decline it).
+  Publication: **https://sutradhar.beehiiv.com**. Subscribe buttons site-wide link there
+  (real email form; GitHub-issue flow demoted to BEEHIIV_URL='' fallback). Newsletter page
+  copy describes beehiiv. CF Worker path shelved (tests removed).
+- [x] ~~Sending workflow~~ → **`pnpm digest:email`**: renders the latest weekly digest as
+  send-ready HTML + plain text in `.generated/newsletter-<week>.{html,txt}`. Weekly ~10-min
+  routine: run it → open HTML in browser → select-all → paste into a beehiiv broadcast → send.
+  (Launch plan: unlimited sends.)
 
 - [x] ~~Push to public GitHub repo~~ → **github.com/nilukush/sutradhar live (2026-08-24)**: CI green,
       aggregate workflow registered + manually validated (16/16 sources, 0 errors, commit-on-change
