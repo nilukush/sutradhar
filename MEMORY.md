@@ -40,9 +40,10 @@
 
 ## Open items / next steps
 
-- [ ] Register `sutradhar.dev`, set `SITE_URL`, update `sameAs` with real socials
-- [ ] Create beehiiv publication; paste embed into NewsletterBox slot
-- [ ] Push to public GitHub repo; connect Cloudflare Pages; **allow AI crawlers on the zone**
-- [ ] Replace `TODO-OWNER` in `src/lib/site.ts` with the real GitHub org
-- [ ] Later: Meesho archive backfill via Ghost pagination; scraper adapters for Zerodha/ShareChat/Juspay
-- [ ] Later: search (pagefind), source logos, editorial blurbs on digests
+- [x] ~~Push to public GitHub repo~~ → **github.com/nilukush/sutradhar live (2026-08-24)**: CI green,
+      aggregate workflow registered + manually validated (16/16 sources, 0 errors, commit-on-change
+      works), subscribe form/footer/sameAs all live via the real repoUrl.
+- [ ] Connect Cloudflare Pages (build `pnpm build`, output `dist/`) — then **allow AI crawlers on the zone**
+- [ ] Register `sutradhar.dev`, set `SITE_URL` at build time
+- [ ] Create beehiiv publication; switch subscribe provider in `src/lib/subscribe.ts`
+- [ ] Later: HN-Algolia trending enrichment; Meesho archive backfill; scraper adapters for Zerodha/ShareChat/Juspay; search (pagefind)
