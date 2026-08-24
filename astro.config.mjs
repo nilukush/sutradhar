@@ -2,8 +2,9 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
-// Canonical production origin. Override locally with SITE_URL if needed.
-const SITE_URL = process.env.SITE_URL ?? "https://sutradhar.dev";
+// Canonical production origin — must match src/lib/site.ts. Override with
+// SITE_URL (e.g. https://sutradhar.dev once the domain is registered).
+const SITE_URL = process.env.SITE_URL ?? "https://sutradhar.nilukush.workers.dev";
 
 export default defineConfig({
   site: SITE_URL,
