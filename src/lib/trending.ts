@@ -9,8 +9,13 @@ export const TIER_WEIGHTS: Record<1 | 2, number> = { 1: 1.5, 2: 1.0 };
 
 /** Recency half-life in hours. */
 export const HALF_LIFE_H = 36;
-/** Eligibility window in hours (5 days). */
-export const WINDOW_H = 120;
+/**
+ * Eligibility window in hours (10 days). The half-life decay does the actual
+ * ranking; this is only the hard cutoff. 10 days keeps the section alive
+ * through quiet publishing weeks (verified: without it, an empty week hides
+ * Trending entirely — the corpus went 7+ days without a single post).
+ */
+export const WINDOW_H = 240;
 
 /** score = tierWeight × 2^(−age/36h); 0 outside the window. */
 export function trendingScore(article: Article, source: Source, now: Date): number {

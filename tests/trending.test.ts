@@ -45,7 +45,8 @@ describe("trendingScore", () => {
   });
 
   it("returns 0 outside the eligibility window", () => {
-    expect(trendingScore(article("a", "s1", 121), source("s1", 1), NOW)).toBe(0);
+    expect(trendingScore(article("a", "s1", 241), source("s1", 1), NOW)).toBe(0);
+    expect(trendingScore(article("b", "s1", 240), source("s1", 1), NOW)).toBeGreaterThan(0);
   });
 });
 

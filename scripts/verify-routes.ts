@@ -6,6 +6,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SOURCES } from "../src/data/sources";
+import { WINDOW_H } from "../src/lib/trending";
 
 const root = resolve(fileURLToPath(import.meta.url), "../..");
 const dist = resolve(root, "dist");
@@ -59,22 +60,23 @@ const home = readFileSync(resolve(dist, "index.html"), "utf8");
 const rss = readFileSync(resolve(dist, "rss.xml"), "utf8");
 const newsletter = readFileSync(resolve(dist, "newsletter/index.html"), "utf8");
 
-// Trending section renders only when articles exist inside the 5-day window —
-// mirror that eligibility here so the check is data-aware, not unconditional.
-// (Math.MIN over ages = the NEWEST article's age; max would be the oldest.)
+// Trending section renders only when articles exist inside the eligibility
+// window — mirror that eligibility here so the check is data-aware, not
+// unconditional. (Math.MIN over ages = the NEWEST article's age; max would be
+// the oldest.) WINDOW_H is imported from the lib so the two cannot drift.
 const generatedAt = new Date(corpus.generatedAt).getTime();
 const newestAgeH =
   corpus.articles.length > 0
     ? Math.min(...corpus.articles.map((a) => (generatedAt - new Date(a.publishedAt).getTime()) / 3_600_000))
     : Number.POSITIVE_INFINITY;
-const trendingEligible = newestAgeH <= 120;
+const trendingEligible = newestAgeH <= WINDOW_H;
 
 const checks: [string, boolean][] = [
   ["home has canonical", home.includes('rel="canonical"')],
   ["home has JSON-LD", home.includes("application/ld+json")],
   ["home has CollectionPage", home.includes("CollectionPage")],
   [
-    trendingEligible ? "home has trending section (fresh corpus)" : "trending correctly absent (no articles in 5-day window)",
+    trendingEligible ? "home has trending section (fresh corpus)" : "trending correctly absent (no articles in window)",
     trendingEligible ? home.includes("Gaining momentum") : !home.includes("Gaining momentum"),
   ],
   ["robots allows GPTBot", readFileSync(resolve(dist, "robots.txt"), "utf8").includes("GPTBot")],
