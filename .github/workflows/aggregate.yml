@@ -42,3 +42,4 @@ jobs:
           git add src/data/articles.json
           git commit -m "chore(data): aggregate new articles $(date -u +%FT%TZ)"
           git push
+# The hourly aggregation workflow. (registered-check: re-push if GitHub has not indexed this file)
