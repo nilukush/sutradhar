@@ -55,7 +55,7 @@ describe("trendingArticles", () => {
 
   it("returns newest-first within the window, freshest high-tier first", () => {
     const out = trendingArticles(
-      [article("old", "alpha", 200), article("a", "alpha", 2), article("b", "beta", 4)],
+      [article("old", "alpha", 300), article("a", "alpha", 2), article("b", "beta", 4)],
       sources,
       { now: NOW },
     );
