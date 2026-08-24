@@ -39,8 +39,13 @@ via `src/lib/view.ts`. Digests are derived at build time by `src/lib/digest.ts`.
 - `src/lib/site.ts` is the single source of identity truth; entity strings must stay
   byte-identical across site/README/socials (GEO entity consistency).
 - JSON-LD is emitted via `safeJsonLd()` in Base.astro — always escape `<`/`>` (verifier H3).
-- Article routes: `articleSlug()` in `src/lib/read.ts` = slugified title + 16-hex id;
-  related surfaces import `articleHref()`/`articleSlug()` from there.
+- Article routes: `articleSlug()` in `src/lib/read.ts` = slugified title + 16-hex id.
+  Every link to an article MUST go through `readHref()`/`absoluteReadHref()` — sources with
+  `excerptLimit: 0` have no /read page (link goes to the original; a raw /read link 404s).
+- Subscribe flow is provider-switched in `src/lib/subscribe.ts`; GitHub prefill must send
+  `template` but NEVER `labels` (outsiders lack permission → GitHub 404s).
+- Trending is deterministic (tier × 2^(−age/36h), 120h window, max 2/source) — no
+  `new Date()`-dependent assertions in tests; verify-routes mirrors eligibility from corpus age.
 - Data commits from the bot must NOT contain `[skip ci]` (hosts honor it and skip deploys).
 - Tests are written before implementation (Red→Green→Refactor); regressions found in review
   become regression tests.

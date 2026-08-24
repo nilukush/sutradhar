@@ -2,12 +2,15 @@
 
 ## Status
 
-- **v0.2 complete & verified** (2026-08-21): in-site reading model. Every article now opens at
-  `/read/<slug>-<id16>` on Sutradhar (extended excerpt ≤1,200 chars + attribution + prominent
-  "continue reading" link to the original + related stories). All cards, digest links, ItemLists,
-  RSS (internal link, original in description) and JSON Feed (`external_url`) point in-site.
-  65 tests green, 909 pages built (829 reading pages), 829/829 articles carry extended content.
-- v0.1 (2026-08-21): link-out model, 57 tests, verifier-reviewed (docs/VERIFICATION.md).
+- **v0.3 complete & verified** (2026-08-24): working subscribe flow (no-JS GitHub issue form,
+  provider-switchable via src/lib/subscribe.ts; activates automatically when REPO_URL is set),
+  deterministic Trending (tier × 2^(−age/36h), 5-day window, max 2/source) alongside Latest,
+  excerpt policy live (min(400, max(160, 10%)) content, per-source excerptLimit incl. 0 =
+  link-out-only honored across every surface), /publishers opt-out & 21-day-takedown page,
+  mobile nav disclosure menu, RSS trailing-slash fix, TODO-OWNER link guards.
+  87 tests green, 910 pages, verifier-reviewed (2 rounds).
+- v0.2 (2026-08-21): in-site /read pages. v0.1: link-out model + verifier review
+  (docs/VERIFICATION.md).
 
 ## Decisions (why)
 
@@ -31,7 +34,9 @@
 - Astro paginated index needs `articles/[...page].astro` rest-param naming.
 - Ghost Content API limit max 15/page — forward coverage complete, archive backfill capped (accepted).
 
-| Excerpt policy research (2026-08-21) | /read/ model legally grey-zone-defensible (§52(1)(a)(iii) + Berne 10(1); RSS ≠ licence); product-wise 1,200 chars is long — recommended ~400 cap + per-source opt-out + 21-day takedown; see docs/RESEARCH-EXCERPT-POLICY.md | pending owner sign-off |
+| Excerpt policy (implemented 2026-08-24, owner-approved) | content = min(excerptLimit, max(160, 10% of body)), default 400; 0 = link-out only; /publishers discloses the floor; see docs/RESEARCH-EXCERPT-POLICY.md | src/lib/aggregate.ts |
+| Subscribe via GitHub issue (2026-08-24) | No free RSS-to-email + $0/static: no-JS GET form → prefilled issue (subscribe.md; template param, NO labels param — permission 404 risk); beehiiv-hosted upgrade is a config switch; REPO_URL env lights it up | src/lib/subscribe.ts |
+| Trending = Planet lineage (2026-08-24) | tierWeight × 2^(−age/36h), 120h window, max 2/source — deterministic, zero analytics; HN-Algolia enrichment designed (free/no-key, verified) but deferred | src/lib/trending.ts |
 
 ## Open items / next steps
 
