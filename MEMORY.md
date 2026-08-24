@@ -2,15 +2,19 @@
 
 ## Status
 
-- **v0.3 complete & verified** (2026-08-24): working subscribe flow (no-JS GitHub issue form,
-  provider-switchable via src/lib/subscribe.ts; activates automatically when REPO_URL is set),
-  deterministic Trending (tier × 2^(−age/36h), 5-day window, max 2/source) alongside Latest,
-  excerpt policy live (min(400, max(160, 10%)) content, per-source excerptLimit incl. 0 =
-  link-out-only honored across every surface), /publishers opt-out & 21-day-takedown page,
-  mobile nav disclosure menu, RSS trailing-slash fix, TODO-OWNER link guards.
-  87 tests green, 910 pages, verifier-reviewed (2 rounds).
-- v0.2 (2026-08-21): in-site /read pages. v0.1: link-out model + verifier review
-  (docs/VERIFICATION.md).
+- **LIVE at https://sutradhar.nilukush.workers.dev** (Cloudflare Workers deploy, connected
+  2026-08-24). The full autonomous loop is proven: hourly Action → bot data commit
+  (73baf56) → CF rebuild. Canonical origin defaults to the workers.dev URL (SITE_URL flips
+  it when sutradhar.dev is registered — canonicals must never point at an unregistered domain).
+- **Publishing cadence (computed 2026-08-24 from the 829-article corpus)**: corpus-wide ~0.52
+  posts/day (92 posts/178 days); active sources median inter-post gaps ~6-28 days (freshworks
+  2.6d, meesho 6.9d, browserstack 5.9d, phonepe 12.6d, groww 15.1d, razorpay 18.8d); 6 of 16
+  sources dormant in 180d (hasura, wingify, jupiter, dream11, urban-company, +cred 1 post).
+  **Verdict: hourly polling stays** — Actions minutes are free on the public repo and builds
+  fire only on content change (~15 builds/month at any poll interval), so hourly buys ~30-min
+  mean freshness at $0 marginal cost.
+- v0.3 (2026-08-24): subscribe flow, trending, excerpt policy, /publishers, mobile nav,
+  RSS slash fix. v0.2: in-site /read pages. v0.1: link-out model (docs/VERIFICATION.md).
 
 ## Decisions (why)
 
@@ -43,7 +47,7 @@
 - [x] ~~Push to public GitHub repo~~ → **github.com/nilukush/sutradhar live (2026-08-24)**: CI green,
       aggregate workflow registered + manually validated (16/16 sources, 0 errors, commit-on-change
       works), subscribe form/footer/sameAs all live via the real repoUrl.
-- [ ] Connect Cloudflare Pages (build `pnpm build`, output `dist/`) — then **allow AI crawlers on the zone**
-- [ ] Register `sutradhar.dev`, set `SITE_URL` at build time
+- [x] ~~Connect Cloudflare~~ → **live via Workers deploy at sutradhar.nilukush.workers.dev** (build `pnpm build`, deploy `npx wrangler deploy`)
+- [ ] Register `sutradhar.dev`, add custom domain, set `SITE_URL=https://sutradhar.dev` in CF build env; verify AI crawlers allowed on the zone (Security → Bots)
 - [ ] Create beehiiv publication; switch subscribe provider in `src/lib/subscribe.ts`
 - [ ] Later: HN-Algolia trending enrichment; Meesho archive backfill; scraper adapters for Zerodha/ShareChat/Juspay; search (pagefind)
