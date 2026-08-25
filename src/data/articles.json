@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-08-25T07:14:08.002Z",
+  "generatedAt": "2026-08-25T20:51:05.108Z",
   "articles": [
+    {
+      "id": "4d3d535bab6593dd",
+      "title": "Stop Reacting to Data Problems. Here’s the Architecture That Prevents Them.",
+      "url": "https://medium.com/walmartglobaltech/stop-reacting-to-data-problems-heres-the-architecture-that-prevents-them-a274d54f624b",
+      "sourceId": "walmart-global-tech",
+      "publishedAt": "2026-08-25T20:22:17.000Z",
+      "excerpt": "Coauthored by Satyajeet Coordinating Data Evolution at Enterprise Scale When you operate data platforms on a global enterprise scale, hundreds of engineering teams ship improvements every week, each moving independently to deliver value at the pace of the business demands. This…",
+      "content": "Coauthored by Satyajeet Coordinating Data Evolution at Enterprise Scale When you operate data platforms on a global enterprise scale, hundreds of engineering teams ship improvements every week, each moving independently to deliver value at the pace of the business demands. This velocity is a competitive advantage. The challenge: How do you enable hundreds of teams to evolve their data products…",
+      "topics": [
+        "data-science",
+        "platform",
+        "scale"
+      ],
+      "authors": [
+        "Keerthipriyan"
+      ]
+    },
     {
       "id": "ce12abef7d04f05b",
       "title": "The Right Pixels: Optimising Images at Meesho’s Scale",
