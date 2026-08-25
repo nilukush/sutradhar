@@ -1,6 +1,25 @@
 {
-  "generatedAt": "2026-08-24T10:58:00.276Z",
+  "generatedAt": "2026-08-25T07:14:08.002Z",
   "articles": [
+    {
+      "id": "ce12abef7d04f05b",
+      "title": "The Right Pixels: Optimising Images at Meesho’s Scale",
+      "url": "https://www.meesho.io/blog/the-right-pixels-optimising-images-at-meeshos-scale",
+      "sourceId": "meesho",
+      "publishedAt": "2026-08-25T06:04:07.000Z",
+      "excerpt": "Client-side engineering lessons from optimizing billions of image loads every day in Meesho’s Android app. Within the Meesho app, images serve as the product surface itself rather than mere ornamentation. Users judge fabric, finish, colour, fit and detail through pixels, while…",
+      "content": "Client-side engineering lessons from optimizing billions of image loads every day in Meesho’s Android app. Within the Meesho app, images serve as the product…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "engineering",
+        "product-engineering"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
     {
       "id": "a3e61564425e4946",
       "title": "How Razorpay Cut Its Metrics Bill by 62% Without Losing a Dashboard",
