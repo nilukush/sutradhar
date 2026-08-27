@@ -11,6 +11,7 @@ import { SITE } from "@/lib/site";
  */
 const options = subscribeOptions();
 const repoReady = isRepoConfigured();
+const showApiForm = options.provider === "api-form" && !!options.action;
 const showForm = options.provider === "github-issue" && repoReady;
 const showEmbed = options.provider === "beehiiv-embed" && !!options.embedUrl;
 // Never render an empty href — that links to the current page (the original bug).
@@ -25,7 +26,27 @@ const fallbackLabel =
     : "Follow via RSS until the repo is live →";
 ---
 
-{showEmbed ? (
+{showApiForm ? (
+  <div class="apiform-wrap">
+    <form class="form" data-subscribe-form action={options.action} method="post">
+      <label class="visually-hidden" for="subscribe-email">Email address</label>
+      <input
+        id="subscribe-email"
+        class="input"
+        type="email"
+        name="email"
+        required
+        placeholder="you@example.com"
+        autocomplete="email"
+      />
+      <button class="button" type="submit" data-subscribe-button>Subscribe</button>
+    </form>
+    <p class="status meta" data-subscribe-status role="status"></p>
+    <noscript>
+      <p class="alt">Enable JavaScript to subscribe here, or use <a href="https://sutradhar.beehiiv.com">beehiiv</a>.</p>
+    </noscript>
+  </div>
+) : showEmbed ? (
   <div class="embed">
     <!-- beehiiv official embed: inline email capture, double opt-in and bot
          protection handled by beehiiv; embed.js auto-resizes the iframe. -->
@@ -67,9 +88,59 @@ const fallbackLabel =
   {options.provider === "github-issue" && repoReady && <span> · subscribe opens a pre-filled GitHub issue (no signup needed)</span>}
 </p>
 
+<script is:inline>
+  (function () {
+    var form = document.querySelector("[data-subscribe-form]");
+    if (!form) return;
+    var status = form.parentElement.querySelector("[data-subscribe-status]");
+    var button = form.querySelector("[data-subscribe-button]");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var email = form.querySelector("input[name=email]").value.trim();
+      status.textContent = "Subscribing…";
+      button.disabled = true;
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email }),
+      })
+        .then(function (res) {
+          return res.json().then(function (body) {
+            return { ok: res.ok && body.ok, error: body.error };
+          });
+        })
+        .then(function (result) {
+          if (result.ok) {
+            form.reset();
+            status.textContent = "✓ You're on the list — the next weekly thread lands in your inbox.";
+          } else {
+            status.textContent = result.error || "Something went wrong — please use the beehiiv link below.";
+          }
+        })
+        .catch(function () {
+          status.textContent = "Could not reach the subscription service — please use the beehiiv link below.";
+        })
+        .finally(function () {
+          button.disabled = false;
+        });
+    });
+  })();
+</script>
+
 <style>
   .embed {
     width: 100%;
+  }
+  .apiform-wrap {
+    width: 100%;
+  }
+  .status {
+    min-height: 1.2em;
+    margin: var(--space-2) 0 0;
+  }
+  .button:disabled {
+    opacity: 0.6;
+    cursor: wait;
   }
 </style>
 

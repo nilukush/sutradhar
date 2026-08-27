@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the existing deployed Worker so `wrangler deploy` updates it
+  // (sutradhar.nilukush.workers.dev) instead of creating a new one.
+  "name": "sutradhar",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-08-24",
+  "assets": {
+    "directory": "./dist"
+  },
+  // Non-secret config; secrets (BREVO_API_KEY, OWNER_EMAIL) are set in the
+  // Cloudflare dashboard under the Worker's Settings → Variables and Secrets.
+  "vars": {
+    "BREVO_LIST_NAME": "Sutradhar"
+  }
+}

@@ -1,16 +1,16 @@
 import { SITE } from "@/lib/site";
 
 /**
- * The single switch point for the newsletter subscribe flow. Swapping providers
- * is a config change here (plus, for embed providers, pasting embed markup into
- * the SubscribeForm slot) — never a component rewrite.
+ * The single switch point for the newsletter subscribe flow.
  *
- * Default: "beehiiv-hosted" once BEEHIIV_URL is set (owner is on beehiiv's
- * Launch plan — $0, 2,500 subscribers, unlimited sends; the best subscribe UX
- * AND the sending platform in one). Until then: "github-issue" — a plain GET
- * <form> to GitHub's new-issue page (zero backend, zero signup, zero JS).
+ * Default: "api-form" — an inline email form on our site posting to the
+ * Cloudflare Worker (/api/subscribe), which stores subscribers in Brevo
+ * (free, permanent) and emails the owner on every signup. Weekly sending is
+ * fully automated via the newsletter workflow (Brevo campaign API).
+ * Override with SUBSCRIBE_PROVIDER=beehiiv-embed|beehiiv-hosted|github-issue.
  */
 export type SubscribeProvider =
+  | "api-form"
   | "github-issue"
   | "beehiiv-hosted"
   | "beehiiv-embed"
@@ -66,9 +66,19 @@ export function isRepoConfigured(repoUrl: string = SITE.repoUrl): boolean {
 export function subscribeOptions(override: SubscribeOverride = {}): SubscribeOptions {
   const beehiivUrl = override.beehiivUrl ?? beehiivUrlFromEnv();
   const embedUrl = beehiivEmbedUrlFromEnv();
-  // Inline embed > hosted page > zero-config GitHub form.
-  const provider = override.provider ?? (embedUrl ? "beehiiv-embed" : beehiivUrl ? "beehiiv-hosted" : "github-issue");
+  const envProvider = process.env.SUBSCRIBE_PROVIDER as SubscribeProvider | undefined;
+  const provider = override.provider ?? envProvider ?? "api-form";
   const fallbacks = { rss: "/rss.xml" };
+
+  if (provider === "api-form") {
+    return {
+      provider,
+      method: "post",
+      action: "/api/subscribe",
+      fields: { title: "", template: "" },
+      fallbacks,
+    };
+  }
 
   if (provider === "beehiiv-embed") {
     return {

@@ -1,0 +1,31 @@
+name: Weekly newsletter send
+
+# Fully automated sending (owner cannot send manually): every Monday 09:07 IST
+# (03:37 UTC — off the top of the hour), send the last COMPLETED ISO week's
+# digest to the Brevo list. Idempotent; manual dispatch supported.
+on:
+  schedule:
+    - cron: "37 3 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: newsletter
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run send:newsletter
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          OWNER_EMAIL: ${{ secrets.OWNER_EMAIL }}

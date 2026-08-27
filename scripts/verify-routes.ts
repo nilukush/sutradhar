@@ -84,7 +84,7 @@ const checks: [string, boolean][] = [
   ["llms.txt lists sources", readFileSync(resolve(dist, "llms.txt"), "utf8").includes("## Sources")],
   ["rss links are absolute", rss.includes(`${SITE.url}/read/`)],
   ["rss links match slashless canonicals", !new RegExp(`<link>${SITE.url.replaceAll(".", "\\.")}/read/[^<]+/</link>`).test(rss)],
-  ["newsletter subscribes via beehiiv (or a working fallback)", newsletter.includes('href="https://sutradhar.beehiiv.com"') || newsletter.includes('method="get" action="https://github.com') || newsletter.includes('class="button" href="/rss.xml"')],
+  ["newsletter subscribes via inline form (or a working fallback)", newsletter.includes('action="/api/subscribe"') || newsletter.includes('href="https://sutradhar.beehiiv.com"') || newsletter.includes('method="get" action="https://github.com')],
   ["no TODO-OWNER link in home", !home.includes('href="https://github.com/TODO-OWNER')],
 ];
 const failed = checks.filter(([, ok]) => !ok);

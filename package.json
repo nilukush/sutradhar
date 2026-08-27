@@ -12,6 +12,7 @@
     "test:watch": "vitest",
     "fetch": "tsx scripts/fetch-feeds.ts",
     "digest:email": "tsx scripts/digest-email.ts",
+    "send:newsletter": "tsx scripts/send-newsletter.ts",
     "verify:routes": "tsx scripts/verify-routes.ts"
   },
   "dependencies": {
