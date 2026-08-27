@@ -44,6 +44,19 @@
 
 ## Open items / next steps
 
+- [ ] **Inline embed activation**: owner creates a subscribe form in beehiiv
+  (**Subscribers → Subscribe forms** — NOT "Forms/Grow"; older tutorials mislead) and provides
+  the `https://subscribe-forms.beehiiv.com/<uuid>` URL → set as `BEEHIIV_EMBED_URL` build env
+  (or baked in src/lib/subscribe.ts) → on-site email capture goes live. Code shipped 2026-08-27
+  (96 tests; embed > hosted > GitHub precedence). Until then the site links to
+  sutradhar.beehiiv.com (current live state).
+- [x] ~~Automated sending research~~ → docs/RESEARCH-NEWSLETTER-AUTOMATION.md: Launch has NO
+  auto-sending (manual broadcast + schedule ≈2 min/week; RSS-to-Send/Send-API are Max-only).
+  Fully-automated $0 (Sender.net 2,500 subs/15k mo, or Brevo 300/day via Action+Worker) is
+  documented but rejected for now: no-domain → shared-DKIM deliverability hit, unsubscribe/DPDP
+  compliance becomes our code, free tiers shrink (SendGrid free retired 2025). Frequency
+  decision: **weekly**. Revisit only if the paste becomes painful or list nears 2,500.
+
 - [x] ~~Subscribe UX~~ → **beehiiv Launch wired & live (24 Aug 2026)**: owner confirmed
   Launch plan is genuinely $0 (the 14-day screen is the Scale-trial upsell — decline it).
   Publication: **https://sutradhar.beehiiv.com**. Subscribe buttons site-wide link there
