@@ -42,12 +42,20 @@ Honest caveats (why we're NOT doing this now):
 2. Unsubscribe + DPDP Act 2023 consent-withdrawal machinery becomes our code (§6 duty).
 3. ESP free tiers shrink (MailerLite 1,000→500→250 subs in 2025); architecture must stay portable.
 
-## Decision (2026-08-27)
+## Decision (REVISED 2026-08-27 — same day, owner directive)
 
-- **Capture**: beehiiv inline embed (as soon as the form UUID is provided) — on-site UX the
-  owner asked for.
-- **Sending**: manual weekly paste on beehiiv Launch (≈2 min/week) — keeps authenticated
-  delivery, CAN-SPAM footer, unsubscribe handling, all free. Frequency: **weekly** (matches
-  digest cadence; corpus ≈0.5 posts/day).
-- **Revisit** the Sender.net automated path only if the weekly paste becomes genuinely painful
-  or the list approaches 2,500.
+Owner cannot send manually ("I am sorry I cannot send newsletter manually"). beehiiv cannot
+auto-send below Max, so the manual-paste option is dead. **Adopted: the automated Brevo path**
+(previously listed as fallback):
+
+- **Capture**: inline form on our site → CF Worker `/api/subscribe` → Brevo contacts
+  ("Sutradhar" list auto-created) + instant owner notification email per signup.
+- **Sending**: weekly GitHub Action (Mon 03:37 UTC) → Brevo classic campaign of the last
+  completed ISO week (unsubscribe footer + List-Unsubscribe automatic; idempotent).
+- **Visibility**: Brevo dashboard (Contacts), owner notification emails, Actions run logs.
+- Accepted caveats: shared-DKIM deliverability (no domain), 300 emails/day cap (campaigns to
+  larger lists roll over days), Brevo sender must remain confirmed, free-tier portability risk
+  (list stays exportable; `send:newsletter` is ESP-swappable by design).
+- beehiiv publication retained as fallback capture (SUBSCRIBE_PROVIDER=beehiiv-embed/hosted).
+
+The original 2026-08-27 morning decision (manual paste) is superseded; see git history.

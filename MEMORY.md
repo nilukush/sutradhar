@@ -44,18 +44,26 @@
 
 ## Open items / next steps
 
-- [ ] **Inline embed activation**: owner creates a subscribe form in beehiiv
-  (**Subscribers → Subscribe forms** — NOT "Forms/Grow"; older tutorials mislead) and provides
-  the `https://subscribe-forms.beehiiv.com/<uuid>` URL → set as `BEEHIIV_EMBED_URL` build env
-  (or baked in src/lib/subscribe.ts) → on-site email capture goes live. Code shipped 2026-08-27
-  (96 tests; embed > hosted > GitHub precedence). Until then the site links to
-  sutradhar.beehiiv.com (current live state).
-- [x] ~~Automated sending research~~ → docs/RESEARCH-NEWSLETTER-AUTOMATION.md: Launch has NO
-  auto-sending (manual broadcast + schedule ≈2 min/week; RSS-to-Send/Send-API are Max-only).
-  Fully-automated $0 (Sender.net 2,500 subs/15k mo, or Brevo 300/day via Action+Worker) is
-  documented but rejected for now: no-domain → shared-DKIM deliverability hit, unsubscribe/DPDP
-  compliance becomes our code, free tiers shrink (SendGrid free retired 2025). Frequency
-  decision: **weekly**. Revisit only if the paste becomes painful or list nears 2,500.
+- [ ] **OWNER SETUP (blocking full automation, ~10 min, 2026-08-27)**:
+  1. Create free Brevo account (brevo.com — free plan is permanent, 300 emails/day, no card);
+     confirm the sender email (their gmail) when Brevo sends the validation link.
+  2. Brevo → SMTP & API → API Keys → generate a v3 key.
+  3. Cloudflare dashboard → Workers → sutradhar → Settings → Variables and Secrets → add
+     `BREVO_API_KEY` (secret) and `OWNER_EMAIL` (their email).
+  4. GitHub repo → Settings → Secrets and variables → Actions → add `BREVO_API_KEY` and
+     `OWNER_EMAIL`.
+  5. Redeploy the Worker (any push, or Run workflow) — /api/subscribe activates; the Monday
+     workflow then runs fully hands-off. (Until the key exists the API correctly returns 503
+     and the form falls back to beehiiv/RSS links.)
+- [x] ~~Automated newsletter~~ → **shipped 2026-08-27 (commit 33d1fe2)**: owner cannot send
+  manually → beehiiv dropped as primary (Send API is Max-only). Now: inline form on site →
+  Worker /api/subscribe → Brevo contacts ("Sutradhar" list auto-created) + owner notified by
+  email on every signup; weekly GitHub Action (Mon 03:37 UTC) sends the last completed ISO
+  week as a Brevo classic campaign (unsubscribe footer auto; idempotent by campaign name).
+  wrangler.jsonc + worker/ now drive the CF deploy (assets + API, verified live). Provider
+  switch: SUBSCRIBE_PROVIDER env (api-form | beehiiv-embed | beehiiv-hosted | github-issue).
+  Caveats accepted: shared-DKIM deliverability (no domain), 300/day cap, Brevo sender must
+  stay confirmed. beehiiv publication kept as fallback capture path.
 
 - [x] ~~Subscribe UX~~ → **beehiiv Launch wired & live (24 Aug 2026)**: owner confirmed
   Launch plan is genuinely $0 (the 14-day screen is the Scale-trial upsell — decline it).
