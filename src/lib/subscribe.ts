@@ -13,6 +13,7 @@ import { SITE } from "@/lib/site";
 export type SubscribeProvider =
   | "github-issue"
   | "beehiiv-hosted"
+  | "beehiiv-embed"
   | "mailto";
 
 /**
@@ -24,6 +25,17 @@ function beehiivUrlFromEnv(): string {
   return process.env.BEEHIIV_URL ?? "https://sutradhar.beehiiv.com";
 }
 
+/**
+ * Inline embed form URL (https://subscribe-forms.beehiiv.com/<form-uuid>) —
+ * set BEEHIIV_EMBED_URL once a subscribe form is created in the beehiiv
+ * dashboard (Subscribers → Subscribe forms). The embed renders the email
+ * capture directly on our site: enter email → click → done, no redirect.
+ * Takes precedence over the hosted page when both are configured.
+ */
+function beehiivEmbedUrlFromEnv(): string {
+  return process.env.BEEHIIV_EMBED_URL ?? "";
+}
+
 export interface SubscribeOverride {
   provider?: SubscribeProvider;
   /** e.g. https://<publication>.beehiiv.com */
@@ -32,11 +44,13 @@ export interface SubscribeOverride {
 
 export interface SubscribeOptions {
   provider: SubscribeProvider;
-  /** "get" = no-JS form to GitHub; "link" = plain anchor; */
-  method: "get" | "link";
+  /** "get" = no-JS form to GitHub; "link" = plain anchor; "embed" = inline iframe form. */
+  method: "get" | "link" | "embed";
   /** Form action (github-issue) or link href (beehiiv-hosted). */
   action?: string;
   href?: string;
+  /** beehiiv embed iframe src (beehiiv-embed). */
+  embedUrl?: string;
   fields: { title: string; template: string };
   fallbacks: { rss: string };
 }
@@ -51,9 +65,20 @@ export function isRepoConfigured(repoUrl: string = SITE.repoUrl): boolean {
 
 export function subscribeOptions(override: SubscribeOverride = {}): SubscribeOptions {
   const beehiivUrl = override.beehiivUrl ?? beehiivUrlFromEnv();
-  // beehiiv once configured; the zero-config GitHub form until then.
-  const provider = override.provider ?? (beehiivUrl ? "beehiiv-hosted" : "github-issue");
+  const embedUrl = beehiivEmbedUrlFromEnv();
+  // Inline embed > hosted page > zero-config GitHub form.
+  const provider = override.provider ?? (embedUrl ? "beehiiv-embed" : beehiivUrl ? "beehiiv-hosted" : "github-issue");
   const fallbacks = { rss: "/rss.xml" };
+
+  if (provider === "beehiiv-embed") {
+    return {
+      provider,
+      method: "embed",
+      embedUrl,
+      fields: { title: "", template: "" },
+      fallbacks,
+    };
+  }
 
   if (provider === "beehiiv-hosted") {
     return {

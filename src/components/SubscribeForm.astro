@@ -12,8 +12,9 @@ import { SITE } from "@/lib/site";
 const options = subscribeOptions();
 const repoReady = isRepoConfigured();
 const showForm = options.provider === "github-issue" && repoReady;
+const showEmbed = options.provider === "beehiiv-embed" && !!options.embedUrl;
 // Never render an empty href — that links to the current page (the original bug).
-const href = showForm
+const href = showForm || showEmbed
   ? undefined
   : options.provider === "beehiiv-hosted"
     ? options.href || options.fallbacks.rss
@@ -24,7 +25,23 @@ const fallbackLabel =
     : "Follow via RSS until the repo is live →";
 ---
 
-{showForm ? (
+{showEmbed ? (
+  <div class="embed">
+    <!-- beehiiv official embed: inline email capture, double opt-in and bot
+         protection handled by beehiiv; embed.js auto-resizes the iframe. -->
+    <script is:inline async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+    <iframe
+      class="beehiiv-embed"
+      data-test-id="beehiiv-embed"
+      src={options.embedUrl}
+      title="Subscribe to the Sutradhar newsletter"
+      frameborder="0"
+      scrolling="no"
+      loading="lazy"
+      style="width:100%;height:88px;border:0;border-radius:var(--radius-sm);background:transparent;max-width:100%;"
+    ></iframe>
+  </div>
+) : showForm ? (
   <form class="form" method="get" action={options.action}>
     <input type="hidden" name="template" value={options.fields.template} />
     <input type="hidden" name="title" value={options.fields.title} />
@@ -49,6 +66,12 @@ const fallbackLabel =
   Prefer a feed? <a href="/rss.xml">RSS</a> · <a href="/feed.json">JSON Feed</a>
   {options.provider === "github-issue" && repoReady && <span> · subscribe opens a pre-filled GitHub issue (no signup needed)</span>}
 </p>
+
+<style>
+  .embed {
+    width: 100%;
+  }
+</style>
 
 <style>
   .form {

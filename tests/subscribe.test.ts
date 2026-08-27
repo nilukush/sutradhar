@@ -41,6 +41,21 @@ describe("subscribe config (provider switch is config-only)", () => {
     expect(options.href).toBe("https://x.beehiiv.com");
     expect(options.method).toBe("link");
   });
+
+  it("activates the INLINE embed form when BEEHIIV_EMBED_URL is set (on-site email capture)", () => {
+    vi.stubEnv("BEEHIIV_EMBED_URL", "https://subscribe-forms.beehiiv.com/959170e9-d626-4fb5-8616-c135e5dbf694");
+    const options = subscribeOptions();
+    expect(options.provider).toBe("beehiiv-embed");
+    expect(options.method).toBe("embed");
+    expect(options.embedUrl).toBe("https://subscribe-forms.beehiiv.com/959170e9-d626-4fb5-8616-c135e5dbf694");
+  });
+
+  it("embed takes precedence over the hosted page when both are configured", () => {
+    vi.stubEnv("BEEHIIV_EMBED_URL", "https://subscribe-forms.beehiiv.com/abc");
+    const options = subscribeOptions();
+    expect(options.provider).toBe("beehiiv-embed");
+    expect(options.href).toBeUndefined();
+  });
 });
 
 describe("isRepoConfigured", () => {
