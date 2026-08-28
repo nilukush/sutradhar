@@ -98,3 +98,33 @@ describe("TIER_WEIGHTS", () => {
     expect(TIER_WEIGHTS[1]).toBeGreaterThan(TIER_WEIGHTS[2]);
   });
 });
+
+describe("trending with HN enrichment", () => {
+  const NOW = new Date("2026-08-28T12:00:00.000Z");
+  const mk = (id: string, hn?: { points: number; comments: number; storyId: string; matchedAt: string }) =>
+    ({
+      id,
+      title: `Story ${id}`,
+      url: `https://x.example/${id}`,
+      sourceId: "alpha",
+      publishedAt: "2026-08-28T06:00:00.000Z",
+      excerpt: "x",
+      content: "",
+      topics: ["engineering"],
+      authors: [],
+      ...(hn ? { hn } : {}),
+    }) as import("@/lib/schema").Article;
+  const srcs = [{ id: "alpha", name: "A", siteUrl: "https://x.example", tier: 1, topics: [], feed: { type: "rss", url: "https://x.example/f" }, platform: "custom" }] as import("@/lib/schema").Source[];
+
+  it("an HN-discussed story outranks an identical story without signal", () => {
+    const boosted = mk("aaaa000000000001", { points: 100, comments: 10, storyId: "hn1", matchedAt: NOW.toISOString() });
+    const plain = mk("bbbb000000000002");
+    const out = trendingArticles([plain, boosted], srcs, { now: NOW });
+    expect(out[0]?.id).toBe("aaaa000000000001");
+  });
+
+  it("HN boost never rescues an article outside the eligibility window", () => {
+    const old = { ...mk("cccc000000000003", { points: 900, comments: 1, storyId: "hn2", matchedAt: NOW.toISOString() }), publishedAt: "2026-08-01T00:00:00.000Z" };
+    expect(trendingArticles([old], srcs, { now: NOW })).toEqual([]);
+  });
+});

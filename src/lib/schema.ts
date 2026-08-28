@@ -41,6 +41,11 @@ export const FeedSchema = z.discriminatedUnion("type", [
     ghostKey: z.string().min(8),
     urlRewrite: z.tuple([z.string().min(1), z.string().min(1)]).optional(),
   }),
+  z.object({
+    /** HTML scraper (see src/lib/scrapers.ts) — Juspay has no feed of any kind. */
+    type: z.literal("juspay"),
+    url: z.url(),
+  }),
 ]);
 
 export const SourceSchema = z.object({
@@ -76,6 +81,18 @@ export const ArticleSchema = z.object({
   content: z.string().max(1600).default(""),
   topics: z.array(TopicSchema),
   authors: z.array(z.string()).default([]),
+  /**
+   * Hacker News engagement snapshot (enriched at fetch time via hn.algolia.com,
+   * window-scoped; drives the trending boost). Absent = no HN signal.
+   */
+  hn: z
+    .object({
+      points: z.number().int().min(0),
+      comments: z.number().int().min(0),
+      storyId: z.string().min(1),
+      matchedAt: z.iso.datetime(),
+    })
+    .optional(),
 });
 export type Article = z.infer<typeof ArticleSchema>;
 

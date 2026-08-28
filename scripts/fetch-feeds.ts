@@ -12,6 +12,7 @@ import { resolve } from "node:path";
 import { SOURCES } from "../src/data/sources";
 import { fetchAllSources } from "../src/lib/pipeline";
 import { mergeArticles } from "../src/lib/aggregate";
+import { enrichWithHn } from "../src/lib/hn";
 import { CorpusSchema } from "../src/lib/schema";
 
 const root = resolve(fileURLToPath(import.meta.url), "../..");
@@ -46,12 +47,20 @@ async function main() {
   for (const e of errors) console.warn(`  ✗ ${e.sourceId}: ${e.error}`);
 
   const merged = mergeArticles(existing.articles, articles);
+  // HN enrichment (trending boost): window-scoped snapshot per fetch run. A
+  // points change alone must still count as "changed" or boosts would never
+  // persist through quiet publishing periods.
+  const enriched = await enrichWithHn(merged.articles);
+  const hnChanged =
+    JSON.stringify(enriched.map((a) => [a.id, a.hn])) !==
+    JSON.stringify(existing.articles.map((a) => [a.id, a.hn]));
+  const changed = merged.changed || hnChanged;
   console.log(
-    `fetched=${articles.length} existing=${existing.articles.length} merged=${merged.articles.length} changed=${merged.changed} errors=${errors.length}`,
+    `fetched=${articles.length} existing=${existing.articles.length} merged=${merged.articles.length} changed=${changed} errors=${errors.length}`,
   );
 
-  if (!dryRun && merged.changed) {
-    const corpus = { generatedAt: new Date().toISOString(), articles: merged.articles };
+  if (!dryRun && changed) {
+    const corpus = { generatedAt: new Date().toISOString(), articles: enriched };
     // Atomic write: a runner killed mid-write must never leave a truncated corpus.
     const tmpPath = corpusPath + ".tmp";
     writeFileSync(tmpPath, JSON.stringify(corpus, null, 2) + "\n", "utf8");
@@ -60,7 +69,7 @@ async function main() {
   }
 
   if (process.env.GITHUB_OUTPUT) {
-    appendFileSync(process.env.GITHUB_OUTPUT, `changed=${merged.changed ? "true" : "false"}\n`);
+    appendFileSync(process.env.GITHUB_OUTPUT, `changed=${changed ? "true" : "false"}\n`);
   }
 
   if (errors.length === SOURCES.length) {

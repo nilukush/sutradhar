@@ -1,9 +1,11 @@
 import type { Article, Source } from "@/lib/schema";
+import { hnBoost } from "@/lib/hn";
 
 /**
  * Deterministic trending — the Planet-lineage pattern (recency + source weight +
- * diversity cap), computable in the hourly build with zero analytics.
- * Optional future plug-in: HN-points multiplier via hn.algolia.com (free, no key).
+ * diversity cap), computable in the hourly build with zero analytics. An optional
+ * HN-points multiplier (hn.algolia.com enrichment, attached at fetch time) boosts
+ * stories with real discussion — conservative log scale, capped at ×5.
  */
 export const TIER_WEIGHTS: Record<1 | 2, number> = { 1: 1.5, 2: 1.0 };
 
@@ -17,11 +19,11 @@ export const HALF_LIFE_H = 36;
  */
 export const WINDOW_H = 240;
 
-/** score = tierWeight × 2^(−age/36h); 0 outside the window. */
+/** score = tierWeight × 2^(−age/36h) × hnBoost; 0 outside the window. */
 export function trendingScore(article: Article, source: Source, now: Date): number {
   const ageH = (now.getTime() - new Date(article.publishedAt).getTime()) / 3_600_000;
   if (Number.isNaN(ageH) || ageH < 0 || ageH > WINDOW_H) return 0;
-  return TIER_WEIGHTS[source.tier] * Math.pow(2, -ageH / HALF_LIFE_H);
+  return TIER_WEIGHTS[source.tier] * Math.pow(2, -ageH / HALF_LIFE_H) * hnBoost(article.hn?.points);
 }
 
 export interface TrendingOptions {
