@@ -91,7 +91,7 @@ describe("sendWeeklyCampaign (Brevo)", () => {
       .mockResolvedValueOnce(jsonResponse({ id: 12 }, 201)) // create list
       .mockResolvedValueOnce(jsonResponse({ campaigns: [] }, 200))
       .mockResolvedValueOnce(jsonResponse({ id: 556 }, 201))
-      .mockResolvedValueOnce(jsonResponse({}, 204));
+      .mockResolvedValueOnce(new Response(null, { status: 204 }));
     const result = await sendWeeklyCampaign(weekly, email, ENV, fetchImpl);
     expect(result.sent).toBe(true);
     expect(JSON.parse(fetchImpl.mock.calls[2]![1].body)).toEqual({ name: "Sutradhar", folderId: 3 });
