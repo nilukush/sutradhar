@@ -72,3 +72,22 @@ lastBuildDate, llms publishers link, robots Perplexity-User, topic/source pagina
 (data-aware), h2 card titles. **Gates: 128 tests · 981 pages · verify:routes green.**
 Build gotcha recorded in MEMORY.md: module consts are invisible to getStaticPaths in
 the prerender bundle — pageSize must be a literal.
+
+### On-site search (2026-08-28, third deploy)
+
+Pagefind (v1.5.2) chained into `pnpm build`; /search page with `?q=` deep links,
+debounced input, noscript fallback. Index scoped via `data-pagefind-body` on `<main>`:
+847 pages (832 /read + about/publishers/newsletter/digest/topics/sources indexes);
+home + card-grid hubs opt out (`searchable={false}`) so stories dominate results.
+WebSite JSON-LD gained a SearchAction → `/search?q={search_term_string}`; "Search"
+added to the header nav. Gate: +2 required routes (search page, pagefind.js), +2
+checks (SearchAction, search input) — RED-proven before implementation.
+
+Functional verification (Playwright against `wrangler dev`): "kubernetes" → 27 hits,
+"hasura" → 20 story results with real titles + `/read/` links + marked excerpts;
+**0 console errors**. Real-browser testing caught three CSP regressions invisible to
+curl checks — all fixed + regression-tested: @fontsource data-URI fonts (`font-src
+'self' data:` — production fonts had silently broken in the P3 deploy), pagefind
+WASM (`'wasm-unsafe-eval'`), and Vite's `__VITE_PRELOAD__` wrapper around static
+dynamic imports (search script is now `is:inline`). Result URLs keep pagefind's
+trailing slash; the serving layer 307s them onto the slashless canonicals.

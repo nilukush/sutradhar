@@ -31,12 +31,14 @@ const required: string[] = [
   "about/index.html",
   "newsletter/index.html",
   "publishers/index.html",
+  "search/index.html",
   "404.html",
   "rss.xml",
   "feed.json",
   "robots.txt",
   "llms.txt",
   "sitemap-index.xml",
+  "pagefind/pagefind.js",
   ...sourceIds.map((id) => `sources/${id}/index.html`),
 ];
 
@@ -127,6 +129,8 @@ const checks: [string, boolean][] = [
   ["topic hubs paginate when the corpus warrants it", topicPage2],
   ["source hubs paginate when the corpus warrants it", sourcePage2],
   ["card titles use h2 on grids that follow the h1 directly", articles2.includes('<h2 class="card-title')],
+  ["home declares a SearchAction pointing at /search", home.includes("SearchAction") && home.includes("/search?q=")],
+  ["search page renders a search input", readFileSync(resolve(dist, "search/index.html"), "utf8").includes('type="search"')],
 ];
 const failed = checks.filter(([, ok]) => !ok);
 if (failed.length > 0) {

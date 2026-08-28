@@ -17,10 +17,10 @@ function isLocalHost(hostname: string): boolean {
 
 /**
  * Security headers applied to every response (SEO-GEO-AUDIT P3). The site is
- * zero-dependency static HTML: one stylesheet + self-hosted fonts, a single
- * inline theme script, inline JSON-LD, and a same-origin subscribe fetch.
- * frame-src whitelists the beehiiv-embed fallback provider (unused today,
- * provider-switchable via SUBSCRIBE_PROVIDER).
+ * near-zero-JS: one stylesheet + self-hosted fonts, an inline theme script,
+ * inline JSON-LD, a same-origin subscribe fetch — plus the /search page's
+ * bundled script and the pagefind index (both same-origin files).
+ * frame-src whitelists the beehiiv-embed fallback provider.
  */
 const SECURITY_HEADERS: Record<string, string> = {
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
@@ -29,9 +29,9 @@ const SECURITY_HEADERS: Record<string, string> = {
   "X-Frame-Options": "SAMEORIGIN",
   "Content-Security-Policy": [
     "default-src 'none'",
-    "script-src 'unsafe-inline'",
+    "script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'",
     "style-src 'self' 'unsafe-inline'",
-    "font-src 'self'",
+    "font-src 'self' data:",
     "img-src 'self'",
     "connect-src 'self'",
     "frame-src 'self' https://sutradhar.beehiiv.com",

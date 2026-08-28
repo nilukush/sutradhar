@@ -21,9 +21,11 @@ interface Props {
   ogType?: "website" | "article";
   /** ISO timestamp for article:published_time when ogType is "article". */
   publishedTime?: string;
+  /** Include this page's <main> in the pagefind search index (search opts out). */
+  searchable?: boolean;
 }
 
-const { title, description = SITE.description, jsonLd = [], ogType = "website", publishedTime } = Astro.props;
+const { title, description = SITE.description, jsonLd = [], ogType = "website", publishedTime, searchable = true } = Astro.props;
 const canonical = canonicalFor(Astro.url.pathname);
 
 const baseJsonLd: Record<string, unknown>[] = [
@@ -35,6 +37,14 @@ const baseJsonLd: Record<string, unknown>[] = [
     url: SITE.url,
     description: SITE.description,
     inLanguage: "en-IN",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE.url}/search?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   },
   {
     "@context": "https://schema.org",
@@ -90,7 +100,7 @@ const allJsonLd = [...baseJsonLd, ...jsonLd];
   </head>
   <body>
     <SiteHeader />
-    <main id="main">
+    <main id="main" data-pagefind-body={searchable ? "" : undefined}>
       <slot />
     </main>
     <SiteFooter />

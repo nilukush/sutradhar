@@ -58,7 +58,7 @@ const itemList = {
 };
 ---
 
-<Base title={title} description={description} jsonLd={[itemList]}>
+<Base title={title} description={description} jsonLd={[itemList]} searchable={false}>
   <div class="container section">
     <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Topics", href: "/topics" }, { label }]} currentUrl={canonicalFor(Astro.url.pathname)} />
     <h1>{label}</h1>

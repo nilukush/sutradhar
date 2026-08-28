@@ -85,6 +85,18 @@ describe("worker entry (serving layer)", () => {
       expect(res.headers.get("x-content-type-options")).toBe("nosniff");
     });
 
+    it("CSP allows same-origin script files (search page bundle + pagefind index)", async () => {
+      const assets = vi.fn().mockReturnValue(new Response("<html>ok</html>", { headers: { "Content-Type": "text/html" } }));
+      const res = await worker.fetch(new Request(`https://${HOST}/search`), makeEnv(assets));
+      expect(res.headers.get("content-security-policy")).toContain("script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'");
+    });
+
+    it("CSP allows data-URI fonts (@fontsource inlines small subsets as base64)", async () => {
+      const assets = vi.fn().mockReturnValue(new Response("<html>ok</html>", { headers: { "Content-Type": "text/html" } }));
+      const res = await worker.fetch(new Request(`https://${HOST}/`), makeEnv(assets));
+      expect(res.headers.get("content-security-policy")).toContain("font-src 'self' data:");
+    });
+
     it("appends charset=utf-8 to text/html responses missing it", async () => {
       const assets = vi.fn().mockReturnValue(new Response("<html>ok</html>", { headers: { "Content-Type": "text/html" } }));
       const res = await worker.fetch(new Request(`https://${HOST}/`), makeEnv(assets));

@@ -26,6 +26,11 @@
   /publishers + corpus date, robots newer agents, h2 card titles on grids, publishers
   copy bounds, topic+source hub pagination 48/page — 913→981 pages). verify:routes now
   carries 19 audit-derived checks.
+- On-site search shipped 2026-08-28 (pagefind, the pre-decided $0 tool): /search page
+  (client-side, ?q= deep links), 847-page index (832 /read + info/digest pages; grid
+  pages de-indexed so stories dominate results), WebSite SearchAction JSON-LD, Search
+  in header nav. Functionally verified in a real browser (27 hits for "kubernetes",
+  20 for "hasura", 0 console errors). Index = 5.9 MB static assets, lazy-loaded.
 - wrangler is OAuth-authenticated on the owner's Mac (login 2026-08-28). Secret changes:
   `printf '%s' "$VALUE" | npx wrangler secret put NAME` (pipe, never echo). Runtime secrets
   now: BREVO_API_KEY, OWNER_EMAIL (+ BREVO_LIST_NAME text var from wrangler.jsonc).
@@ -50,6 +55,12 @@
 - **Astro gotcha: module-level consts are NOT visible inside getStaticPaths in the
   prerender bundle** ("PAGE_SIZE is not defined" at build) — pageSize and siblings
   must be literals in the paginate() call. Render body consts are fine.
+- **CSP gotchas found by real-browser testing (curl-only checks miss all three):**
+  (1) @fontsource inlines small font subsets as data: URIs → `font-src 'self' data:`
+  required, else fonts silently fall back to system fonts; (2) pagefind's engine is
+  WASM → `script-src` needs `'wasm-unsafe-eval'`; (3) Vite wraps static-specifier
+  dynamic imports (`import("/pagefind/pagefind.js")`) in a `__VITE_PRELOAD__` helper
+  that throws at runtime — use an `is:inline` script for build-artifact imports.
 - **Wrangler 4.x (4.127.0 confirmed) does NOT inject an ASSETS binding unless the
   assets block declares `"binding": "ASSETS"` explicitly** — without it the Worker
   sees env.ASSETS undefined and every non-asset request dies as 500 error 1101.
@@ -88,4 +99,4 @@
       Builds → Variables and secrets (BREVO_API_KEY, OWNER_EMAIL — now redundant runtime
       Secrets exist; removing kills the only plaintext display of the key).
 - [ ] Later: HN-Algolia trending enrichment; Meesho archive backfill; scraper adapters for
-      Zerodha/ShareChat/Juspay; on-site search (pagefind).
+      Zerodha/ShareChat/Juspay. (On-site search shipped 2026-08-28.)

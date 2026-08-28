@@ -1,0 +1,194 @@
+---
+import Base from "@/layouts/Base.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import { ARTICLES, canonicalFor } from "@/lib/view";
+import { SITE } from "@/lib/site";
+
+// The search page itself opts out of the pagefind index (its content is an
+// input, not a story); results come from the index built over every other
+// page's <main> at build time.
+---
+
+<Base
+  title={`Search — ${SITE.name}`}
+  description={`Search ${ARTICLES.length} engineering stories from India's tech company blogs — by title, topic, source or excerpt.`}
+  searchable={false}
+>
+  <div class="container section">
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Search" }]} currentUrl={canonicalFor("/search")} />
+    <h1>Search</h1>
+    <p class="prose">Every engineering story from India, one query away — {ARTICLES.length} stories across all sources.</p>
+
+    <form id="search-form" role="search" action="/search" method="get">
+      <label class="visually-hidden" for="search-input">Search stories</label>
+      <input
+        id="search-input"
+        class="search-input"
+        type="search"
+        name="q"
+        placeholder="Search stories, topics, sources…"
+        autocomplete="off"
+        autofocus
+      />
+    </form>
+
+    <p id="search-status" class="meta status" aria-live="polite"></p>
+    <ul id="search-results" class="results"></ul>
+
+    <noscript>
+      <p class="meta">Search runs in your browser — enable JavaScript to use it. The <a href="/articles">full archive</a> and <a href="/topics">topic hubs</a> work without it.</p>
+    </noscript>
+  </div>
+</Base>
+
+<script is:inline>
+  // is:inline on purpose: the pagefind dynamic import must stay untouched —
+  // the bundler's preload wrapper around static specifiers throws at runtime,
+  // and /pagefind/* is a build artifact, not a bundleable module.
+  (function () {
+    var form = document.getElementById("search-form");
+    var input = document.getElementById("search-input");
+    var status = document.getElementById("search-status");
+    var resultsList = document.getElementById("search-results");
+
+    var ESCAPE = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
+    function escapeHtml(s) {
+      return s.replace(/[&<>"]/g, function (c) {
+        return ESCAPE[c];
+      });
+    }
+
+    var pagefind = null;
+    function ensureIndex() {
+      if (!pagefind) {
+        pagefind = import("/pagefind/pagefind.js").then(function (pf) {
+          pagefind = pf;
+          return pf;
+        });
+      }
+      return Promise.resolve(pagefind);
+    }
+
+    function render(query, data) {
+      status.textContent = data.length > 0
+        ? data.length + " result" + (data.length === 1 ? "" : "s") + " for \u201C" + query + "\u201D"
+        : "No results for \u201C" + query + "\u201D \u2014 try a topic or source name.";
+      for (var i = 0; i < data.length; i++) {
+        var item = data[i];
+        var li = document.createElement("li");
+        // Pagefind excerpts carry <mark> highlighting and originate from our
+        // own build output; titles are escaped defensively regardless.
+        li.innerHTML =
+          '<a class="thread-link result-title" href="' + item.url + '">' +
+          escapeHtml((item.meta && item.meta.title) || item.url) + "</a>" +
+          (item.excerpt ? '<p class="result-excerpt">' + item.excerpt + "</p>" : "");
+        resultsList.append(li);
+      }
+    }
+
+    function runSearch(query) {
+      var q = query.trim();
+      resultsList.replaceChildren();
+      if (!q) {
+        status.textContent = "Type a query to search the archive.";
+        return;
+      }
+      status.textContent = "Searching for \u201C" + q + "\u201D\u2026";
+      ensureIndex()
+        .then(function (index) {
+          return index.search(q);
+        })
+        .then(function (search) {
+          return Promise.all(search.results.slice(0, 20).map(function (r) {
+            return r.data();
+          }));
+        })
+        .then(function (data) {
+          render(q, data);
+        })
+        .catch(function () {
+          status.textContent = "Search index unavailable \u2014 the site may still be deploying. Try again shortly.";
+        });
+    }
+
+    // Deep-linkable state: /search?q=postgresql runs on load and on every submit.
+    var initial = new URLSearchParams(location.search).get("q");
+    if (initial) {
+      input.value = initial;
+      runSearch(initial);
+    } else {
+      status.textContent = "Type a query to search the archive.";
+    }
+
+    var debounce;
+    input.addEventListener("input", function () {
+      clearTimeout(debounce);
+      debounce = setTimeout(function () {
+        var q = input.value;
+        var url = q ? "/search?q=" + encodeURIComponent(q) : "/search";
+        history.replaceState(null, "", url);
+        runSearch(q);
+      }, 200);
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      clearTimeout(debounce);
+      runSearch(input.value);
+    });
+  })();
+</script>
+
+<style>
+  .section {
+    padding: var(--space-7) 0;
+    max-width: 820px;
+  }
+  h1 {
+    margin-bottom: var(--space-3);
+  }
+  .search-input {
+    width: 100%;
+    font: inherit;
+    font-family: var(--font-mono);
+    font-size: var(--fs-md);
+    color: var(--ink);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    margin-top: var(--space-5);
+  }
+  .search-input:focus {
+    outline: 2px solid var(--saffron);
+    outline-offset: -1px;
+  }
+  .status {
+    margin-top: var(--space-4);
+    min-height: 1.5em;
+  }
+  .results {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .result-title {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: var(--fs-md);
+  }
+  .result-excerpt {
+    margin: var(--space-1) 0 0;
+    color: var(--ink-soft);
+    font-size: var(--fs-base);
+    line-height: 1.55;
+  }
+  .result-excerpt :global(mark) {
+    background: var(--saffron-wash);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+</style>
