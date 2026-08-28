@@ -18,6 +18,12 @@
 - Newsletter: weekly Action (Mon 09:07 IST) renders digest → creates + **sends** a Brevo
   classic campaign automatically. PROVEN W34 (campaign 2, status `sent`; idempotent re-run
   skipped). No manual sending, ever.
+- SEO/GEO audit 2026-08-28 (docs/SEO-GEO-AUDIT.md, 3-agent consensus) → **FIXED same
+  day** (commits fbdbf81+, see docs/VERIFICATION.md): serving layer (404s, slashless
+  canonical serving, https 308), JSON-LD escaping lib, og cards + NewsArticle
+  image/dateModified, per-URL sitemap lastmod, in-site /articles ItemList;
+  verify:routes extended with 11 checks (red-first). Remaining: optional P3 polish
+  (headers/charset, RSS atom:link, llms.txt /publishers+date, hub pagination).
 - wrangler is OAuth-authenticated on the owner's Mac (login 2026-08-28). Secret changes:
   `printf '%s' "$VALUE" | npx wrangler secret put NAME` (pipe, never echo). Runtime secrets
   now: BREVO_API_KEY, OWNER_EMAIL (+ BREVO_LIST_NAME text var from wrangler.jsonc).
@@ -39,6 +45,14 @@
 
 ## Hard-won facts
 
+- **Wrangler 4.x (4.127.0 confirmed) does NOT inject an ASSETS binding unless the
+  assets block declares `"binding": "ASSETS"` explicitly** — without it the Worker
+  sees env.ASSETS undefined and every non-asset request dies as 500 error 1101.
+  This was the TRUE root cause of the live 500s (2026-08-28), not just missing
+  not_found_handling. Also: `not_found_handling` does not rescue a Worker-routed
+  miss — the Worker must catch the ASSETS.fetch throw and serve /404.html itself
+  (worker/index.ts serveAsset). run_worker_first routes everything through the
+  Worker so its http→https 308 covers asset URLs too.
 - **CF 2026 dashboard hides secret/text bindings.** The Bindings tab shows only external
   resources ("No connected bindings" ≠ no vars). Settings shows a build-only "Variables and
   secrets" subsection — the SAME label as the runtime concept; the name collision caused the
@@ -65,6 +79,10 @@
 
 ## Open items
 
+- [ ] Optional P3 polish from docs/SEO-GEO-AUDIT.md: _headers (HSTS etc.),
+      charset=utf-8 on HTML responses, RSS atom:link self + lastBuildDate,
+      h2/h3 heading levels in card grids, llms.txt /publishers + generation
+      date, hub pagination beyond 48.
 - [ ] Optional (owner, 2 clicks): delete the two stale plaintext copies in CF Settings →
       Builds → Variables and secrets (BREVO_API_KEY, OWNER_EMAIL — now redundant runtime
       Secrets exist; removing kills the only plaintext display of the key).

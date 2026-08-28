@@ -61,6 +61,9 @@ via `src/lib/view.ts`. Digests are derived at build time by `src/lib/digest.ts`.
 
 ## Environments
 
-Local only (this repo). Production = Cloudflare Pages (or any static host) building from `main`.
+Local only (this repo). Production = the `sutradhar` Cloudflare Worker (Workers
+static assets, wrangler.jsonc) at https://sutradhar.nilukush.workers.dev, built from
+`main` by CF Workers Builds. See MEMORY.md "Hard-won facts" for the assets-binding
+gotcha before touching wrangler.jsonc.
 `SITE_URL` env overrides the canonical origin at build time. No secrets in repo (the Meesho
 Ghost content key is public by design — it ships in their client bundle).

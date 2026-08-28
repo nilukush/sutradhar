@@ -37,3 +37,20 @@ Verdict after fixes: **SHIP** (all HIGH/MED resolved; L1 accepted with rationale
 1. The workflow spec's "pause for human approval" gates (analysis → plan → build) were executed continuously under autonomous-operation policy. All artifacts are in-repo and every step is a git commit — fully reviewable and revertable.
 2. Batch-level TDD was used for stable pure-logic modules (tests for schema/sources/normalize/feeds/aggregate/digest were written and confirmed RED before their implementations), with per-module green cycles; the site layer used build + route-inventory verification per plan Step 9.
 3. Max-attempts safeguard: no step exceeded 1–2 attempts; no human intervention was required.
+
+## SEO/GEO audit fix run (2026-08-28)
+
+Consensus audit (docs/SEO-GEO-AUDIT.md) → fixes executed same day, TDD-first.
+
+| Fix | Verification |
+|---|---|
+| A1/B1 404 + trailing-slash serving | `wrangler dev` probes: unknown URL, `/articles/99`, missing `/read/*`, `/favicon.ico` → **404 with the custom page** (was 500 error 1101); `/articles` → 200 direct; `/articles/` redirects to `/articles` |
+| **True root cause found during fixing**: the deployed Worker had **no ASSETS binding at all** — wrangler 4.x did not inject one without an explicit `"binding": "ASSETS"` in the assets block, so every non-asset request hit `undefined.fetch` | Binding table in `wrangler dev` shows `env.ASSETS Assets local`; worker unit tests (6, red-first) |
+| B2 http→https | Worker returns 308 to https on production hosts (localhost exempt); unit-tested |
+| B3 JSON-LD escaping | `src/lib/jsonld.ts` with hostile-title regression test (`</script>` stays inert); Breadcrumbs migrated off raw JSON.stringify |
+| C1/C2 social + article meta | Built HTML: `og:image`, `summary_large_image`, `og:type=article` + `article:published_time` on /read, NewsArticle `image`/`dateModified`; og-default.png (1200×630) visually verified |
+| C3 sitemap lastmod | dist/sitemap-0.xml: /read URLs carry article publishedAt (e.g. 2023-06-01), hubs keep build time; changefreq/priority removed |
+| C4/C5 | /articles ItemList → absoluteReadHref; page-2 description differentiated |
+| Gate extensions | verify:routes +11 checks, **confirmed RED on the pre-fix dist, GREEN after** — now guards read-page NewsArticle/isBasedOn/image/dateModified, BreadcrumbList, in-site ItemList, og image, per-URL lastmod |
+
+Gates: **122 tests / build 913 pages / verify:routes all green.** Live verification after deploy recorded in MEMORY.md.
