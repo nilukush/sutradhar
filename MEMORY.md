@@ -30,6 +30,11 @@
 
 ## Hard-won facts
 
+- CF dashboard (2026 UI) hides secret/text bindings: the Bindings tab shows only "connected
+  external resources" (KV/R2/D1…) — "No connected bindings" ≠ no vars/secrets. Authoritative
+  check: `npx wrangler secret list`. Runtime vars/secrets not visible on Settings page either
+  in this UI version; manage via wrangler only.
+
 - Feed paths: Medium custom domains serve `/feed/` (NOT `/rss/` — Cloudflare 403); Medium tag
   feeds at `medium.com/feed/tag/<tag>`; fetcher must send a browser UA.
 - Zerodha/Myntra/Cleartrip/Ola/Paytm eng blogs are dead or never existed; Juspay/ShareChat
