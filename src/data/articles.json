@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T20:51:05.108Z",
+  "generatedAt": "2026-08-28T08:57:37.731Z",
   "articles": [
     {
       "id": "4d3d535bab6593dd",
@@ -1190,6 +1190,24 @@
       ]
     },
     {
+      "id": "c2684764af0446b9",
+      "title": "When Graphs Aren't Enough: How We Used Hypergraph Neural Networks to Predict Return-to-Origin at Meesho",
+      "url": "https://www.meesho.io/blog/when-graphs-arent-enough-how-we-used-hypergraph-neural-networks-to-predict-return-to-origin-at-meesho",
+      "sourceId": "meesho",
+      "publishedAt": "2026-04-30T06:20:23.000Z",
+      "excerpt": "A Dual Perspective Hypergraph Neural Networks Download to access the research paper DPHGNN.pdf 2 MB download-circle Every e-commerce company has a version of this problem: an order gets placed, the delivery is attempted, and the package comes back. Return-to-Origin, or…",
+      "content": "A Dual Perspective Hypergraph Neural Networks Download to access the research paper DPHGNN.pdf 2 MB download-circle Every e-commerce company has a version of…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "data-science"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "1e75e2afe708f65b",
       "title": "Breakpoint 2026 Speaker Spotlight: Brittany Stewart",
       "url": "https://www.browserstack.com/blog/breakpoint-2026-speaker-spotlight-brittany-stewart",
@@ -1239,6 +1257,43 @@
       ],
       "authors": [
         "Anuj Gupta"
+      ]
+    },
+    {
+      "id": "23284838aadc1e5d",
+      "title": "The Last Analysts as You Know Them",
+      "url": "https://www.meesho.io/blog/the-last-analysts-as-you-know-them",
+      "sourceId": "meesho",
+      "publishedAt": "2026-04-24T07:11:20.000Z",
+      "excerpt": "Every week I meet a few analysts during my office hours and they talk about a number of things like- careers, hobbies, dreams, managers, colleagues, family, higher education, fitness, balancing priorities and off course, Bangalore traffic. Of late, one common theme is about AI…",
+      "content": "Every week I meet a few analysts during my office hours and they talk about a number of things like- careers, hobbies, dreams, managers, colleagues, family,…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "engineering"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "46caf99ac1b4356e",
+      "title": "Designing Edge Security That Actually Holds at Scale",
+      "url": "https://www.meesho.io/blog/designing-edge-security-that-actually-holds-at-scale",
+      "sourceId": "meesho",
+      "publishedAt": "2026-04-20T10:21:57.000Z",
+      "excerpt": "The Problem With Assumed Security As systems scale, security shifts from a one-time setup to an ongoing architectural responsibility that needs continuous attention as infrastructure evolves and teams change. A key risk in this environment is the gap between assumed and actual…",
+      "content": "The Problem With Assumed Security As systems scale, security shifts from a one-time setup to an ongoing architectural responsibility that needs continuous…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "engineering",
+        "infrastructure"
+      ],
+      "authors": [
+        "Meesho"
       ]
     },
     {
@@ -1402,6 +1457,43 @@
       ]
     },
     {
+      "id": "6915dd46ad2f302c",
+      "title": "Why Generic Messages Fail: Driving CTR Through Personalized Sale Communications",
+      "url": "https://www.meesho.io/blog/why-generic-messages-fail-driving-ctr-through-personalized-sale-communications",
+      "sourceId": "meesho",
+      "publishedAt": "2026-03-31T12:14:49.000Z",
+      "excerpt": "Archana opened her WhatsApp on a Monday morning. Among her messages sat one from Meesho: a sale announcement with a single product image. A kitchen mixer. She scrolled past without clicking. Here's what we didn't know: Archana had spent the previous week browsing ethnic wear.…",
+      "content": "Archana opened her WhatsApp on a Monday morning. Among her messages sat one from Meesho: a sale announcement with a single product image. A kitchen mixer. She…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "product-engineering"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "80df7937ffb1dcc3",
+      "title": "Building Reviews at Scale - From Synchronous Writes to Event-Driven Intelligence",
+      "url": "https://www.meesho.io/blog/building-reviews-at-scale",
+      "sourceId": "meesho",
+      "publishedAt": "2026-03-31T06:40:34.000Z",
+      "excerpt": "At Meesho, reviews are one of the strongest drivers of trust. They influence not just what users buy, but how sellers build reputation and how product quality is interpreted relative to price. But building a review system at scale quickly stops being a UI problem. It becomes a…",
+      "content": "At Meesho, reviews are one of the strongest drivers of trust. They influence not just what users buy, but how sellers build reputation and how product quality…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "engineering",
+        "product-engineering"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "cc2ab6422b074700",
       "title": "AI Video Generation at Scale — Prompts Don’t Scale",
       "url": "https://blog.hotstar.com/ai-video-generation-at-scale-prompts-dont-scale-640c93778df9",
@@ -1489,6 +1581,24 @@
       ]
     },
     {
+      "id": "fc121cd5c9a25be4",
+      "title": "Engineering for Trust: Meesho’s Evolving View of Uptime",
+      "url": "https://www.meesho.io/blog/engineering-for-trust-meeshos-evolving-view-of-uptime",
+      "sourceId": "meesho",
+      "publishedAt": "2026-03-18T05:53:13.000Z",
+      "excerpt": "There was a time when we thought uptime was simple. If dashboards were green, APIs were healthy, and latency looked good, we believed the system was doing its job. If something slipped, uptime was considered impacted — end of story. As Meesho grew, that definition started to…",
+      "content": "There was a time when we thought uptime was simple. If dashboards were green, APIs were healthy, and latency looked good, we believed the system was doing its…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "engineering"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "9278c95630becbb2",
       "title": "Rewriting Legacy Systems: The Safe and Calm Way",
       "url": "https://tech.groww.in/rewriting-legacy-systems-the-safe-and-calm-way-1a0045977415",
@@ -1520,6 +1630,24 @@
       ],
       "authors": [
         "Karan Kaul"
+      ]
+    },
+    {
+      "id": "646a77c25b54503a",
+      "title": "Killing OOMs Before It Kills The App",
+      "url": "https://www.meesho.io/blog/killing-ooms-before-it-kills-the-app",
+      "sourceId": "meesho",
+      "publishedAt": "2026-03-06T07:10:35.000Z",
+      "excerpt": "An OOM (Out of Memory) crash is simply when the app runs out of space to think — and shuts down. Every byte counts when your users span across Bharat. At Meesho, we build for everyone in India, including people using budget phones with limited memory. When an app runs out of…",
+      "content": "An OOM (Out of Memory) crash is simply when the app runs out of space to think — and shuts down. Every byte counts when your users span across Bharat. At…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "engineering"
+      ],
+      "authors": [
+        "Meesho"
       ]
     },
     {
@@ -1662,6 +1790,24 @@
       ]
     },
     {
+      "id": "8c07a1a4b5fd978c",
+      "title": "DICE at Meesho - Where Empathy Meets Action",
+      "url": "https://www.meesho.io/blog/dice-at-meesho-where-empathy-meets-action",
+      "sourceId": "meesho",
+      "publishedAt": "2026-02-27T10:49:34.000Z",
+      "excerpt": "Why DICE Exists? DICE stands for Democratizing Internet Commerce for Everyone. This is our mission as an organization to make e-commerce accessible to every corner of India, empowering sellers, delivery partners, and users who were previously left out of the digital economy.…",
+      "content": "Why DICE Exists? DICE stands for Democratizing Internet Commerce for Everyone. This is our mission as an organization to make e-commerce accessible to every…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "culture"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "bbf60183c2652349",
       "title": "Plugging Node.js Memory Leaks: Optimisation Insights",
       "url": "https://blog.flipkart.tech/plugging-node-js-memory-leaks-optimisation-insights-aa023114035a",
@@ -1750,6 +1896,24 @@
       ]
     },
     {
+      "id": "b64487f6b3d6c5a8",
+      "title": "Breaking the Glass Ceiling: How Employee Voices on Glassdoor Made Meesho One of India’s Top Rated Employers",
+      "url": "https://www.meesho.io/blog/breaking-the-glass-ceiling-how-employee-voices-on-glassdoor-made-meesho-one-of-indias-top-rated-employers-2",
+      "sourceId": "meesho",
+      "publishedAt": "2026-02-12T11:34:34.000Z",
+      "excerpt": "Most career decisions are shaped by people and perspectives beyond ourselves. We speak to friends, seniors, and ex-colleagues. We Google. We read. And almost always, we look for one thing: other people's experiences. When someone considers joining a company, they aren't just…",
+      "content": "Most career decisions are shaped by people and perspectives beyond ourselves. We speak to friends, seniors, and ex-colleagues. We Google. We read. And almost…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "culture"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "39b595dbf7a001b4",
       "title": "Our Obsession with Merchant Experience: Breaking the Risk Review Black Box",
       "url": "https://engineering.razorpay.com/our-obsession-with-merchant-experience-breaking-the-risk-review-black-box-7fa38d699ef1",
@@ -1818,6 +1982,25 @@
       ],
       "authors": [
         "Abhishek Bharti"
+      ]
+    },
+    {
+      "id": "79fe43de88d6b58f",
+      "title": "Inside Meesho’s Real-Time Analytics Platform: A Deep Dive into Driving Performance at Scale",
+      "url": "https://www.meesho.io/blog/inside-meeshos-real-time-analytics-platform-a-deep-dive-into-driving-performance-at-scale",
+      "sourceId": "meesho",
+      "publishedAt": "2026-01-21T07:13:54.000Z",
+      "excerpt": "At Meesho, we are constantly striving to understand our users better and enhance their experience. Every day, users can generate billions of events on our platform from browsing products to completing purchases and we aim to translate these signals into insights instantly. From…",
+      "content": "At Meesho, we are constantly striving to understand our users better and enhance their experience. Every day, users can generate billions of events on our…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "engineering",
+        "data-science"
+      ],
+      "authors": [
+        "Meesho"
       ]
     },
     {
@@ -1978,6 +2161,44 @@
       ]
     },
     {
+      "id": "a823612f9e5547be",
+      "title": "Building Meesho's ML Platform: Scaling Model Inference & Real-Time Embedding Search (Part 3)",
+      "url": "https://www.meesho.io/blog/building-meeshos-ml-platform",
+      "sourceId": "meesho",
+      "publishedAt": "2025-09-05T09:20:39.000Z",
+      "excerpt": "By mid-2023, we had transformed our ML stack—building a real-time feature store, optimizing model retrieval, and fine-tuning ranking. But two critical gaps remained: 🔹 Scaling model inference without hitting infrastructure roadblocks 🔹 Moving embedding search from batch to…",
+      "content": "By mid-2023, we had transformed our ML stack—building a real-time feature store, optimizing model retrieval, and fine-tuning ranking. But two critical gaps…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "data-science",
+        "ai-ml"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "809ecf4435e5f56a",
+      "title": "Building Meesho’s ML Platform: Lessons from the First-Gen System (Part 2)",
+      "url": "https://www.meesho.io/blog/building-meeshos-ml-platform-lessons-from-the-first-gen-system-part-2",
+      "sourceId": "meesho",
+      "publishedAt": "2025-09-01T05:56:23.000Z",
+      "excerpt": "By late 2022, we had built something we were truly proud of—a real-time ML serving system with a DAG-based executor, a feature store, and an interaction store powering key ranking and personalization models. It was a major milestone, the culmination of months of effort from data…",
+      "content": "By late 2022, we had built something we were truly proud of—a real-time ML serving system with a DAG-based executor, a feature store, and an interaction store…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "data-science",
+        "ai-ml"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "c11795612e708ac4",
       "title": "Breaking the Translation Bottleneck: How AI-Powered i18n Transformed Our Development Workflow",
       "url": "https://engineering.wingify.com//posts/ai-powered-translation-workflow",
@@ -1992,6 +2213,43 @@
       ],
       "authors": [
         "Kartik Patpatia / Pranav Jindal"
+      ]
+    },
+    {
+      "id": "87a61dd488bbf88c",
+      "title": "The Creative Intelligence Unit (CIU): Meesho’s Playbook for Scalable, AI-First Creativity",
+      "url": "https://www.meesho.io/blog/the-creative-intelligence-unit-ciu-meeshos-playbook-for-scalable-ai-first-creativity",
+      "sourceId": "meesho",
+      "publishedAt": "2025-08-06T08:31:14.000Z",
+      "excerpt": "At Meesho, creativity isn’t about out of the box ideas, it’s about building messages grounded in our user’s truth. We speak in the language of our users, shaped by insight, and designed to deliver impact. For us, creativity is a powerful loop. It begins with a user's insight,…",
+      "content": "At Meesho, creativity isn’t about out of the box ideas, it’s about building messages grounded in our user’s truth. We speak in the language of our users,…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "culture"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "c892e7b698817db3",
+      "title": "Evolving Search Ranking: From XGBoost to Multi-Task Deep Learning with Knowledge Distillation",
+      "url": "https://www.meesho.io/blog/evolving-search-ranking-from-xgboost-to-multi-task-deep-learning-with-knowledge-distillation",
+      "sourceId": "meesho",
+      "publishedAt": "2025-08-05T05:33:14.000Z",
+      "excerpt": "Search at Meesho For an e-commerce platform like Meesho, optimizing Search is pivotal to enhancing the user experience, improving product visibility and faster discovery, and eventually increasing conversion rates. Users search in multiple Indian languages looking for quality…",
+      "content": "Search at Meesho For an e-commerce platform like Meesho, optimizing Search is pivotal to enhancing the user experience, improving product visibility and faster…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "data-science",
+        "ai-ml"
+      ],
+      "authors": [
+        "Meesho"
       ]
     },
     {
@@ -2030,6 +2288,80 @@
       ]
     },
     {
+      "id": "ba80dadc85edf88d",
+      "title": "Revealing the Hidden Links: How We Break Down Complex Fraud Networks",
+      "url": "https://www.meesho.io/blog/revealing-the-hidden-links-how-we-break-down-complex-fraud-networks",
+      "sourceId": "meesho",
+      "publishedAt": "2025-07-31T07:18:58.000Z",
+      "excerpt": "The Rising Tide of E-commerce Fraud We are deeply aligned with our aim to democratize our platform—with new entrepreneurs joining and logistics partners working across pin codes in India. This inclusivity is our biggest strength—and also the reason why we need to be extra…",
+      "content": "The Rising Tide of E-commerce Fraud We are deeply aligned with our aim to democratize our platform—with new entrepreneurs joining and logistics partners…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "security",
+        "platform"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "f1604d722ba60506",
+      "title": "Scaling Deployments at Meesho: How We Built a Custom Rollout Service to Replace Our Existing System",
+      "url": "https://www.meesho.io/blog/scaling-deployments-at-meesho-how-we-built-a-custom-rollout-service-to-replace-our-existing-system",
+      "sourceId": "meesho",
+      "publishedAt": "2025-07-30T07:04:11.000Z",
+      "excerpt": "Introduction: The Need for Bulletproof Deployments at Scale As our platform scaled and user expectations rose, so did the need for rock-solid infrastructure. One critical challenge surfaced: ensuring zero-downtime deployments while rolling out new features at speed. Despite…",
+      "content": "Introduction: The Need for Bulletproof Deployments at Scale As our platform scaled and user expectations rose, so did the need for rock-solid infrastructure.…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "infrastructure",
+        "platform"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "90afcff31621b86d",
+      "title": "Personalization from Day One: Solving the Cold Start Problem at Meesho",
+      "url": "https://www.meesho.io/blog/personalization-from-day-one-solving-the-cold-start-problem-at-meesho",
+      "sourceId": "meesho",
+      "publishedAt": "2025-07-07T06:43:08.000Z",
+      "excerpt": "New users rarely give second chances. If their first experience on the app, especially the homepage product feed, feels irrelevant then they leave quickly. At Meesho, we noticed that our static homepage product feed for new users was causing high bounce rates and a poor first…",
+      "content": "New users rarely give second chances. If their first experience on the app, especially the homepage product feed, feels irrelevant then they leave quickly. At…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "data-science",
+        "product-engineering"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "644f23060edabb50",
+      "title": "Scaling Secret Detection at Meesho: Building a Pre-Commit Workflow with TruffleHog",
+      "url": "https://www.meesho.io/blog/scaling-secret-detection-at-meesho-building-a-pre-commit-workflow-with-trufflehog",
+      "sourceId": "meesho",
+      "publishedAt": "2025-07-03T06:47:20.000Z",
+      "excerpt": "The Challenge: Scaling Secure Development As engineering teams and codebases grow, managing sensitive information like API keys, tokens, and config files becomes increasingly challenging. These secrets can occasionally slip through, and resolving such issues like rotating…",
+      "content": "The Challenge: Scaling Secure Development As engineering teams and codebases grow, managing sensitive information like API keys, tokens, and config files…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "9e986e16997d4d25",
       "title": "VWO Editor: Seamless DOM Manipulations for React-based Websites",
       "url": "https://engineering.wingify.com//posts/dom-manipulation-for-react-sites",
@@ -2065,6 +2397,25 @@
       ]
     },
     {
+      "id": "6ed45854ce680dee",
+      "title": "Quality Focused Feed Re-ranking",
+      "url": "https://www.meesho.io/blog/quality-focused-feed-re-ranking",
+      "sourceId": "meesho",
+      "publishedAt": "2025-07-01T06:28:05.000Z",
+      "excerpt": "What is Feed Re-ranking? Online shopping platforms face intense competition, where the ability to deliver the most relevant products to customers is crucial. A well-organized and relevant product feed, which inherently is a list of products, forms the backbone of any E-commerce…",
+      "content": "What is Feed Re-ranking? Online shopping platforms face intense competition, where the ability to deliver the most relevant products to customers is crucial. A…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "data-science",
+        "product-engineering"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
       "id": "acf9bb9ad760da6d",
       "title": "AI-Driven Feature Flags: How VWO MCP Server Revolutionizes Your Development Workflow",
       "url": "https://engineering.wingify.com//posts/vwo-fme-mcp-server",
@@ -2097,6 +2448,44 @@
       ],
       "authors": [
         "Chirag Dave"
+      ]
+    },
+    {
+      "id": "f12b7ccd58ba8251",
+      "title": "Building Meesho’s ML Platform: From Chaos to Cutting-Edge (Part 1)",
+      "url": "https://www.meesho.io/blog/building-meeshos-ml-platform-from-chaos-to-cutting-edge-part-1",
+      "sourceId": "meesho",
+      "publishedAt": "2025-06-13T06:00:30.000Z",
+      "excerpt": "The Genesis: How a Friday Night Roast Sparked Meesho’s ML Platform It all started in early 2022, over a casual Friday evening catch-up. Like many great origin stories, this one began with friendly banter between a group of backend engineers and data scientists. As the…",
+      "content": "The Genesis: How a Friday Night Roast Sparked Meesho’s ML Platform It all started in early 2022, over a casual Friday evening catch-up. Like many great origin…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "data-science",
+        "ai-ml"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
+    {
+      "id": "84760ec8588a0093",
+      "title": "Scaling Seamless Communication: How Meesho Powers 10B+ Messages Daily with Multi-Tenancy",
+      "url": "https://www.meesho.io/blog/scaling-seamless-communication-how-meesho-powers-10b-messages-daily-with-multi-tenancy",
+      "sourceId": "meesho",
+      "publishedAt": "2025-06-12T07:39:09.000Z",
+      "excerpt": "Revolutionizing Communication at Scale At Meesho, seamless communication is at the heart of our user experience. Whether it’s an OTP for login, an order update, or a personalized shopping recommendation, our platform ensures timely and reliable messaging across multiple…",
+      "content": "Revolutionizing Communication at Scale At Meesho, seamless communication is at the heart of our user experience. Whether it’s an OTP for login, an order…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "ai-ml",
+        "platform"
+      ],
+      "authors": [
+        "Meesho"
       ]
     },
     {
