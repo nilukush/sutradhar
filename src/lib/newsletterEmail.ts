@@ -43,7 +43,7 @@ export function renderNewsletterEmail(digest: WeeklyDigest, siteUrl: string = SI
     <tr><td align="center">
       <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="max-width:640px;background:#FFFFFF;border:1px solid #E3DBCB;border-radius:10px;">
         <tr><td style="padding:28px 32px 8px 32px;border-top:4px solid #E8590C;">
-          <p style="margin:0 0 4px 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#E8590C;font-family:Courier,monospace;">सूत्रधर · The weekly thread</p>
+          <p style="margin:0 0 4px 0;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#E8590C;font-family:Courier,monospace;">सूत्रधार · The weekly thread</p>
           <h1 style="margin:0;font-size:26px;color:#1C1917;">India's engineering week ${digest.id}</h1>
           <p style="margin:8px 0 0 0;font-size:14px;color:#57534E;">${digest.startDate} → ${digest.endDate} · ${digest.articles.length} stories</p>
         </td></tr>

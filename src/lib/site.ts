@@ -17,7 +17,7 @@ const siteUrl = process.env.SITE_URL ?? "https://sutradhar.nilukush.workers.dev"
 
 export const SITE = {
   name: "Sutradhar",
-  devanagari: "सूत्रधर",
+  devanagari: "सूत्रधार",
   tagline: "Every engineering story from India, woven into one thread.",
   shortTagline: "India's engineering blogs, woven into one thread.",
   description:

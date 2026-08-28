@@ -1,4 +1,4 @@
-# Sutradhar — सूत्रधर
+# Sutradhar — सूत्रधार
 
 > **Every engineering story from India, woven into one thread.**
 

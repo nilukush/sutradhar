@@ -22,7 +22,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
   <rect width="${W}" height="${H}" fill="${PAPER}"/>
   <rect x="0" y="0" width="${W}" height="8" fill="${SAFFRON}"/>
 
-  <text x="84" y="150" font-family="Kohinoor Devanagari, Devanagari MT, serif" font-size="44" fill="${SAFFRON_DEEP}">सूत्रधर</text>
+  <text x="84" y="150" font-family="Kohinoor Devanagari, Devanagari MT, serif" font-size="44" fill="${SAFFRON_DEEP}">सूत्रधार</text>
   <text x="84" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="150" font-weight="bold" fill="${INK}">Sutradhar</text>
 
   <!-- the thread: a stitched saffron line -->

@@ -1,6 +1,6 @@
 # Sutradhar — High-Level Analysis (Part 1)
 
-> **Product**: Sutradhar (सूत्रधर) — "the one who holds the threads."
+> **Product**: Sutradhar (सूत्रधार) — "the one who holds the threads."
 > An InfoQ-style aggregator + newsletter for engineering blogs published by Indian companies and startups.
 > Analysis date: 2026-08-21. Method: three independent research agents (Analyzer team) + orchestrator verification spot-checks; consensus documented in §6.
 

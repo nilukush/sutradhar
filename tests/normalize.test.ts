@@ -41,7 +41,7 @@ describe("slugify", () => {
     expect(slugify("  a  --  b  ")).toBe("a-b");
   });
   it("returns empty string for pure non-latin scripts", () => {
-    expect(slugify("सूत्रधर")).toBe("");
+    expect(slugify("सूत्रधार")).toBe("");
   });
 });
 

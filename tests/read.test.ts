@@ -38,7 +38,7 @@ describe("articleSlug", () => {
   });
 
   it("falls back to 'story' when the title yields no latin slug (e.g. Devanagari)", () => {
-    expect(articleSlug(makeArticle({ title: "सूत्रधर" }))).toBe("story-0123456789abcdef");
+    expect(articleSlug(makeArticle({ title: "सूत्रधार" }))).toBe("story-0123456789abcdef");
   });
 
   it("truncates very long titles before the id suffix", () => {

@@ -1,13 +1,13 @@
 # Sutradhar Design System v1
 
-**Concept — "The Loom."** Sutradhar (सूत्रधर) is the thread-holder of Sanskrit theatre: the one who weaves separate stories into one narrative. The visual language is therefore **editorial handloom**: warm hand-made paper, deep ink, a saffron thread that stitches content together, and typographic hierarchy borrowed from literary journals rather than dashboards. Indian in warmth and typography, **not** in cliché (no flag tricolor, no mandalas, no stock "ethnic" patterns).
+**Concept — "The Loom."** Sutradhar (सूत्रधार) is the thread-holder of Sanskrit theatre: the one who weaves separate stories into one narrative. The visual language is therefore **editorial handloom**: warm hand-made paper, deep ink, a saffron thread that stitches content together, and typographic hierarchy borrowed from literary journals rather than dashboards. Indian in warmth and typography, **not** in cliché (no flag tricolor, no mandalas, no stock "ethnic" patterns).
 
 ## 1. Brand
 
 | Token | Value |
 |---|---|
 | Name | **Sutradhar** |
-| Devanagari | सूत्रधर (used as a subtle accent, never the primary wordmark) |
+| Devanagari | सूत्रधार (used as a subtle accent, never the primary wordmark) |
 | Tagline (primary) | *Every engineering story from India, woven into one thread.* |
 | Tagline (short) | *India's engineering blogs, woven into one thread.* |
 | Voice | Knowledgeable, warm, precise. Celebrates the engineers behind the work. |
@@ -62,7 +62,7 @@ Rules: saffron is the **only** saturated brand color used at volume; teal marks 
 | Display / headlines | **Fraunces** (variable, self-hosted via @fontsource) | Soft-serif literary voice; opsz axis for display sizes |
 | Body / UI | **Inter** (variable) | Neutral, excellent at small sizes |
 | Meta / code / dates | **IBM Plex Mono** | Engineering texture for timestamps, counts, slugs |
-| Devanagari accent | **IBM Plex Sans Devanagari** | सूत्रधर in the wordmark, section eyebrows |
+| Devanagari accent | **IBM Plex Sans Devanagari** | सूत्रधार in the wordmark, section eyebrows |
 
 Type scale (1.25 ratio, clamp'd for fluid):
 ```

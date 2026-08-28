@@ -2,7 +2,7 @@
 
 ## What this is
 
-**Sutradhar** (सूत्रधर) — an InfoQ-style aggregator website + newsletter for engineering blogs of
+**Sutradhar** (सूत्रधार) — an InfoQ-style aggregator website + newsletter for engineering blogs of
 Indian companies/startups. Static Astro site + hourly GitHub Actions aggregation pipeline.
 $0 infrastructure. See README.md for the architecture diagram and docs/ for the full decision record.
 
