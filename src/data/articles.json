@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T09:16:24.525Z",
+  "generatedAt": "2026-08-28T09:25:30.878Z",
   "articles": [
     {
       "id": "4d3d535bab6593dd",
@@ -159,6 +159,28 @@
       ],
       "authors": [
         "Devanshi Jain"
+      ]
+    },
+    {
+      "id": "2de65a18f724409e",
+      "title": "How ShareChat rebuilt subscription billing on Temporal and reached 99.9% reliability",
+      "url": "https://sharechat.com/blogs/engineering/how-sharechat-rebuilt-subscription-billing-on-temporal-and-reached-99-9-reliability",
+      "sourceId": "sharechat",
+      "publishedAt": "2026-08-04T04:28:40.009Z",
+      "excerpt": "Recurring subscription billing in India is deceptively complex. A single billing cycle has to send a mandated pre-debit notification, wait a regulator-defined window, then attempt collection by coordinating",
+      "content": "Recurring subscription billing in India is deceptively complex. A single billing cycle has to send a mandated pre-debit notification, wait a regulator-defined…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "devops-sre"
+      ],
+      "authors": [
+        "Shivam Yadav",
+        "Prarabdh Bharti",
+        "Keshav Mahawar",
+        "Rushabh Shroff"
       ]
     },
     {
@@ -350,7 +372,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "security"
       ],
       "authors": []
@@ -621,6 +643,24 @@
       ]
     },
     {
+      "id": "a43766ba219e83d8",
+      "title": "Building High Availability for Temporal Workflows",
+      "url": "https://sharechat.com/blogs/engineering/Building%20High%20Availability%20for%20Temporal%20Workflows",
+      "sourceId": "sharechat",
+      "publishedAt": "2026-06-22T05:52:00.000Z",
+      "excerpt": "We run business-critical, long-running workflows (livestream lifecycle jobs, livestream user-experience jobs, recording and HLS streaming, etc.) on self-hosted, in-house Temporal clusters.",
+      "content": "We run business-critical, long-running workflows (livestream lifecycle jobs, livestream user-experience jobs, recording and HLS streaming, etc.) on…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Geetish Nayak"
+      ]
+    },
+    {
       "id": "755b50a99743501c",
       "title": "Global Checkout Design: The Multi-Market Playbook for Higher Conversions",
       "url": "https://juspay.io/blog/global-checkout-design-the-multi-market-playbook-for-higher-conversions",
@@ -631,7 +671,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale"
+        "ai-ml"
       ],
       "authors": []
     },
@@ -1016,7 +1056,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "infrastructure",
         "security"
       ],
@@ -1089,7 +1129,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "data-science"
       ],
       "authors": []
@@ -1146,6 +1186,22 @@
       "authors": [
         "Sagar Tekwani"
       ]
+    },
+    {
+      "id": "b7e72f1c254781e0",
+      "title": "Agentic Commerce: Understanding the Shift and What It Means for the Payments Ecosystem",
+      "url": "https://juspay.io/blog/agentic-commerce-understanding-the-shift-and-what-it-means-for-the-payments-ecosystem",
+      "sourceId": "juspay",
+      "publishedAt": "2026-05-08T11:17:02.000Z",
+      "excerpt": "Explores the shift to AI-driven Agentic Commerce and how Juspay powers secure, verifiable infrastructure for this intent-based evolution.",
+      "content": "Explores the shift to AI-driven Agentic Commerce and how Juspay powers secure, verifiable infrastructure for this intent-based evolution.",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": []
     },
     {
       "id": "0360983b5b3a2acc",
@@ -1324,6 +1380,24 @@
       ]
     },
     {
+      "id": "005e01aa4a0e18fa",
+      "title": "Migrating 1000+ event contracts from JSON to Protobuf",
+      "url": "https://sharechat.com/blogs/engineering/migrating-1000-event-contracts-from-json-to-protobuf",
+      "sourceId": "sharechat",
+      "publishedAt": "2026-04-28T09:15:00.000Z",
+      "excerpt": "At ShareChat, we recently overhauled the architecture of our events ingestion system. As part of this exercise, we also migrated all our event data contracts from JSON to protobuf.",
+      "content": "At ShareChat, we recently overhauled the architecture of our events ingestion system. As part of this exercise, we also migrated all our event data contracts…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Nilesh Kevlani"
+      ]
+    },
+    {
       "id": "23284838aadc1e5d",
       "title": "The Last Analysts as You Know Them",
       "url": "https://www.meesho.io/blog/the-last-analysts-as-you-know-them",
@@ -1352,7 +1426,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "security"
       ],
       "authors": []
@@ -1368,7 +1442,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "security"
       ],
       "authors": []
@@ -1384,7 +1458,22 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale"
+        "ai-ml"
+      ],
+      "authors": []
+    },
+    {
+      "id": "a93b5b95fca0e92d",
+      "title": "Google's Universal Commerce Protocol: What It Means for Payment Orchestration",
+      "url": "https://juspay.io/blog/google-s-universal-commerce-protocol-what-it-means-for-payment-orchestration",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-23T09:12:35.000Z",
+      "excerpt": "Google's Universal Commerce Protocol (UCP) enables AI agents to purchase across the web. Learn how payment orchestration solves multi-protocol commerce challenges.",
+      "content": "Google's Universal Commerce Protocol (UCP) enables AI agents to purchase across the web. Learn how payment orchestration solves multi-protocol commerce…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "ai-ml"
       ],
       "authors": []
     },
@@ -1399,8 +1488,24 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "platform"
+      ],
+      "authors": []
+    },
+    {
+      "id": "4231e86f24912b6f",
+      "title": "Revolutionizing Dashboard Design with AI",
+      "url": "https://juspay.io/blog/revolutionizing-dashboard-design-with-ai",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-20T15:21:39.000Z",
+      "excerpt": "Juspay has built an internal AI-powered tool that eliminates guesswork, boosts efficiency, and aligns design with development.",
+      "content": "Juspay has built an internal AI-powered tool that eliminates guesswork, boosts efficiency, and aligns design with development.",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "ai-ml",
+        "data-science"
       ],
       "authors": []
     },
@@ -1415,6 +1520,37 @@
       "topics": [
         "fintech-payments",
         "backend",
+        "ai-ml"
+      ],
+      "authors": []
+    },
+    {
+      "id": "bd922f0ddd3261e2",
+      "title": "Agents 2 Agents: The New Era of Distributed Intelligence in Payments",
+      "url": "https://juspay.io/blog/agents-2-agents-the-new-era-of-distributed-intelligence-in-payments",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-20T15:21:39.000Z",
+      "excerpt": "At Juspay, we've distilled the complexity of agent-based systems into a simple, yet powerful showcase of how the agent loop fundamentally reimagines automation in payment processes.",
+      "content": "At Juspay, we've distilled the complexity of agent-based systems into a simple, yet powerful showcase of how the agent loop fundamentally reimagines automation…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "ai-ml"
+      ],
+      "authors": []
+    },
+    {
+      "id": "e06b3ecf3a2693ad",
+      "title": "Scaling Design Quality Through Automation",
+      "url": "https://juspay.io/blog/scaling-design-quality-through-automation",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-20T15:21:39.000Z",
+      "excerpt": "We’ve built a suite of AI-assisted tools for designers to validate their work, for developers to meet visual standards, and for teams to measure design system adoption in real time.",
+      "content": "We’ve built a suite of AI-assisted tools for designers to validate their work, for developers to meet visual standards, and for teams to measure design system…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "ai-ml",
         "scale"
       ],
       "authors": []
@@ -1430,7 +1566,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "mobile",
         "platform"
       ],
@@ -1447,7 +1583,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
+        "ai-ml",
         "security"
       ],
       "authors": []
@@ -1523,6 +1659,26 @@
       ],
       "authors": [
         "Anjani Kumar"
+      ]
+    },
+    {
+      "id": "f6db7913ce826a35",
+      "title": "Distributing protobuf contracts at scale: Why we built a custom tool",
+      "url": "https://sharechat.com/blogs/engineering/distributing-protobuf-contracts-at-scale-why-we-built-a-custom-tool",
+      "sourceId": "sharechat",
+      "publishedAt": "2026-04-14T08:29:00.000Z",
+      "excerpt": "At ShareChat, we recently overhauled the architecture for the data ingestion system. As part of this exercise, we also moved 100% of our event data contracts from JSON to Protobuf.",
+      "content": "At ShareChat, we recently overhauled the architecture for the data ingestion system. As part of this exercise, we also moved 100% of our event data contracts…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Sampath Shetty",
+        "Nilesh Kevlani"
       ]
     },
     {
@@ -1774,6 +1930,27 @@
       ]
     },
     {
+      "id": "de6d24bc1906f54b",
+      "title": "Building a Unified Events Platform at ShareChat",
+      "url": "https://sharechat.com/blogs/engineering/building-a-unified-events-platform-at-sharechat",
+      "sourceId": "sharechat",
+      "publishedAt": "2026-03-17T05:51:00.000Z",
+      "excerpt": "At ShareChat's Central Data Platform (CDP) team, we handle more than 1,000 different event types across 5 apps, ingesting upward of 80 billion events per day.",
+      "content": "At ShareChat's Central Data Platform (CDP) team, we handle more than 1,000 different event types across 5 apps, ingesting upward of 80 billion events per day.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Anshul Khemani",
+        "Nilesh Kevlani",
+        "Rushabh Shroff"
+      ]
+    },
+    {
       "id": "9278c95630becbb2",
       "title": "Rewriting Legacy Systems: The Safe and Calm Way",
       "url": "https://tech.groww.in/rewriting-legacy-systems-the-safe-and-calm-way-1a0045977415",
@@ -2014,6 +2191,25 @@
       ],
       "authors": [
         "Siddhartha Narang"
+      ]
+    },
+    {
+      "id": "a227220e4cd5bc14",
+      "title": "Modernizing Events Platform At ShareChat",
+      "url": "https://sharechat.com/blogs/engineering/modernizing-events-platform-at-sharechat",
+      "sourceId": "sharechat",
+      "publishedAt": "2026-02-18T09:23:00.000Z",
+      "excerpt": "At ShareChat’s Central Data Platform (CDP) team, we cater to more than 1000 different event types from 5 different apps, receiving and ingesting more than 80 billion events per day on a regular basis.",
+      "content": "At ShareChat’s Central Data Platform (CDP) team, we cater to more than 1000 different event types from 5 different apps, receiving and ingesting more than 80…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Nilesh Kevlani"
       ]
     },
     {
@@ -2320,6 +2516,25 @@
       ]
     },
     {
+      "id": "409fb454dc7631c6",
+      "title": "How we achieved 40% cloud cost reduction with Dragonfly Cloud",
+      "url": "https://sharechat.com/blogs/engineering/how-we-achieved-40-cloud-cost-reduction-with-dragonfly-cloud",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-10-10T08:09:00.000Z",
+      "excerpt": "At ShareChat, Redis APIs were embedded in almost everything: caches,recommendation delivery systems,deduplication queues, ranking pipelines, counters, you name it.",
+      "content": "At ShareChat, Redis APIs were embedded in almost everything: caches,recommendation delivery systems,deduplication queues, ranking pipelines, counters, you name…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Arya Ketan"
+      ]
+    },
+    {
       "id": "4ff2eefdae5b3f95",
       "title": "Choosing between Maestro and Detox on Jupiter | QA Automation",
       "url": "https://life.jupiter.money/choosing-between-maestro-and-detox-on-jupiter-qa-automation-7b94e6f8759d",
@@ -2355,6 +2570,25 @@
       ]
     },
     {
+      "id": "4341d3e7bd1d0cf3",
+      "title": "Elastic Spark: Autoscaling Structured Streaming at Sharechat",
+      "url": "https://sharechat.com/blogs/engineering/elastic-spark-autoscaling-structured-streaming-at-sharechat",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-09-01T10:17:00.000Z",
+      "excerpt": "At ShareChat — a leading social media platform with over 200M monthly active users (MAU) — our data platform ingests and processes more than 1 million events per second. However, this event load isn't constant.",
+      "content": "At ShareChat — a leading social media platform with over 200M monthly active users (MAU) — our data platform ingests and processes more than 1 million events…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Subham Singhal"
+      ]
+    },
+    {
       "id": "809ecf4435e5f56a",
       "title": "Building Meesho’s ML Platform: Lessons from the First-Gen System (Part 2)",
       "url": "https://www.meesho.io/blog/building-meeshos-ml-platform-lessons-from-the-first-gen-system-part-2",
@@ -2371,6 +2605,26 @@
       ],
       "authors": [
         "Meesho"
+      ]
+    },
+    {
+      "id": "508c067371a5eef0",
+      "title": "Realtime Content Deduplication At Scale: How We Cut Cost By 86%",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/realtime-content-deduplication-at-scale-how-we-cut-cost-by-86",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-08-17T05:28:00.000Z",
+      "excerpt": "Every time a user views a post, an event is fired to inform us. We feed this real‑time stream into our recommendation system, e.g. analytics pipelines, feature computations, and view counters.",
+      "content": "Every time a user views a post, an event is fired to inform us. We feed this real‑time stream into our recommendation system, e.g. analytics pipelines, feature…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Andrei Manakov",
+        "Sanyam Gupta"
       ]
     },
     {
@@ -2608,6 +2862,26 @@
       ]
     },
     {
+      "id": "a220bc0e29e0203c",
+      "title": "Supercharging ShareChat ML Feature System with Flink DataStream",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/supercharging-sharechat-ml-feature-system-with-flink-datastream",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-06-19T08:49:00.000Z",
+      "excerpt": "At ShareChat, our in-house ML feature system powers personalized feed recommendations across the platform.Built on Apache Flink, it serves as a feature-as-a-service platform for scalable computation",
+      "content": "At ShareChat, our in-house ML feature system powers personalized feed recommendations across the platform.Built on Apache Flink, it serves as a…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "platform"
+      ],
+      "authors": [
+        "Md Azmat Ali",
+        "David Malinge"
+      ]
+    },
+    {
       "id": "9caffe90633144d8",
       "title": "Introducing the Swiggy Clone App: Your Go-To Source for Food Delivery",
       "url": "https://medium.com/@chirag.dave/introducing-the-swiggy-clone-app-your-go-to-source-for-food-delivery-aa9bc878c61b",
@@ -2661,6 +2935,27 @@
       ],
       "authors": [
         "Meesho"
+      ]
+    },
+    {
+      "id": "72f4ca39759dd3c5",
+      "title": "Building WebRTC Recording Infrastructure using GStreamer and Temporal",
+      "url": "https://sharechat.com/blogs/engineering/building-webrtc-recording-infrastructure-using-gstreamer-and-temporal",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-06-11T12:23:00.000Z",
+      "excerpt": "Our recording infrastructure focuses on WebRTC video and audio. The goal is to allow moderation teams to access clean, archived footage—composite or individual—for compliance, post-production, or analysis.",
+      "content": "Our recording infrastructure focuses on WebRTC video and audio. The goal is to allow moderation teams to access clean, archived footage—composite or…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Vivek Chandela",
+        "Shantanu Sharma",
+        "Geetish Nayak"
       ]
     },
     {
@@ -2785,6 +3080,25 @@
       ]
     },
     {
+      "id": "bdb620f321520026",
+      "title": "How ShareChat built a scalable cost efficient ML Feature system",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/how-sharechat-built-a-scalable-cost-efficient-ml-feature-system",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-03-06T05:45:00.000Z",
+      "excerpt": "At ShareChat, Machine Learning models form the backbone of our recommendation system, playing a pivotal role in delivering the most relevant and engaging content to our users.",
+      "content": "At ShareChat, Machine Learning models form the backbone of our recommendation system, playing a pivotal role in delivering the most relevant and engaging…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "David Malinge",
+        "Ivan Burmistrov"
+      ]
+    },
+    {
       "id": "2b64834861a0c0ec",
       "title": "Hasura: Powerful access control on MongoDB data",
       "url": "https://hasura.io/blog/hasura-powerful-access-control-on-mongodb-data",
@@ -2853,6 +3167,26 @@
       ]
     },
     {
+      "id": "80dbef7ebf2ba397",
+      "title": "Cost Efficient Candidate Deduplication In RecSys",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/cost-efficient-candidate-deduplication-in-recsys",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-02-18T04:49:00.000Z",
+      "excerpt": "The primary goal of a recommendation system is to identify and deliver the most relevant content for a user. To achieve this, it must not only identify high-quality content but also ensure diversity",
+      "content": "The primary goal of a recommendation system is to identify and deliver the most relevant content for a user. To achieve this, it must not only identify…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Andrei Manakov",
+        "Ashish Mishra",
+        "Pawel Obrepalski"
+      ]
+    },
+    {
       "id": "9a61a39f8ec249f7",
       "title": "Navigating data governance with Hasura: Building trust, streamlining operations, and powering AI",
       "url": "https://hasura.io/blog/navigating-data-governance-with-hasura-building-trust-streamlining-operations-and-powering-ai",
@@ -2867,6 +3201,25 @@
       ],
       "authors": [
         "Eric Nelson"
+      ]
+    },
+    {
+      "id": "35283a840c2bf4dd",
+      "title": "Cost-effective Inference for Ranker Models",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/cost-effective-inference-for-ranker-models",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-02-07T08:34:00.000Z",
+      "excerpt": "Modern recommender system models can be very compute- and memory-intensive and expensive to serve. In this post, we’ll go over some of the things we did at ShareChat to make our inference more cost effective.",
+      "content": "Modern recommender system models can be very compute- and memory-intensive and expensive to serve. In this post, we’ll go over some of the things we did at…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Apoorv Upreti"
       ]
     },
     {
@@ -2885,6 +3238,26 @@
       ],
       "authors": [
         "Anshuman Singh"
+      ]
+    },
+    {
+      "id": "81486fc167701c77",
+      "title": "Scaling Recommender System Training on Low-Cost GPUs at ShareChat",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/scaling-recommender-system-training-on-low-cost-gpus-at-sharechat",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-01-27T09:47:00.000Z",
+      "excerpt": "At ShareChat, delivering personalized recommendations to millions of users requires building and training large-scale recommendation models.",
+      "content": "At ShareChat, delivering personalized recommendations to millions of users requires building and training large-scale recommendation models.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Alykhan Tejani",
+        "Jatin Mandav"
       ]
     },
     {
@@ -2959,6 +3332,25 @@
       ],
       "authors": [
         "Praveen Durairaju"
+      ]
+    },
+    {
+      "id": "779d7f8137c30874",
+      "title": "Towards delivering world-class recommendations at the lowest possible cost",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/building-world-class-recommendations-at-lower-costs",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-01-20T17:02:00.000Z",
+      "excerpt": "Sharechat is India’s largest homegrown social media company with native and regional user generated image and video content. Our two apps, ShareChat and Moj, are used by over 325 million users in 15 regional languages across India.",
+      "content": "Sharechat is India’s largest homegrown social media company with native and regional user generated image and video content. Our two apps, ShareChat and Moj,…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Yatharth Saraf"
       ]
     },
     {
@@ -3064,6 +3456,25 @@
       ],
       "authors": [
         "Kenneth Stott"
+      ]
+    },
+    {
+      "id": "778f27aa93f48ed4",
+      "title": "ShareChat's Livestream: Where Creativity Meets Community",
+      "url": "https://sharechat.com/blogs/engineering/sharechat-s-livestream-where-creativity-meets-community",
+      "sourceId": "sharechat",
+      "publishedAt": "2025-01-03T05:45:00.000Z",
+      "excerpt": "ShareChat's Livestream redefines creator-audience bonds, blending entertainment, monetization, and genuine connections in a dynamic social media ecosystem.",
+      "content": "ShareChat's Livestream redefines creator-audience bonds, blending entertainment, monetization, and genuine connections in a dynamic social media ecosystem.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Shantanu Sharma",
+        "Geetish Nayak"
       ]
     },
     {
@@ -3420,6 +3831,24 @@
       ],
       "authors": [
         "Aditi Phadke"
+      ]
+    },
+    {
+      "id": "115d9d7b0ff4ce24",
+      "title": "Boosting Mobile App Efficiency by Optimizing Views",
+      "url": "https://sharechat.com/blogs/engineering/boosting-mobile-app-efficiency-by-optimizing-views",
+      "sourceId": "sharechat",
+      "publishedAt": "2024-08-08T08:31:00.000Z",
+      "excerpt": "This blog post explores an effective strategy to streamline fragment management in your app by revising the feed setup and implementing lazy loading.",
+      "content": "This blog post explores an effective strategy to streamline fragment management in your app by revising the feed setup and implementing lazy loading.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Soumyadip Bhattacharya"
       ]
     },
     {
@@ -4046,6 +4475,24 @@
       ]
     },
     {
+      "id": "e12fd365cf5d16b8",
+      "title": "Cricket Carnival: LiveActivities Widget for IPL scores",
+      "url": "https://sharechat.com/blogs/engineering/cricket-carnival-liveactivities-widget-for-ipl-scores",
+      "sourceId": "sharechat",
+      "publishedAt": "2024-05-16T09:00:00.000Z",
+      "excerpt": "Apple has just unleashed some serious game-changers with iOS 14 and the iPhone 14 Pro. Picture this: a slick Live Activity widget to spice up your lock screen, and hold onto your hats because Dynamic Island has landed, folks!",
+      "content": "Apple has just unleashed some serious game-changers with iOS 14 and the iPhone 14 Pro. Picture this: a slick Live Activity widget to spice up your lock screen,…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Shreyash Shah"
+      ]
+    },
+    {
       "id": "e935fcd6ba9fad7e",
       "title": "Enhancing Chat Performance on PhonePe Android: Strategies & Insights – Part 2",
       "url": "https://tech.phonepe.com/enhancing-chat-performance-on-phonepe-android-strategies-7-insights-part-2",
@@ -4635,6 +5082,27 @@
       ]
     },
     {
+      "id": "8bbd5166c82c24ea",
+      "title": "Evolving Event Streaming Architectures - Nx scale at one-third of the cost",
+      "url": "https://sharechat.com/blogs/engineering/evolving-event-streaming-architectures-nx-scale-at-a-fraction-of-the-cost",
+      "sourceId": "sharechat",
+      "publishedAt": "2024-01-24T11:08:00.000Z",
+      "excerpt": "In this post we will discuss the evolving architecture for Sharechat’s event streaming platform. We will deep dive into what was our first generation architecture, what problem statements we constantly faced and there-fore strived to solve.",
+      "content": "In this post we will discuss the evolving architecture for Sharechat’s event streaming platform. We will deep dive into what was our first generation…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Anuraj Jain",
+        "Ivan Burmistrov",
+        "Arya Ketan"
+      ]
+    },
+    {
       "id": "e7e886bb73b9acfb",
       "title": "GraphQL and the data mesh: developer productivity in an age of exploding data",
       "url": "https://hasura.io/blog/graphql-and-the-data-mesh-developer-productivity-in-an-age-of-exploding-data",
@@ -4808,6 +5276,24 @@
       ],
       "authors": [
         "Sooraj Sanker"
+      ]
+    },
+    {
+      "id": "009da3e23cebdd41",
+      "title": "Introduction to Temporal Workflow in ShareChat",
+      "url": "https://sharechat.com/blogs/engineering/introduction-to-temporal-workflow-in-sharechat",
+      "sourceId": "sharechat",
+      "publishedAt": "2023-11-17T10:17:00.000Z",
+      "excerpt": "In the fast-paced world of technology, orchestrating workflows efficiently has never been more crucial! That's where Temporal comes into play.",
+      "content": "In the fast-paced world of technology, orchestrating workflows efficiently has never been more crucial! That's where Temporal comes into play.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Harshit Gupta"
       ]
     },
     {
@@ -5142,6 +5628,24 @@
       ],
       "authors": [
         "Hasura"
+      ]
+    },
+    {
+      "id": "138e3b9d5df5f9c4",
+      "title": "Enhancing Service Stability through Signadot Sandbox with Automated Integration Testing",
+      "url": "https://sharechat.com/blogs/engineering/enhancing-service-stability-through-signadot-sandbox-with-automated-integration-testing",
+      "sourceId": "sharechat",
+      "publishedAt": "2023-09-27T11:11:00.000Z",
+      "excerpt": "Implementing more accurate manual testing and automated integration tests has significantly boosted our developer velocity.",
+      "content": "Implementing more accurate manual testing and automated integration tests has significantly boosted our developer velocity.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Mahesh Uligade"
       ]
     },
     {
@@ -5828,6 +6332,25 @@
       ]
     },
     {
+      "id": "0f560cf1076a8053",
+      "title": "How Moj & ShareChat handles millions of virtual gifting battles everyday",
+      "url": "https://sharechat.com/blogs/engineering/how-moj-and-sharechat-handles-millions-of-virtual-gifting-battles-everyday",
+      "sourceId": "sharechat",
+      "publishedAt": "2023-06-14T13:50:00.000Z",
+      "excerpt": "From hearts to cakes, to a cool pair of sunglasses, a MOJ user has many choices to choose from when it comes to virtual gifting. But what else has virtual gifting enabled?",
+      "content": "From hearts to cakes, to a cool pair of sunglasses, a MOJ user has many choices to choose from when it comes to virtual gifting. But what else has virtual…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Praful Tondomker",
+        "Nikhita Menon"
+      ]
+    },
+    {
       "id": "eded6533d5d3dff6",
       "title": "Get GraphQL API on Snowflake with Hasura – Sample App",
       "url": "https://hasura.io/blog/get-graphql-api-on-snowflake-with-hasura-sample-app",
@@ -6509,6 +7032,24 @@
       ]
     },
     {
+      "id": "9044d4b3966944ae",
+      "title": "Learn container queries, and how to do them in Tailwind",
+      "url": "https://sharechat.com/blogs/engineering/learn-container-queries-and-how-to-do-them-in-tailwind",
+      "sourceId": "sharechat",
+      "publishedAt": "2023-01-12T12:06:00.000Z",
+      "excerpt": "You are trying to create a Responsive Card component for a design system for your website. Here's a blog where we detail container queries, and how to do it in Tailwind",
+      "content": "You are trying to create a Responsive Card component for a design system for your website. Here's a blog where we detail container queries, and how to do it in…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Akashdeep Patra"
+      ]
+    },
+    {
       "id": "b7d38b6ea8172eaf",
       "title": "Best Practices Guide for GraphQL Observability with Hasura [Part 1]",
       "url": "https://hasura.io/blog/best-practices-guide-for-graphql-observability-with-hasura-part-1",
@@ -6525,6 +7066,25 @@
       ],
       "authors": [
         "Arjun Yelamanchili"
+      ]
+    },
+    {
+      "id": "509d63ccec550334",
+      "title": "Simplifying Image Uploads on Web with Google Image Picker",
+      "url": "https://sharechat.com/blogs/engineering/simplifying-image-uploads-on-web-with-google-image-picker-engineering-blog",
+      "sourceId": "sharechat",
+      "publishedAt": "2023-01-02T12:59:00.000Z",
+      "excerpt": "Google Image Picker is an npm plugin that helps you upload images directly from your web application without going through all the hassle of searching on your browser, downloading, and then uploading to the server. Here's how!",
+      "content": "Google Image Picker is an npm plugin that helps you upload images directly from your web application without going through all the hassle of searching on your…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "frontend"
+      ],
+      "authors": [
+        "Alok Singh and Amit Shukla"
       ]
     },
     {
@@ -6690,6 +7250,25 @@
       ]
     },
     {
+      "id": "2bf1dfadf0c37095",
+      "title": "How we built notification rate limiter for eight billion notifications per day for 400 Million Monthly Active Users",
+      "url": "https://sharechat.com/blogs/engineering/how-we-built-notification-rate-limiter-for-eight-billion-notifications-per-day-for-400-million",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-12-01T17:28:00.000Z",
+      "excerpt": "At ShareChat and Moj, we send around eight billion notifications per day. In this blog, we detail how we drive maximum efficiency, without hampering the user experience",
+      "content": "At ShareChat and Moj, we send around eight billion notifications per day. In this blog, we detail how we drive maximum efficiency, without hampering the user…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Akshit Verma and Ayush Gupta"
+      ]
+    },
+    {
       "id": "d10423e9821263fd",
       "title": "November 2022 Newsletter",
       "url": "https://hasura.io/blog/november-2022-newsletter",
@@ -6773,6 +7352,25 @@
       ],
       "authors": [
         "Hasura"
+      ]
+    },
+    {
+      "id": "c31833d1fd48b628",
+      "title": "Using proxies to make React state mutable",
+      "url": "https://sharechat.com/blogs/engineering/using-proxies-to-make-react-state-mutable",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-11-16T12:45:00.000Z",
+      "excerpt": "While building apps with react, you would have come across bunch of redundant lines of code so that your state understands you're doing something with it. Here's how to use proxies to make React state mutable, & stop destructing your store",
+      "content": "While building apps with react, you would have come across bunch of redundant lines of code so that your state understands you're doing something with it.…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "frontend"
+      ],
+      "authors": [
+        "Akashdeep Patra"
       ]
     },
     {
@@ -7037,6 +7635,25 @@
       ]
     },
     {
+      "id": "e7f267f63dda964d",
+      "title": "Best Practices to Scale Up Developer Productivity",
+      "url": "https://sharechat.com/blogs/engineering/best-practices-to-scale-up-developer-productivity",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-09-28T07:28:00.000Z",
+      "excerpt": "We, at ShareChat, believe in working smart. Here are some tips and tools to ensure you are at your productive best as a developer",
+      "content": "We, at ShareChat, believe in working smart. Here are some tips and tools to ensure you are at your productive best as a developer",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Shivani Sehgal"
+      ]
+    },
+    {
       "id": "0c37fd5713ee99fa",
       "title": "How automating PR review infra helped Hasura with shipping docs",
       "url": "https://hasura.io/blog/how-automating-pr-review-infra-helped-hasura-with-shipping-docs",
@@ -7123,6 +7740,25 @@
       ]
     },
     {
+      "id": "16debae796bdbedd",
+      "title": "Custom React Hook to cancel network calls and synchronize APIs with component life cycle",
+      "url": "https://sharechat.com/blogs/engineering/custom-react-hook-to-cancel-network-calls-and-synchronize-apis-with-component-life-cycle",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-09-08T14:44:00.000Z",
+      "excerpt": "Using Custom React Hook, we explain how to avoid memory leaks in the components, make Atomic API transactions with respect to your Component, and less number of API calls altogether",
+      "content": "Using Custom React Hook, we explain how to avoid memory leaks in the components, make Atomic API transactions with respect to your Component, and less number…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "frontend"
+      ],
+      "authors": [
+        "Akashdeep Patra"
+      ]
+    },
+    {
       "id": "849c348836911fdd",
       "title": "Naming conventions for GraphQL schema",
       "url": "https://hasura.io/blog/naming-convention-for-graphql-schema-snake-case-vs-camel-case",
@@ -7137,6 +7773,25 @@
       ],
       "authors": [
         "Catalin Pit"
+      ]
+    },
+    {
+      "id": "6678ccf61a058920",
+      "title": "Jeet11: React swipeable screens - One of the smallest and most effective library",
+      "url": "https://sharechat.com/blogs/engineering/jeet11-react-swipeable-screens-one-of-the-smallest-and-most-effective-library",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-09-07T06:57:00.000Z",
+      "excerpt": "A smooth experience is paramount to any app and cannot be compromised. In this blog, we explain how we used React swipeable screens in Jeet11 to solve a number of issues",
+      "content": "A smooth experience is paramount to any app and cannot be compromised. In this blog, we explain how we used React swipeable screens in Jeet11 to solve a number…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "frontend"
+      ],
+      "authors": [
+        "Ashutosh Tanwar"
       ]
     },
     {
@@ -7212,6 +7867,43 @@
       ]
     },
     {
+      "id": "68fcaa268272e437",
+      "title": "Deep dive into Animation Hitches and RenderLoop",
+      "url": "https://sharechat.com/blogs/engineering/deep-dive-into-animation-hitches-and-renderloop",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-08-31T18:44:00.000Z",
+      "excerpt": "While developing a user-facing application, any developer aims to provide the smoothest possible experience. In this blog, we detail, how a frame is displayed, general issues with smooth scrolling, transitions, or animations in iOS",
+      "content": "While developing a user-facing application, any developer aims to provide the smoothest possible experience. In this blog, we detail, how a frame is displayed,…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Amirthy Tejeshwar"
+      ]
+    },
+    {
+      "id": "6854c05f582a2095",
+      "title": "How we migrated  700+ Million videos in 48 Hours: A journey of data from one cloud to another",
+      "url": "https://sharechat.com/blogs/engineering/how-we-migrated-700-million-videos-in-48-hours-a-journey-of-data-from-one-cloud-to-another",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-08-26T03:41:00.000Z",
+      "excerpt": "ShareChat’s acquisition of Mx TakaTak required their data to be transferred from their Cloud infrastructure to ours in the shortest possible time to bring both universes together. Here's how we did it",
+      "content": "ShareChat’s acquisition of Mx TakaTak required their data to be transferred from their Cloud infrastructure to ours in the shortest possible time to bring both…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Satyajit Singh"
+      ]
+    },
+    {
       "id": "b2d1d0f7ddb2c6d5",
       "title": "Types of Realtime GraphQL Subscriptions",
       "url": "https://hasura.io/blog/types-of-realtime-graphql-subscriptions",
@@ -7226,6 +7918,43 @@
       ],
       "authors": [
         "Catalin Pit"
+      ]
+    },
+    {
+      "id": "1257400529157500",
+      "title": "Bypassing CORS errors in development",
+      "url": "https://sharechat.com/blogs/engineering/bypassing-cors-errors-in-development",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-08-16T11:01:00.000Z",
+      "excerpt": "CORS errors can be a pain to front-end developers while developing. In this blog, we explain in detail the fixes that can help in speeding up the development process without getting blocked by these errors",
+      "content": "CORS errors can be a pain to front-end developers while developing. In this blog, we explain in detail the fixes that can help in speeding up the development…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "frontend"
+      ],
+      "authors": [
+        "Aditi Maheshwari"
+      ]
+    },
+    {
+      "id": "8997b7810d75d504",
+      "title": "How we created an in-house solution to animate likes and comments",
+      "url": "https://sharechat.com/blogs/engineering/how-we-created-an-in-house-solution-to-animate-likes-and-comments",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-08-16T07:56:00.000Z",
+      "excerpt": "One of the demands that we’ve frequently received was for animation in the form of flying hearts and flying emojis/reactions for live-streaming on the Moj app. Here's a detailed look at how we built an in-house solution",
+      "content": "One of the demands that we’ve frequently received was for animation in the form of flying hearts and flying emojis/reactions for live-streaming on the Moj app.…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Dilraj Singh"
       ]
     },
     {
@@ -7299,6 +8028,27 @@
       ],
       "authors": [
         "Praveen Durairaju"
+      ]
+    },
+    {
+      "id": "96c87ac35bfe9098",
+      "title": "3MASSIV: Multilingual, Multimodal and Multi-Aspect Dataset of Social Media Short Videos",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/3massiv-multilingual-multimodal-and-multi-aspect-dataset-of-social-media-short-videos",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-07-06T12:32:00.000Z",
+      "excerpt": "3MASSIV: Multilingual, Multimodal and Multi-Aspect Dataset of Social Media Short Videos, which was presented at the Conference of Computer Vision and Pattern Recognition (CVPR), 2022 held at New Orleans, Louisiana",
+      "content": "3MASSIV: Multilingual, Multimodal and Multi-Aspect Dataset of Social Media Short Videos, which was presented at the Conference of Computer Vision and Pattern…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Mayank Maheshwari",
+        "Vaibhav Mishra",
+        "Akash Sarkar",
+        "Vikram Gupta"
       ]
     },
     {
@@ -7478,6 +8228,25 @@
       ]
     },
     {
+      "id": "0ddded0e603478de",
+      "title": "ShareChat Infrastructure: Past, Present & Future",
+      "url": "https://sharechat.com/blogs/engineering/sharechat-infrastructure-past-present-and-future",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-05-30T09:10:07.240Z",
+      "excerpt": "In this blog, we deep dive into our infrastructure journey talking about the system improvements we have made, the rationale behind them & what impact it has had so far.",
+      "content": "In this blog, we deep dive into our infrastructure journey talking about the system improvements we have made, the rationale behind them & what impact it has…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Prakhar Joshi"
+      ]
+    },
+    {
       "id": "7b0701f1edaf475f",
       "title": "How we use the Dataloader pattern for optimising GraphQL Joins at Hasura",
       "url": "https://hasura.io/blog/how-we-use-dataloader-pattern-optimising-graphql-joins",
@@ -7546,6 +8315,25 @@
       "authors": []
     },
     {
+      "id": "96be922f1a413bc9",
+      "title": "Streaming Aggregations at Scale",
+      "url": "https://sharechat.com/blogs/engineering/streaming-aggregations-at-scale",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-05-05T05:43:23.098Z",
+      "excerpt": "Being a social media company we maintain a lot of counters; from views and likes to many more internal ones related to revenue spending etc. Updating a count might seem simple but as always the real problems come with scale.",
+      "content": "Being a social media company we maintain a lot of counters; from views and likes to many more internal ones related to revenue spending etc. Updating a count…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Shubham Dhal"
+      ]
+    },
+    {
       "id": "32a31b348791a4db",
       "title": "Introducing GraphQL Joins for federating data across GraphQL services",
       "url": "https://hasura.io/blog/introducing-graphql-joins-for-federating-data-across-graphql-services",
@@ -7560,6 +8348,24 @@
       ],
       "authors": [
         "Praveen Durairaju"
+      ]
+    },
+    {
+      "id": "00ba54a15d4df44c",
+      "title": "Making devs lives easier: Local assets optimization services [Part II]",
+      "url": "https://sharechat.com/blogs/engineering/making-devs-lives-easier-local-assets-optimization-services-part-ii",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-04-28T04:57:00.134Z",
+      "excerpt": "Short videos are often part of our web-cards, PWAs etc. With our compression service, those videos will be ready-made for uploading without any extra work.",
+      "content": "Short videos are often part of our web-cards, PWAs etc. With our compression service, those videos will be ready-made for uploading without any extra work.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Himanshu Dwivedi"
       ]
     },
     {
@@ -7633,6 +8439,24 @@
       ]
     },
     {
+      "id": "49f3832db56e4d1e",
+      "title": "iOS Build Time Reduction",
+      "url": "https://sharechat.com/blogs/engineering/ios-build-time-reduction",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-04-11T06:21:00.000Z",
+      "excerpt": "🤔 Ever wondered how many times a developer builds a project and how much developer time gets wasted on this? We consider build time as a break to grab a coffee or chat with someone or just start browsing the trending news.",
+      "content": "🤔 Ever wondered how many times a developer builds a project and how much developer time gets wasted on this? We consider build time as a break to grab a…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Ashutosh Lasod"
+      ]
+    },
+    {
       "id": "62bfaa5b793c8e5f",
       "title": "Adding Multiple JWTs, Environment Flags, Preview Apps, and more!",
       "url": "https://hasura.io/blog/multiple-jwts-environment-flags-preview-apps-and-more",
@@ -7699,6 +8523,25 @@
       ],
       "authors": [
         "Kandeel Chauhan"
+      ]
+    },
+    {
+      "id": "a00bfb879622508a",
+      "title": "Making Devs Lives Easier: Local Assets Optimization Services - Part I",
+      "url": "https://sharechat.com/blogs/engineering/making-devs-lives-easier-local-assets-optimization-services-part-i",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-03-22T06:50:00.000Z",
+      "excerpt": "Modern websites demand speed. As web developers we have to work not only on javascript but provide the best user experience as well.",
+      "content": "Modern websites demand speed. As web developers we have to work not only on javascript but provide the best user experience as well.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "frontend"
+      ],
+      "authors": [
+        "Himanshu Dwivedi"
       ]
     },
     {
@@ -7997,6 +8840,28 @@
       ]
     },
     {
+      "id": "211e659b90544591",
+      "title": "Recommended — Just For You: How We Handle Personalisation at Scale",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/recommended-just-for-you-how-we-handle-personalisation-at-scale",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-01-17T12:56:00.000Z",
+      "excerpt": "Ever wondered how you are able to find relevant and entertaining content every time you go to the Moj or ShareChat “Home” page? Machine Learning is at the core of this complex machinery!",
+      "content": "Ever wondered how you are able to find relevant and entertaining content every time you go to the Moj or ShareChat “Home” page? Machine Learning is at the core…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Srijan Saket",
+        "Aravindh R",
+        "Subham Todi",
+        "Brihati Jain"
+      ]
+    },
+    {
       "id": "5c6cf7d0e6577919",
       "title": "Recommended — Just For You: How We Handle Personalisation at Scale",
       "url": "https://medium.com/sharechat-techbyte/recommended-just-for-you-how-we-handle-personalisation-at-scale-cc9a2eccfdec",
@@ -8046,6 +8911,24 @@
       ],
       "authors": [
         "Hasura"
+      ]
+    },
+    {
+      "id": "9e6bcf670fe025e7",
+      "title": "How we Created Dynamic Custom Audiences on ShareChat to be Used Across Campaigns for Advertising",
+      "url": "https://sharechat.com/blogs/engineering/how-we-created-dynamic-custom-audiences-on-sharechat-to-be-used-across-campaigns-for-advertising",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-01-13T08:25:00.000Z",
+      "excerpt": "Advertisers want to run their advertisement campaigns on ShareChat and reach their target audiences. Our aim is to show the advertisement to the most relevant audience so that the advertisers' goals are met.",
+      "content": "Advertisers want to run their advertisement campaigns on ShareChat and reach their target audiences. Our aim is to show the advertisement to the most relevant…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Mohit Dubey"
       ]
     },
     {
@@ -8123,6 +9006,25 @@
       ]
     },
     {
+      "id": "724ac83dd3c8ef37",
+      "title": "‘doc-coverage’ — A Documentation Coverage Tool for Javascript",
+      "url": "https://sharechat.com/blogs/engineering/doc-coverage-a-documentation-coverage-tool-for-javascript",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-01-05T11:25:00.000Z",
+      "excerpt": "A few months ago, we at ShareChat decided to go on a documentation coverage spree. Not long into the journey we realised the resources for measuring documentation were limited and would not meet our expectations.",
+      "content": "A few months ago, we at ShareChat decided to go on a documentation coverage spree. Not long into the journey we realised the resources for measuring…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "frontend"
+      ],
+      "authors": [
+        "Shivani Sehgal"
+      ]
+    },
+    {
       "id": "b7b6191df1e7ff72",
       "title": "‘doc-coverage’ — A Documentation Coverage Tool for Javascript",
       "url": "https://medium.com/sharechat-techbyte/doc-coverage-a-documentation-coverage-tool-for-javascript-906ef28ab655",
@@ -8179,6 +9081,24 @@
       ]
     },
     {
+      "id": "289f40ae13de6cd9",
+      "title": "Leveraging Dynamic Programming to Improve Player Performance in Rummy",
+      "url": "https://sharechat.com/blogs/engineering/leveraging-dynamic-programming-to-improve-player-performance-in-rummy",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-31T08:05:00.000Z",
+      "excerpt": "We wanted to give our players the ability to generate the best declaration for their cards. Here's how dynamic programming got the work done.",
+      "content": "We wanted to give our players the ability to generate the best declaration for their cards. Here's how dynamic programming got the work done.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Shubham Sharma"
+      ]
+    },
+    {
       "id": "6e19dc8e91e3b873",
       "title": "Getting Started with Hot Chocolate .NET GraphQL Server",
       "url": "https://hasura.io/blog/getting-started-with-hot-chocolate-dot-net-graphql-server-and-hasura-remote-schema",
@@ -8228,6 +9148,46 @@
       ],
       "authors": [
         "Tech @ ShareChat"
+      ]
+    },
+    {
+      "id": "0d70d4a6f0376c29",
+      "title": "ShareChat AI @ EMNLP 2021",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/sharechat-ai-emnlp-2021",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-22T02:22:00.000Z",
+      "excerpt": "ShareChat AI team made its presence felt at the recently concluded EMNLP Conference 2021 held in the Dominican Republic. Here’s what we spoke about!",
+      "content": "ShareChat AI team made its presence felt at the recently concluded EMNLP Conference 2021 held in the Dominican Republic. Here’s what we spoke about!",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "culture"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
+      ]
+    },
+    {
+      "id": "85ef34b1b490c08b",
+      "title": "Neural Network Compression Using Quantization",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/neural-network-compression-using-quantization",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-19T18:02:00.000Z",
+      "excerpt": "In this approach, an additional calibration step is involved, wherein a representative dataset is used to estimate the range of activations using the variations in the dataset.",
+      "content": "In this approach, an additional calibration step is involved, wherein a representative dataset is used to estimate the range of activations using the…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Akash Manna",
+        "Vikram Gupta",
+        "Debdoot Mukherjee"
       ]
     },
     {
@@ -8340,6 +9300,25 @@
       ]
     },
     {
+      "id": "35819cf56c7b1679",
+      "title": "How We Improved Virtual Gifting Experience in Audio Chatroom",
+      "url": "https://sharechat.com/blogs/engineering/how-we-improved-virtual-gifting-experience-in-audio-chatroom",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-02T09:19:00.000Z",
+      "excerpt": "We wanted to make the whole gifting experience feel very fast but this was not possible if we kept waiting for the API response.",
+      "content": "We wanted to make the whole gifting experience feel very fast but this was not possible if we kept waiting for the API response.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Gulzar Ahmed",
+        "Chetan Potnuru"
+      ]
+    },
+    {
       "id": "a1e308fdc5b2af2a",
       "title": "How We Improved Virtual Gifting Experience in Audio Chatroom",
       "url": "https://medium.com/sharechat-techbyte/how-we-improved-virtual-gifting-experience-in-audio-chatroom-6f8b3cf72ce4",
@@ -8427,6 +9406,27 @@
       ],
       "authors": [
         "Tech @ ShareChat"
+      ]
+    },
+    {
+      "id": "c227fbdc2a5f4fb5",
+      "title": "ShareOCR: The end-to-end OCR for Indic content: Part 2",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/shareocr-the-end-to-end-ocr-for-indic-content-part-2",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-11-19T08:49:00.000Z",
+      "excerpt": "Though our problem from an outside perspective is similar to OCR in the wild problem, the primary distinction is content intelligence.",
+      "content": "Though our problem from an outside perspective is similar to OCR in the wild problem, the primary distinction is content intelligence.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Rishabh Jain",
+        "Praveen Dhinwa",
+        "Vikram Gupta",
+        "Hastagiri Vanchinathan"
       ]
     },
     {
@@ -8761,6 +9761,28 @@
       ]
     },
     {
+      "id": "1429c9ccd039e906",
+      "title": "ShareOCR: The end-to-end OCR for Indic content: Part 1",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/shareocr-the-end-to-end-ocr-for-indic-content-part-1",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-09-27T09:47:00.000Z",
+      "excerpt": "While designing the OCR system, we had both computational complexity and correctness in mind, as the system needs to scale up to the heavy usage and use-cases. We tried models, like Single Shot Detection[4] and R2CNN[5],",
+      "content": "While designing the OCR system, we had both computational complexity and correctness in mind, as the system needs to scale up to the heavy usage and use-cases.…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Rishabh Jain",
+        "Vikram Gupta",
+        "Hastagiri Vanchinathan",
+        "Debdoot Mukherjee"
+      ]
+    },
+    {
       "id": "9630c852c38250d4",
       "title": "Hasura and The Low-code Ecosystem",
       "url": "https://hasura.io/blog/hasura-for-the-low-code-ecosystem",
@@ -8794,6 +9816,27 @@
       ],
       "authors": [
         "Jesse Martin"
+      ]
+    },
+    {
+      "id": "ae56d94a21b9e194",
+      "title": "The devil is in the details: Video Quality Enhancement Approaches",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/the-devil-is-in-the-details-video-quality-enhancement-approaches",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-09-17T09:24:00.000Z",
+      "excerpt": "Majority of existing work tackles only one of the aforementioned problems at a time. We at ShareChat and Moj, on the other hand, are working towards a robust all-in-one framework to considerably improve the quality of the UGC,",
+      "content": "Majority of existing work tackles only one of the aforementioned problems at a time. We at ShareChat and Moj, on the other hand, are working towards a robust…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "platform"
+      ],
+      "authors": [
+        "Sanjoy Chowdhury",
+        "Vikram Gupta",
+        "Sumandeep Banerjee"
       ]
     },
     {
@@ -8938,6 +9981,25 @@
       ]
     },
     {
+      "id": "2ad438a104f3d892",
+      "title": "First Principle Audio Quality Assessment",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/first-principle-audio-quality-assessment",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-08-31T09:09:00.000Z",
+      "excerpt": "Since our use cases deal primarily with spoken audio, we use the popular overlap and shift paradigm used to analyse speech signals with a 25ms window length and 10ms shift.",
+      "content": "Since our use cases deal primarily with spoken audio, we use the popular overlap and shift paradigm used to analyse speech signals with a 25ms window length…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Rini Sharon",
+        "Vikram Gupta"
+      ]
+    },
+    {
       "id": "8f925c0138bef1fd",
       "title": "Tutorial: Integrating Hasura with Retool—A low-code tool for building B2B workflows & tools.",
       "url": "https://hasura.io/blog/integrating-hasura-with-retool-for-building-b2b-workflows",
@@ -8969,6 +10031,26 @@
       ],
       "authors": [
         "Dream11 Engineering"
+      ]
+    },
+    {
+      "id": "64d17ffc75d4f6fd",
+      "title": "Similarity Search over Deep Representations at Scale",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/similarity-search-over-deep-representations-at-scale",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-08-26T08:58:00.000Z",
+      "excerpt": "For each language and content type, we have a different configuration for extracting features as well as separate Milvus clusters. This allows us to tackle challenges that come with each language/content-type",
+      "content": "For each language and content type, we have a different configuration for extracting features as well as separate Milvus clusters. This allows us to tackle…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Sanjit Jain",
+        "Vikram Gupta"
       ]
     },
     {
@@ -9077,6 +10159,24 @@
       ]
     },
     {
+      "id": "70111813fa4c32fb",
+      "title": "How advertising budgets are consumed to deliver maximum ROI for advertisers",
+      "url": "https://sharechat.com/blogs/engineering/how-advertising-budgets-are-consumed-to-deliver-maximum-roi-for-advertisers",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-08-16T10:48:00.000Z",
+      "excerpt": "A PID controller continuously calculates an error value as the difference between the desired value and the measured value and applies a correction factor so that the measured value becomes equal to the desired value.",
+      "content": "A PID controller continuously calculates an error value as the difference between the desired value and the measured value and applies a correction factor so…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Sanidhya Mittal"
+      ]
+    },
+    {
       "id": "c7b303300186e1c4",
       "title": "Your Guide to GraphQL with TypeScript",
       "url": "https://hasura.io/blog/your-guide-to-graphql-with-typescript",
@@ -9109,6 +10209,25 @@
       ],
       "authors": [
         "Dream11 Engineering"
+      ]
+    },
+    {
+      "id": "e2cab3b286ec3053",
+      "title": "Penny Gauge — Simplifying Cloud Cost Management At Scale",
+      "url": "https://sharechat.com/blogs/engineering/penny-gauge-simplifying-cloud-cost-management-at-scale",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-08-12T10:44:00.000Z",
+      "excerpt": "The jobs are written in a way that most of the heavy lifting in terms of computation is done by BigQuery itself (parsed from GKE metering). We simply aggregate the results and push those back to another BigQuery dataset.",
+      "content": "The jobs are written in a way that most of the heavy lifting in terms of computation is done by BigQuery itself (parsed from GKE metering). We simply aggregate…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Abhiroop Soni"
       ]
     },
     {
@@ -9180,6 +10299,43 @@
       ],
       "authors": [
         "Dream11 Engineering"
+      ]
+    },
+    {
+      "id": "9b36a79f09ea43e8",
+      "title": "Observability to power Resilient Infrastructure",
+      "url": "https://sharechat.com/blogs/engineering/observability-to-power-resilient-infrastructure",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-08-02T09:56:00.000Z",
+      "excerpt": "Millions of posts are created every day on ShareChat and Moj which makes timely and precise detection of Integrity Violating Content (IVC) crucial for ensuring the safety of our users and",
+      "content": "Millions of posts are created every day on ShareChat and Moj which makes timely and precise detection of Integrity Violating Content (IVC) crucial for ensuring…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Asadh Sheriff"
+      ]
+    },
+    {
+      "id": "69eef5c3ef8779d7",
+      "title": "Distributed Tracing with Stackdriver Trace",
+      "url": "https://sharechat.com/blogs/engineering/distributed-tracing-with-stackdriver-trace",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-08-02T08:31:00.000Z",
+      "excerpt": "If you have troubleshot Distributed Systems, you would realise that the maximum time is spent in trying to find out where the problem emanates from. Once the system-at-fault has been identified, the fix itself becomes very straightforward.",
+      "content": "If you have troubleshot Distributed Systems, you would realise that the maximum time is spent in trying to find out where the problem emanates from. Once the…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Sanket Gawande"
       ]
     },
     {
@@ -9287,6 +10443,45 @@
       ],
       "authors": [
         "Hasura"
+      ]
+    },
+    {
+      "id": "ec3a3bda9342ed2d",
+      "title": "Making Tracing as a part of Engineering DNA",
+      "url": "https://sharechat.com/blogs/engineering/making-tracing-as-a-part-of-engineering-dna",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-07-19T08:25:00.000Z",
+      "excerpt": "We used philosophies of open tracing for extracting various metrics from every single resource and collected Externally to create actionable items and build more intelligent infrastructure.",
+      "content": "We used philosophies of open tracing for extracting various metrics from every single resource and collected Externally to create actionable items and build…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Asadh Sheriff"
+      ]
+    },
+    {
+      "id": "8fcb6a16ce518fec",
+      "title": "Video Content Moderation with Few Labeled Examples using Semi-Supervised Learning",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/video-content-moderation-with-few-labeled-examples-using-semi-supervised-learning",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-07-17T08:15:00.000Z",
+      "excerpt": "While our models demonstrate amazing speed and accuracy, they are data-hungry and require many labelled data for training. Labelling this data is a time consuming and costly process as it requires manual inspection.",
+      "content": "While our models demonstrate amazing speed and accuracy, they are data-hungry and require many labelled data for training. Labelling this data is a time…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Rishubh Parihar",
+        "Vikram Gupta",
+        "Debdoot Mukherjee"
       ]
     },
     {
@@ -9499,6 +10694,27 @@
       ]
     },
     {
+      "id": "f58b342686a14082",
+      "title": "Fast, Accurate and Scalable Video Content Moderation",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/fast-accurate-and-scalable-video-content-moderation",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-06-01T10:07:00.000Z",
+      "excerpt": "Videos are an expressive, engaging and entertaining form of content. However, from a machine learning point of view, videos are incredibly complex as the information flows in both spatial and temporal dimensions.",
+      "content": "Videos are an expressive, engaging and entertaining form of content. However, from a machine learning point of view, videos are incredibly complex as the…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Rishubh Parihar",
+        "Jatin Mandav",
+        "Srijan Saket",
+        "Sanjit Jain"
+      ]
+    },
+    {
       "id": "a6ea86e976d13b03",
       "title": "Building Brave Care using Hasura: A case study of a YC backed healthcare startup",
       "url": "https://hasura.io/blog/building-brave-care-using-hasura-case-study-of-a-yc-backed-healthcare-startup",
@@ -9549,6 +10765,28 @@
       ],
       "authors": [
         "Hasura"
+      ]
+    },
+    {
+      "id": "b8684ba8f6868aad",
+      "title": "Multimodal Automated Content Moderation",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/multimodal-automated-content-moderation",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-05-26T12:19:00.000Z",
+      "excerpt": "Millions of posts are created every day on ShareChat and Moj which makes timely and precise detection of Integrity Violating Content (IVC) crucial for ensuring the safety of our users and the integrity of our platform.",
+      "content": "Millions of posts are created every day on ShareChat and Moj which makes timely and precise detection of Integrity Violating Content (IVC) crucial for ensuring…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "platform"
+      ],
+      "authors": [
+        "Jatin Mandav",
+        "Rishubh Parihar",
+        "Srijan Saket",
+        "Vikram Gupta"
       ]
     },
     {
@@ -11091,6 +12329,24 @@
       ]
     },
     {
+      "id": "19b90ef8edc6a478",
+      "title": "Improving profile search accuracy using ElasticSearch n-gram tokenizer",
+      "url": "https://sharechat.com/blogs/engineering/improving-profile-search-accuracy-using-elasticsearch-n-gram-tokenizer",
+      "sourceId": "sharechat",
+      "publishedAt": "2020-11-14T07:56:00.000Z",
+      "excerpt": "Elasticsearch is a distributed document store that stores data in an inverted index. An inverted index lists every unique word that appears in any document and identifies all of the documents each",
+      "content": "Elasticsearch is a distributed document store that stores data in an inverted index. An inverted index lists every unique word that appears in any document and…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Pulkit Kapoor"
+      ]
+    },
+    {
       "id": "2dc8aa8bd4310061",
       "title": "RedwoodJS with Hasura = ❤️",
       "url": "https://hasura.io/blog/redwoodjs-with-graphql-hasura",
@@ -11195,6 +12451,44 @@
       ],
       "authors": [
         "Tanmai Gopal"
+      ]
+    },
+    {
+      "id": "659873fcddc06663",
+      "title": "How we brought down storage costs for the Ads platform: Part 1",
+      "url": "https://sharechat.com/blogs/engineering/how-we-brought-down-storage-costs-for-the-ads-platform-part-1",
+      "sourceId": "sharechat",
+      "publishedAt": "2020-10-28T10:12:00.000Z",
+      "excerpt": "We just went through different solutions that we could use for the problem we have on our hands. All of these are valid solutions that could be used for different levels of scale.",
+      "content": "We just went through different solutions that we could use for the problem we have on our hands. All of these are valid solutions that could be used for…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Pulkit Chaudhary"
+      ]
+    },
+    {
+      "id": "75fb1c6a2300de64",
+      "title": "How we brought down storage for the Ads platform: Part 2",
+      "url": "https://sharechat.com/blogs/engineering/how-we-brought-down-storage-for-the-ads-platform-part-2",
+      "sourceId": "sharechat",
+      "publishedAt": "2020-10-28T09:51:00.000Z",
+      "excerpt": "our code needs to compare the number of times a user has already seen an ad to the configured frequency in real-time and for that, we need storage of how many times a user has seen an ad. On the face of it.",
+      "content": "our code needs to compare the number of times a user has already seen an ad to the configured frequency in real-time and for that, we need storage of how many…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "platform"
+      ],
+      "authors": [
+        "Pulkit Chaudhary"
       ]
     },
     {
@@ -11419,6 +12713,42 @@
       ],
       "authors": [
         "Praveen Durairaju"
+      ]
+    },
+    {
+      "id": "31f5c7283b80e1d3",
+      "title": "A deep dive into ShareChat Progressive Web App (PWA)",
+      "url": "https://sharechat.com/blogs/engineering/a-deep-dive-into-sharechat-progressive-web-app-pwa",
+      "sourceId": "sharechat",
+      "publishedAt": "2020-08-12T10:05:00.000Z",
+      "excerpt": "Furthermore, we have extensively used the bundle analysis tool for webpack called Bundle Analyser, which enables us to visualize both uncompressed and gzipped size of webpack output files with an interactive zoomable tree-map.",
+      "content": "Furthermore, we have extensively used the bundle analysis tool for webpack called Bundle Analyser, which enables us to visualize both uncompressed and gzipped…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Saket Diwakar"
+      ]
+    },
+    {
+      "id": "48b037d0c74aed24",
+      "title": "Hindi Shayri Generation",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/hindi-poem-generation",
+      "sourceId": "sharechat",
+      "publishedAt": "2020-08-12T10:05:00.000Z",
+      "excerpt": "Automatic Natural Language Generation (NLG) has had a long tradition in the Computational Linguistics community, but the recent advances in deep learning have given it a new impetus. Its importance in the modern world cannot be overstated.",
+      "content": "Automatic Natural Language Generation (NLG) has had a long tradition in the Computational Linguistics community, but the recent advances in deep learning have…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Kushal Chauhan"
       ]
     },
     {
@@ -11717,6 +13047,24 @@
       ]
     },
     {
+      "id": "91437abc5accf241",
+      "title": "Bigtable: from hero, to villain, back to hero",
+      "url": "https://sharechat.com/blogs/engineering/bigtable-from-hero-to-villain-back-to-hero",
+      "sourceId": "sharechat",
+      "publishedAt": "2020-05-06T10:03:00.000Z",
+      "excerpt": "This article talks about some interesting scenarios we encountered with BT and the troubleshooting steps we followed through the entire process.",
+      "content": "This article talks about some interesting scenarios we encountered with BT and the troubleshooting steps we followed through the entire process.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Venkatesh Ramaswamy"
+      ]
+    },
+    {
       "id": "f4ef4c71a60a9801",
       "title": "Introducing Actions: Add custom business logic to Hasura",
       "url": "https://hasura.io/blog/introducing-actions",
@@ -11731,6 +13079,25 @@
       ],
       "authors": [
         "Tanmai Gopal"
+      ]
+    },
+    {
+      "id": "a71b61f23b74e665",
+      "title": "Inter cloud routing using API Gateway",
+      "url": "https://sharechat.com/blogs/engineering/inter-cloud-routing-using-api-gateway",
+      "sourceId": "sharechat",
+      "publishedAt": "2020-05-05T10:11:00.000Z",
+      "excerpt": "Netflix Archaius provides a DynamoDB client library with a FixedDelayPollingScheduler, which basically polls the config in fixed intervals. This was integrated to fetch sync/async thresholds, ignored APIs and similar other configs.",
+      "content": "Netflix Archaius provides a DynamoDB client library with a FixedDelayPollingScheduler, which basically polls the config in fixed intervals. This was integrated…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Naman Sogani"
       ]
     },
     {
@@ -13191,6 +14558,43 @@
       ]
     },
     {
+      "id": "03a6730a9e1ed601",
+      "title": "Deploying Spinnaker to Google Kubernetes Engine",
+      "url": "https://sharechat.com/blogs/engineering/deploying-spinnaker-to-google-kubernetes-engine",
+      "sourceId": "sharechat",
+      "publishedAt": "2019-05-16T08:30:00.000Z",
+      "excerpt": "With an intent to make all deployments fully CD-compatible, the Infra team at ShareChat started to experiment with Spinnaker and we are happy to share our journey with you.",
+      "content": "With an intent to make all deployments fully CD-compatible, the Infra team at ShareChat started to experiment with Spinnaker and we are happy to share our…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Abhimanyu Jaju"
+      ]
+    },
+    {
+      "id": "d303088f51fd742f",
+      "title": "Visual Search and Data Processing: ShareChat’s Battle against Plagiarism",
+      "url": "https://sharechat.com/blogs/engineering/visual-search-and-data-processing-sharechat-s-battle-against-plagiarism",
+      "sourceId": "sharechat",
+      "publishedAt": "2019-05-08T08:27:00.000Z",
+      "excerpt": "For a query post, inverted indices give us the potential result candidates for ranking. We then retrieve the codebooks for candidates, and also quantize the query to construct its codebook, according to its sub-vectors.",
+      "content": "For a query post, inverted indices give us the potential result candidates for ranking. We then retrieve the codebooks for candidates, and also quantize the…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml"
+      ],
+      "authors": [
+        "Rama Badrinath"
+      ]
+    },
+    {
       "id": "587eb8cdc66628a8",
       "title": "Chronicling our Technology Journey",
       "url": "https://tech.phonepe.com/engineeringphonepe-chronicling-our-technology-journey",
@@ -13604,6 +15008,25 @@
       ],
       "authors": [
         "Shahidh K Muhammed"
+      ]
+    },
+    {
+      "id": "345e99268490854e",
+      "title": "ShareChat’s Content Processing Pipeline — ShareChat",
+      "url": "https://sharechat.com/blogs/artificial-intelligence/sharechat-s-content-processing-pipeline-sharechat",
+      "sourceId": "sharechat",
+      "publishedAt": "2019-02-16T08:40:00.000Z",
+      "excerpt": "At ShareChat, our CNN architecture is based on DenseNet1, or ‘dense convolutional network’. DenseNet has a feed-forward processing layer architecture, connecting each layer with every other layer.",
+      "content": "At ShareChat, our CNN architecture is based on DenseNet1, or ‘dense convolutional network’. DenseNet has a feed-forward processing layer architecture,…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "infrastructure"
+      ],
+      "authors": [
+        "Ankur Shrivastava"
       ]
     },
     {
