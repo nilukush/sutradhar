@@ -34,7 +34,20 @@ const linkProps = external ? { rel: "noopener", target: "_blank" } : {};
     <div class="pills">
       {article.topics.slice(0, 3).map((t) => <TopicPill topic={t} />)}
     </div>
-    {origin && <span class="origin">{origin}</span>}
+    <div class="foot-right">
+      {article.hn && (
+        <a
+          class="hn-badge"
+          href={`https://news.ycombinator.com/item?id=${article.hn.storyId}`}
+          rel="noopener"
+          target="_blank"
+          title={`${article.hn.points} points on Hacker News`}
+        >
+          ▲ {article.hn.points} HN
+        </a>
+      )}
+      {origin && <span class="origin">{origin}</span>}
+    </div>
   </div>
 </article>
 
@@ -116,6 +129,22 @@ const linkProps = external ? { rel: "noopener", target: "_blank" } : {};
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
+  }
+  .foot-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    position: relative;
+    z-index: 2;
+  }
+  .hn-badge {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--saffron-deep);
+    background: var(--saffron-wash);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
   }
   .origin {
     font-family: var(--font-mono);

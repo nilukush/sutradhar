@@ -15,7 +15,7 @@ const dist = resolve(root, "dist");
 
 const corpus = JSON.parse(readFileSync(resolve(root, "src/data/articles.json"), "utf8")) as {
   generatedAt: string;
-  articles: { sourceId: string; publishedAt: string; topics?: string[] }[];
+  articles: { id?: string; title?: string; sourceId: string; publishedAt: string; topics?: string[]; hn?: unknown }[];
 };
 const sourceIds = [...new Set(corpus.articles.map((a) => a.sourceId))];
 const limitById = new Map(SOURCES.map((s) => [s.id, s.excerptLimit]));
@@ -119,6 +119,17 @@ const checks: [string, boolean][] = [
   ["read page NewsArticle carries image and dateModified", readHtml.includes('"image"') && readHtml.includes('"dateModified"')],
   ["read page has BreadcrumbList", readHtml.includes('"@type":"BreadcrumbList"')],
   ["read page is og:type article with published time", readHtml.includes('property="og:type" content="article"') && readHtml.includes('property="article:published_time"')],
+  // Data-aware like the trending check: HN links only render when the corpus
+  // actually carries a signal (enrichment attaches one only for in-window
+  // articles with real Hacker News discussion). The card badge uses the same
+  // condition as the read-page link, so one check covers the data path.
+  ["read page surfaces the HN discussion when a signal exists",
+    (() => {
+      const hnArticle = corpus.articles.find((a) => a.hn && a.id && a.title);
+      if (!hnArticle) return true; // dormant without signal — correct
+      const hnHtml = readFileSync(resolve(dist, "read", articleSlug({ id: hnArticle.id!, title: hnArticle.title! }), "index.html"), "utf8");
+      return hnHtml.includes("news.ycombinator.com/item?id=");
+    })()],
   ["/articles ItemList links to in-site read pages", articles2.includes(`"url":"${SITE.url}/read/`)],
   ["page-2 meta description is differentiated", /name="description" content="[^"]*page 2/.test(articles2)],
   ["sitemap read-page lastmod is the article publish date, not build time", lastmodIsPublishDate],

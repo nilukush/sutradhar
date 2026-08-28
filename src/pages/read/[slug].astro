@@ -109,6 +109,11 @@ const newsArticle = {
       <a class="button" href={article.url} rel="noopener" target="_blank">
         Continue reading on {hostOf(article.url)} <span aria-hidden="true">↗</span>
       </a>
+      {article.hn && (
+        <a class="hn-link" href={`https://news.ycombinator.com/item?id=${article.hn.storyId}`} rel="noopener" target="_blank">
+          ▲ Discussed on Hacker News — {article.hn.points} points · {article.hn.comments} comments
+        </a>
+      )}
       <span class="meta cta-host">{article.url}</span>
     </aside>
 
@@ -209,6 +214,11 @@ const newsArticle = {
   }
   .cta-host {
     word-break: break-all;
+  }
+  .hn-link {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--saffron-deep);
   }
   .related {
     margin-top: var(--space-7);
