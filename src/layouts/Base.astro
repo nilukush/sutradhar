@@ -10,6 +10,7 @@ import SiteFooter from "@/components/SiteFooter.astro";
 import { SITE } from "@/lib/site";
 import { isRepoConfigured } from "@/lib/subscribe";
 import { canonicalFor } from "@/lib/view";
+import { safeJsonLd } from "@/lib/jsonld";
 
 interface Props {
   title: string;
@@ -42,11 +43,6 @@ const baseJsonLd: Record<string, unknown>[] = [
   },
 ];
 const allJsonLd = [...baseJsonLd, ...jsonLd];
-
-/** JSON-LD payload with < and > escaped — a `</script>` inside feed-sourced titles must never terminate the block. */
-function safeJsonLd(object: Record<string, unknown>): string {
-  return JSON.stringify(object).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
-}
 ---
 
 <!doctype html>

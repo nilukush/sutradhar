@@ -1,5 +1,6 @@
 ---
 import { SITE } from "@/lib/site";
+import { safeJsonLd } from "@/lib/jsonld";
 
 interface Crumb {
   label: string;
@@ -42,7 +43,7 @@ const jsonLd = {
     </span>
   ))}
 </nav>
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script type="application/ld+json" set:html={safeJsonLd(jsonLd)} />
 
 <style>
   .crumbs {
