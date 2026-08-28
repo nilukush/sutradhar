@@ -8,8 +8,9 @@
   "assets": {
     "directory": "./dist"
   },
-  // Non-secret config; secrets (BREVO_API_KEY, OWNER_EMAIL) are set in the
-  // Cloudflare dashboard under the Worker's Settings → Variables and Secrets.
+  // keep_vars preserves dashboard-set plain variables across config-driven
+  // deploys (secrets always persist; this protects text-type vars).
+  "keep_vars": true,
   "vars": {
     "BREVO_LIST_NAME": "Sutradhar"
   }
