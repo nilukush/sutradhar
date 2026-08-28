@@ -68,4 +68,57 @@ describe("worker entry (serving layer)", () => {
     expect(res.status).toBe(404);
     expect(await res.text()).toContain("FOUR_OH_FOUR_MARKUP");
   });
+
+  describe("security + charset headers (audit P3)", () => {
+    const REQUIRED = [
+      "strict-transport-security",
+      "x-content-type-options",
+      "referrer-policy",
+      "x-frame-options",
+      "content-security-policy",
+    ];
+
+    it("adds security headers to asset responses", async () => {
+      const assets = vi.fn().mockReturnValue(new Response("<html>ok</html>", { headers: { "Content-Type": "text/html" } }));
+      const res = await worker.fetch(new Request(`https://${HOST}/`), makeEnv(assets));
+      for (const header of REQUIRED) expect(res.headers.has(header)).toBe(true);
+      expect(res.headers.get("x-content-type-options")).toBe("nosniff");
+    });
+
+    it("appends charset=utf-8 to text/html responses missing it", async () => {
+      const assets = vi.fn().mockReturnValue(new Response("<html>ok</html>", { headers: { "Content-Type": "text/html" } }));
+      const res = await worker.fetch(new Request(`https://${HOST}/`), makeEnv(assets));
+      expect(res.headers.get("content-type")).toBe("text/html; charset=utf-8");
+    });
+
+    it("appends charset=utf-8 to text/plain responses missing it (llms.txt)", async () => {
+      const assets = vi.fn().mockReturnValue(new Response("# Sutradhar", { headers: { "Content-Type": "text/plain" } }));
+      const res = await worker.fetch(new Request(`https://${HOST}/llms.txt`), makeEnv(assets));
+      expect(res.headers.get("content-type")).toBe("text/plain; charset=utf-8");
+    });
+
+    it("never touches non-text content types (images)", async () => {
+      const assets = vi.fn().mockReturnValue(new Response("png", { headers: { "Content-Type": "image/png" } }));
+      const res = await worker.fetch(new Request(`https://${HOST}/og-default.png`), makeEnv(assets));
+      expect(res.headers.get("content-type")).toBe("image/png");
+    });
+
+    it("carries security headers on the https redirect (HSTS before first secure hop)", async () => {
+      const res = await worker.fetch(new Request(`http://${HOST}/`), makeEnv(vi.fn()));
+      expect(res.status).toBe(308);
+      expect(res.headers.get("strict-transport-security")).toContain("max-age");
+    });
+
+    it("carries security headers on 404 fallbacks", async () => {
+      const assets = vi.fn((req: Request) => {
+        if (new URL(req.url).pathname === "/404.html") {
+          return new Response("x", { status: 200, headers: { "Content-Type": "text/html" } });
+        }
+        throw new Error("no matching asset");
+      });
+      const res = await worker.fetch(new Request(`https://${HOST}/nope`), makeEnv(assets as unknown as (req: Request) => Promise<Response>));
+      expect(res.status).toBe(404);
+      for (const header of REQUIRED) expect(res.headers.has(header)).toBe(true);
+    });
+  });
 });
