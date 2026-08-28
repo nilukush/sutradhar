@@ -44,18 +44,18 @@
 
 ## Open items / next steps
 
-- [ ] **Corrected 2026-08-28 (earlier "two projects" theory was WRONG):** owner's CF account has
-  exactly ONE project — the Worker (verified by owner screenshot). `sutradhar.pages.dev` is a
-  **stranger's project** (title "frontend"; pages.dev names are globally unique across all CF
-  accounts) — ignore it, nothing to delete. Real issue: live Worker runs current code but
-  runtime env lacks BREVO_API_KEY (POST /api/subscribe → 503 "not configured"). Dashboard
-  shows the values to the owner, so they live somewhere non-runtime (most likely Build →
-  Environment variables, or a never-promoted version). Fix paths: (a) `npx wrangler login` on
-  the Mac, then `wrangler secret put BREVO_API_KEY` + `OWNER_EMAIL` (agent-driven, preferred);
-  (b) Worker → Settings → **Variables and Secrets** (the first Settings group, NOT the Build
-  section) → Add → type **Secret** → the add-dialog's own Deploy/Save completes the promotion.
-  keep_vars:true (29a1ae2) is already deployed, so secrets set now survive hourly config
-  deploys. Then POST /api/subscribe → expect ok:true + owner notification email (verify).
+- [x] **RESOLVED 2026-08-28 (earlier "two projects" theory was WRONG):** owner's CF account has
+  exactly ONE project — the Worker. `sutradhar.pages.dev` is a **stranger's project** (title
+  "frontend"; pages.dev names are globally unique across all CF accounts) — ignore it forever.
+  Actual root cause: the owner's dashboard values sat in the **build-only** variables section
+  (Workers Builds docs: build vars are "build-only, distinct from runtime variables"); runtime
+  had ZERO secrets (`wrangler secret list` → `[]`). Fix applied by agent: `npx wrangler login`
+  (owner clicked Allow) → `wrangler secret put BREVO_API_KEY` + `OWNER_EMAIL` (key piped from
+  gitignored doc, never echoed). PROVEN live: POST /api/subscribe → `{"ok":true}` HTTP 200;
+  invalid email → 400 friendly error; Brevo contact touched (listIds [2,4], modifiedAt bumped);
+  secrets survived the subsequent config deploy (keep_vars working). Owner notification email
+  fires on every subscribe ("New Sutradhar subscriber: …"). Full pipeline now autonomous:
+  hourly aggregate → site rebuild + deploy, weekly Monday 09:07 IST Brevo campaign send.
 - [x] ~~Automated newsletter~~ → **PROVEN END-TO-END 2026-08-28**: workflow dispatched manually →
   "Campaign 2 sent to the Sutradhar list (week 2026-W34)" → Brevo status `sent` 10:46:50Z →
   owner's gmail received the first Sutradhar email. Idempotency proven (re-run skipped:
