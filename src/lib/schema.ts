@@ -44,7 +44,18 @@ export const FeedSchema = z.discriminatedUnion("type", [
   z.object({
     /** HTML scraper (see src/lib/scrapers.ts) — Juspay has no feed of any kind. */
     type: z.literal("juspay"),
-    url: z.url(),
+    urls: z.array(z.url()).min(1),
+  }),
+  z.object({
+    /**
+     * Sanity Content Lake query (public dataset) — ShareChat's blog CMS.
+     * Post URLs are `${urlBase}/${category-slug}/${post-slug}`.
+     */
+    type: z.literal("sanity"),
+    projectId: z.string().min(3),
+    dataset: z.string().min(1),
+    categories: z.array(z.string().min(1)).min(1),
+    urlBase: z.url(),
   }),
 ]);
 

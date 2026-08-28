@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { parseJuspayCategory, parseJuspaySitemap, parseJuspayPost, fetchJuspayItems } from "@/lib/scrapers";
+import { parseJuspayCategory, parseJuspaySitemap, parseJuspayPost, fetchJuspayItems, fetchSanityPosts } from "@/lib/scrapers";
 import type { Source } from "@/lib/schema";
 
 const CATEGORY_HTML = `<!doctype html><html><head>
@@ -63,7 +63,7 @@ describe("fetchJuspayItems (orchestration)", () => {
     id: "juspay",
     name: "Juspay",
     siteUrl: "https://juspay.io/",
-    feed: { type: "juspay", url: "https://juspay.io/blog/engineering" },
+    feed: { type: "juspay", urls: ["https://juspay.io/blog/engineering"] },
     platform: "custom",
     tier: 2,
     topics: ["fintech-payments"],
@@ -99,5 +99,110 @@ describe("fetchJuspayItems (orchestration)", () => {
     }) as unknown as typeof fetch;
     const items = await fetchJuspayItems(source, { fetchImpl });
     expect(items).toEqual([]);
+  });
+});
+
+describe("sharechat sanity adapter", () => {
+  const SANITY_BODY = {
+    query: "groq",
+    result: [
+      {
+        title: "How ShareChat built a scalable cost efficient ML Feature system",
+        slug: "how-sharechat-built-a-scalable-cost-efficient-ml-feature-system",
+        pub: "2025-03-06T05:45:00.000Z",
+        cat: "Artificial Intelligence",
+        author: "David Malinge,Ivan Burmistrov",
+        excerpt: "At ShareChat, Machine Learning models form the backbone of our recommendation system.",
+      },
+      {
+        title: "No-author post",
+        slug: "no-author-post",
+        pub: "2024-01-02T03:04:05.000Z",
+        cat: "Engineering",
+        author: null,
+        excerpt: null,
+      },
+    ],
+    ms: 5,
+  };
+
+  const source: Source = {
+    id: "sharechat",
+    name: "ShareChat",
+    siteUrl: "https://sharechat.com/blogs",
+    feed: {
+      type: "sanity",
+      projectId: "10qgadfo",
+      dataset: "production",
+      categories: ["Engineering", "Artificial Intelligence"],
+      urlBase: "https://sharechat.com/blogs",
+    },
+    platform: "custom",
+    tier: 2,
+    topics: ["backend"],
+  };
+
+  it("maps Sanity posts to RawItems with category URL paths and split authors", async () => {
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify(SANITY_BODY), { status: 200 })) as unknown as typeof fetch;
+    const items = await fetchSanityPosts(source, { fetchImpl });
+    expect(items[0]).toMatchObject({
+      title: "How ShareChat built a scalable cost efficient ML Feature system",
+      url: "https://sharechat.com/blogs/artificial-intelligence/how-sharechat-built-a-scalable-cost-efficient-ml-feature-system",
+      publishedAt: "2025-03-06T05:45:00.000Z",
+      authors: ["David Malinge", "Ivan Burmistrov"],
+      excerpt: "At ShareChat, Machine Learning models form the backbone of our recommendation system.",
+    });
+    expect(items[1]).toMatchObject({ authors: [], excerpt: undefined, url: "https://sharechat.com/blogs/engineering/no-author-post" });
+    expect(fetchImpl).toHaveBeenCalledOnce();
+    const calledUrl = String((fetchImpl as ReturnType<typeof vi.fn>).mock.calls[0][0]);
+    expect(calledUrl).toContain("10qgadfo.api.sanity.io/v1/data/query/production");
+    expect(calledUrl).toContain(encodeURIComponent('"Engineering"'));
+  });
+
+  it("rejects when the Sanity API errors", async () => {
+    const fetchImpl = vi.fn(async () => new Response("nope", { status: 500 })) as unknown as typeof fetch;
+    await expect(fetchSanityPosts(source, { fetchImpl })).rejects.toThrow();
+  });
+});
+
+describe("juspay multi-category", () => {
+  const CATEGORY_HTML_2 = CATEGORY_HTML.replace(
+    "https://juspay.io/blog/post-one",
+    "https://juspay.io/blog/post-ai",
+  );
+  const SITEMAP_AI = SITEMAP_XML.replace(
+    "</urlset>",
+    "<url><loc>https://juspay.io/blog/post-ai</loc><lastmod>2026-06-01T00:00:00.000Z</lastmod></url>\n</urlset>",
+  );
+
+  it("unions post URLs across all category pages and dedupes", async () => {
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.endsWith("/blog/engineering")) return new Response(CATEGORY_HTML, { status: 200 });
+      if (url.endsWith("/blog/artificial-intelligence")) return new Response(CATEGORY_HTML_2, { status: 200 });
+      if (url.endsWith(".xml")) return new Response(SITEMAP_AI, { status: 200 });
+      if (url.endsWith("post-ai")) return new Response(POST_ONE, { status: 200 });
+      return new Response(POST_ONE, { status: 200 });
+    }) as unknown as typeof fetch;
+
+    const source: Source = {
+      id: "juspay",
+      name: "Juspay",
+      siteUrl: "https://juspay.io/blog",
+      feed: {
+        type: "juspay",
+        urls: ["https://juspay.io/blog/engineering", "https://juspay.io/blog/artificial-intelligence"],
+      },
+      platform: "custom",
+      tier: 2,
+      topics: ["fintech-payments"],
+    };
+    const items = await fetchJuspayItems(source, { fetchImpl });
+    // post-one (engineering, dated), post-ai (AI variant of post-one URL, dated via same lastmod), post-two (dated)
+    expect(items.map((i) => i.url).sort()).toEqual([
+      "https://juspay.io/blog/post-ai",
+      "https://juspay.io/blog/post-one",
+      "https://juspay.io/blog/post-two",
+    ]);
   });
 });

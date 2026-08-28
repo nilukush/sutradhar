@@ -180,12 +180,15 @@ const REGISTRY: SourceInput[] = [
   {
     id: "juspay",
     name: "Juspay",
-    siteUrl: "https://juspay.io/blog/engineering",
-    feed: { type: "juspay", url: "https://juspay.io/blog/engineering" },
+    siteUrl: "https://juspay.io/blog",
+    feed: {
+      type: "juspay",
+      urls: ["https://juspay.io/blog/engineering", "https://juspay.io/blog/artificial-intelligence"],
+    },
     platform: "custom",
     tier: 2,
-    topics: ["fintech-payments", "backend", "scale"],
-    notes: "No feed — HTML scraper (category ItemList + per-post og tags; dates from sitemap lastmod). Active.",
+    topics: ["fintech-payments", "backend", "ai-ml"],
+    notes: "No feed — HTML scraper (per-category ItemLists + per-post og tags; dates from sitemap lastmod). Active.",
   },
   {
     id: "zerodha",
@@ -201,13 +204,18 @@ const REGISTRY: SourceInput[] = [
   {
     id: "sharechat",
     name: "ShareChat",
-    siteUrl: "https://medium.com/sharechat-techbyte",
-    feed: { type: "rss", url: "https://medium.com/feed/sharechat-techbyte" },
-    platform: "medium",
+    siteUrl: "https://sharechat.com/blogs/engineering",
+    feed: {
+      type: "sanity",
+      projectId: "10qgadfo",
+      dataset: "production",
+      categories: ["Engineering", "Artificial Intelligence"],
+      urlBase: "https://sharechat.com/blogs",
+    },
+    platform: "custom",
     tier: 2,
-    topics: ["backend", "data-science", "mobile", "scale"],
-    dormant: true,
-    notes: "ShareChat TechByte publication feed (publication feeds need /feed/<name>, not /<name>/feed); quiet since Jan 2022.",
+    topics: ["backend", "data-science", "mobile", "ai-ml"],
+    notes: "Blog runs on a public Sanity dataset (project id ships in their cdn.sanity.io image URLs); the site itself is a client-rendered SPA with no feed and no sitemap entries. Engineering + AI categories, 70 posts, active (Aug 2026). The old 'ShareChat TechByte' Medium publication (dormant since 2022) stays in the corpus under this source id.",
   },
 ];
 

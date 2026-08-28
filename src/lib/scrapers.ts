@@ -1,4 +1,5 @@
 import type { RawItem } from "@/lib/feeds";
+import { excerptFrom, slugify } from "@/lib/normalize";
 import type { Source } from "@/lib/schema";
 
 /**
@@ -89,9 +90,18 @@ export async function fetchJuspayItems(
   const timeoutMs = opts.timeoutMs ?? 15_000;
   if (source.feed.type !== "juspay") return [];
 
-  const origin = new URL(source.feed.url).origin;
-  const categoryHtml = await fetchText(source.feed.url, fetchImpl, timeoutMs);
-  const postUrls = parseJuspayCategory(categoryHtml).slice(0, MAX_POSTS);
+  const origin = new URL(source.feed.urls[0]!).origin;
+  // Union every category's post list (a post can appear in several categories).
+  const postUrls: string[] = [];
+  for (const categoryUrl of source.feed.urls) {
+    try {
+      postUrls.push(...parseJuspayCategory(await fetchText(categoryUrl, fetchImpl, timeoutMs)));
+    } catch (error) {
+      // The first category page failing means the source is down.
+      if (categoryUrl === source.feed.urls[0]) throw error;
+    }
+  }
+  const uniqueUrls = [...new Set(postUrls)].slice(0, MAX_POSTS);
 
   let lastmods = new Map<string, string>();
   try {
@@ -115,7 +125,7 @@ export async function fetchJuspayItems(
   }
 
   const items: RawItem[] = [];
-  for (const url of postUrls) {
+  for (const url of uniqueUrls) {
     const lastmod = lastmods.get(url);
     if (!lastmod) continue; // no date → aggregate would drop it anyway
     try {
@@ -125,4 +135,49 @@ export async function fetchJuspayItems(
     }
   }
   return items;
+}
+
+/**
+ * ShareChat: the public blog lives on a Sanity dataset (project visible in
+ * their cdn.sanity.io image URLs; the dataset is publicly queryable — the
+ * same public-by-design pattern as Meesho's Ghost key). One GROQ query
+ * fetches every post in the configured categories with title, slug, date,
+ * author and excerpt; post URLs follow /blogs/<category-slug>/<post-slug>.
+ */
+interface SanityPost {
+  title?: string;
+  slug?: string;
+  pub?: string;
+  cat?: string;
+  author?: string | null;
+  excerpt?: string | null;
+}
+
+export async function fetchSanityPosts(
+  source: Source,
+  opts: { fetchImpl?: typeof fetch; timeoutMs?: number } = {},
+): Promise<RawItem[]> {
+  const fetchImpl = opts.fetchImpl ?? fetch;
+  const timeoutMs = opts.timeoutMs ?? 15_000;
+  if (source.feed.type !== "sanity") return [];
+
+  const groq =
+    `*[_type=="post" && categories->.title in [${source.feed.categories.map((c) => JSON.stringify(c)).join(",")}]]` +
+    `{title,"slug":slug.current,"pub":publishedAt,"cat":categories->.title,"author":author->name,"excerpt":excerpt} | order(pub desc)`;
+  const url = `https://${source.feed.projectId}.api.sanity.io/v1/data/query/${source.feed.dataset}?query=${encodeURIComponent(groq)}`;
+
+  const json = JSON.parse(await fetchText(url, fetchImpl, timeoutMs)) as {
+    result?: SanityPost[];
+  };
+  return (json.result ?? []).map((post) => ({
+    title: (post.title ?? "").trim(),
+    url: `${source.feed.urlBase}/${slugify(post.cat ?? "")}/${post.slug ?? ""}`,
+    publishedAt: post.pub ?? "",
+    excerpt: post.excerpt ? excerptFrom(post.excerpt) : undefined,
+    contentHtml: undefined,
+    // Sanity stores co-authors as one comma-joined string.
+    authors: (post.author ?? "").split(",").map((a) => a.trim()).filter(Boolean),
+    categories: [],
+    guid: post.slug ?? undefined,
+  }));
 }

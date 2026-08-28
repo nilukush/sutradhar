@@ -1,5 +1,5 @@
 import { mapGhostPosts, parseRssOrAtom, type GhostPost, type GhostResponse } from "@/lib/feeds";
-import { fetchJuspayItems } from "@/lib/scrapers";
+import { fetchJuspayItems, fetchSanityPosts } from "@/lib/scrapers";
 import { toArticle } from "@/lib/aggregate";
 import type { Article, Source } from "@/lib/schema";
 
@@ -74,6 +74,10 @@ export async function fetchAllSources(
     sources.map(async (source) => {
       if (source.feed.type === "juspay") {
         const items = await fetchJuspayItems(source, { fetchImpl, timeoutMs });
+        return items.map((item) => toArticle(source, item));
+      }
+      if (source.feed.type === "sanity") {
+        const items = await fetchSanityPosts(source, { fetchImpl, timeoutMs });
         return items.map((item) => toArticle(source, item));
       }
       if (source.feed.type === "ghost") {
