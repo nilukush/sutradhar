@@ -177,6 +177,38 @@ const REGISTRY: SourceInput[] = [
     topics: ["platform", "backend", "data-science"],
     notes: "Stale since Mar 2025.",
   },
+  {
+    id: "juspay",
+    name: "Juspay",
+    siteUrl: "https://juspay.io/blog/engineering",
+    feed: { type: "juspay", url: "https://juspay.io/blog/engineering" },
+    platform: "custom",
+    tier: 2,
+    topics: ["fintech-payments", "backend", "scale"],
+    notes: "No feed — HTML scraper (category ItemList + per-post og tags; dates from sitemap lastmod). Active.",
+  },
+  {
+    id: "zerodha",
+    name: "Zerodha",
+    siteUrl: "https://zerodha.tech/",
+    feed: { type: "rss", url: "https://zerodha.tech/index.xml" },
+    platform: "custom",
+    tier: 2,
+    topics: ["fintech-payments", "backend", "scale"],
+    dormant: true,
+    notes: "Hugo RSS at /index.xml; no new posts since Mar 2024.",
+  },
+  {
+    id: "sharechat",
+    name: "ShareChat",
+    siteUrl: "https://medium.com/sharechat-techbyte",
+    feed: { type: "rss", url: "https://medium.com/feed/sharechat-techbyte" },
+    platform: "medium",
+    tier: 2,
+    topics: ["backend", "data-science", "mobile", "scale"],
+    dormant: true,
+    notes: "ShareChat TechByte publication feed (publication feeds need /feed/<name>, not /<name>/feed); quiet since Jan 2022.",
+  },
 ];
 
 export const SOURCES: Source[] = REGISTRY.map((entry) => SourceSchema.parse(entry));
