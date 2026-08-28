@@ -1,6 +1,6 @@
 # MEMORY.md — project memory (update after every significant change)
 
-## Status — v0.5 snapshot, 2026-08-28 (SEO/GEO audit day + growth spurt)
+## Status — v0.5 snapshot, 2026-08-28 (SEO/GEO audit + GSC/Bing verified)
 
 **Everything is live and fully autonomous. No open action items.**
 
@@ -20,7 +20,12 @@
 - On-site search (pagefind): /search with ?q= deep links; index = /read + info pages
   (grid pages de-indexed); CSP carries 'wasm-unsafe-eval' + font-src data: for it.
 - Serving layer (all live-verified): Worker-first routing, https 308, custom 404s,
-  slashless canonical serving, security headers + charset on every response.
+  slashless canonical serving (top-level `*.html` served verbatim — see gotcha below),
+  security headers + charset on every response.
+- Search consoles (2026-08-28): GSC URL-prefix property verified via HTML token
+  (googled3cc5e1274fa98d4.html in public/), sitemap-index.xml submitted, indexing
+  requested for /articles; Bing WMT imported (auto-carried the sitemap). GSC data lags
+  days–weeks on a fresh property — normal.
 - Subscribe: inline form → POST /api/subscribe (Worker) → Brevo (list 4 "Sutradhar") +
   owner notification. Newsletter: weekly Action (Mon 09:07 IST) auto-creates + sends a
   Brevo campaign (PROVEN W34). No manual sending, ever.
@@ -93,16 +98,11 @@
 
 ## Open items
 
-- None. (2026-08-28 closed the entire backlog in one session — 24 commits, af9d47d→cc05072:
+- None. 2026-08-28 closed the entire backlog in one session (24 commits, af9d47d→cc05072:
   audit+fixes, P3 polish, search, HN enrichment+badge, Meesho backfill, 3 new sources,
   owner's CF plaintext cleanup, Devanagari wordmark correction (सूत्रधार) + gate guard,
-  memory/doc compaction with CLAUDE.md/AGENTS.md re-synced.)
-- 2026-08-28: **GSC live** — URL-prefix property https://sutradhar.nilukush.workers.dev
-  verified via HTML token (googled3cc5e1274fa98d4.html; the Worker serves top-level
-  *.html verbatim because drop-trailing-slash would 307 them). sitemap-index.xml
-  submitted; indexing requested for /articles; same property imported into Bing
-  Webmaster Tools (the import auto-carried the sitemap too). GSC data lags
-  days–weeks on a fresh property — normal. Optional later: IndexNow pings
-  (Bing is a partner).
-- Future ideas if ever wanted: scraper sources beyond the registry's reach, topic
-  taxonomy growth, analytics (none today by design).
+  memory/doc compaction), then a same-day follow-up session (5 commits, f86e84e→e3055bc)
+  made the site search-console-official: GSC verified + sitemap submitted + Bing WMT
+  imported, with the Worker fixed to serve verification files verbatim.
+- Future ideas if ever wanted: IndexNow pings (Bing is a partner), scraper sources
+  beyond the registry's reach, topic taxonomy growth, analytics (none today by design).

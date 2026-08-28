@@ -10,7 +10,7 @@ $0 infrastructure. See README.md for the architecture diagram and docs/ for the 
 
 ```bash
 pnpm install
-pnpm test            # vitest — 154 tests (MUST be green before any commit)
+pnpm test            # vitest — 158 tests (MUST be green before any commit)
 pnpm fetch           # CAREFUL: pnpm's builtin shadows the script — use `pnpm run fetch`
 pnpm run fetch       # fetch all sources → src/data/articles.json (-- --dry-run to preview)
 pnpm dev             # dev server on :4321 (non-standard port per project convention)
@@ -67,6 +67,9 @@ in-window articles with Hacker News engagement (trending boost) → Astro pages 
 - Module-level consts are invisible inside `getStaticPaths` in the prerender bundle —
   `pageSize` and siblings must be literals in the `paginate()` call.
 - Bare `pnpm fetch` runs pnpm's builtin, not the script — use `pnpm run fetch`.
+- CF assets `html_handling: drop-trailing-slash` also drops `.html` extensions (top-level
+  `/<file>.html` 307s to the extensionless URL) — site-verification checkers reject that,
+  so the Worker serves top-level `*.html` verbatim (worker/index.ts, pinned by tests).
 
 ## Environments
 
