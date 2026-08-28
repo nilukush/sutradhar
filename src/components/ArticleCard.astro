@@ -7,8 +7,11 @@ import type { Article } from "@/lib/schema";
 
 interface Props {
   article: Article;
+  /** Card title level: h2 on grids that follow the h1 directly, h3 under section h2s (home). */
+  headingLevel?: "h2" | "h3";
 }
-const { article } = Astro.props;
+const { article, headingLevel = "h3" } = Astro.props;
+const Heading = headingLevel as "h2" | "h3";
 const source = sourceOf(article.sourceId);
 const origin = hostOf(article.url);
 const external = isExternalRead(article);
@@ -25,7 +28,7 @@ const linkProps = external ? { rel: "noopener", target: "_blank" } : {};
     <span class="dot" aria-hidden="true">·</span>
     <time datetime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
   </div>
-  <h3 class="card-title thread-link">{article.title}</h3>
+  <Heading class="card-title thread-link">{article.title}</Heading>
   {article.excerpt && !external && <p class="card-excerpt">{article.excerpt}</p>}
   <div class="card-foot">
     <div class="pills">

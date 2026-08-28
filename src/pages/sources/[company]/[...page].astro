@@ -1,4 +1,5 @@
 ---
+import type { Page } from "astro";
 import Base from "@/layouts/Base.astro";
 import ArticleCard from "@/components/ArticleCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
@@ -6,35 +7,47 @@ import SourceBadge from "@/components/SourceBadge.astro";
 import { TOPIC_LABELS, articlesForSource, canonicalFor, hostOf } from "@/lib/view";
 import { absoluteReadHref } from "@/lib/read";
 import { SOURCES } from "@/data/sources";
+import type { Article } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
-export async function getStaticPaths() {
-  return SOURCES.map((source) => ({
-    params: { company: source.id },
-    props: { source },
-  }));
+const PAGE_SIZE = 48;
+
+export async function getStaticPaths({ paginate }) {
+  // Paginated per-source archive (audit P3-14: hubs capped at 48 with no way
+  // deeper). NB: pageSize must be a literal — the prerender bundle does not
+  // carry module consts into getStaticPaths.
+  return SOURCES.flatMap((source) =>
+    paginate(articlesForSource(source.id), {
+      params: { company: source.id },
+      props: { source },
+      pageSize: 48,
+    }),
+  );
 }
 
 interface Props {
   source: (typeof SOURCES)[number];
+  page: Page<Article>;
 }
-const { source } = Astro.props;
-const articles = articlesForSource(source.id);
-const title = `${source.name} engineering blog — stories — ${SITE.name}`;
-const description = `Every engineering article ${source.name} has published, aggregated by ${SITE.name}: ${articles.length} stories.`;
+const { source, page } = Astro.props;
+const title =
+  page.currentPage > 1
+    ? `${source.name} engineering blog — stories (page ${page.currentPage}) — ${SITE.name}`
+    : `${source.name} engineering blog — stories — ${SITE.name}`;
+const description = `Every engineering article ${source.name} has published, aggregated by ${SITE.name}: ${page.total} stories${page.currentPage > 1 ? ` — page ${page.currentPage}` : ""}.`;
 
 const itemList = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: `${source.name} engineering stories`,
-  url: canonicalFor(`/sources/${source.id}`),
+  url: canonicalFor(Astro.url.pathname),
   isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
   mainEntity: {
     "@type": "ItemList",
-    numberOfItems: articles.length,
-    itemListElement: articles.slice(0, 50).map((a, i) => ({
+    numberOfItems: page.data.length,
+    itemListElement: page.data.map((a: Article, i: number) => ({
       "@type": "ListItem",
-      position: i + 1,
+      position: (page.currentPage - 1) * PAGE_SIZE + i + 1,
       url: absoluteReadHref(a),
       name: a.title,
     })),
@@ -50,7 +63,7 @@ const itemList = {
       <div>
         <h1>{source.name} engineering</h1>
         <p class="meta">
-          {articles.length} stories
+          {page.total} stories
           {source.dormant && " · no recent posts"}
           {source.region === "india-linked" && " · global company, India-based teams"}
           · <a href={source.siteUrl} rel="noopener" target="_blank">{hostOf(source.siteUrl)}</a>
@@ -62,8 +75,14 @@ const itemList = {
     </header>
     {source.notes && <p class="prose note">{source.notes}</p>}
     <div class="grid">
-      {articles.slice(0, 48).map((article) => <ArticleCard article={article} />)}
+      {page.data.map((article) => <ArticleCard article={article} headingLevel="h2" />)}
     </div>
+
+    <nav class="pagination" aria-label="Pagination">
+      {page.url.prev && <a class="page-link" href={page.url.prev}>← Newer</a>}
+      <span class="meta">Page {page.currentPage} / {page.lastPage}</span>
+      {page.url.next && <a class="page-link" href={page.url.next}>Older →</a>}
+    </nav>
   </div>
 </Base>
 
@@ -98,5 +117,16 @@ const itemList = {
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: var(--space-5);
     margin-top: var(--space-5);
+  }
+  .pagination {
+    margin-top: var(--space-7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-5);
+  }
+  .page-link {
+    font-weight: 600;
+    color: var(--saffron-deep);
   }
 </style>

@@ -3,27 +3,46 @@ import type { Page } from "astro";
 import Base from "@/layouts/Base.astro";
 import ArticleCard from "@/components/ArticleCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import { ARTICLES, canonicalFor } from "@/lib/view";
+import NewsletterBox from "@/components/NewsletterBox.astro";
+import { TOPIC_DESCRIPTIONS, TOPIC_LABELS, articlesForTopic, canonicalFor, topicsWithCounts } from "@/lib/view";
 import { absoluteReadHref } from "@/lib/read";
+import { TOPICS } from "@/lib/schema";
 import type { Article } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
+const PAGE_SIZE = 48;
+
 export async function getStaticPaths({ paginate }) {
-  return paginate(ARTICLES, { pageSize: 24 });
+  // Every topic with at least one story gets its own paginated run
+  // (audit P3-14: hub pages capped at 48 with no way deeper). NB: pageSize
+  // must be a literal here — the prerender bundle does not carry module
+  // consts into getStaticPaths.
+  const withArticles = new Set(topicsWithCounts().map((t) => t.topic));
+  return TOPICS.filter((t) => withArticles.has(t)).flatMap((topic) =>
+    paginate(articlesForTopic(topic), {
+      params: { topic },
+      props: { topic },
+      pageSize: 48,
+    }),
+  );
 }
 
 interface Props {
+  topic: (typeof TOPICS)[number];
   page: Page<Article>;
 }
-const { page } = Astro.props;
-const title = page.currentPage > 1 ? `Latest stories (page ${page.currentPage}) — ${SITE.name}` : `Latest Indian engineering stories — ${SITE.name}`;
-// Unique meta description per paginated page (audit C5) — titles were already unique.
-const description = `Every engineering article aggregated from ${ARTICLES.length} posts across India's tech company blogs, newest first${page.currentPage > 1 ? ` — page ${page.currentPage}` : ""}.`;
+const { topic, page } = Astro.props;
+const label = TOPIC_LABELS[topic];
+const title =
+  page.currentPage > 1
+    ? `${label} — Indian engineering stories (page ${page.currentPage}) — ${SITE.name}`
+    : `${label} — Indian engineering stories — ${SITE.name}`;
+const description = `${TOPIC_DESCRIPTIONS[topic]} ${page.total} stories from Indian engineering teams${page.currentPage > 1 ? ` — page ${page.currentPage}` : ""}.`;
 
 const itemList = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Latest Indian engineering stories",
+  name: `${label} — Indian engineering stories`,
   url: canonicalFor(Astro.url.pathname),
   isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
   mainEntity: {
@@ -31,9 +50,7 @@ const itemList = {
     numberOfItems: page.data.length,
     itemListElement: page.data.map((a: Article, i: number) => ({
       "@type": "ListItem",
-      position: (page.currentPage - 1) * 24 + i + 1,
-      // In-site reading pages, like every other hub's ItemList (audit C4) —
-      // keep crawlers and LLMs on the internal /read link graph.
+      position: (page.currentPage - 1) * PAGE_SIZE + i + 1,
       url: absoluteReadHref(a),
       name: a.title,
     })),
@@ -43,9 +60,10 @@ const itemList = {
 
 <Base title={title} description={description} jsonLd={[itemList]}>
   <div class="container section">
-    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Latest" }]} currentUrl={canonicalFor(Astro.url.pathname)} />
-    <h1>Latest stories</h1>
-    <p class="meta">{page.total} stories · page {page.currentPage} of {page.lastPage}</p>
+    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Topics", href: "/topics" }, { label }]} currentUrl={canonicalFor(Astro.url.pathname)} />
+    <h1>{label}</h1>
+    <p class="prose">{TOPIC_DESCRIPTIONS[topic]}</p>
+    <p class="meta">{page.total} stories</p>
     <div class="grid">
       {page.data.map((article) => <ArticleCard article={article} headingLevel="h2" />)}
     </div>
@@ -55,15 +73,16 @@ const itemList = {
       <span class="meta">Page {page.currentPage} / {page.lastPage}</span>
       {page.url.next && <a class="page-link" href={page.url.next}>Older →</a>}
     </nav>
+
+    <div class="newsletter-wrap">
+      <NewsletterBox compact />
+    </div>
   </div>
 </Base>
 
 <style>
   .section {
     padding: var(--space-7) 0;
-  }
-  h1 {
-    margin-bottom: var(--space-2);
   }
   .grid {
     display: grid;
@@ -81,5 +100,8 @@ const itemList = {
   .page-link {
     font-weight: 600;
     color: var(--saffron-deep);
+  }
+  .newsletter-wrap {
+    margin-top: var(--space-7);
   }
 </style>

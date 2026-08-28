@@ -15,7 +15,7 @@ const dist = resolve(root, "dist");
 
 const corpus = JSON.parse(readFileSync(resolve(root, "src/data/articles.json"), "utf8")) as {
   generatedAt: string;
-  articles: { sourceId: string; publishedAt: string }[];
+  articles: { sourceId: string; publishedAt: string; topics?: string[] }[];
 };
 const sourceIds = [...new Set(corpus.articles.map((a) => a.sourceId))];
 const limitById = new Map(SOURCES.map((s) => [s.id, s.excerptLimit]));
@@ -73,6 +73,19 @@ const lastmodMatch = sitemapXml.match(new RegExp(`<loc>${readLoc.replaceAll(".",
 const lastmodIsPublishDate =
   !!lastmodMatch && Math.abs(new Date(lastmodMatch[1]).getTime() - new Date(readArticle.publishedAt).getTime()) < 1000;
 
+// Hub pagination is data-aware: only expect page 2 where the corpus warrants it.
+const HUB_PAGE_SIZE = 48;
+const topicCounts = new Map<string, number>();
+const sourceCounts = new Map<string, number>();
+for (const a of corpus.articles) {
+  for (const t of a.topics ?? []) topicCounts.set(t, (topicCounts.get(t) ?? 0) + 1);
+  sourceCounts.set(a.sourceId, (sourceCounts.get(a.sourceId) ?? 0) + 1);
+}
+const topTopic = [...topicCounts.entries()].sort((x, y) => y[1] - x[1])[0];
+const topSource = [...sourceCounts.entries()].sort((x, y) => y[1] - x[1])[0];
+const topicPage2 = topTopic && topTopic[1] > HUB_PAGE_SIZE ? existsSync(resolve(dist, "topics", topTopic[0], "2", "index.html")) : true;
+const sourcePage2 = topSource && topSource[1] > HUB_PAGE_SIZE ? existsSync(resolve(dist, "sources", topSource[0], "2", "index.html")) : true;
+
 // Trending section renders only when articles exist inside the eligibility
 // window — mirror that eligibility here so the check is data-aware, not
 // unconditional. (Math.MIN over ages = the NEWEST article's age; max would be
@@ -107,6 +120,13 @@ const checks: [string, boolean][] = [
   ["/articles ItemList links to in-site read pages", articles2.includes(`"url":"${SITE.url}/read/`)],
   ["page-2 meta description is differentiated", /name="description" content="[^"]*page 2/.test(articles2)],
   ["sitemap read-page lastmod is the article publish date, not build time", lastmodIsPublishDate],
+  ["rss declares atom self link", rss.includes('atom:link') && rss.includes('rel="self"')],
+  ["rss has lastBuildDate", rss.includes("<lastBuildDate>")],
+  ["llms.txt links the publisher policy", readFileSync(resolve(dist, "llms.txt"), "utf8").includes("/publishers")],
+  ["robots welcomes Perplexity-User", readFileSync(resolve(dist, "robots.txt"), "utf8").includes("Perplexity-User")],
+  ["topic hubs paginate when the corpus warrants it", topicPage2],
+  ["source hubs paginate when the corpus warrants it", sourcePage2],
+  ["card titles use h2 on grids that follow the h1 directly", articles2.includes('<h2 class="card-title')],
 ];
 const failed = checks.filter(([, ok]) => !ok);
 if (failed.length > 0) {

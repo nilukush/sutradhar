@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { ARTICLES, sourceOf } from "@/lib/view";
+import { ARTICLES, CORPUS_GENERATED_AT, sourceOf } from "@/lib/view";
 import { readHref } from "@/lib/read";
 import { SITE } from "@/lib/site";
 
@@ -22,7 +22,14 @@ export function GET(context) {
         categories: article.topics,
       };
     }),
-    customData: "<language>en-in</language>",
+    // W3C feed-validator completeness (audit P3): self reference + build date
+    // from the corpus, not the wall clock — deterministic across builds.
+    customData: `
+      <language>en-in</language>
+      <lastBuildDate>${new Date(CORPUS_GENERATED_AT).toUTCString()}</lastBuildDate>
+      <atom:link href="${SITE.url}/rss.xml" rel="self" type="application/rss+xml"/>
+    `,
+    xmlns: { atom: "http://www.w3.org/2005/Atom" },
     // Canonicals and sitemaps are slashless (trailingSlash: "never"); the feed
     // must match or every item 308-redirects.
     trailingSlash: false,

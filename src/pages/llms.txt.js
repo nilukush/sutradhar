@@ -1,4 +1,4 @@
-import { ARTICLES, TOPIC_LABELS, topicsWithCounts } from "@/lib/view";
+import { ARTICLES, TOPIC_LABELS, CORPUS_GENERATED_AT, topicsWithCounts } from "@/lib/view";
 import { absoluteReadHref } from "@/lib/read";
 import { SOURCES } from "@/data/sources";
 import { SITE } from "@/lib/site";
@@ -30,6 +30,7 @@ ${SITE.name} aggregates engineering blogs from Indian companies and startups int
 - [Latest stories](${SITE.url}/articles): the full firehose, newest first
 - [Weekly digest](${SITE.url}/digest): everything published each week
 - [Sources](${SITE.url}/sources): the directory of Indian engineering blogs we aggregate
+- [For publishers](${SITE.url}/publishers): excerpt, attribution and opt-out policy
 - [Newsletter](${SITE.url}/newsletter): the weekly email
 - [About & methodology](${SITE.url}/about)
 
@@ -46,6 +47,7 @@ ${sources}
 ${latest}
 
 Feeds: [RSS](${SITE.url}/rss.xml) · [JSON Feed](${SITE.url}/feed.json)
+Corpus generated: ${CORPUS_GENERATED_AT}
 `;
   return new Response(body, {
     headers: { "Content-Type": "text/plain; charset=utf-8" },
