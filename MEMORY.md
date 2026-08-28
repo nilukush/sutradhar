@@ -44,26 +44,22 @@
 
 ## Open items / next steps
 
-- [ ] **OWNER SETUP (blocking full automation, ~10 min, 2026-08-27)**:
-  1. Create free Brevo account (brevo.com — free plan is permanent, 300 emails/day, no card);
-     confirm the sender email (their gmail) when Brevo sends the validation link.
-  2. Brevo → SMTP & API → API Keys → generate a v3 key.
-  3. Cloudflare dashboard → Workers → sutradhar → Settings → Variables and Secrets → add
-     `BREVO_API_KEY` (secret) and `OWNER_EMAIL` (their email).
-  4. GitHub repo → Settings → Secrets and variables → Actions → add `BREVO_API_KEY` and
-     `OWNER_EMAIL`.
-  5. Redeploy the Worker (any push, or Run workflow) — /api/subscribe activates; the Monday
-     workflow then runs fully hands-off. (Until the key exists the API correctly returns 503
-     and the form falls back to beehiiv/RSS links.)
-- [x] ~~Automated newsletter~~ → **shipped 2026-08-27 (commit 33d1fe2)**: owner cannot send
-  manually → beehiiv dropped as primary (Send API is Max-only). Now: inline form on site →
-  Worker /api/subscribe → Brevo contacts ("Sutradhar" list auto-created) + owner notified by
-  email on every signup; weekly GitHub Action (Mon 03:37 UTC) sends the last completed ISO
-  week as a Brevo classic campaign (unsubscribe footer auto; idempotent by campaign name).
-  wrangler.jsonc + worker/ now drive the CF deploy (assets + API, verified live). Provider
-  switch: SUBSCRIBE_PROVIDER env (api-form | beehiiv-embed | beehiiv-hosted | github-issue).
-  Caveats accepted: shared-DKIM deliverability (no domain), 300/day cap, Brevo sender must
-  stay confirmed. beehiiv publication kept as fallback capture path.
+- [ ] **ONE remaining step (2026-08-28): make the CF Worker see the Brevo secret.** User added
+  BREVO_API_KEY + OWNER_EMAIL in the dashboard, but /api/subscribe still returns "not
+  configured" after multiple config-driven rebuilds — almost certainly the dashboard addition
+  is a DRAFT pending its "Deploy" button click (or it landed on the wrong service — there may
+  be an old Pages project alongside the Worker). Fix: dash.cloudflare.com → Workers & Pages →
+  **sutradhar (Worker)** → Settings → Variables and Secrets → verify entries → click Deploy if
+  shown → then POST /api/subscribe should return ok:true (verify + test the owner-notification
+  email). Everything else is DONE and proven.
+- [x] ~~Automated newsletter~~ → **PROVEN END-TO-END 2026-08-28**: workflow dispatched manually →
+  "Campaign 2 sent to the Sutradhar list (week 2026-W34)" → Brevo status `sent` 10:46:50Z →
+  owner's gmail received the first Sutradhar email. Idempotency proven (re-run skipped:
+  "already sent"). Monday cron takes over from here. Live-discovered Brevo API facts: send
+  route is **/emailCampaigns/{id}/sendNow** (NOT /send — 404s); list creation **requires
+  folderId** (folder auto-resolved/created); contact add returns 201/204.
+- Secrets hygiene: docs/brevo-sutradhar.md (contains the API key) is gitignored, never
+  committed; GH variable migrated to masked GH **secret** (workflow reads secrets || vars).
 
 - [x] ~~Subscribe UX~~ → **beehiiv Launch wired & live (24 Aug 2026)**: owner confirmed
   Launch plan is genuinely $0 (the 14-day screen is the Scale-trial upsell — decline it).
