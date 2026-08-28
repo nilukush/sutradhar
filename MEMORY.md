@@ -5,7 +5,7 @@
 **Everything is live and fully autonomous. Nothing awaits owner action.**
 
 - Site: https://sutradhar.nilukush.workers.dev — the PERMANENT origin (owner decision
-  2026-08-24: no domain purchase ever; $0 constraint). 19 sources, corpus ~888 articles.
+  2026-08-24: no domain purchase ever; $0 constraint). 19 sources, corpus ~963 articles.
 - Hourly loop: GitHub Action aggregates feeds → bot commits on change → CF Workers Builds
   rebuilds + deploys (~15 builds/month; corpus-wide cadence ~0.5 posts/day, hourly polling
   stays — free minutes, builds only fire on change). v0.1 link-out → v0.2 /read pages →
@@ -109,8 +109,10 @@
       Secrets exist; removing kills the only plaintext display of the key).
 - Done 2026-08-28 (see docs/VERIFICATION.md): HN-Algolia enrichment (conservative
   log boost, exact-URL matching, window-scoped snapshot); Zerodha (zerodha.tech RSS,
-  dormant) + ShareChat (medium.com/feed/sharechat-techbyte publication feed, dormant)
-  + Juspay (first scraper adapter, type "juspay") — corpus 853 → 888, 19 sources.
+  dormant); Juspay ("juspay" scraper, engineering + AI categories, 16 posts, active);
+  ShareChat — site feed is now the PUBLIC Sanity dataset 10qgadfo (feed type "sanity",
+  Engineering + AI, 70 posts, ACTIVE Aug 2026; `categories` is a singular ref); legacy
+  TechByte Medium posts keep sourceId sharechat. Corpus 853 → 963, 19 sources.
 - [x] Done 2026-08-28 (owner): stale plaintext BREVO_API_KEY/OWNER_EMAIL build vars
       deleted from CF Settings → Builds → Variables and secrets. Runtime secrets
       confirmed intact (wrangler secret list) and subscribe endpoint healthy after.

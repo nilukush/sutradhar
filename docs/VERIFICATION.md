@@ -123,3 +123,22 @@ all → first scraper adapter (`type: "juspay"`): engineering ItemList → per-p
 og:title/og:description + sitemap lastmod dates; 11 of 12 posts dated, undated
 dropped by design. Corpus **853 → 888**; gates green (151 tests, 1047 pages,
 pagefind 903, verify:routes with 37 data-derived routes).
+
+### Owner-supplied source surfaces (2026-08-28, sixth deploy)
+
+Owner listed the real category URLs; research + wiring followed.
+
+**ShareChat** — sharechat.com/blogs/<category> is a client-rendered SPA: no feed
+paths (all return the app shell), no post URLs in sitemap.xml → sitemaps/core.xml,
+`__INITIAL_STATE__` is device boilerplate. The blog data lives in a **public Sanity
+dataset** (project `10qgadfo` visible in cdn.sanity.io refs; `categories` is a
+*singular* reference, not an array — the reason naive queries return nothing).
+New `sanity` feed type: one GROQ query, Engineering + AI = **70 posts, active**
+(newest 2026-08-04, e.g. "rebuilt subscription billing on Temporal" with 4 named
+authors). Site feed replaces the dormant TechByte Medium publication; the 10 legacy
+Medium articles keep sourceId `sharechat` (corpus continuity — hub shows both).
+
+**Juspay** — feed config now takes multiple category URLs; the
+artificial-intelligence ItemList adds 4 posts after dedup (11 → 16).
+
+Corpus **888 → 963**; gates green (154 tests, 1135 pages, pagefind 978).
