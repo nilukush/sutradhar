@@ -44,14 +44,17 @@
 
 ## Open items / next steps
 
-- [ ] **ONE remaining step (2026-08-28): make the CF Worker see the Brevo secret.** User added
-  BREVO_API_KEY + OWNER_EMAIL in the dashboard, but /api/subscribe still returns "not
-  configured" after multiple config-driven rebuilds — almost certainly the dashboard addition
-  is a DRAFT pending its "Deploy" button click (or it landed on the wrong service — there may
-  be an old Pages project alongside the Worker). Fix: dash.cloudflare.com → Workers & Pages →
-  **sutradhar (Worker)** → Settings → Variables and Secrets → verify entries → click Deploy if
-  shown → then POST /api/subscribe should return ok:true (verify + test the owner-notification
-  email). Everything else is DONE and proven.
+- [ ] **Root cause found (2026-08-28): TWO CF projects named "sutradhar".** An old static-only
+  Pages project (sutradhar.pages.dev — stale Aug-24 build, no form, no API, POST→405) coexists
+  with the live Worker (sutradhar.nilukush.workers.dev). Owner's secrets went into the PAGES
+  project (no Deploy button there — matches the symptom). FIX (owner, ~2 min):
+  (a) Workers & Pages → **sutradhar (Worker)** — Settings shows "Deploy Command" + workers.dev
+      URL → Variables and Secrets → Add: BREVO_API_KEY as **Secret** type, OWNER_EMAIL (Text
+      ok) → Save/Deploy.
+  (b) Recommended: **delete the stale Pages project** (sutradhar.pages.dev) to end the
+      duplicate-site confusion and wasted builds.
+  (c) Then POST /api/subscribe → expect ok:true + owner notification email (verify).
+  keep_vars:true shipped in wrangler.jsonc (29a1ae2) so text vars survive config deploys.
 - [x] ~~Automated newsletter~~ → **PROVEN END-TO-END 2026-08-28**: workflow dispatched manually →
   "Campaign 2 sent to the Sutradhar list (week 2026-W34)" → Brevo status `sent` 10:46:50Z →
   owner's gmail received the first Sutradhar email. Idempotency proven (re-run skipped:
