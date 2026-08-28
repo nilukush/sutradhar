@@ -34,6 +34,8 @@ export interface GhostPost {
 
 export interface GhostResponse {
   posts?: GhostPost[];
+  /** Ghost Content API pagination — `next` is the next page number or null. */
+  meta?: { pagination?: { page?: number; pages?: number; next?: number | null; prev?: number | null } };
 }
 
 const parser = new XMLParser({
