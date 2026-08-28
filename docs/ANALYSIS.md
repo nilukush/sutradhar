@@ -4,6 +4,12 @@
 > An InfoQ-style aggregator + newsletter for engineering blogs published by Indian companies and startups.
 > Analysis date: 2026-08-21. Method: three independent research agents (Analyzer team) + orchestrator verification spot-checks; consensus documented in §6.
 
+> **Superseded decisions (noted 2026-08-28):** this record is frozen as of its date. Since
+> then: Zerodha, Juspay and ShareChat moved from "excluded, no feed" to live sources
+> (registry now 19, via scraper/Sanity adapters); hosting is a Cloudflare **Worker**, not
+> Pages; the newsletter is fully automated **Brevo**, not manual beehiiv. Current state:
+> MEMORY.md; deploy history: docs/VERIFICATION.md addenda.
+
 ---
 
 ## 1. Business Problem Definition

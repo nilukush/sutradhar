@@ -2,6 +2,10 @@
 
 Date: 2026-08-21. Multi-agent process: 3 Analyzer research agents → orchestrator verification → implementation under TDD → independent Verifier code review → fixes → full-gate re-verification.
 
+> **Reading note:** the table below is the *original* run. Current state is the sum of the
+> dated addenda below (through the eighth deploy, 2026-08-28: **158 tests, 1,135 pages,
+> 19 sources, 963 articles**) — skim to the last addendum for today's numbers.
+
 ## Gate results (final)
 
 | Gate | Result |
@@ -158,3 +162,13 @@ about ×2, `alternateName` in JSON-LD, new og bytes served, zero old-form occurr
 into a dist build; CI green on both commits (a5783d5, cc05072). MEMORY.md's naming
 decision records the correct spelling so the transliteration-shaped error isn't
 reintroduced.
+
+### Search-console verification (2026-08-28, eighth deploy)
+
+GSC URL-prefix property verified via HTML token (`googled3cc5e1274fa98d4.html` in
+public/) — which first required a Worker fix: CF assets `drop-trailing-slash` also drops
+`.html` extensions, 307ing the verification file to an extensionless URL that Google/Bing
+checkers reject; the Worker now serves top-level `*.html` verbatim (worker.test.ts pins
+the contract, +4 tests → **158**). sitemap-index.xml submitted in GSC, indexing requested
+for /articles; Bing WMT imported from GSC (the import auto-carried the sitemap). Gates
+green at 158 tests / 1,135 pages.

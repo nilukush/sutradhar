@@ -22,7 +22,7 @@ pnpm verify:routes   # post-build route + SEO inventory gate (CI runs this too)
 ## Architecture in one paragraph
 
 `src/data/sources.ts` (the registry — one entry per blog, Zod-validated in CI; feed
-types: rss / atom / ghost / juspay-scraper / sanity) → `scripts/fetch-feeds.ts` (run
+types: rss / atom / ghost / juspay / sanity) → `scripts/fetch-feeds.ts` (run
 by the hourly Action) → `src/lib/pipeline.ts` fetches with a browser UA (Cloudflare-
 fronted feeds 403 bare bots); Ghost follows pagination, `src/lib/scrapers.ts` covers
 Juspay's ItemList/og-tag HTML and ShareChat's public Sanity dataset →
@@ -50,7 +50,7 @@ in-window articles with Hacker News engagement (trending boost) → Astro pages 
   `excerptLimit: 0` have no /read page (link goes to the original; a raw /read link 404s).
 - Subscribe flow is provider-switched in `src/lib/subscribe.ts`; GitHub prefill must send
   `template` but NEVER `labels` (outsiders lack permission → GitHub 404s).
-- Trending is deterministic (tier × 2^(−age/36h), 120h window, max 2/source) — no
+- Trending is deterministic (tier × 2^(−age/36h) × hnBoost, 240h window, max 2/source) — no
   `new Date()`-dependent assertions in tests; verify-routes mirrors eligibility from corpus age.
 - Data commits from the bot must NOT contain `[skip ci]` (hosts honor it and skip deploys).
 - Tests are written before implementation (Red→Green→Refactor); regressions found in review

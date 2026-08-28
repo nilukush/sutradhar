@@ -2,6 +2,11 @@
 
 Binding contract for implementation. Every step is atomic, test-first (Red→Green→Refactor), and independently verifiable. Regression gate after each step: `pnpm test && pnpm build`. Max 3 attempts per step, then stop for human guidance (per process safeguards; note: session ran autonomously — all steps below completed within limits).
 
+> **Status: completed 2026-08-21** (all steps). Since then three terms of this contract
+> changed: hosting is a Cloudflare **Worker** (not Pages); the newsletter is automated
+> **Brevo**; and data commits must NEVER say `[skip ci]` (Step 11's rule is inverted —
+> hosts honor the tag and skip deploys). Current gates and state: MEMORY.md.
+
 **Stack (decided per docs/ANALYSIS.md §4):** Astro 5 (static) · TypeScript strict · Zod (schema) · fast-xml-parser (feeds) · Vitest (unit) · tsx (script runner) · GitHub Actions (cron aggregation + CI) · Cloudflare Pages (or any static host).
 
 ---
