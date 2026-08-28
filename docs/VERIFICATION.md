@@ -91,3 +91,13 @@ curl checks — all fixed + regression-tested: @fontsource data-URI fonts (`font
 WASM (`'wasm-unsafe-eval'`), and Vite's `__VITE_PRELOAD__` wrapper around static
 dynamic imports (search script is now `is:inline`). Result URLs keep pagefind's
 trailing slash; the serving layer 307s them onto the slashless canonicals.
+
+### Meesho archive backfill (2026-08-28, fourth deploy)
+
+Ghost adapter follows `meta.pagination.next` (cap 10 pages ≈ 150 posts); page-1 failure
+= source failure (unchanged), later-page failure keeps earlier pages + soft error.
+3 tests red-first. First live run: Meesho 16 → **37 posts, back to 2025-06-12**;
+corpus 832 → 853; gates green (133 tests, 1006 pages, pagefind reindexed 868).
+Hourly Action confirmed healthy (`pnpm run fetch`, all runs succeeding — the 3-day-old
+corpus was a quiet news period, not a pipeline fault). Local gotcha: `pnpm fetch` is
+pnpm's builtin; the script needs `pnpm run fetch`.

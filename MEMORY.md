@@ -31,6 +31,10 @@
   pages de-indexed so stories dominate results), WebSite SearchAction JSON-LD, Search
   in header nav. Functionally verified in a real browser (27 hits for "kubernetes",
   20 for "hasura", 0 console errors). Index = 5.9 MB static assets, lazy-loaded.
+- Meesho archive backfill shipped 2026-08-28: Ghost adapter follows meta.pagination.next
+  (cap 10 pages); first run 16 → 37 posts back to 2025-06, corpus 832 → 853. VERIFICATION
+  L1 tradeoff resolved. NOTE: bare `pnpm fetch` runs pnpm's BUILTIN, not the script —
+  use `pnpm run fetch` locally (the hourly Action already does).
 - wrangler is OAuth-authenticated on the owner's Mac (login 2026-08-28). Secret changes:
   `printf '%s' "$VALUE" | npx wrangler secret put NAME` (pipe, never echo). Runtime secrets
   now: BREVO_API_KEY, OWNER_EMAIL (+ BREVO_LIST_NAME text var from wrangler.jsonc).
@@ -98,5 +102,5 @@
 - [ ] Optional (owner, 2 clicks): delete the two stale plaintext copies in CF Settings →
       Builds → Variables and secrets (BREVO_API_KEY, OWNER_EMAIL — now redundant runtime
       Secrets exist; removing kills the only plaintext display of the key).
-- [ ] Later: HN-Algolia trending enrichment; Meesho archive backfill; scraper adapters for
-      Zerodha/ShareChat/Juspay. (On-site search shipped 2026-08-28.)
+- [ ] Later: HN-Algolia trending enrichment (needs scoring-design decision); scraper
+      adapters for Zerodha/ShareChat/Juspay. (Search + Meesho backfill shipped 2026-08-28.)
