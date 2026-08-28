@@ -88,7 +88,8 @@
 
 ## Open items
 
-- None. (2026-08-28 closed the entire backlog: audit fixes, P3 polish, search, HN
-  enrichment, Meesho backfill, three new sources, owner's CF plaintext cleanup.)
+- None. (2026-08-28 closed the entire backlog in one session — 21 commits, af9d47d→8974641:
+  audit+fixes, P3 polish, search, HN enrichment+badge, Meesho backfill, 3 new sources,
+  owner's CF plaintext cleanup, memory/doc compaction. CLAUDE.md/AGENTS.md re-synced.)
 - Future ideas if ever wanted: scraper sources beyond the registry's reach, topic
   taxonomy growth, analytics (none today by design).

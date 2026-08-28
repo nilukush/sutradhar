@@ -31,11 +31,11 @@ engineering blogs. Beautiful, developer-friendly, SEO/GEO-first, $0 infra.
 
 | Path | Role |
 |---|---|
-| `src/data/sources.ts` | The source registry — the community contribution surface |
-| `src/data/articles.json` | Generated corpus (committed; regenerable via `pnpm fetch`) |
-| `src/lib/` | All pure logic: schema, normalize, feeds, aggregate, digest, pipeline, view, site |
+| `src/data/sources.ts` | The source registry — the community contribution surface (feed types: rss/atom/ghost/juspay/sanity) |
+| `src/data/articles.json` | Generated corpus (committed; regenerable via `pnpm run fetch`) |
+| `src/lib/` | All pure logic: schema, normalize, feeds, aggregate, digest, pipeline, view, site, hn, scrapers, jsonld, sitemap, slug, trending |
 | `scripts/fetch-feeds.ts` | Hourly aggregation entrypoint |
-| `docs/` | ANALYSIS, DESIGN_SYSTEM, PLAN, VERIFICATION — the decision record |
+| `docs/` | ANALYSIS, DESIGN_SYSTEM, PLAN, VERIFICATION, SEO-GEO-AUDIT — the decision record |
 
 ## Design system
 

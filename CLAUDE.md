@@ -10,21 +10,27 @@ $0 infrastructure. See README.md for the architecture diagram and docs/ for the 
 
 ```bash
 pnpm install
-pnpm test            # vitest — 57 tests (MUST be green before any commit)
-pnpm fetch           # fetch all sources → src/data/articles.json (-- --dry-run to preview)
+pnpm test            # vitest — 154 tests (MUST be green before any commit)
+pnpm fetch           # CAREFUL: pnpm's builtin shadows the script — use `pnpm run fetch`
+pnpm run fetch       # fetch all sources → src/data/articles.json (-- --dry-run to preview)
 pnpm dev             # dev server on :4321 (non-standard port per project convention)
-pnpm build           # static build → dist/
+pnpm build           # static build → dist/ + pagefind search index (chained)
+pnpm og:generate     # regenerate public/og-default.png from The Loom tokens
 pnpm verify:routes   # post-build route + SEO inventory gate (CI runs this too)
 ```
 
 ## Architecture in one paragraph
 
-`src/data/sources.ts` (the registry — one entry per blog, Zod-validated in CI) →
-`scripts/fetch-feeds.ts` (run by the hourly Action) → `src/lib/pipeline.ts` fetches with a
-browser UA (Cloudflare-fronted feeds 403 bare bots) → `src/lib/feeds.ts` parses RSS/Atom/Ghost →
+`src/data/sources.ts` (the registry — one entry per blog, Zod-validated in CI; feed
+types: rss / atom / ghost / juspay-scraper / sanity) → `scripts/fetch-feeds.ts` (run
+by the hourly Action) → `src/lib/pipeline.ts` fetches with a browser UA (Cloudflare-
+fronted feeds 403 bare bots); Ghost follows pagination, `src/lib/scrapers.ts` covers
+Juspay's ItemList/og-tag HTML and ShareChat's public Sanity dataset →
 `src/lib/aggregate.ts` canonicalizes URLs, dedupes by content-hash id, infers topics →
-`src/data/articles.json` (committed corpus, atomic write) → Astro pages in `src/pages/` read it
-via `src/lib/view.ts`. Digests are derived at build time by `src/lib/digest.ts`.
+`src/data/articles.json` (committed corpus, atomic write) → `src/lib/hn.ts` enriches
+in-window articles with Hacker News engagement (trending boost) → Astro pages in
+`src/pages/` read it via `src/lib/view.ts`. Digests are derived at build time by
+`src/lib/digest.ts`; `pnpm build` chains the pagefind search index over `<main data-pagefind-body>`.
 
 ## Critical conventions
 
