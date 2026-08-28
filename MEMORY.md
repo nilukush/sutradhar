@@ -104,5 +104,14 @@
   memory/doc compaction), then a same-day follow-up session (5 commits, f86e84e→e3055bc)
   made the site search-console-official: GSC verified + sitemap submitted + Bing WMT
   imported, with the Worker fixed to serve verification files verbatim.
+- Docs-audit session (2026-08-28, two Analyzers + Verifier consensus): README synced to
+  v0.5 reality (19 sources, 963 articles, 158 tests, CF Worker deploy not Pages,
+  automated Brevo newsletter not manual beehiiv, /search + HN trending + Worker layer
+  documented, zerodha example matches the real entry, `pnpm run fetch` gotcha);
+  CONTRIBUTING.md created (source-field reference, 5 feed types, tier semantics, 14-topic
+  taxonomy, CI gates, no-[skip-ci] rule); package.json gained `license: MIT`; README
+  License section caveats that corpus excerpts belong to publishers; status banners added
+  to ANALYSIS/PLAN/VERIFICATION (+ eighth-deploy GSC addendum); CLAUDE.md drifts fixed
+  (trending window 120h→240h with hnBoost, "juspay-scraper"→"juspay").
 - Future ideas if ever wanted: IndexNow pings (Bing is a partner), scraper sources
   beyond the registry's reach, topic taxonomy growth, analytics (none today by design).
