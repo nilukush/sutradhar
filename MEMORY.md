@@ -44,17 +44,18 @@
 
 ## Open items / next steps
 
-- [ ] **Root cause found (2026-08-28): TWO CF projects named "sutradhar".** An old static-only
-  Pages project (sutradhar.pages.dev — stale Aug-24 build, no form, no API, POST→405) coexists
-  with the live Worker (sutradhar.nilukush.workers.dev). Owner's secrets went into the PAGES
-  project (no Deploy button there — matches the symptom). FIX (owner, ~2 min):
-  (a) Workers & Pages → **sutradhar (Worker)** — Settings shows "Deploy Command" + workers.dev
-      URL → Variables and Secrets → Add: BREVO_API_KEY as **Secret** type, OWNER_EMAIL (Text
-      ok) → Save/Deploy.
-  (b) Recommended: **delete the stale Pages project** (sutradhar.pages.dev) to end the
-      duplicate-site confusion and wasted builds.
-  (c) Then POST /api/subscribe → expect ok:true + owner notification email (verify).
-  keep_vars:true shipped in wrangler.jsonc (29a1ae2) so text vars survive config deploys.
+- [ ] **Corrected 2026-08-28 (earlier "two projects" theory was WRONG):** owner's CF account has
+  exactly ONE project — the Worker (verified by owner screenshot). `sutradhar.pages.dev` is a
+  **stranger's project** (title "frontend"; pages.dev names are globally unique across all CF
+  accounts) — ignore it, nothing to delete. Real issue: live Worker runs current code but
+  runtime env lacks BREVO_API_KEY (POST /api/subscribe → 503 "not configured"). Dashboard
+  shows the values to the owner, so they live somewhere non-runtime (most likely Build →
+  Environment variables, or a never-promoted version). Fix paths: (a) `npx wrangler login` on
+  the Mac, then `wrangler secret put BREVO_API_KEY` + `OWNER_EMAIL` (agent-driven, preferred);
+  (b) Worker → Settings → **Variables and Secrets** (the first Settings group, NOT the Build
+  section) → Add → type **Secret** → the add-dialog's own Deploy/Save completes the promotion.
+  keep_vars:true (29a1ae2) is already deployed, so secrets set now survive hourly config
+  deploys. Then POST /api/subscribe → expect ok:true + owner notification email (verify).
 - [x] ~~Automated newsletter~~ → **PROVEN END-TO-END 2026-08-28**: workflow dispatched manually →
   "Campaign 2 sent to the Sutradhar list (week 2026-W34)" → Brevo status `sent` 10:46:50Z →
   owner's gmail received the first Sutradhar email. Idempotency proven (re-run skipped:
