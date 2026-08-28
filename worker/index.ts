@@ -72,6 +72,35 @@ async function serveAsset(request: Request, url: URL, env: { ASSETS: { fetch: ty
   }
 }
 
+/**
+ * Site-verification files (Google/Bing HTML tokens) must answer 200 at their
+ * literal /<token>.html URL — verification checkers reject redirects. The
+ * assets layer's html_handling: drop-trailing-slash 307s top-level *.html to
+ * the extensionless form, so fetch those bytes and serve them under the
+ * requested URL. Nested paths are untouched (page URLs never end in .html).
+ */
+const TOP_LEVEL_HTML = /^\/[^/]+\.html$/;
+
+async function serveTopLevelHtmlVerbatim(
+  request: Request,
+  url: URL,
+  env: { ASSETS: { fetch: typeof fetch } },
+): Promise<Response | null> {
+  const assetUrl = new URL(url.toString());
+  assetUrl.pathname = url.pathname.replace(/\.html$/, "");
+  try {
+    const asset = await env.ASSETS.fetch(new Request(assetUrl.toString(), request));
+    if (asset.status === 200) {
+      return withSecurityHeaders(
+        new Response(asset.body, { status: 200, headers: asset.headers }),
+      );
+    }
+  } catch {
+    // No extensionless asset either — fall through to the standard path.
+  }
+  return null;
+}
+
 export default {
   async fetch(request: Request, env: Record<string, unknown> & { ASSETS: { fetch: typeof fetch } }): Promise<Response> {
     const url = new URL(request.url);
@@ -93,6 +122,11 @@ export default {
         );
       }
       return handleSubscribe(request, env);
+    }
+
+    if ((request.method === "GET" || request.method === "HEAD") && TOP_LEVEL_HTML.test(url.pathname)) {
+      const verbatim = await serveTopLevelHtmlVerbatim(request, url, env);
+      if (verbatim) return verbatim;
     }
 
     return serveAsset(request, url, env);

@@ -48,6 +48,11 @@
 
 ## Hard-won facts
 
+- **CF assets `html_handling: drop-trailing-slash` ALSO drops `.html` extensions**:
+  a top-level `/<file>.html` 307s to the extensionless URL — which Google/Bing
+  site-verification checkers reject (they need an exact 200 at the literal path).
+  worker/index.ts serves top-level `*.html` verbatim by proxying the extensionless
+  asset bytes; tests/worker.test.ts pins the contract.
 - **Wrangler 4.x does NOT inject an ASSETS binding unless `assets.binding: "ASSETS"` is
   declared** — otherwise env.ASSETS is undefined and every non-asset request dies as
   500 error 1101 (the true cause of the live 500s, 2026-08-28). `not_found_handling`

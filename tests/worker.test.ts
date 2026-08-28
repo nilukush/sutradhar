@@ -69,6 +69,64 @@ describe("worker entry (serving layer)", () => {
     expect(await res.text()).toContain("FOUR_OH_FOUR_MARKUP");
   });
 
+  describe("top-level *.html served verbatim (site-verification files)", () => {
+    const TOKEN_PATH = "/googled3cc5e1274fa98d4.html";
+    const TOKEN_BODY = "google-site-verification: googled3cc5e1274fa98d4.html";
+
+    /** Mimics the real assets layer under html_handling: drop-trailing-slash. */
+    function assetsLikeCloudflare(req: Request): Response {
+      const { pathname } = new URL(req.url);
+      if (pathname === TOKEN_PATH) {
+        return new Response(null, { status: 307, headers: { Location: TOKEN_PATH.replace(/\.html$/, "") } });
+      }
+      if (pathname === TOKEN_PATH.replace(/\.html$/, "")) {
+        return new Response(TOKEN_BODY, { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } });
+      }
+      if (pathname === "/404.html") {
+        return new Response("<html>FOUR_OH_FOUR_MARKUP</html>", { status: 200, headers: { "Content-Type": "text/html" } });
+      }
+      throw new Error("no matching asset");
+    }
+
+    it("serves the verification file at its literal .html URL with 200 (checkers reject redirects)", async () => {
+      const res = await worker.fetch(
+        new Request(`https://${HOST}${TOKEN_PATH}`),
+        makeEnv(assetsLikeCloudflare as unknown as (req: Request) => Promise<Response>),
+      );
+      expect(res.status).toBe(200);
+      expect(await res.text()).toBe(TOKEN_BODY);
+    });
+
+    it("does not redirect the verification file (no Location header)", async () => {
+      const res = await worker.fetch(
+        new Request(`https://${HOST}${TOKEN_PATH}`),
+        makeEnv(assetsLikeCloudflare as unknown as (req: Request) => Promise<Response>),
+      );
+      expect(res.headers.get("location")).toBeNull();
+    });
+
+    it("falls through to the 404 flow when a top-level .html has no asset", async () => {
+      const res = await worker.fetch(
+        new Request(`https://${HOST}/ghost-file.html`),
+        makeEnv(assetsLikeCloudflare as unknown as (req: Request) => Promise<Response>),
+      );
+      expect(res.status).toBe(404);
+      expect(await res.text()).toContain("FOUR_OH_FOUR_MARKUP");
+    });
+
+    it("leaves nested .html paths on the standard serving path (pass-through 307)", async () => {
+      const assets = vi.fn().mockReturnValue(
+        new Response(null, { status: 307, headers: { Location: "/read/deep" } }),
+      );
+      const res = await worker.fetch(
+        new Request(`https://${HOST}/read/deep.html`),
+        makeEnv(assets),
+      );
+      expect(res.status).toBe(307);
+      expect(res.headers.get("location")).toBe("/read/deep");
+    });
+  });
+
   describe("security + charset headers (audit P3)", () => {
     const REQUIRED = [
       "strict-transport-security",
