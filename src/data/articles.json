@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T08:57:37.731Z",
+  "generatedAt": "2026-08-28T09:16:24.525Z",
   "articles": [
     {
       "id": "4d3d535bab6593dd",
@@ -340,6 +340,22 @@
       ]
     },
     {
+      "id": "fe469715fe41c0f0",
+      "title": "3DS vs 3DS 2.0: Exploring The Upgrades",
+      "url": "https://juspay.io/blog/3-ds-vs-3-ds-2-0-exploring-the-upgrades",
+      "sourceId": "juspay",
+      "publishedAt": "2026-07-15T09:58:06.000Z",
+      "excerpt": "3DS vs 3DS2 explained: risk-based authentication, frictionless flow, global mandates in the EU, India, Japan & Australia, and what changed after 3DS1's sunset",
+      "content": "3DS vs 3DS2 explained: risk-based authentication, frictionless flow, global mandates in the EU, India, Japan & Australia, and what changed after 3DS1's sunset",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "security"
+      ],
+      "authors": []
+    },
+    {
       "id": "7312dc6cf93818f4",
       "title": "TrustMesh: How We Built a Real-Time Fraud Brain That Thinks in Graphs and Sequences",
       "url": "https://www.meesho.io/blog/trustmesh-how-we-built-a-real-time-fraud-brain-that-thinks-in-graphs-and-sequences",
@@ -603,6 +619,21 @@
       "authors": [
         "Devanshi Jain"
       ]
+    },
+    {
+      "id": "755b50a99743501c",
+      "title": "Global Checkout Design: The Multi-Market Playbook for Higher Conversions",
+      "url": "https://juspay.io/blog/global-checkout-design-the-multi-market-playbook-for-higher-conversions",
+      "sourceId": "juspay",
+      "publishedAt": "2026-06-19T18:35:35.000Z",
+      "excerpt": "Global checkout design guide for lifting conversion with local payment methods, currency UX, smart routing, tokenization, card updater services, 3DS, and retries.",
+      "content": "Global checkout design guide for lifting conversion with local payment methods, currency UX, smart routing, tokenization, card updater services, 3DS, and…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
     },
     {
       "id": "5e62cc6748ddee13",
@@ -975,6 +1006,23 @@
       ]
     },
     {
+      "id": "aaa27ea6f43b8f61",
+      "title": "Network Tokenization vs PCI Tokenization: Differences, Architecture, and Which One Lifts Authorization Rates",
+      "url": "https://juspay.io/blog/network-tokenization-vs-pci-tokenization-differences-architecture-and-which-one-lifts",
+      "sourceId": "juspay",
+      "publishedAt": "2026-05-19T11:23:14.000Z",
+      "excerpt": "Network tokenization vs PCI tokenization: how they differ at the architecture level, what each does to authorization rates, fraud, PCI scope, and vendor lock-in",
+      "content": "Network tokenization vs PCI tokenization: how they differ at the architecture level, what each does to authorization rates, fraud, PCI scope, and vendor lock-in",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "infrastructure",
+        "security"
+      ],
+      "authors": []
+    },
+    {
       "id": "dc14ee5e08fab922",
       "title": "The Quiet Overhaul: How Meesho Stopped Answering the Same HR Questions Twice",
       "url": "https://www.meesho.io/blog/the-quiet-overhaul-how-meesho-stopped-answering-the-same-hr-questions-twice",
@@ -1029,6 +1077,22 @@
       "authors": [
         "Meesho"
       ]
+    },
+    {
+      "id": "654006c48f08b672",
+      "title": "Building a payment intelligence agent enterprises can actually trust",
+      "url": "https://juspay.io/blog/building-a-payment-intelligence-agent-enterprises-can-actually-trust",
+      "sourceId": "juspay",
+      "publishedAt": "2026-05-13T06:58:03.000Z",
+      "excerpt": "Discover how Juspay built Genius, a reliable AI payment intelligence agent. Learn about agent harness, schema grounding, and multi-agent systems for accurate enterprise analytics.",
+      "content": "Discover how Juspay built Genius, a reliable AI payment intelligence agent. Learn about agent harness, schema grounding, and multi-agent systems for accurate…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "data-science"
+      ],
+      "authors": []
     },
     {
       "id": "f9decdc27fefe3ef",
@@ -1276,6 +1340,117 @@
       "authors": [
         "Meesho"
       ]
+    },
+    {
+      "id": "c0939444800550af",
+      "title": "Payment Vault: Enhancing Payment Security and Efficiency",
+      "url": "https://juspay.io/blog/payment-vault-enhancing-payment-security-and-efficiency",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-23T09:24:40.000Z",
+      "excerpt": "A payment vault is a digital database that stores sensitive information like credit card, bank account details, etc.",
+      "content": "A payment vault is a digital database that stores sensitive information like credit card, bank account details, etc.",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "security"
+      ],
+      "authors": []
+    },
+    {
+      "id": "54c97d139b911446",
+      "title": "3DS Payments Simplified: Understanding Authentication and 3DS 2.0",
+      "url": "https://juspay.io/blog/3ds-payments-simplified-understanding-authentication-and-3ds-2-0",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-23T09:20:07.000Z",
+      "excerpt": "3DS 2.0 is updated to deal with current challenges, while enhancing security, improving user experience, and reducing friction during online transactions.",
+      "content": "3DS 2.0 is updated to deal with current challenges, while enhancing security, improving user experience, and reducing friction during online transactions.",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "security"
+      ],
+      "authors": []
+    },
+    {
+      "id": "ee0a7fed8ca4f88d",
+      "title": "Biometric Payment: The Future of Secure Transactions",
+      "url": "https://juspay.io/blog/biometric-payment-the-future-of-secure-transactions",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-23T09:18:07.000Z",
+      "excerpt": "Explore biometric payment methods and their role in secure transactions. Learn about biometric payment systems, benefits, challenges, and the future of digital payments.",
+      "content": "Explore biometric payment methods and their role in secure transactions. Learn about biometric payment systems, benefits, challenges, and the future of digital…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
+    },
+    {
+      "id": "e7f462ce74fe0619",
+      "title": "How we power 1.5Bn+ unique checkout experiences: Inside our SDK",
+      "url": "https://juspay.io/blog/how-we-power-1-5bn-unique-checkout-experiences-inside-our-sdk",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-20T15:21:43.000Z",
+      "excerpt": "Juspay’s SDKs are key tools that help merchant applications interact with our Orchestration Layer.",
+      "content": "Juspay’s SDKs are key tools that help merchant applications interact with our Orchestration Layer.",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "platform"
+      ],
+      "authors": []
+    },
+    {
+      "id": "50abca22820b161f",
+      "title": "Revolutionizing Code Intelligence: How AutoTranspiler Ensures Flawless Code Conversion",
+      "url": "https://juspay.io/blog/revolutionizing-code-intelligence-how-autotranspiler-ensures-flawless-code-conversion",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-20T15:21:39.000Z",
+      "excerpt": "The Auto-Transpiler is a semantics-preserving system that translates code between languages while maintaining consistent behavior across functions, execution paths, and database interactions.",
+      "content": "The Auto-Transpiler is a semantics-preserving system that translates code between languages while maintaining consistent behavior across functions, execution…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
+    },
+    {
+      "id": "0f3cf526abd7ec4a",
+      "title": "Updates Within Seconds: Reimagining Mobile App Releases with Juspay’s Airborne",
+      "url": "https://juspay.io/blog/updates-within-seconds-reimagining-mobile-app-releases-with-juspay-s-airborne",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-20T15:21:34.000Z",
+      "excerpt": "Airborne is an over-the-air update platform which helps merchants eliminate release bottlenecks and prevent delays that could disrupt millions of transactions and users",
+      "content": "Airborne is an over-the-air update platform which helps merchants eliminate release bottlenecks and prevent delays that could disrupt millions of transactions…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "mobile",
+        "platform"
+      ],
+      "authors": []
+    },
+    {
+      "id": "d0a0e67006aec747",
+      "title": "What Is a Passkey? How does it work",
+      "url": "https://juspay.io/blog/what-is-a-passkey-how-does-it-work",
+      "sourceId": "juspay",
+      "publishedAt": "2026-04-20T15:21:34.000Z",
+      "excerpt": "Understand what a passkey is, how passkeys work, and why they’re replacing traditional passwords for secure, passwordless authentication. Learn more on Juspay's blog",
+      "content": "Understand what a passkey is, how passkeys work, and why they’re replacing traditional passwords for secure, passwordless authentication. Learn more on…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "security"
+      ],
+      "authors": []
     },
     {
       "id": "46caf99ac1b4356e",
@@ -4255,6 +4430,21 @@
       ]
     },
     {
+      "id": "5863149212f288f9",
+      "title": "The remoteness of remote work",
+      "url": "https://zerodha.tech/blog/remoteness-of-remote-work",
+      "sourceId": "zerodha",
+      "publishedAt": "2024-03-28T00:00:00.000Z",
+      "excerpt": "TL;DR Like numerous other orgs, we transitioned (actually, flipped overnight) to being fully remote during the first COVID pandemic lockdown in 2020. It worked out great in the first year, started losing its sheen in the second year, and became detrimental to creativity and…",
+      "content": "TL;DR Like numerous other orgs, we transitioned (actually, flipped overnight) to being fully remote during the first COVID pandemic lockdown in 2020. It worked…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
+    },
+    {
       "id": "3ae482fe95c27c7e",
       "title": "Module Sandboxing: Elevating Security and Isolation Within App Ecosystem – Part 3",
       "url": "https://tech.phonepe.com/module-sandboxing-elevating-security-and-isolation-within-app-ecosystem-part-3",
@@ -4376,6 +4566,21 @@
       "authors": [
         "Kanishka Sarin"
       ]
+    },
+    {
+      "id": "f016b8e2e60fe52c",
+      "title": "1.5+ million PDFs in 25 minutes",
+      "url": "https://zerodha.tech/blog/1-5-million-pdfs-in-25-minutes",
+      "sourceId": "zerodha",
+      "publishedAt": "2024-02-13T18:30:00.000Z",
+      "excerpt": "At Zerodha, many million users login and use our financial platforms every day. Over the recent months, on an average day, 1.5+ million users have been executing stock and derivative transactions. On a volatile day, this number could easily double. After a trading session…",
+      "content": "At Zerodha, many million users login and use our financial platforms every day. Over the recent months, on an average day, 1.5+ million users have been…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
     },
     {
       "id": "7aa23170ddeceeed",
@@ -6025,6 +6230,21 @@
       ]
     },
     {
+      "id": "277ff9c61a9482ff",
+      "title": "Logging at Zerodha",
+      "url": "https://zerodha.tech/blog/logging-at-zerodha",
+      "sourceId": "zerodha",
+      "publishedAt": "2023-03-22T18:30:00.000Z",
+      "excerpt": "At Zerodha, we run a multitude of internal and public-facing services that generate copious amounts of logs. While developers use these logs to debug or troubleshoot incidents, some services also emit logs that must be persisted for prolonged periods to comply with numerous…",
+      "content": "At Zerodha, we run a multitude of internal and public-facing services that generate copious amounts of logs. While developers use these logs to debug or…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
+    },
+    {
       "id": "7653990c035190c9",
       "title": "How we are writing modern Javascript with AngularJs",
       "url": "https://engineering.wingify.com//posts/how-we-writing-modern-javascript-with-angularjs-1-x",
@@ -7311,6 +7531,21 @@
       ]
     },
     {
+      "id": "70285466f2aa7b75",
+      "title": "User disengagement",
+      "url": "https://zerodha.tech/blog/user-disengagement",
+      "sourceId": "zerodha",
+      "publishedAt": "2022-05-06T00:00:00.000Z",
+      "excerpt": "Over time, I have come to realise that the term user “engagement” in software, more often than not, is a thinly veiled proxy for user entrapment, whether intentional on the part of software designers or not. The trend of shallow user numbers and “engagement” metrics taking…",
+      "content": "Over time, I have come to realise that the term user “engagement” in software, more often than not, is a thinly veiled proxy for user entrapment, whether…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
+    },
+    {
       "id": "32a31b348791a4db",
       "title": "Introducing GraphQL Joins for federating data across GraphQL services",
       "url": "https://hasura.io/blog/introducing-graphql-joins-for-federating-data-across-graphql-services",
@@ -7762,6 +7997,41 @@
       ]
     },
     {
+      "id": "5c6cf7d0e6577919",
+      "title": "Recommended — Just For You: How We Handle Personalisation at Scale",
+      "url": "https://medium.com/sharechat-techbyte/recommended-just-for-you-how-we-handle-personalisation-at-scale-cc9a2eccfdec",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-01-17T10:32:18.000Z",
+      "excerpt": "Recommended — Just For You: How We Handle Personalisation at Scale Written by Srijan Saket, Aravindh R, Subham Todi, Brihati Jain Our Mission Ever wondered how you are able to find relevant and entertaining content every time you go to the Moj or ShareChat “Home” page? Machine…",
+      "content": "Recommended — Just For You: How We Handle Personalisation at Scale Written by Srijan Saket, Aravindh R, Subham Todi, Brihati Jain Our Mission Ever wondered how you are able to find relevant and entertaining content every time you go to the Moj or ShareChat “Home” page? Machine Learning is at the core of this complex machinery which generates recommendations for millions of users and connects…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
+      ]
+    },
+    {
+      "id": "cbce3f3dc1420f79",
+      "title": "From Native to React Native to Flutter",
+      "url": "https://zerodha.tech/blog/from-native-to-react-native-to-flutter",
+      "sourceId": "zerodha",
+      "publishedAt": "2022-01-17T10:30:00.000Z",
+      "excerpt": "At Zerodha, the first mobile version our flagship trading platform Kite was written as a native Android app in 2015. After building a cross-platform version in React Native in 2017, we finally settled for a full rewrite in Flutter in 2018, a choice that has paid off really well…",
+      "content": "At Zerodha, the first mobile version our flagship trading platform Kite was written as a native Android app in 2015. After building a cross-platform version in…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "frontend",
+        "mobile"
+      ],
+      "authors": []
+    },
+    {
       "id": "199d0314363a2756",
       "title": "How a Serverless SaaS application eliminated a race condition with Hasura Triggers",
       "url": "https://hasura.io/blog/how-a-serverless-saas-application-eliminated-a-race-condition-with-hasura-triggers",
@@ -7776,6 +8046,24 @@
       ],
       "authors": [
         "Hasura"
+      ]
+    },
+    {
+      "id": "258b11bd04d12e73",
+      "title": "How we Created Dynamic Custom Audiences on ShareChat to be Used Across Campaigns for Advertising",
+      "url": "https://medium.com/sharechat-techbyte/how-we-created-dynamic-custom-audiences-on-sharechat-to-be-used-across-campaigns-for-advertising-d9f8424ec39f",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-01-13T08:23:08.000Z",
+      "excerpt": "Written by Mohit Dubey ShareChat is on a rapid growth path with 180 Mn monthly active users. Advertisers want to run their advertisement campaigns on ShareChat in order to reach these target audiences. Our aim is to show the advertisement to the most relevant audience so that…",
+      "content": "Written by Mohit Dubey ShareChat is on a rapid growth path with 180 Mn monthly active users. Advertisers want to run their advertisement campaigns on ShareChat in order to reach these target audiences. Our aim is to show the advertisement to the most relevant audience so that the advertisers goals are met. Problem Statement: To create segments on a dynamic set of users based on a set of…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
       ]
     },
     {
@@ -7835,6 +8123,25 @@
       ]
     },
     {
+      "id": "b7b6191df1e7ff72",
+      "title": "‘doc-coverage’ — A Documentation Coverage Tool for Javascript",
+      "url": "https://medium.com/sharechat-techbyte/doc-coverage-a-documentation-coverage-tool-for-javascript-906ef28ab655",
+      "sourceId": "sharechat",
+      "publishedAt": "2022-01-05T09:48:55.000Z",
+      "excerpt": "‘doc-coverage’ — A Documentation Coverage Tool for Javascript Witten by Shivani Sehgal It’s been rightly said that what gets measured gets managed! A few months ago, we at ShareChat decided to go on a documentation coverage spree. Not long into the journey we realised the…",
+      "content": "‘doc-coverage’ — A Documentation Coverage Tool for Javascript Witten by Shivani Sehgal It’s been rightly said that what gets measured gets managed! A few months ago, we at ShareChat decided to go on a documentation coverage spree. Not long into the journey we realised the resources for measuring documentation were limited and would not meet our expectations. That’s when we decided to step up and…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale",
+        "frontend"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
+      ]
+    },
+    {
       "id": "3bdc5b8250cc1862",
       "title": "The Ultimate Guide to handling JWTs on frontend clients (GraphQL)",
       "url": "https://hasura.io/blog/best-practices-of-using-jwt-with-graphql",
@@ -7851,6 +8158,24 @@
       ],
       "authors": [
         "Vladimir"
+      ]
+    },
+    {
+      "id": "ba5dd056dba9e4ab",
+      "title": "Leveraging Dynamic Programming to Improve Player Performance in Rummy",
+      "url": "https://medium.com/sharechat-techbyte/leveraging-dynamic-programming-to-improve-player-performance-in-rummy-de274ba9d28b",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-31T10:09:30.000Z",
+      "excerpt": "Written by Shubham Sharma “Are data structures and algorithms even useful in a software engineering job?”Over the past few years, there has been a drift towards people assuming that algorithms and data structures are useless and are asked by tech companies just as a thoughtless…",
+      "content": "Written by Shubham Sharma “Are data structures and algorithms even useful in a software engineering job?”Over the past few years, there has been a drift towards people assuming that algorithms and data structures are useless and are asked by tech companies just as a thoughtless practice. Even the likes of Max Howell, the founder of Homebrew and Brian Acton, the co-founder of Whatsapp supported…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
       ]
     },
     {
@@ -7885,6 +8210,43 @@
       ],
       "authors": [
         "Jesse Martin"
+      ]
+    },
+    {
+      "id": "0ef3c45352832a33",
+      "title": "ShareChat AI @ EMNLP 2021",
+      "url": "https://medium.com/sharechat-techbyte/sharechat-ai-emnlp-2021-54d593a70926",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-22T08:36:55.000Z",
+      "excerpt": "ShareChat AI team has embarked on a journey of conducting cutting-edge AI research and building AI-powered solutions for providing best-in-class and safe user experience to our users. Our endeavour is to build solutions that can scale across diverse geographies and cultures…",
+      "content": "ShareChat AI team has embarked on a journey of conducting cutting-edge AI research and building AI-powered solutions for providing best-in-class and safe user experience to our users. Our endeavour is to build solutions that can scale across diverse geographies and cultures without requiring a large amount of training data. Solving complex problems under low-resource settings is crucial because…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
+      ]
+    },
+    {
+      "id": "b487ffcb26d388a7",
+      "title": "Neural Network Compression Using Quantization",
+      "url": "https://medium.com/sharechat-techbyte/neural-network-compression-using-quantization-328d22e8855d",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-18T14:22:35.000Z",
+      "excerpt": "Written by Akash Manna, Vikram Gupta, Debdoot Mukherjee Every day, ShareChat and Moj receive millions of User Generated Content (UGC) pieces. To derive insights from these content pieces and recommend relevant and interesting content to our users, we require accurate, fast and…",
+      "content": "Written by Akash Manna, Vikram Gupta, Debdoot Mukherjee Every day, ShareChat and Moj receive millions of User Generated Content (UGC) pieces. To derive insights from these content pieces and recommend relevant and interesting content to our users, we require accurate, fast and highly scalable machine learning models at all stages of the content pipeline. In the last decade, deep learning has been…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale",
+        "infrastructure"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
       ]
     },
     {
@@ -7924,6 +8286,24 @@
       ]
     },
     {
+      "id": "451edbb2e1125399",
+      "title": "Introducing Moj For Creators (MFC)",
+      "url": "https://medium.com/sharechat-techbyte/introducing-moj-for-creators-mfc-7bd0597f322a",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-10T10:10:20.000Z",
+      "excerpt": "Written by Sumit Malpani, Sumit Agrawal, Sidharth Mishra, Nitesh Jain “Creator Economy”, led by the rise of short-form videos, has become a global phenomenon in recent years. Today, there are more than 100M+ content creators globally, with increasing numbers of short video first…",
+      "content": "Written by Sumit Malpani, Sumit Agrawal, Sidharth Mishra, Nitesh Jain “Creator Economy”, led by the rise of short-form videos, has become a global phenomenon in recent years. Today, there are more than 100M+ content creators globally, with increasing numbers of short video first creators. In India especially, the rise in the short video ecosystem has been exponential, with the growth in online…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
+      ]
+    },
+    {
       "id": "ef93c7380051c44f",
       "title": "Getting Started with Hasura, Netlify, and the Jamstack",
       "url": "https://hasura.io/blog/getting-started-with-hasura-on-netlify-jamstack",
@@ -7957,6 +8337,24 @@
       ],
       "authors": [
         "Jesse Martin"
+      ]
+    },
+    {
+      "id": "a1e308fdc5b2af2a",
+      "title": "How We Improved Virtual Gifting Experience in Audio Chatroom",
+      "url": "https://medium.com/sharechat-techbyte/how-we-improved-virtual-gifting-experience-in-audio-chatroom-6f8b3cf72ce4",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-12-02T06:08:28.000Z",
+      "excerpt": "Written by Gulzar Ahmed, Chetan Potnuru We recently shipped out a new Virtual Gifting experience for our ShareChat’s Audio Chatroom- a core feature where the audience can support the creators by sending them virtual gifts. In this blog, we’ll talk about why and how we revamped…",
+      "content": "Written by Gulzar Ahmed, Chetan Potnuru We recently shipped out a new Virtual Gifting experience for our ShareChat’s Audio Chatroom- a core feature where the audience can support the creators by sending them virtual gifts. In this blog, we’ll talk about why and how we revamped the existing experience from the ground up. The fundamental idea was to make virtual gifting more fun and intuitive while…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
       ]
     },
     {
@@ -8011,6 +8409,24 @@
       ],
       "authors": [
         "Vishnu Bharathi"
+      ]
+    },
+    {
+      "id": "10936bcad2a5188e",
+      "title": "ShareOCR: The end-to-end OCR for Indic content: Part 2",
+      "url": "https://medium.com/sharechat-techbyte/shareocr-the-end-to-end-ocr-for-indic-content-part-2-27d01768767f",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-11-19T10:48:50.000Z",
+      "excerpt": "Written by Rishabh Jain, Praveen Dhinwa, Vikram Gupta, Hastagiri Vanchinathan, Debdoot Mukherjee ShareChat is India’s leading social media platform & Moj is India’s number one short video platform with one of the highest monthly active users. Both allow users to share their…",
+      "content": "Written by Rishabh Jain, Praveen Dhinwa, Vikram Gupta, Hastagiri Vanchinathan, Debdoot Mukherjee ShareChat is India’s leading social media platform & Moj is India’s number one short video platform with one of the highest monthly active users. Both allow users to share their opinions and record their lives, all within the comfort of their preferred languages. Our content consists of images and…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
       ]
     },
     {
@@ -8307,6 +8723,24 @@
       ],
       "authors": [
         "Punit Goswami"
+      ]
+    },
+    {
+      "id": "c22c4b3700c4d6d9",
+      "title": "Demystifying ShareChat Creators",
+      "url": "https://medium.com/sharechat-techbyte/demystifying-sharechat-creators-18afb25b0875",
+      "sourceId": "sharechat",
+      "publishedAt": "2021-10-01T06:12:26.000Z",
+      "excerpt": "Written by Tejas Singh, Devyani Jain, Shivani Nayaka, Rishabh Dsouza and Anish Pratik Yayavaram One of the questions that we are often asked is, ‘Who is a ShareChat creator?’ And to be honest, it would be pretty hard to answer this question in a sentence or two. Rather, it would…",
+      "content": "Written by Tejas Singh, Devyani Jain, Shivani Nayaka, Rishabh Dsouza and Anish Pratik Yayavaram One of the questions that we are often asked is, ‘Who is a ShareChat creator?’ And to be honest, it would be pretty hard to answer this question in a sentence or two. Rather, it would be a disservice to our creators to classify them into a generic segment. To understand our creators better, we would…",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "scale"
+      ],
+      "authors": [
+        "Tech @ ShareChat"
       ]
     },
     {
@@ -8803,6 +9237,21 @@
       "authors": [
         "Jesse Martin"
       ]
+    },
+    {
+      "id": "4d7644287e123d99",
+      "title": "Scaling with common sense #2: Being future ready.",
+      "url": "https://zerodha.tech/blog/being-future-ready-with-common-sense",
+      "sourceId": "zerodha",
+      "publishedAt": "2021-07-28T10:00:00.000Z",
+      "excerpt": "Over the last year, owing to the unexpected rally in capital markets, Zerodha’s customer base has more than tripled, significantly increasing the number of concurrent users on our platforms along with the traffic and load they generate on numerous systems in the background. For…",
+      "content": "Over the last year, owing to the unexpected rally in capital markets, Zerodha’s customer base has more than tripled, significantly increasing the number of…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
     },
     {
       "id": "0922dd1deda29f05",
@@ -9469,6 +9918,21 @@
       "authors": [
         "Vishnu Bharathi"
       ]
+    },
+    {
+      "id": "ed755aca70acdc46",
+      "title": "Working with PostgreSQL",
+      "url": "https://zerodha.tech/blog/working-with-postgresql",
+      "sourceId": "zerodha",
+      "publishedAt": "2021-04-21T18:30:00.000Z",
+      "excerpt": "This post is in the context of the large, data heavy PostgreSQL instances that store historical transactional data and reports, the databases that power Console and its large scale number crunching and reporting. It talks about how we self-host, tune, and manage all our DB…",
+      "content": "This post is in the context of the large, data heavy PostgreSQL instances that store historical transactional data and reports, the databases that power…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
     },
     {
       "id": "f9587f65f66efeee",
@@ -10574,6 +11038,21 @@
       ]
     },
     {
+      "id": "00bd1abeff70378e",
+      "title": "A lesson in creating and using niche business DSLs at scale",
+      "url": "https://zerodha.tech/blog/a-lesson-in-niche-business-dsls-at-scale",
+      "sourceId": "zerodha",
+      "publishedAt": "2020-11-24T12:05:00.000Z",
+      "excerpt": "At Zerodha, we process millions of trades in real-time, where each trade comes into the system as concurrent high throughput HTTP requests. Each trade increases the latency for subsequent orders in the queue that are under processing at the same time at our OMS (Order Management…",
+      "content": "At Zerodha, we process millions of trades in real-time, where each trade comes into the system as concurrent high throughput HTTP requests. Each trade…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
+    },
+    {
       "id": "e35b87c31e65a851",
       "title": "SecurEdge: The Linearly Scalable Edge Firewall Architecture for Data Centers",
       "url": "https://tech.phonepe.com/securedge-the-linearly-scalable-edge-firewall-architecture-for-data-centers",
@@ -10823,6 +11302,22 @@
       "authors": [
         "Vishwa Mehta"
       ]
+    },
+    {
+      "id": "bb319808d8c0866a",
+      "title": "Alar: The making of an open source dictionary",
+      "url": "https://zerodha.tech/blog/alar-the-making-of-an-open-source-dictionary",
+      "sourceId": "zerodha",
+      "publishedAt": "2020-09-21T18:30:00.000Z",
+      "excerpt": "ನಮಸ್ಕಾರ (Namaskāra)! This is not a post on fintech, or even technology for that matter. This is the story of a product of tenacity, selflessness, and passion; a product that will transcend and outlive most technology we know of. This is the story of a massive dictionary that…",
+      "content": "ನಮಸ್ಕಾರ (Namaskāra)! This is not a post on fintech, or even technology for that matter. This is the story of a product of tenacity, selflessness, and passion;…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "product-engineering"
+      ],
+      "authors": []
     },
     {
       "id": "4b40a3f964916af3",
@@ -11119,6 +11614,22 @@
       ]
     },
     {
+      "id": "53535fec228c681d",
+      "title": "Scaling with common sense",
+      "url": "https://zerodha.tech/blog/scaling-with-common-sense",
+      "sourceId": "zerodha",
+      "publishedAt": "2020-06-14T08:30:00.000Z",
+      "excerpt": "“Scaling” is not a specific technique but an entire spectrum that stretches all the way from “Google scale” to the K8s cluster Karan runs on a Raspberry Pi plugged into a 12V shaver outlet in his bathroom to encrypt his DNS queries for peak privacy, while he asks Alexa to dim…",
+      "content": "“Scaling” is not a specific technique but an entire spectrum that stretches all the way from “Google scale” to the K8s cluster Karan runs on a Raspberry Pi…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "infrastructure"
+      ],
+      "authors": []
+    },
+    {
       "id": "6b3dcb41fa871b38",
       "title": "Adding Relay support to Hasura",
       "url": "https://hasura.io/blog/adding-relay-support-to-hasura",
@@ -11258,6 +11769,23 @@
       ]
     },
     {
+      "id": "170bf94eb7c3dd9d",
+      "title": "Infrastructure monitoring with Prometheus at Zerodha",
+      "url": "https://zerodha.tech/blog/infra-monitoring-at-zerodha",
+      "sourceId": "zerodha",
+      "publishedAt": "2020-04-26T18:30:00.000Z",
+      "excerpt": "On any given day, we handle around 15% of daily retail trading volume across all stock exchanges in India. Billions of requests generated in the process are handled by a suite of systems we have built in-house. Also, we are very particular on self-hosting as many dependencies as…",
+      "content": "On any given day, we handle around 15% of daily retail trading volume across all stock exchanges in India. Billions of requests generated in the process are…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "infrastructure",
+        "devops-sre"
+      ],
+      "authors": []
+    },
+    {
       "id": "4ff6ade514108dce",
       "title": "Authorization rules for a multi-tenant system - Google cloud platform",
       "url": "https://hasura.io/blog/authorization-rules-for-multi-tenant-system-google-cloud",
@@ -11395,6 +11923,22 @@
       "authors": [
         "Hasura"
       ]
+    },
+    {
+      "id": "9d02d276e8b1b06d",
+      "title": "Hello, World!",
+      "url": "https://zerodha.tech/blog/hello-world",
+      "sourceId": "zerodha",
+      "publishedAt": "2020-04-05T18:30:00.000Z",
+      "excerpt": "Zerodha, now India’s largest stock broker, bootstrapped and profitable, turns ten years old this year. The Zerodha tech team turns seven years old. The tech team has remained largely elusive over the course of our existence. While we have pondered starting a tech blog for more…",
+      "content": "Zerodha, now India’s largest stock broker, bootstrapped and profitable, turns ten years old this year. The Zerodha tech team turns seven years old. The tech…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "culture"
+      ],
+      "authors": []
     },
     {
       "id": "e1b473d61451eefd",
@@ -14943,6 +15487,38 @@
       "authors": [
         "Sparsh Gupta"
       ]
+    },
+    {
+      "id": "5ec141aaaaba403b",
+      "title": "Projects",
+      "url": "https://zerodha.tech/projects",
+      "sourceId": "zerodha",
+      "publishedAt": "2001-01-01T00:00:00.000Z",
+      "excerpt": "Apps libredesk ★ 2777 Go Open-source, self-hosted customer support desk in a single binary. Email and live chat. A lightweight alternative to Intercom, Zendesk, Chatwoot. GNU Affero General Public License v3.0 Last updated on August 22, 2026 listmonk ★ 23046 Go High performance,…",
+      "content": "Apps libredesk ★ 2777 Go Open-source, self-hosted customer support desk in a single binary. Email and live chat. A lightweight alternative to Intercom,…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": []
+    },
+    {
+      "id": "79e53dcb6e88bfe4",
+      "title": "Zerodha's FOSS stack",
+      "url": "https://zerodha.tech/stack",
+      "sourceId": "zerodha",
+      "publishedAt": "2001-01-01T00:00:00.000Z",
+      "excerpt": "Languages Go Python Java JavaScript Dart Databases PostgreSQL ClickHouse Redis SSDB ScyllaDB DuckDB MySQL Webservers and proxies Nginx HAProxy Kong Streams & Queues NATS Kafka Redpanda Console UI Benthos Observability & Monitoring Vector Grafana VictoriaMetrics Alertmanager…",
+      "content": "Languages Go Python Java JavaScript Dart Databases PostgreSQL ClickHouse Redis SSDB ScyllaDB DuckDB MySQL Webservers and proxies Nginx HAProxy Kong Streams &…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "frontend",
+        "devops-sre"
+      ],
+      "authors": []
     }
   ]
 }
