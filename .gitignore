@@ -22,3 +22,4 @@ pnpm-debug.log*
 # jetbrains setting file
 .idea/
 /docs/brevo-sutradhar.md
+.wrangler/
