@@ -1,97 +1,72 @@
 # MEMORY.md — project memory (update after every significant change)
 
-## Status
+## Status — snapshot as of 2026-08-28
 
-- **LIVE at https://sutradhar.nilukush.workers.dev — the PERMANENT origin** (owner decision
-  2026-08-24: no domain will be purchased; $0 constraint). The full autonomous loop is proven:
-  hourly Action → bot data commit (73baf56) → CF rebuild. All URLs (canonicals, feeds, sitemap,
-  llms.txt, UA contact string, bot commit email) now reference the workers.dev origin only.
-- **Publishing cadence (computed 2026-08-24 from the 829-article corpus)**: corpus-wide ~0.52
-  posts/day (92 posts/178 days); active sources median inter-post gaps ~6-28 days (freshworks
-  2.6d, meesho 6.9d, browserstack 5.9d, phonepe 12.6d, groww 15.1d, razorpay 18.8d); 6 of 16
-  sources dormant in 180d (hasura, wingify, jupiter, dream11, urban-company, +cred 1 post).
-  **Verdict: hourly polling stays** — Actions minutes are free on the public repo and builds
-  fire only on content change (~15 builds/month at any poll interval), so hourly buys ~30-min
-  mean freshness at $0 marginal cost.
-- v0.3 (2026-08-24): subscribe flow, trending, excerpt policy, /publishers, mobile nav,
-  RSS slash fix. v0.2: in-site /read pages. v0.1: link-out model (docs/VERIFICATION.md).
+**Everything is live and fully autonomous. Nothing awaits owner action.**
+
+- Site: https://sutradhar.nilukush.workers.dev — the PERMANENT origin (owner decision
+  2026-08-24: no domain purchase ever; $0 constraint). 16 sources, corpus ~832 articles.
+- Hourly loop: GitHub Action aggregates feeds → bot commits on change → CF Workers Builds
+  rebuilds + deploys (~15 builds/month; corpus-wide cadence ~0.5 posts/day, hourly polling
+  stays — free minutes, builds only fire on change). v0.1 link-out → v0.2 /read pages →
+  v0.3 subscribe+trending+excerpts → v0.4 automated Brevo newsletter (full history in
+  docs/VERIFICATION.md).
+- Subscribe: inline email form → POST /api/subscribe (Worker) → Brevo contact add (list 4
+  "Sutradhar") + instant owner-notification email ("New Sutradhar subscriber: …").
+  PROVEN live 2026-08-28: `{"ok":true}`, invalid email → friendly 400. beehiiv page
+  (sutradhar.beehiiv.com) is a fallback link only.
+- Newsletter: weekly Action (Mon 09:07 IST) renders digest → creates + **sends** a Brevo
+  classic campaign automatically. PROVEN W34 (campaign 2, status `sent`; idempotent re-run
+  skipped). No manual sending, ever.
+- wrangler is OAuth-authenticated on the owner's Mac (login 2026-08-28). Secret changes:
+  `printf '%s' "$VALUE" | npx wrangler secret put NAME` (pipe, never echo). Runtime secrets
+  now: BREVO_API_KEY, OWNER_EMAIL (+ BREVO_LIST_NAME text var from wrangler.jsonc).
+- Brevo state: folder 3, list 4 "Sutradhar", sender active, 300 emails/day free tier.
 
 ## Decisions (why)
 
 | Decision | Rationale | Where |
 |---|---|---|
-| Name: **Sutradhar** | Sanskrit "thread-holder/narrator" — exact aggregator metaphor; maximal distance from InfoQ trademark; permanent home sutradhar.nilukush.workers.dev (sutradhar.dev never purchased — owner decision 2026-08-24) | docs/ANALYSIS.md §6 |
-| Astro static + GitHub Actions cron + CF Pages | Only $0 option that is hourly-fresh AND SEO-perfect; public repo → free Actions minutes; Vercel Hobby cron is daily-only | docs/ANALYSIS.md §4 |
-| Meesho via Ghost Content API | No RSS exists; public key ships in their client bundle; URL rewrite `admin-v2.meesho.io/ → meesho.io/blog/` verified | src/data/sources.ts |
-| In-site reading pages (`/read/<slug>`), extended excerpts not full text | User wants content opened in-site; full republication = copyright + Google site-reputation-abuse risk; NewsArticle JSON-LD with `isBasedOn` the original | src/pages/read/[slug].astro |
+| Name: **Sutradhar** | Sanskrit "thread-holder/narrator" — exact aggregator metaphor; maximal distance from InfoQ trademark | docs/ANALYSIS.md §6 |
+| Astro static + GitHub Actions cron + CF Workers | Only $0 option that is hourly-fresh AND SEO/GEO-perfect; public repo → free Actions minutes | docs/ANALYSIS.md §4 |
+| Meesho via Ghost Content API | No RSS exists; public key ships in their client bundle; URL rewrite to meesho.io/blog/ verified | src/data/sources.ts |
+| In-site `/read/<slug>` pages; content = min(excerptLimit, max(160, 10% of body)), default 400; excerptLimit 0 = link-out only, honored on ALL surfaces via readHref | Owner wants in-site reading; full text = copyright (India §52(1) fair dealing) + site-reputation-abuse risk; NewsArticle `isBasedOn` the original | src/lib/aggregate.ts, docs/RESEARCH-EXCERPT-POLICY.md |
 | Self-canonical, never to originals | Google no longer recommends cross-domain canonicals for syndicated summaries | docs/ANALYSIS.md §5 |
-| AI crawlers allowed | Citability is the moat; blocking measurably costs traffic (Wharton/Rutgers ~7%) | src/pages/robots.txt.js |
-| Newsletter = digest artifact + beehiiv free | No free RSS-to-email exists in 2026; pipeline generates the weekly HTML | docs/ANALYSIS.md §4 |
+| AI crawlers allowed | Citability is the moat; blocking measurably costs traffic | src/pages/robots.txt.js |
+| Subscribe = inline form → own Worker → Brevo | GitHub-issue UX rejected by owner ("poor UX"); beehiiv Launch cannot auto-send; Brevo free 300/day with full API. Provider switch: SUBSCRIBE_PROVIDER env (api-form default | beehiiv-embed | beehiiv-hosted | github-issue) | src/lib/subscribe.ts, src/lib/subscribe-worker.ts |
+| Newsletter = automated Brevo campaigns | Owner cannot send manually; weekly Action does create+sendNow; beehiiv RSS-to-Send/Send API are Max-plan-only | src/lib/newsletterCampaign.ts, .github/workflows/newsletter.yml |
+| Trending = tierWeight × 2^(−age/36h), 240h window, max 2/source | deterministic, zero analytics; window widened 120→240h after a quiet week emptied the section | src/lib/trending.ts |
 
 ## Hard-won facts
 
-- CF dashboard (2026 UI) hides secret/text bindings: the Bindings tab shows only "connected
-  external resources" (KV/R2/D1…) — "No connected bindings" ≠ no vars/secrets. Authoritative
-  check: `npx wrangler secret list`. Runtime vars/secrets not visible on Settings page either
-  in this UI version; manage via wrangler only.
-
-- Feed paths: Medium custom domains serve `/feed/` (NOT `/rss/` — Cloudflare 403); Medium tag
-  feeds at `medium.com/feed/tag/<tag>`; fetcher must send a browser UA.
-- Zerodha/Myntra/Cleartrip/Ola/Paytm eng blogs are dead or never existed; Juspay/ShareChat
+- **CF 2026 dashboard hides secret/text bindings.** The Bindings tab shows only external
+  resources ("No connected bindings" ≠ no vars). Settings shows a build-only "Variables and
+  secrets" subsection — the SAME label as the runtime concept; the name collision caused the
+  multi-day 503 saga. Authoritative check: `npx wrangler secret list`. Build vars are
+  build-only and display plaintext; runtime Secrets stay masked. `keep_vars: true` in
+  wrangler.jsonc (29a1ae2) makes secrets survive config deploys — verified live.
+- `sutradhar.pages.dev` belongs to a STRANGER (title "frontend"; pages.dev names are
+  globally unique across ALL CF accounts). Owner's account has exactly ONE project: the
+  Worker. The earlier "two projects" theory was retracted 2026-08-28.
+- Brevo live API facts: campaign send = POST /v3/emailCampaigns/{id}/**sendNow** (NOT
+  /send — 404s "Invalid route"); list creation REQUIRES folderId; contacts add 201/204;
+  classic campaigns auto-append unsubscribe footer.
+- Workers Builds sandbox exposes NO CF API token to custom commands (deploy-step auth is
+  internal-only) — build-time self-healing of secrets is impossible; manage via local
+  wrangler.
+- Feed paths: Medium custom domains serve `/feed/` (NOT `/rss/`); Medium tag feeds at
+  `medium.com/feed/tag/<tag>`; fetcher must send a browser UA.
+- Zerodha/Myntra/Cleartrip/Ola/Paytm eng blogs dead or never existed; Juspay/ShareChat
   have no feeds (scrapers would be needed).
-- `getUTCDay()` Sunday=0 vs ISO weekday=7 — verifier H2 bug class.
-- Astro paginated index needs `articles/[...page].astro` rest-param naming.
-- Ghost Content API limit max 15/page — forward coverage complete, archive backfill capped (accepted).
+- `getUTCDay()` Sunday=0 vs ISO weekday=7 — verifier bug class. Astro pagination needs
+  `articles/[...page].astro` rest-param. Ghost Content API caps at 15/page.
+- Secrets hygiene: docs/brevo-sutradhar.md holds the Brevo key — gitignored, never commit,
+  never print. GH Actions read `secrets.X || vars.X`.
 
-| Excerpt policy (implemented 2026-08-24, owner-approved) | content = min(excerptLimit, max(160, 10% of body)), default 400; 0 = link-out only; /publishers discloses the floor; see docs/RESEARCH-EXCERPT-POLICY.md | src/lib/aggregate.ts |
-| Subscribe via GitHub issue (2026-08-24) | No free RSS-to-email + $0/static: no-JS GET form → prefilled issue (subscribe.md; template param, NO labels param — permission 404 risk); beehiiv-hosted upgrade is a config switch; REPO_URL env lights it up | src/lib/subscribe.ts |
-| Trending = Planet lineage (2026-08-24) | tierWeight × 2^(−age/36h), 120h window, max 2/source — deterministic, zero analytics; HN-Algolia enrichment designed (free/no-key, verified) but deferred | src/lib/trending.ts |
+## Open items
 
-## Open items / next steps
-
-- [x] **RESOLVED 2026-08-28 (earlier "two projects" theory was WRONG):** owner's CF account has
-  exactly ONE project — the Worker. `sutradhar.pages.dev` is a **stranger's project** (title
-  "frontend"; pages.dev names are globally unique across all CF accounts) — ignore it forever.
-  Actual root cause: the owner's dashboard values landed in the **Builds → "Variables and
-  secrets" subsection** — Cloudflare labels the build-scope section with the SAME name as the
-  runtime section, on the same Settings page (confirmed via owner screenshot 2026-08-28).
-  Build vars are build-only, so the runtime had ZERO secrets (`wrangler secret list` → `[]`)
-  and the Worker saw no BREVO_API_KEY. To rotate/change values: use the top "Runtime variables
-  and secrets" section or `wrangler secret put` — never the Builds subsection. Build-scope
-  copies also display values in plaintext (runtime Secrets stay masked); owner advised to
-  delete them. Fix applied by agent: `npx wrangler login`
-  (owner clicked Allow) → `wrangler secret put BREVO_API_KEY` + `OWNER_EMAIL` (key piped from
-  gitignored doc, never echoed). PROVEN live: POST /api/subscribe → `{"ok":true}` HTTP 200;
-  invalid email → 400 friendly error; Brevo contact touched (listIds [2,4], modifiedAt bumped);
-  secrets survived the subsequent config deploy (keep_vars working). Owner notification email
-  fires on every subscribe ("New Sutradhar subscriber: …"). Full pipeline now autonomous:
-  hourly aggregate → site rebuild + deploy, weekly Monday 09:07 IST Brevo campaign send.
-- [x] ~~Automated newsletter~~ → **PROVEN END-TO-END 2026-08-28**: workflow dispatched manually →
-  "Campaign 2 sent to the Sutradhar list (week 2026-W34)" → Brevo status `sent` 10:46:50Z →
-  owner's gmail received the first Sutradhar email. Idempotency proven (re-run skipped:
-  "already sent"). Monday cron takes over from here. Live-discovered Brevo API facts: send
-  route is **/emailCampaigns/{id}/sendNow** (NOT /send — 404s); list creation **requires
-  folderId** (folder auto-resolved/created); contact add returns 201/204.
-- Secrets hygiene: docs/brevo-sutradhar.md (contains the API key) is gitignored, never
-  committed; GH variable migrated to masked GH **secret** (workflow reads secrets || vars).
-
-- [x] ~~Subscribe UX~~ → **beehiiv Launch wired & live (24 Aug 2026)**: owner confirmed
-  Launch plan is genuinely $0 (the 14-day screen is the Scale-trial upsell — decline it).
-  Publication: **https://sutradhar.beehiiv.com**. Subscribe buttons site-wide link there
-  (real email form; GitHub-issue flow demoted to BEEHIIV_URL='' fallback). Newsletter page
-  copy describes beehiiv. CF Worker path shelved (tests removed).
-- [x] ~~Sending workflow~~ → **`pnpm digest:email`**: renders the latest weekly digest as
-  send-ready HTML + plain text in `.generated/newsletter-<week>.{html,txt}`. Weekly ~10-min
-  routine: run it → open HTML in browser → select-all → paste into a beehiiv broadcast → send.
-  (Launch plan: unlimited sends.)
-
-- [x] ~~Push to public GitHub repo~~ → **github.com/nilukush/sutradhar live (2026-08-24)**: CI green,
-      aggregate workflow registered + manually validated (16/16 sources, 0 errors, commit-on-change
-      works), subscribe form/footer/sameAs all live via the real repoUrl.
-- [x] ~~Connect Cloudflare~~ → **live via Workers deploy at sutradhar.nilukush.workers.dev** (build `pnpm build`, deploy `npx wrangler deploy`)
-- [x] ~~Register `sutradhar.dev`~~ → **not planned** (owner decision 2026-08-24, $0 constraint);
-      workers.dev is the permanent origin. AI-crawler note: no zone config exists on
-      `*.workers.dev`; robots.txt welcomes AI bots and the site serves them. Only if a custom
-      zone is ever added: allow AI crawlers under Security → Bots.
-- [ ] Create beehiiv publication; switch subscribe provider in `src/lib/subscribe.ts`
-- [ ] Later: HN-Algolia trending enrichment; Meesho archive backfill; scraper adapters for Zerodha/ShareChat/Juspay; search (pagefind)
+- [ ] Optional (owner, 2 clicks): delete the two stale plaintext copies in CF Settings →
+      Builds → Variables and secrets (BREVO_API_KEY, OWNER_EMAIL — now redundant runtime
+      Secrets exist; removing kills the only plaintext display of the key).
+- [ ] Later: HN-Algolia trending enrichment; Meesho archive backfill; scraper adapters for
+      Zerodha/ShareChat/Juspay; on-site search (pagefind).
