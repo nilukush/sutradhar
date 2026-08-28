@@ -74,7 +74,8 @@ export async function sendWeeklyCampaign(
   const { id }: { id?: number } = await create.json();
   if (id === undefined) return { sent: false, reason: "create-failed" };
 
-  const send = await fetchImpl(`${API}/emailCampaigns/${id}/send`, { method: "POST", headers: h });
-  if (!send.ok) return { sent: false, reason: "send-failed", campaignId: id };
+  // Endpoint is /sendNow (returns 204 on success) — NOT /send (404s).
+  const send = await fetchImpl(`${API}/emailCampaigns/${id}/sendNow`, { method: "POST", headers: h });
+  if (!send.ok && send.status !== 204) return { sent: false, reason: "send-failed", campaignId: id };
   return { sent: true, campaignId: id };
 }

@@ -70,7 +70,7 @@ describe("sendWeeklyCampaign (Brevo)", () => {
     expect(payload.sender.email).toBe(ENV.SENDER_EMAIL);
 
     const sendCall = fetchImpl.mock.calls[3]!;
-    expect(String(sendCall[0])).toBe("https://api.brevo.com/v3/emailCampaigns/555/send");
+    expect(String(sendCall[0])).toBe("https://api.brevo.com/v3/emailCampaigns/555/sendNow");
   });
 
   it("skips cleanly when this week's campaign already exists (idempotent reruns)", async () => {
@@ -83,17 +83,18 @@ describe("sendWeeklyCampaign (Brevo)", () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
-  it("creates the list when missing, then proceeds", async () => {
+  it("creates folder + list when missing, then proceeds", async () => {
     const fetchImpl = vi
       .fn()
       .mockResolvedValueOnce(jsonResponse({ lists: [] }, 200))
+      .mockResolvedValueOnce(jsonResponse({ folders: [{ id: 3, name: "Sutradhar" }] }, 200))
       .mockResolvedValueOnce(jsonResponse({ id: 12 }, 201)) // create list
       .mockResolvedValueOnce(jsonResponse({ campaigns: [] }, 200))
       .mockResolvedValueOnce(jsonResponse({ id: 556 }, 201))
-      .mockResolvedValueOnce(jsonResponse({}, 200));
+      .mockResolvedValueOnce(jsonResponse({}, 204));
     const result = await sendWeeklyCampaign(weekly, email, ENV, fetchImpl);
     expect(result.sent).toBe(true);
-    expect(JSON.parse(fetchImpl.mock.calls[1]![1].body).name).toBe("Sutradhar");
+    expect(JSON.parse(fetchImpl.mock.calls[2]![1].body)).toEqual({ name: "Sutradhar", folderId: 3 });
   });
 
   it("refuses to run without an API key (misconfiguration guard)", async () => {

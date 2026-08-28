@@ -23,7 +23,7 @@ function brevoHeaders(apiKey: string): Record<string, string> {
   return { "api-key": apiKey, "content-type": "application/json", accept: "application/json" };
 }
 
-/** Find the contact list by name, creating it on first use. */
+/** Find the contact list by name, creating it (inside a same-named folder) on first use. */
 export async function resolveListId(
   apiKey: string,
   listName: string,
@@ -35,10 +35,26 @@ export async function resolveListId(
   const found = lists.find((l) => l.name === listName);
   if (found) return found.id;
 
+  // Brevo list creation REQUIRES a folderId — resolve or create one.
+  const foldersRes = await fetchImpl(`${API}/contacts/folders?limit=50&offset=0`, { headers: brevoHeaders(apiKey) });
+  if (!foldersRes.ok) throw new Error("folder lookup failed");
+  const { folders = [] }: { folders?: { id: number; name: string }[] } = await foldersRes.json();
+  let folderId = folders.find((f) => f.name === listName)?.id;
+  if (folderId === undefined) {
+    const createFolder = await fetchImpl(`${API}/contacts/folders`, {
+      method: "POST",
+      headers: brevoHeaders(apiKey),
+      body: JSON.stringify({ name: listName }),
+    });
+    if (!createFolder.ok) throw new Error("folder create failed");
+    folderId = ((await createFolder.json()) as { id?: number }).id;
+    if (folderId === undefined) throw new Error("folder create returned no id");
+  }
+
   const create = await fetchImpl(`${API}/contacts/lists`, {
     method: "POST",
     headers: brevoHeaders(apiKey),
-    body: JSON.stringify({ name: listName }),
+    body: JSON.stringify({ name: listName, folderId }),
   });
   if (!create.ok) throw new Error("list create failed");
   const { id }: { id?: number } = await create.json();

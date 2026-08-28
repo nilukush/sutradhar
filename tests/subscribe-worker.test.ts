@@ -47,18 +47,34 @@ describe("handleSubscribe (inline capture → Brevo)", () => {
     expect(JSON.parse(notifyCall[1].body).subject).toContain("dev@example.in");
   });
 
-  it("creates the list when it does not exist yet", async () => {
+  it("creates folder + list when the list does not exist yet", async () => {
     const fetchImpl = vi
       .fn()
       .mockResolvedValueOnce(jsonResponse({ lists: [{ id: 1, name: "Other" }] }, 200))
+      .mockResolvedValueOnce(jsonResponse({ folders: [{ id: 3, name: "Sutradhar" }] }, 200)) // folder lookup
+      .mockResolvedValueOnce(jsonResponse({ id: 99 }, 201)) // create list (with folderId)
+      .mockResolvedValueOnce(jsonResponse({ id: 42 }, 201)) // add contact
+      .mockResolvedValueOnce(jsonResponse({}, 201)); // notify
+    const res = await handleSubscribe(makeRequest({ email: "a@b.co" }), makeEnv(), fetchImpl);
+    expect(res.status).toBe(200);
+    const createListCall = fetchImpl.mock.calls[2]!;
+    expect(String(createListCall[0])).toBe("https://api.brevo.com/v3/contacts/lists");
+    expect(JSON.parse(createListCall[1].body)).toEqual({ name: "Sutradhar", folderId: 3 });
+  });
+
+  it("creates the folder too when no matching folder exists", async () => {
+    const fetchImpl = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse({ lists: [] }, 200))
+      .mockResolvedValueOnce(jsonResponse({ folders: [] }, 200))
+      .mockResolvedValueOnce(jsonResponse({ id: 5 }, 201)) // create folder
       .mockResolvedValueOnce(jsonResponse({ id: 99 }, 201)) // create list
       .mockResolvedValueOnce(jsonResponse({ id: 42 }, 201)) // add contact
       .mockResolvedValueOnce(jsonResponse({}, 201)); // notify
     const res = await handleSubscribe(makeRequest({ email: "a@b.co" }), makeEnv(), fetchImpl);
     expect(res.status).toBe(200);
-    const createListCall = fetchImpl.mock.calls[1]!;
-    expect(String(createListCall[0])).toBe("https://api.brevo.com/v3/contacts/lists");
-    expect(createListCall[1].body).toContain("Sutradhar");
+    const createFolderCall = fetchImpl.mock.calls[2]!;
+    expect(String(createFolderCall[0])).toBe("https://api.brevo.com/v3/contacts/folders");
   });
 
   it("still succeeds when the owner notification fails (notify is best-effort)", async () => {
