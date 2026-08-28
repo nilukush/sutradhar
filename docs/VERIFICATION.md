@@ -54,3 +54,21 @@ Consensus audit (docs/SEO-GEO-AUDIT.md) → fixes executed same day, TDD-first.
 | Gate extensions | verify:routes +11 checks, **confirmed RED on the pre-fix dist, GREEN after** — now guards read-page NewsArticle/isBasedOn/image/dateModified, BreadcrumbList, in-site ItemList, og image, per-URL lastmod |
 
 Gates: **122 tests / build 913 pages / verify:routes all green.** Live verification after deploy recorded in MEMORY.md.
+
+### P3 polish addendum (2026-08-28, second deploy)
+
+| Fix | Verification |
+|---|---|
+| Security headers + charset (Worker-side, every response) | 6 new worker tests (red-first, 12/12 green); `wrangler dev`: HSTS/nosniff/Referrer-Policy/X-Frame-Options/CSP on `/`, `charset=utf-8` appended to text/html and text/plain, `image/png` untouched, all pages 200 under CSP. CSP budget: self styles/fonts/images, inline script (theme + JSON-LD), `connect-src 'self'` (subscribe fetch), frame-src beehiiv fallback provider |
+| RSS completeness | dist/rss.xml carries `<atom:link … rel="self">` + `<lastBuildDate>` = corpus generatedAt |
+| llms.txt | `/publishers` in Sections + "Corpus generated:" line |
+| robots.txt | Perplexity-User, DuckAssistBot, cohere-ai, Google-CloudVertexAI added |
+| Heading levels | `/articles`, `/topics/*`, `/sources/*` cards now h2 (grids follow h1 directly); home keeps h3 under SectionHeading h2s |
+| Hub pagination | topics/[topic]/[...page] + sources/[company]/[...page], 48/page; build 913 → **981 pages**; page-2 canonical + "(page N)" titles/descriptions; gate asserts page-2 exists whenever the corpus warrants (data-aware) |
+| publishers.astro copy | states default 400 / ceiling 1,200 honestly (matches schema) |
+
+New gate checks (all RED-proven on the pre-change dist first): rss atom self, rss
+lastBuildDate, llms publishers link, robots Perplexity-User, topic/source pagination
+(data-aware), h2 card titles. **Gates: 128 tests · 981 pages · verify:routes green.**
+Build gotcha recorded in MEMORY.md: module consts are invisible to getStaticPaths in
+the prerender bundle — pageSize must be a literal.

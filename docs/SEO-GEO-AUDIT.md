@@ -128,6 +128,13 @@ future-dating also fixed (datePublished = week Monday, dateModified = newest
 sourced story). Fixing A1 surfaced the *true* root cause of the live 500s:
 wrangler 4.x never injected an ASSETS binding without an explicit
 `"binding": "ASSETS"` — the deployed Worker was calling `undefined.fetch`.
-Remaining P3 polish (security `_headers`, charset header, RSS atom:link,
-heading levels, llms.txt /publishers + date, hub pagination) is still open
-but optional.
+
+**P3 polish batch — also fixed same day** (second deploy): security headers
+(HSTS, nosniff, Referrer-Policy, X-Frame-Options, CSP) + `charset=utf-8`
+applied Worker-side to every response; RSS `atom:link rel="self"` +
+`lastBuildDate` (corpus date); llms.txt `/publishers` section + corpus
+generation date; robots.txt adds Perplexity-User, DuckAssistBot, cohere-ai,
+Google-CloudVertexAI; card titles render h2 on grids that follow the h1
+directly; publishers.astro copy states the real schema bounds (default 400,
+ceiling 1,200); topic and source hubs paginate beyond 48 (913 → 981 pages).
+**All findings from this audit are now resolved.**

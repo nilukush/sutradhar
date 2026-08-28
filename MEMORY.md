@@ -18,12 +18,14 @@
 - Newsletter: weekly Action (Mon 09:07 IST) renders digest → creates + **sends** a Brevo
   classic campaign automatically. PROVEN W34 (campaign 2, status `sent`; idempotent re-run
   skipped). No manual sending, ever.
-- SEO/GEO audit 2026-08-28 (docs/SEO-GEO-AUDIT.md, 3-agent consensus) → **FIXED same
-  day** (commits fbdbf81+, see docs/VERIFICATION.md): serving layer (404s, slashless
-  canonical serving, https 308), JSON-LD escaping lib, og cards + NewsArticle
-  image/dateModified, per-URL sitemap lastmod, in-site /articles ItemList;
-  verify:routes extended with 11 checks (red-first). Remaining: optional P3 polish
-  (headers/charset, RSS atom:link, llms.txt /publishers+date, hub pagination).
+- SEO/GEO audit 2026-08-28 (docs/SEO-GEO-AUDIT.md, 3-agent consensus) → **ALL findings
+  FIXED same day across two deploys** (fbdbf81+, docs/VERIFICATION.md): serving layer
+  (404s, slashless canonicals, https 308), JSON-LD escaping lib, og cards + NewsArticle
+  image/dateModified, per-URL sitemap lastmod, in-site ItemList, then the full P3 batch
+  (worker-side security headers + charset, RSS atom:link/lastBuildDate, llms.txt
+  /publishers + corpus date, robots newer agents, h2 card titles on grids, publishers
+  copy bounds, topic+source hub pagination 48/page — 913→981 pages). verify:routes now
+  carries 19 audit-derived checks.
 - wrangler is OAuth-authenticated on the owner's Mac (login 2026-08-28). Secret changes:
   `printf '%s' "$VALUE" | npx wrangler secret put NAME` (pipe, never echo). Runtime secrets
   now: BREVO_API_KEY, OWNER_EMAIL (+ BREVO_LIST_NAME text var from wrangler.jsonc).
@@ -45,6 +47,9 @@
 
 ## Hard-won facts
 
+- **Astro gotcha: module-level consts are NOT visible inside getStaticPaths in the
+  prerender bundle** ("PAGE_SIZE is not defined" at build) — pageSize and siblings
+  must be literals in the paginate() call. Render body consts are fine.
 - **Wrangler 4.x (4.127.0 confirmed) does NOT inject an ASSETS binding unless the
   assets block declares `"binding": "ASSETS"` explicitly** — without it the Worker
   sees env.ASSETS undefined and every non-asset request dies as 500 error 1101.
@@ -79,10 +84,6 @@
 
 ## Open items
 
-- [ ] Optional P3 polish from docs/SEO-GEO-AUDIT.md: _headers (HSTS etc.),
-      charset=utf-8 on HTML responses, RSS atom:link self + lastBuildDate,
-      h2/h3 heading levels in card grids, llms.txt /publishers + generation
-      date, hub pagination beyond 48.
 - [ ] Optional (owner, 2 clicks): delete the two stale plaintext copies in CF Settings →
       Builds → Variables and secrets (BREVO_API_KEY, OWNER_EMAIL — now redundant runtime
       Secrets exist; removing kills the only plaintext display of the key).
