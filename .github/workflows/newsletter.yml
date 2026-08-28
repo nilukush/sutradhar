@@ -27,5 +27,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run send:newsletter
         env:
-          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-          OWNER_EMAIL: ${{ secrets.OWNER_EMAIL }}
+          # Secrets preferred; vars accepted as fallback for either location.
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY || vars.BREVO_API_KEY }}
+          OWNER_EMAIL: ${{ secrets.OWNER_EMAIL || vars.OWNER_EMAIL }}
