@@ -101,7 +101,8 @@
   verified via HTML token (googled3cc5e1274fa98d4.html; the Worker serves top-level
   *.html verbatim because drop-trailing-slash would 307 them). sitemap-index.xml
   submitted; indexing requested for /articles; same property imported into Bing
-  Webmaster Tools. GSC data lags days–weeks on a fresh property — normal. Optional
-  later: submit the sitemap inside Bing WMT too; IndexNow pings (Bing is a partner).
+  Webmaster Tools (the import auto-carried the sitemap too). GSC data lags
+  days–weeks on a fresh property — normal. Optional later: IndexNow pings
+  (Bing is a partner).
 - Future ideas if ever wanted: scraper sources beyond the registry's reach, topic
   taxonomy growth, analytics (none today by design).
