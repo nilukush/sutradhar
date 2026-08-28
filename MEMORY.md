@@ -34,7 +34,7 @@
 
 | Decision | Rationale | Where |
 |---|---|---|
-| Name: **Sutradhar** | Sanskrit "thread-holder/narrator" — exact aggregator metaphor; maximal distance from InfoQ trademark | docs/ANALYSIS.md §6 |
+| Name: **Sutradhar** | Sanskrit "thread-holder/narrator" — exact aggregator metaphor; maximal distance from InfoQ trademark. Devanagari is **सूत्रधार** with the long ā matra (corrected 2026-08-28 from सूत्रधर; verify:routes guards against regression) | docs/ANALYSIS.md §6 |
 | Astro static + GitHub Actions cron + CF Workers | Only $0 option that is hourly-fresh AND SEO/GEO-perfect; public repo → free Actions minutes | docs/ANALYSIS.md §4 |
 | Meesho via Ghost Content API | No RSS; public key ships in their client bundle; URL rewrite to meesho.io/blog/ verified; pagination followed (archive backfilled to 2025-06) | src/lib/pipeline.ts |
 | ShareChat via public Sanity dataset; Juspay via HTML scraper; Zerodha via zerodha.tech RSS | No feeds exist. Sanity dataset is public-by-design (project id in their CDN URLs); Juspay needs ItemList+og+sitemap-lastmod scraping; owner supplied the category URLs | src/lib/scrapers.ts, src/data/sources.ts |

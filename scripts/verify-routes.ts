@@ -63,6 +63,13 @@ if (readCount < expectedRead) {
 const home = readFileSync(resolve(dist, "index.html"), "utf8");
 const rss = readFileSync(resolve(dist, "rss.xml"), "utf8");
 const newsletter = readFileSync(resolve(dist, "newsletter/index.html"), "utf8");
+const about = readFileSync(resolve(dist, "about/index.html"), "utf8");
+
+// Wordmark spelling guard (corrected 2026-08-28): the Sanskrit sūtradhāra
+// takes the long ā matra — सूत्रधार, never सूत्रधर. Checked across every
+// sampled surface so the misspelling cannot creep back via a new page.
+const DEVA_CORRECT = "सूत्रधार";
+const DEVA_WRONG = "सूत्रधर";
 
 // Read-page + pagination + sitemap samples (audit C1–C5 regression guards).
 const readArticle = corpus.articles.find((a) => (limitById.get(a.sourceId) ?? 400) !== 0);
@@ -130,6 +137,8 @@ const checks: [string, boolean][] = [
       const hnHtml = readFileSync(resolve(dist, "read", articleSlug({ id: hnArticle.id!, title: hnArticle.title! }), "index.html"), "utf8");
       return hnHtml.includes("news.ycombinator.com/item?id=");
     })()],
+  ["devanagari wordmark uses the long ā (सूत्रधार)", home.includes(DEVA_CORRECT) && about.includes(DEVA_CORRECT)],
+  ["misspelled wordmark (सूत्रधर) absent everywhere sampled", ![home, about, readHtml, articles2, newsletter].some((h) => h.includes(DEVA_WRONG))],
   ["/articles ItemList links to in-site read pages", articles2.includes(`"url":"${SITE.url}/read/`)],
   ["page-2 meta description is differentiated", /name="description" content="[^"]*page 2/.test(articles2)],
   ["sitemap read-page lastmod is the article publish date, not build time", lastmodIsPublishDate],
