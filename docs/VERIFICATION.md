@@ -101,3 +101,25 @@ corpus 832 → 853; gates green (133 tests, 1006 pages, pagefind reindexed 868).
 Hourly Action confirmed healthy (`pnpm run fetch`, all runs succeeding — the 3-day-old
 corpus was a quiet news period, not a pipeline fault). Local gotcha: `pnpm fetch` is
 pnpm's builtin; the script needs `pnpm run fetch`.
+
+## New sources + HN enrichment (2026-08-28, fifth deploy)
+
+Owner directives executed: CF build-var plaintext copies deleted by owner
+(runtime secrets + subscribe verified healthy after); HN enrichment design
+delegated; scrapers approved.
+
+**HN-Algolia enrichment** — conservative boost (score × min(5, 1+log10(points+1)),
+≥10-point threshold, exact-URL-after-normalization matching only). Window-scoped
+snapshot in `articles.hn`; hn-only changes now count as corpus "changed". 10 tests
+red-first; Algolia live-smoked (nbHits 0 for current corpus — no in-window article
+has HN discussion today, which is the correct state, not a failure).
+
+**Sources research** — `tech.zerodha.com` and `engineering.sharechat.com` do not
+resolve in DNS (confirms MEMORY's "dead or never existed"). Real homes: Zerodha =
+`zerodha.tech` (Hugo RSS `/index.xml`; 14 posts; dormant Mar 2024), ShareChat =
+`medium.com/sharechat-techbyte` (publication RSS needs `/feed/<name>` — the
+`/<name>/feed` form serves HTML; 10 posts; dormant Jan 2022), Juspay = no feed at
+all → first scraper adapter (`type: "juspay"`): engineering ItemList → per-post
+og:title/og:description + sitemap lastmod dates; 11 of 12 posts dated, undated
+dropped by design. Corpus **853 → 888**; gates green (151 tests, 1047 pages,
+pagefind 903, verify:routes with 37 data-derived routes).

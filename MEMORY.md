@@ -5,7 +5,7 @@
 **Everything is live and fully autonomous. Nothing awaits owner action.**
 
 - Site: https://sutradhar.nilukush.workers.dev — the PERMANENT origin (owner decision
-  2026-08-24: no domain purchase ever; $0 constraint). 16 sources, corpus ~832 articles.
+  2026-08-24: no domain purchase ever; $0 constraint). 19 sources, corpus ~888 articles.
 - Hourly loop: GitHub Action aggregates feeds → bot commits on change → CF Workers Builds
   rebuilds + deploys (~15 builds/month; corpus-wide cadence ~0.5 posts/day, hourly polling
   stays — free minutes, builds only fire on change). v0.1 link-out → v0.2 /read pages →
@@ -90,8 +90,13 @@
   wrangler.
 - Feed paths: Medium custom domains serve `/feed/` (NOT `/rss/`); Medium tag feeds at
   `medium.com/feed/tag/<tag>`; fetcher must send a browser UA.
-- Zerodha/Myntra/Cleartrip/Ola/Paytm eng blogs dead or never existed; Juspay/ShareChat
-  have no feeds (scrapers would be needed).
+- Zerodha/Myntra/Cleartrip/Ola/Paytm eng blogs: tech.zerodha.com etc. do NOT resolve
+  in DNS — Zerodha's real blog is zerodha.tech (Hugo RSS /index.xml). ShareChat's eng
+  content is the "ShareChat TechByte" Medium publication and its feed needs
+  /feed/sharechat-techbyte (the /sharechat-techbyte/feed form serves HTML). Medium
+  publication feeds ≠ tag feeds. Juspay: no feed — scraper adapter (src/lib/scrapers.ts);
+  real-world sitemaps put whitespace between <url> children, so per-<url>-block parsing
+  is required (strict adjacency matched 0 entries).
 - `getUTCDay()` Sunday=0 vs ISO weekday=7 — verifier bug class. Astro pagination needs
   `articles/[...page].astro` rest-param. Ghost Content API caps at 15/page.
 - Secrets hygiene: docs/brevo-sutradhar.md holds the Brevo key — gitignored, never commit,
@@ -102,5 +107,10 @@
 - [ ] Optional (owner, 2 clicks): delete the two stale plaintext copies in CF Settings →
       Builds → Variables and secrets (BREVO_API_KEY, OWNER_EMAIL — now redundant runtime
       Secrets exist; removing kills the only plaintext display of the key).
-- [ ] Later: HN-Algolia trending enrichment (needs scoring-design decision); scraper
-      adapters for Zerodha/ShareChat/Juspay. (Search + Meesho backfill shipped 2026-08-28.)
+- Done 2026-08-28 (see docs/VERIFICATION.md): HN-Algolia enrichment (conservative
+  log boost, exact-URL matching, window-scoped snapshot); Zerodha (zerodha.tech RSS,
+  dormant) + ShareChat (medium.com/feed/sharechat-techbyte publication feed, dormant)
+  + Juspay (first scraper adapter, type "juspay") — corpus 853 → 888, 19 sources.
+- [x] Done 2026-08-28 (owner): stale plaintext BREVO_API_KEY/OWNER_EMAIL build vars
+      deleted from CF Settings → Builds → Variables and secrets. Runtime secrets
+      confirmed intact (wrangler secret list) and subscribe endpoint healthy after.
