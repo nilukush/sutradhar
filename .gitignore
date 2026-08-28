@@ -21,6 +21,10 @@ pnpm-debug.log*
 
 # jetbrains setting file
 .idea/
-/docs/brevo-sutradhar.md
+# local-only agent context and decision records (owner decision 2026-08-28 — not published)
+/CLAUDE.md
+/AGENTS.md
+/MEMORY.md
+/docs/
 .wrangler/
 .playwright-mcp/

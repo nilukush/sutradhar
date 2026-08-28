@@ -123,22 +123,7 @@ and sends a **Brevo** email campaign from the week's digest (`scripts/send-newsl
 idempotent against double-sends; proven in production since W34 2026). Subscribers sign up
 via the inline form at `/newsletter`, which posts to the Worker's `/api/subscribe` and lands
 in a Brevo list (free tier, 300 emails/day). RSS subscription is offered side-by-side so
-there's never a single point of failure. Decision record:
-[`docs/RESEARCH-NEWSLETTER-AUTOMATION.md`](docs/RESEARCH-NEWSLETTER-AUTOMATION.md).
-
-## Project docs
-
-- [`docs/ANALYSIS.md`](docs/ANALYSIS.md) — business problem, market research, architecture
-  decision record, multi-agent consensus
-- [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) — "The Loom" design language
-- [`docs/PLAN.md`](docs/PLAN.md) — TDD implementation plan
-- [`docs/VERIFICATION.md`](docs/VERIFICATION.md) — verification record (dated deploy addenda)
-- [`docs/SEO-GEO-AUDIT.md`](docs/SEO-GEO-AUDIT.md) — the 2026-08-28 SEO/GEO audit, all
-  findings resolved
-- [`docs/RESEARCH-EXCERPT-POLICY.md`](docs/RESEARCH-EXCERPT-POLICY.md) — the excerpt-length
-  legal/policy basis
-- [`docs/RESEARCH-NEWSLETTER-AUTOMATION.md`](docs/RESEARCH-NEWSLETTER-AUTOMATION.md) —
-  newsletter provider research and the Brevo decision
+there's never a single point of failure.
 
 ## Contributing
 
@@ -149,5 +134,5 @@ reference, feed types and the checks your PR will run.
 
 MIT for this project's own code and documentation. Article titles and excerpts in
 [`src/data/articles.json`](src/data/articles.json) remain the property of their original
-publishers, carried under the [excerpt policy](docs/RESEARCH-EXCERPT-POLICY.md) with
-attribution and a link to the original.
+publishers, carried with attribution and a link to the original — excerpt lengths are
+schema-capped (`excerptLimit`, max 1,200 chars).

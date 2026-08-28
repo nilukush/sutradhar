@@ -63,9 +63,8 @@ These are the site's topic hubs; a new value is a product decision, not a PR edi
 
 ### Guardrails your source inherits (non-negotiable)
 
-- **Never full text**: `/read/<slug>` pages show a capped excerpt with attribution and a
-  prominent link to the original — policy basis:
-  [`docs/RESEARCH-EXCERPT-POLICY.md`](docs/RESEARCH-EXCERPT-POLICY.md).
+- **Never full text**: `/read/<slug>` pages show a schema-capped excerpt with attribution
+  and a prominent link to the original.
 - **Self-canonical pages**; never canonical to the original article.
 - **AI crawlers are welcome** — don't add blocks.
 
