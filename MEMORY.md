@@ -47,9 +47,14 @@
 - [x] **RESOLVED 2026-08-28 (earlier "two projects" theory was WRONG):** owner's CF account has
   exactly ONE project — the Worker. `sutradhar.pages.dev` is a **stranger's project** (title
   "frontend"; pages.dev names are globally unique across all CF accounts) — ignore it forever.
-  Actual root cause: the owner's dashboard values sat in the **build-only** variables section
-  (Workers Builds docs: build vars are "build-only, distinct from runtime variables"); runtime
-  had ZERO secrets (`wrangler secret list` → `[]`). Fix applied by agent: `npx wrangler login`
+  Actual root cause: the owner's dashboard values landed in the **Builds → "Variables and
+  secrets" subsection** — Cloudflare labels the build-scope section with the SAME name as the
+  runtime section, on the same Settings page (confirmed via owner screenshot 2026-08-28).
+  Build vars are build-only, so the runtime had ZERO secrets (`wrangler secret list` → `[]`)
+  and the Worker saw no BREVO_API_KEY. To rotate/change values: use the top "Runtime variables
+  and secrets" section or `wrangler secret put` — never the Builds subsection. Build-scope
+  copies also display values in plaintext (runtime Secrets stay masked); owner advised to
+  delete them. Fix applied by agent: `npx wrangler login`
   (owner clicked Allow) → `wrangler secret put BREVO_API_KEY` + `OWNER_EMAIL` (key piped from
   gitignored doc, never echoed). PROVEN live: POST /api/subscribe → `{"ok":true}` HTTP 200;
   invalid email → 400 friendly error; Brevo contact touched (listIds [2,4], modifiedAt bumped);
