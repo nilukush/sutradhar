@@ -4,6 +4,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev --port 4321",
     "build": "astro build && pagefind --site dist",
