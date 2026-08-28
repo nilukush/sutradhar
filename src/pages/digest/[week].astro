@@ -28,20 +28,28 @@ const lede = digest.articles.length > 0
   ? `In week ${digest.id} (${digest.startDate} to ${digest.endDate}), ${digest.articles.length} engineering ${digest.articles.length === 1 ? "story was" : "stories were"} published across ${sourcesCovered} Indian tech ${sourcesCovered === 1 ? "company" : "companies"}${digest.articles[0] ? `, including “${digest.articles[0].title}” from ${sourceOf(digest.articles[0])?.name ?? digest.articles[0].sourceId}` : ""}.`
   : `No stories in week ${digest.id}.`;
 
+// Honest dates (audit P3-9): the digest covers startDate→endDate, so the week's
+// Monday is the publish date and the newest sourced story is the real "modified".
+const lastPublish = digest.articles.reduce(
+  (max, a) => (a.publishedAt > max ? a.publishedAt : max),
+  digest.startDate,
+);
+
 const blogPosting = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: `Indian engineering digest, week ${digest.id}`,
   description: lede,
-  datePublished: digest.endDate,
-  dateModified: digest.endDate,
+  image: SITE.ogImage,
+  datePublished: digest.startDate,
+  dateModified: lastPublish,
   url: canonicalFor(`/digest/${digest.id}`),
   author: { "@type": "Organization", name: SITE.name, url: SITE.url },
   isBasedOn: digest.articles.slice(0, 30).map((a) => a.url),
 };
 ---
 
-<Base title={title} description={lede} jsonLd={[blogPosting]}>
+<Base title={title} description={lede} jsonLd={[blogPosting]} ogType="article" publishedTime={digest.startDate}>
   <article class="container section">
     <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Digests", href: "/digest" }, { label: digest.id }]} currentUrl={canonicalFor(Astro.url.pathname)} />
     <p class="eyebrow">Weekly thread</p>

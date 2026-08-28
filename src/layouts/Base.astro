@@ -17,9 +17,13 @@ interface Props {
   description?: string;
   /** Extra page-specific JSON-LD objects. */
   jsonLd?: Record<string, unknown>[];
+  /** Open Graph type; /read and /digest pages pass "article" (SEO-GEO-AUDIT C1). */
+  ogType?: "website" | "article";
+  /** ISO timestamp for article:published_time when ogType is "article". */
+  publishedTime?: string;
 }
 
-const { title, description = SITE.description, jsonLd = [] } = Astro.props;
+const { title, description = SITE.description, jsonLd = [], ogType = "website", publishedTime } = Astro.props;
 const canonical = canonicalFor(Astro.url.pathname);
 
 const baseJsonLd: Record<string, unknown>[] = [
@@ -57,15 +61,21 @@ const allJsonLd = [...baseJsonLd, ...jsonLd];
     <link rel="alternate" type="application/feed+json" title={`${SITE.name} JSON Feed`} href="/feed.json" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content="en_IN" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={SITE.ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${SITE.name} — ${SITE.shortTagline}`} />
+    {ogType === "article" && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={SITE.ogImage} />
     <script is:inline>
       (function () {
         var t = null;

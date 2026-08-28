@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 import { SOURCES } from "../src/data/sources";
 import { WINDOW_H } from "../src/lib/trending";
 import { SITE } from "../src/lib/site";
+import { articleSlug } from "../src/lib/read";
 
 const root = resolve(fileURLToPath(import.meta.url), "../..");
 const dist = resolve(root, "dist");
@@ -61,6 +62,17 @@ const home = readFileSync(resolve(dist, "index.html"), "utf8");
 const rss = readFileSync(resolve(dist, "rss.xml"), "utf8");
 const newsletter = readFileSync(resolve(dist, "newsletter/index.html"), "utf8");
 
+// Read-page + pagination + sitemap samples (audit C1–C5 regression guards).
+const readArticle = corpus.articles.find((a) => (limitById.get(a.sourceId) ?? 400) !== 0);
+if (!readArticle) throw new Error("corpus has no eligible read articles");
+const readHtml = readFileSync(resolve(dist, "read", articleSlug(readArticle), "index.html"), "utf8");
+const articles2 = readFileSync(resolve(dist, "articles/2/index.html"), "utf8");
+const sitemapXml = readFileSync(resolve(dist, "sitemap-0.xml"), "utf8");
+const readLoc = `${SITE.url}/read/${articleSlug(readArticle)}`;
+const lastmodMatch = sitemapXml.match(new RegExp(`<loc>${readLoc.replaceAll(".", "\\.")}</loc><lastmod>([^<]+)</lastmod>`));
+const lastmodIsPublishDate =
+  !!lastmodMatch && Math.abs(new Date(lastmodMatch[1]).getTime() - new Date(readArticle.publishedAt).getTime()) < 1000;
+
 // Trending section renders only when articles exist inside the eligibility
 // window — mirror that eligibility here so the check is data-aware, not
 // unconditional. (Math.MIN over ages = the NEWEST article's age; max would be
@@ -86,6 +98,15 @@ const checks: [string, boolean][] = [
   ["rss links match slashless canonicals", !new RegExp(`<link>${SITE.url.replaceAll(".", "\\.")}/read/[^<]+/</link>`).test(rss)],
   ["newsletter subscribes via inline form (or a working fallback)", newsletter.includes('action="/api/subscribe"') || newsletter.includes('href="https://sutradhar.beehiiv.com"') || newsletter.includes('method="get" action="https://github.com')],
   ["no TODO-OWNER link in home", !home.includes('href="https://github.com/TODO-OWNER')],
+  ["og image asset is built", existsSync(resolve(dist, "og-default.png"))],
+  ["home has og:image and a large twitter card", home.includes('property="og:image"') && home.includes('content="summary_large_image"')],
+  ["read page NewsArticle cites the original (isBasedOn)", readHtml.includes('"@type":"NewsArticle"') && readHtml.includes('"isBasedOn"')],
+  ["read page NewsArticle carries image and dateModified", readHtml.includes('"image"') && readHtml.includes('"dateModified"')],
+  ["read page has BreadcrumbList", readHtml.includes('"@type":"BreadcrumbList"')],
+  ["read page is og:type article with published time", readHtml.includes('property="og:type" content="article"') && readHtml.includes('property="article:published_time"')],
+  ["/articles ItemList links to in-site read pages", articles2.includes(`"url":"${SITE.url}/read/`)],
+  ["page-2 meta description is differentiated", /name="description" content="[^"]*page 2/.test(articles2)],
+  ["sitemap read-page lastmod is the article publish date, not build time", lastmodIsPublishDate],
 ];
 const failed = checks.filter(([, ok]) => !ok);
 if (failed.length > 0) {

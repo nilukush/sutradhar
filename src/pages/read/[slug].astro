@@ -40,7 +40,10 @@ const newsArticle = {
   "@type": "NewsArticle",
   headline: article.title,
   description: article.excerpt,
+  image: SITE.ogImage,
   datePublished: article.publishedAt,
+  // The aggregator never edits sourced content — modified tracks publication.
+  dateModified: article.publishedAt,
   url: selfUrl,
   isBasedOn: article.url,
   author: article.authors.map((name) => ({ "@type": "Person", name })),
@@ -54,7 +57,13 @@ const newsArticle = {
 };
 ---
 
-<Base title={`${article.title} — ${sourceName} — ${SITE.name}`} description={description} jsonLd={[newsArticle]}>
+<Base
+  title={`${article.title} — ${sourceName} — ${SITE.name}`}
+  description={description}
+  jsonLd={[newsArticle]}
+  ogType="article"
+  publishedTime={article.publishedAt}
+>
   <article class="container section">
     <Breadcrumbs
       crumbs={[

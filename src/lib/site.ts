@@ -23,6 +23,8 @@ export const SITE = {
   description:
     "Sutradhar aggregates the engineering blogs of Indian companies and startups — PhonePe, Razorpay, Flipkart, Swiggy, Meesho, Groww, CRED, JioHotstar and more — into one live feed, topic hubs and a weekly digest.",
   url: siteUrl,
+  /** Branded Open Graph / Twitter card (public/og-default.png, 1200×630). */
+  ogImage: `${siteUrl}/og-default.png`,
   locale: "en-IN",
   repoUrl,
   /** Identity strings must stay byte-identical across site, README, socials (entity consistency). */

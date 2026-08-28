@@ -1,23 +1,10 @@
-import { slugify } from "@/lib/normalize";
 import { sourceOf } from "@/lib/view";
 import { SITE } from "@/lib/site";
 import type { Article, Source } from "@/lib/schema";
 
-/** Max characters of the title portion in a /read URL. */
-const MAX_SLUG_TITLE = 80;
-
-/**
- * Stable, unique in-site route slug for an article: kebab-cased title (or
- * "story" when the title yields no latin slug, e.g. Devanagari) + the 16-hex
- * article id. The id suffix guarantees uniqueness no matter how generic the
- * title is.
- */
-export function articleSlug(article: Pick<Article, "id" | "title">): string {
-  const base = slugify(article.title)
-    .slice(0, MAX_SLUG_TITLE)
-    .replace(/-+$/g, "");
-  return `${base || "story"}-${article.id}`;
-}
+/** Route slug lives in alias-free src/lib/slug.ts (imported by astro.config). */
+import { articleSlug } from "@/lib/slug";
+export { articleSlug };
 
 /** In-site reading page path for an article. */
 export function articleHref(article: Pick<Article, "id" | "title">): string {

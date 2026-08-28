@@ -12,6 +12,7 @@
     "test:watch": "vitest",
     "fetch": "tsx scripts/fetch-feeds.ts",
     "digest:email": "tsx scripts/digest-email.ts",
+    "og:generate": "tsx scripts/generate-og.ts",
     "send:newsletter": "tsx scripts/send-newsletter.ts",
     "verify:routes": "tsx scripts/verify-routes.ts"
   },
@@ -28,6 +29,7 @@
     "@fontsource/ibm-plex-mono": "^5.2.8",
     "@fontsource/ibm-plex-sans-devanagari": "^5.2.8",
     "@types/node": "^24.0.0",
+    "sharp": "^0.35.4",
     "tsx": "^4.20.0",
     "vitest": "^4.1.11"
   },
@@ -35,6 +37,9 @@
     "node": ">=22"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }

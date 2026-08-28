@@ -4,6 +4,7 @@ import Base from "@/layouts/Base.astro";
 import ArticleCard from "@/components/ArticleCard.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { ARTICLES, canonicalFor } from "@/lib/view";
+import { absoluteReadHref } from "@/lib/read";
 import type { Article } from "@/lib/schema";
 import { SITE } from "@/lib/site";
 
@@ -16,6 +17,8 @@ interface Props {
 }
 const { page } = Astro.props;
 const title = page.currentPage > 1 ? `Latest stories (page ${page.currentPage}) — ${SITE.name}` : `Latest Indian engineering stories — ${SITE.name}`;
+// Unique meta description per paginated page (audit C5) — titles were already unique.
+const description = `Every engineering article aggregated from ${ARTICLES.length} posts across India's tech company blogs, newest first${page.currentPage > 1 ? ` — page ${page.currentPage}` : ""}.`;
 
 const itemList = {
   "@context": "https://schema.org",
@@ -29,14 +32,16 @@ const itemList = {
     itemListElement: page.data.map((a: Article, i: number) => ({
       "@type": "ListItem",
       position: (page.currentPage - 1) * 24 + i + 1,
-      url: a.url,
+      // In-site reading pages, like every other hub's ItemList (audit C4) —
+      // keep crawlers and LLMs on the internal /read link graph.
+      url: absoluteReadHref(a),
       name: a.title,
     })),
   },
 };
 ---
 
-<Base title={title} description={`Every engineering article aggregated from ${ARTICLES.length} posts across India's tech company blogs, newest first.`} jsonLd={[itemList]}>
+<Base title={title} description={description} jsonLd={[itemList]}>
   <div class="container section">
     <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Latest" }]} currentUrl={canonicalFor(Astro.url.pathname)} />
     <h1>Latest stories</h1>
