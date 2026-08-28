@@ -92,5 +92,10 @@
   audit+fixes, P3 polish, search, HN enrichment+badge, Meesho backfill, 3 new sources,
   owner's CF plaintext cleanup, Devanagari wordmark correction (सूत्रधार) + gate guard,
   memory/doc compaction with CLAUDE.md/AGENTS.md re-synced.)
+- 2026-08-28: GSC URL-prefix property chosen (no Domain-property DNS possible — no custom
+  domain by owner decision). Verification token googled3cc5e1274fa98d4.html added to
+  public/ (pagefind ignores it; gate green) and deployed. Pending owner: click Verify in
+  GSC, submit sitemap-index.xml, request indexing for the homepage. Bing Webmaster Tools
+  import is the free follow-up.
 - Future ideas if ever wanted: scraper sources beyond the registry's reach, topic
   taxonomy growth, analytics (none today by design).
