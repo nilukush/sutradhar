@@ -142,3 +142,19 @@ Medium articles keep sourceId `sharechat` (corpus continuity — hub shows both)
 artificial-intelligence ItemList adds 4 posts after dedup (11 → 16).
 
 Corpus **888 → 963**; gates green (154 tests, 1135 pages, pagefind 978).
+
+### Devanagari wordmark correction (2026-08-28, seventh deploy)
+
+Owner caught the misspelling: सूत्रधर → **सूत्रधार** (the Sanskrit sūtradhāra takes the
+long ā matra). 16 occurrences fixed across 13 files (site.ts identity source → header/
+footer/JSON-LD alternateName, hero, about ×2, newsletter email, og generator — PNG
+regenerated and glyph-verified (ा renders cleanly on ध, conjunct त्र intact), README,
+CLAUDE/AGENTS context, DESIGN_SYSTEM ×3, ANALYSIS, two slug tests (behavior unchanged:
+Devanagari still yields no Latin slug). Live-verified: correct form on home ×3 and
+about ×2, `alternateName` in JSON-LD, new og bytes served, zero old-form occurrences.
+
+**Regression guard**: verify:routes now requires सूत्रधार on home+about and asserts
+सूत्रधर absent from every sampled surface — RED-proven by injecting the old spelling
+into a dist build; CI green on both commits (a5783d5, cc05072). MEMORY.md's naming
+decision records the correct spelling so the transliteration-shaped error isn't
+reintroduced.

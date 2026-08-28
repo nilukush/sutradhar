@@ -64,6 +64,9 @@ in-window articles with Hacker News engagement (trending boost) → Astro pages 
   (accepted tradeoff, see docs/VERIFICATION.md L1).
 - Astro pagination for "/articles + /articles/N" requires the rest-param filename
   `articles/[...page].astro`.
+- Module-level consts are invisible inside `getStaticPaths` in the prerender bundle —
+  `pageSize` and siblings must be literals in the `paginate()` call.
+- Bare `pnpm fetch` runs pnpm's builtin, not the script — use `pnpm run fetch`.
 
 ## Environments
 
