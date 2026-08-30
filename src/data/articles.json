@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T09:25:30.878Z",
+  "generatedAt": "2026-08-30T06:49:55.593Z",
   "articles": [
     {
       "id": "4d3d535bab6593dd",
@@ -16917,12 +16917,14 @@
       "url": "https://zerodha.tech/projects",
       "sourceId": "zerodha",
       "publishedAt": "2001-01-01T00:00:00.000Z",
-      "excerpt": "Apps libredesk ★ 2777 Go Open-source, self-hosted customer support desk in a single binary. Email and live chat. A lightweight alternative to Intercom, Zendesk, Chatwoot. GNU Affero General Public License v3.0 Last updated on August 22, 2026 listmonk ★ 23046 Go High performance,…",
-      "content": "Apps libredesk ★ 2777 Go Open-source, self-hosted customer support desk in a single binary. Email and live chat. A lightweight alternative to Intercom,…",
+      "excerpt": "Apps oore.build ★ 27 Rust Self-hosted, Flutter-first mobile CI and internal app distribution platform. MIT License Last updated on August 29, 2026 libredesk ★ 2856 Go Open-source, self-hosted customer support desk in a single binary. A lightweight alternative to Intercom,…",
+      "content": "Apps oore.build ★ 27 Rust Self-hosted, Flutter-first mobile CI and internal app distribution platform. MIT License Last updated on August 29, 2026 libredesk ★…",
       "topics": [
         "fintech-payments",
         "backend",
-        "scale"
+        "scale",
+        "mobile",
+        "platform"
       ],
       "authors": []
     },
