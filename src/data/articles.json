@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-08-30T06:49:55.593Z",
+  "generatedAt": "2026-09-02T09:44:12.150Z",
   "articles": [
+    {
+      "id": "921cf539c2bc4d36",
+      "title": "The Meesho Mantras, Explained: The Operating Principles Behind How We Work",
+      "url": "https://www.meesho.io/blog/the-meesho-mantras-explained-the-operating-principles-behind-how-we-work",
+      "sourceId": "meesho",
+      "publishedAt": "2026-09-02T07:00:00.000Z",
+      "excerpt": "What are the Meesho Mantras, why do they exist, and how do they actually shape decisions? The complete explanation - one mantra at a time. Ask anyone who has worked at a fast-growing company the same question, and you'll get some version of the same answer: the hardest part was…",
+      "content": "What are the Meesho Mantras, why do they exist, and how do they actually shape decisions? The complete explanation - one mantra at a time. Ask anyone who has…",
+      "topics": [
+        "backend",
+        "mobile",
+        "scale",
+        "culture"
+      ],
+      "authors": [
+        "Meesho"
+      ]
+    },
     {
       "id": "4d3d535bab6593dd",
       "title": "Stop Reacting to Data Problems. Here’s the Architecture That Prevents Them.",
