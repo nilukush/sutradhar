@@ -57,4 +57,24 @@ describe("source registry", () => {
     // Mixed + effectively no engineering output → dormant (display flag).
     expect(SOURCES.find((s) => s.id === "jupiter")?.dormant).toBe(true);
   });
+
+  it("adds the 2026-09 audit sources: myntra (site + medium mirror), slice, postman", () => {
+    const myntra = SOURCES.find((s) => s.id === "myntra");
+    expect(myntra?.siteUrl).toBe("https://tech.myntra.com/");
+    if (myntra?.feed.type === "rss") {
+      expect(myntra.feed.url).toBe("https://medium.com/feed/myntra-engineering");
+    }
+
+    const slice = SOURCES.find((s) => s.id === "slice");
+    expect(slice?.siteUrl).toBe("https://engineering.slice.bank.in/");
+    if (slice?.feed.type === "rss") {
+      expect(slice.feed.url).toBe("https://engineering.slice.bank.in/feed");
+    }
+
+    const postman = SOURCES.find((s) => s.id === "postman");
+    expect(postman?.region).toBe("india-linked");
+    if (postman?.feed.type === "rss") {
+      expect(postman.feed.url).toBe("https://blog.postman.com/engineering/feed/");
+    }
+  });
 });

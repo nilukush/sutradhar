@@ -146,6 +146,37 @@ const REGISTRY: SourceInput[] = [
     topics: ["frontend", "product-engineering", "culture"],
     notes: "Served at /atom.xml but the document is RSS 2.0 (parser sniffs the format; type corrected 2026-09-05).",
   },
+  {
+    id: "myntra",
+    name: "Myntra",
+    siteUrl: "https://tech.myntra.com/",
+    feed: { type: "rss", url: "https://medium.com/feed/myntra-engineering" },
+    platform: "medium",
+    tier: 1,
+    topics: ["backend", "mobile", "data-science"],
+    notes: "tech.myntra.com (WordPress) has no working feed — /feed/ serves a 2019 'Hello world!' placeholder. The Medium publication mirrors the site's posts (verified 2026-09-05: recent titles match); ingest the mirror, link to the site.",
+  },
+  {
+    id: "slice",
+    name: "Slice",
+    siteUrl: "https://engineering.slice.bank.in/",
+    feed: { type: "rss", url: "https://engineering.slice.bank.in/feed" },
+    platform: "medium",
+    tier: 1,
+    topics: ["fintech-payments", "backend", "scale"],
+    notes: "Medium custom domain (feed 307s to /feed — fetch follows redirects).",
+  },
+  {
+    id: "postman",
+    name: "Postman",
+    siteUrl: "https://blog.postman.com/engineering/",
+    feed: { type: "rss", url: "https://blog.postman.com/engineering/feed/" },
+    platform: "wordpress",
+    tier: 1,
+    region: "india-linked",
+    topics: ["platform", "backend", "devops-sre"],
+    notes: "Engineering-only WordPress category feed (declared by the site itself). Bangalore-founded, SF HQ — flagged india-linked. Occasional product announcement slips into their engineering category.",
+  },
 
   // ---------- Tier 2: verified feeds, stale or mixed content ----------
   {

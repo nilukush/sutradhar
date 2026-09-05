@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T12:01:13.194Z",
+  "generatedAt": "2026-09-05T12:20:04.452Z",
   "articles": [
     {
       "id": "921cf539c2bc4d36",
@@ -1342,6 +1342,23 @@
       ]
     },
     {
+      "id": "3dadc2692d968e0e",
+      "title": "From Products to Inspiration: Inside the Engine of Occasion-based outfit visualiser",
+      "url": "https://medium.com/myntra-engineering/from-products-to-inspiration-inside-the-engine-of-occasion-based-outfit-visualiser-a09f494d43ae",
+      "sourceId": "myntra",
+      "publishedAt": "2026-04-23T18:23:51.000Z",
+      "excerpt": "Ankit Kumar | Oct 2025 · 6 min read The “Why”: Moving Beyond the Grid Picture this: A white background. A shirt. Fabric details. Fit specs. A price tag. For decades, this has been the status quo of online shopping. It is clinical, clear, and — let’s be honest — completely…",
+      "content": "Ankit Kumar | Oct 2025 · 6 min read The “Why”: Moving Beyond the Grid Picture this: A white background. A shirt. Fabric details. Fit specs. A price tag. For decades, this has been the status quo of online shopping. It is clinical, clear, and — let’s be honest — completely detached from real life. In this model, the customer does all the heavy lifting. “Where would I wear this?” they wonder. “Does…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Ankit Kumar"
+      ]
+    },
+    {
       "id": "c0939444800550af",
       "title": "Payment Vault: Enhancing Payment Security and Efficiency",
       "url": "https://juspay.io/blog/payment-vault-enhancing-payment-security-and-efficiency",
@@ -1625,6 +1642,23 @@
       ]
     },
     {
+      "id": "d2a46a2cdf01b4d6",
+      "title": "How We Solved a Kafka Freeze, 5x-ed Throughput, and Right-Sized Our Partitions — Lessons from…",
+      "url": "https://slice-engineering.medium.com/how-we-solved-a-kafka-freeze-5x-ed-throughput-and-right-sized-our-partitions-lessons-from-d9b0e20c3cc2",
+      "sourceId": "slice",
+      "publishedAt": "2026-04-08T12:16:52.000Z",
+      "excerpt": "How We Solved a Kafka Freeze, 5x-ed Throughput, and Right-Sized Our Partitions — Lessons from Production at Scale At Slice, we run a high-throughput event-driven backend. Kafka is at the center of it, processing payments, order lifecycle events, and downstream integrations…",
+      "content": "How We Solved a Kafka Freeze, 5x-ed Throughput, and Right-Sized Our Partitions — Lessons from Production at Scale At Slice, we run a high-throughput event-driven backend. Kafka is at the center of it, processing payments, order lifecycle events, and downstream integrations across 50+ topics. Over the few months, we tackled three distinct problems in our Kafka consumer layer, each of which taught…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
       "id": "64ed9a327e1b11a2",
       "title": "The Checkout Frustration Razorpay Fixed: Combining Payment Methods",
       "url": "https://engineering.razorpay.com/the-checkout-frustration-razorpay-fixed-combining-payment-methods-0e0b05fdf104",
@@ -1711,6 +1745,23 @@
       ],
       "authors": [
         "Alok Mishra"
+      ]
+    },
+    {
+      "id": "4f2d42742e994208",
+      "title": "Revamping Myntra App Analytics persistence with KMP and SQLite",
+      "url": "https://medium.com/myntra-engineering/revamping-myntra-app-analytics-persistence-with-kmp-and-sqlite-516751e24d63",
+      "sourceId": "myntra",
+      "publishedAt": "2026-03-31T13:01:09.000Z",
+      "excerpt": "Introduction In the dynamic landscape of e-commerce, data is the bedrock of decision-making, and app stability is the foundation of user experience. At Myntra, where millions of users engage with our platform daily, ensuring the reliability of both is paramount. This necessity…",
+      "content": "Introduction In the dynamic landscape of e-commerce, data is the bedrock of decision-making, and app stability is the foundation of user experience. At Myntra, where millions of users engage with our platform daily, ensuring the reliability of both is paramount. This necessity drove us to re-architect a critical piece of our infrastructure: the persistence layer of the Myntra app’s analytics SDK.…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Kartik Sharma"
       ]
     },
     {
@@ -2086,6 +2137,25 @@
       ]
     },
     {
+      "id": "7a0c7863111a27ec",
+      "title": "Mastering Cloud Cost Optimization: Lessons from Scaling Trino, Spark and S3",
+      "url": "https://slice-engineering.medium.com/mastering-cloud-cost-optimization-lessons-from-scaling-trino-spark-and-s3-4b8e58db2197",
+      "sourceId": "slice",
+      "publishedAt": "2026-02-26T13:31:17.000Z",
+      "excerpt": "Cost management is a critical factor in the implementation and maintenance of a data platform, as it often accounts for a significant share of an organization’s overall infrastructure costs and must consistently deliver strong return on investment. As data platforms scale to…",
+      "content": "Cost management is a critical factor in the implementation and maintenance of a data platform, as it often accounts for a significant share of an organization’s overall infrastructure costs and must consistently deliver strong return on investment. As data platforms scale to accommodate growing data volumes and diverse analytical workloads, infrastructure and vendor costs can quickly spiral out…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "data-science",
+        "infrastructure"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
       "id": "bbf60183c2652349",
       "title": "Plugging Node.js Memory Leaks: Optimisation Insights",
       "url": "https://blog.flipkart.tech/plugging-node-js-memory-leaks-optimisation-insights-aa023114035a",
@@ -2246,6 +2316,25 @@
       ]
     },
     {
+      "id": "e2d857dd21baf975",
+      "title": "Structure, govern, and collaborate at scale with Postman Organizations",
+      "url": "https://blog.postman.com/engineering/structure-govern-and-collaborate-at-scale-with-postman-organizations",
+      "sourceId": "postman",
+      "publishedAt": "2026-02-02T15:19:59.000Z",
+      "excerpt": "Postman recently rolled out Organizations, a new set of features designed to allow Enterprise plan customers to set up multiple Teams under...",
+      "content": "Postman recently rolled out Organizations, a new set of features designed to allow Enterprise plan customers to set up multiple Teams under the umbrella of what we call an Organization. The hierarchical structure now spans Organizations > Teams > Workspaces. This additional layer allows users to scale, govern and collaborate more effectively. Previously, all workspaces rolled up into the same…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "security",
+        "scale"
+      ],
+      "authors": [
+        "Sam Chehab"
+      ]
+    },
+    {
       "id": "4918b60b5772ce06",
       "title": "Scaling PMM: A Decoupled Architecture Story",
       "url": "https://engineering.cred.club/scaling-pmm-a-decoupled-architecture-story-fa23ee022ef9",
@@ -2301,6 +2390,41 @@
       ]
     },
     {
+      "id": "da51bbb106eddac8",
+      "title": "Bringing Interfaces to Life with Rive: Real-Time Animations at slice",
+      "url": "https://slice-engineering.medium.com/bringing-interfaces-to-life-with-rive-real-time-animations-at-slice-cd80d2742176",
+      "sourceId": "slice",
+      "publishedAt": "2026-01-19T10:31:29.000Z",
+      "excerpt": "At slice, we’ve always believed that a good UI shouldn’t just react, it should feel alive. When we started building new experiences like Voice Pay, we quickly ran into a problem that traditional animation tools just couldn’t deliver the kind of real-time interactivity we were…",
+      "content": "At slice, we’ve always believed that a good UI shouldn’t just react, it should feel alive. When we started building new experiences like Voice Pay, we quickly ran into a problem that traditional animation tools just couldn’t deliver the kind of real-time interactivity we were aiming for. That’s when we discovered Rive. It gave us the flexibility to go beyond static animations and build interfaces…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
+      "id": "04d4e458811ec728",
+      "title": "Security Training Doesn&#8217;t Have to Suck",
+      "url": "https://blog.postman.com/engineering/security-training-doesnt-have-to-suck",
+      "sourceId": "postman",
+      "publishedAt": "2025-12-18T18:26:03.000Z",
+      "excerpt": "We’ve all spent way too many years falling asleep to sitting through boring videos seemingly made in the 1900s–that you can’t speed...",
+      "content": "We’ve all spent way too many years falling asleep to sitting through boring videos seemingly made in the 1900s–that you can’t speed up or click through–followed by a “quiz” that doesn’t…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "security"
+      ],
+      "authors": [
+        "Sam Chehab"
+      ]
+    },
+    {
       "id": "f025a564862cecef",
       "title": "Keeping Java as the Core, Python to Lead Agentic Systems",
       "url": "https://medium.com/walmartglobaltech/keeping-java-as-the-core-python-to-lead-agentic-systems-e2960693e1cd",
@@ -2332,6 +2456,25 @@
       ],
       "authors": [
         "Karan Arora"
+      ]
+    },
+    {
+      "id": "25c949404901b021",
+      "title": "Wiz Zero Critical Club!",
+      "url": "https://blog.postman.com/engineering/wiz-zero-critical-club",
+      "sourceId": "postman",
+      "publishedAt": "2025-12-11T19:06:30.000Z",
+      "excerpt": "Postman has joined Wiz’s Zero Critical Club, “a prestigious group of Wiz customers who have achieved the extraordinary feat of having zero...",
+      "content": "Postman has joined Wiz’s Zero Critical Club, “a prestigious group of Wiz customers who have achieved the extraordinary feat of having zero critical issues in…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "engineering",
+        "security"
+      ],
+      "authors": [
+        "Sam Chehab"
       ]
     },
     {
@@ -2372,6 +2515,25 @@
       ]
     },
     {
+      "id": "c08c6cd1041a7c47",
+      "title": "Root Cause Analysis: Shai-Hulud 2.0",
+      "url": "https://blog.postman.com/engineering/root-cause-analysis-shai-halud-2-0",
+      "sourceId": "postman",
+      "publishedAt": "2025-12-04T21:12:11.000Z",
+      "excerpt": "Postman Security knows that trust begins with transparency. So we are following up (as promised!) on the Shai Halud attack we first...",
+      "content": "Postman Security knows that trust begins with transparency. So we are following up (as promised!) on the Shai Halud attack we first posted about on Nov 24, 2025. No Postman or customer data was impacted in this incident. What happened? On November 24, 2025, 17 public Postman NPM packages were hijacked by the “Shai-Hulud” worm. These infected versions were published to NPM, and infected packages…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "engineering",
+        "security"
+      ],
+      "authors": [
+        "Sam Chehab"
+      ]
+    },
+    {
       "id": "f1df2222f05f7a49",
       "title": "Beyond the Context Window: A New Approach to Summarizing Big Data",
       "url": "https://blog.flipkart.tech/beyond-the-context-window-a-new-approach-to-summarizing-big-data-44b306a9608a",
@@ -2387,6 +2549,98 @@
       ],
       "authors": [
         "Sri Raghava Muddu"
+      ]
+    },
+    {
+      "id": "04e9b83ab5ecc827",
+      "title": "Smart API Security: The Power of LLMs and Postman MCP",
+      "url": "https://blog.postman.com/engineering/smart-api-security-the-power-of-llms-and-postman-mcp",
+      "sourceId": "postman",
+      "publishedAt": "2025-12-03T16:26:25.000Z",
+      "excerpt": "APIs are the nervous system of modern software. They power apps, SaaS platforms, fintech products, and even your coffee machine. Yet, APIs...",
+      "content": "APIs are the nervous system of modern software. They power apps, SaaS platforms, fintech products, and even your coffee machine. Yet, APIs remain one of the most common attack surfaces. Every new endpoint, every schema change, every microservice deployed adds another vector that needs to be tested, reviewed, and secured. Now imagine this challenge multiplied across dozens of teams and hundreds of…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "engineering",
+        "security"
+      ],
+      "authors": [
+        "Anurag Mewar"
+      ]
+    },
+    {
+      "id": "9e4cb01d43ef5c3f",
+      "title": "Shai-Hulud 2.0 npm supply-chain attack",
+      "url": "https://blog.postman.com/engineering/shai-hulud-2-0-npm-supply-chain-attack",
+      "sourceId": "postman",
+      "publishedAt": "2025-11-24T21:11:08.000Z",
+      "excerpt": "Update: our RCA has been posted here. Postman has discovered unusual activity in our NPM org relating to the ongoing “Shai-Hulud 2.0...",
+      "content": "Update: our RCA has been posted here. Postman has discovered unusual activity in our NPM org relating to the ongoing “Shai-Hulud 2.0 npm supply-chain attack.” Our security engineering team is investigating the matter and thus far has concluded…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "engineering",
+        "security"
+      ],
+      "authors": [
+        "Sam Chehab"
+      ]
+    },
+    {
+      "id": "ebca0ee4346a973a",
+      "title": "Postman Security: Playing Chess, Because Every Move Matters",
+      "url": "https://blog.postman.com/engineering/postman-security-playing-chess-because-every-move-matters",
+      "sourceId": "postman",
+      "publishedAt": "2025-11-18T15:30:25.000Z",
+      "excerpt": "In today’s rapidly evolving API landscape, security isn’t a box to check; it’s a dynamic, evolving strategy. At Postman, we’re not just...",
+      "content": "In today’s rapidly evolving API landscape, security isn’t a box to check; it’s a dynamic, evolving strategy. At Postman, we’re not just following the rules of the game; we’re redefining them. Like a grandmaster anticipating the board, we think several moves ahead, building a holistic framework of trust and forward-looking innovation. Trust is a partnership grounded in transparency,…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "security"
+      ],
+      "authors": [
+        "Sam Chehab"
+      ]
+    },
+    {
+      "id": "91cc0480e7829499",
+      "title": "Product Security Scorecards: Coupling Security Issues with Preventative Controls to Drive Security Maturity",
+      "url": "https://blog.postman.com/engineering/product-security-scorecards-coupling-security-issues-with-preventative-controls-to-drive-security-maturity",
+      "sourceId": "postman",
+      "publishedAt": "2025-11-12T19:01:10.000Z",
+      "excerpt": "Postman’s commitment to Product Security begins with our approach to Application Security. Every engineering team in Postman has an assigned Security Engineer...",
+      "content": "Postman’s commitment to Product Security begins with our approach to Application Security. Every engineering team in Postman has an assigned Security Engineer who reviews new features and services in development to ensure that security is baked into the product. This security review process gives us a solid foundation to build on, but as we scaled from a small API client into the feature-rich API…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "engineering",
+        "security"
+      ],
+      "authors": [
+        "Gustavo De Leon"
+      ]
+    },
+    {
+      "id": "40182cf6d6b5ab7d",
+      "title": "Building slice’s Chatbot: An Engineering Journey (Series 2)",
+      "url": "https://slice-engineering.medium.com/building-slices-chatbot-an-engineering-journey-series-2-66439040e700",
+      "sourceId": "slice",
+      "publishedAt": "2025-11-07T09:40:30.000Z",
+      "excerpt": "Tags:Intent Detection, Decision Tree, User Experience, Support Automation Introduction Modern customer support faces a fundamental paradox: despite having comprehensive user data, transaction histories, and real-time system states, most chatbot interfaces still present users…",
+      "content": "Tags:Intent Detection, Decision Tree, User Experience, Support Automation Introduction Modern customer support faces a fundamental paradox: despite having comprehensive user data, transaction histories, and real-time system states, most chatbot interfaces still present users with generic, context-free experiences. This challenge becomes exponentially complex at scale — when processing millions of…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
       ]
     },
     {
@@ -2444,6 +2698,41 @@
       ]
     },
     {
+      "id": "e8bde8b1b496e990",
+      "title": "A simpler and local-first variables experience",
+      "url": "https://blog.postman.com/engineering/a-simpler-and-local-first-variables-experience",
+      "sourceId": "postman",
+      "publishedAt": "2025-09-26T20:27:29.000Z",
+      "excerpt": "At Postman, we are committed to delivering simple, practical and easy-to-use tools that make building and testing APIs efficient and effortless. Postman...",
+      "content": "At Postman, we are committed to delivering simple, practical and easy-to-use tools that make building and testing APIs efficient and effortless. Postman is also a mature product (we recently celebrated our 10th birthday!) with workflows that users rely on every day and are used to. However, mature products must evolve to meet the needs of modern developers and teams while keeping them as…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "engineering"
+      ],
+      "authors": [
+        "Shobhit Katikia"
+      ]
+    },
+    {
+      "id": "b857be1b5ed0e74b",
+      "title": "Centralized Dynamic Navigation at Scale: Zero Crashes, Module Independence, Faster Delivery",
+      "url": "https://slice-engineering.medium.com/centralized-dynamic-navigation-at-scale-zero-crashes-module-independence-faster-delivery-156a250a50c5",
+      "sourceId": "slice",
+      "publishedAt": "2025-09-23T08:41:04.000Z",
+      "excerpt": "How we achieved a crash less centralised navigation system using deep-links and runtime destination loading in our android app. Pre-requisite: This is an advanced concept, Basic Android Navigation understanding is required: NavController: Manages navigation between…",
+      "content": "How we achieved a crash less centralised navigation system using deep-links and runtime destination loading in our android app. Pre-requisite: This is an advanced concept, Basic Android Navigation understanding is required: NavController: Manages navigation between destinationsNavGraph: XML defining app’s navigation structureDeep Links: URI-based navigation to specific screensThe Modular…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
       "id": "a823612f9e5547be",
       "title": "Building Meesho's ML Platform: Scaling Model Inference & Real-Time Embedding Search (Part 3)",
       "url": "https://www.meesho.io/blog/building-meeshos-ml-platform",
@@ -2460,6 +2749,25 @@
       ],
       "authors": [
         "Meesho"
+      ]
+    },
+    {
+      "id": "8188a8f8dd05a0c5",
+      "title": "Scaling with Confidence: Postman’s Journey to Infrastructure as Code with Kubernetes and ArgoCD",
+      "url": "https://blog.postman.com/engineering/scaling-with-confidence-postmans-journey-to-infrastructure-as-code-with-kubernetes-and-argocd",
+      "sourceId": "postman",
+      "publishedAt": "2025-09-04T21:46:03.000Z",
+      "excerpt": "At Postman, we serve millions of developers building, testing, and documenting APIs. As our platform scaled, so did the complexity of managing...",
+      "content": "At Postman, we serve millions of developers building, testing, and documenting APIs. As our platform scaled, so did the complexity of managing our infrastructure. What began as a collection of manually provisioned services grew into a sprawling landscape of interdependent components deployed using varying methodologies and processes. This is the story of how we transitioned from a semi-manual,…",
+      "topics": [
+        "platform",
+        "backend",
+        "devops-sre",
+        "security",
+        "infrastructure"
+      ],
+      "authors": [
+        "Grant King"
       ]
     },
     {
@@ -2498,6 +2806,23 @@
       ],
       "authors": [
         "Meesho"
+      ]
+    },
+    {
+      "id": "bf741df42c8a1e19",
+      "title": "Enhancing Myntra App performance: Transitioning from GIFs to Videos",
+      "url": "https://medium.com/myntra-engineering/enhancing-myntra-app-performance-transitioning-from-gifs-to-videos-2aa275a29c34",
+      "sourceId": "myntra",
+      "publishedAt": "2025-08-30T07:00:01.000Z",
+      "excerpt": "Introduction In the fast-paced world of e-commerce, every millisecond and every pixel counts. At Myntra, where visual content drives discovery and engagement, we embarked on a critical mission: to revolutionise how animations are delivered in our Android and iOS apps. This…",
+      "content": "Introduction In the fast-paced world of e-commerce, every millisecond and every pixel counts. At Myntra, where visual content drives discovery and engagement, we embarked on a critical mission: to revolutionise how animations are delivered in our Android and iOS apps. This journey led us to transition from the ubiquitous GIF format to more efficient video formats, unlocking significant…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Kartik Sharma"
       ]
     },
     {
@@ -2628,6 +2953,23 @@
       ],
       "authors": [
         "Meesho"
+      ]
+    },
+    {
+      "id": "8ed4b7f7e8d53339",
+      "title": "Building Slice’s Chatbot: An Engineering Journey (Series 1)",
+      "url": "https://slice-engineering.medium.com/building-slices-chatbot-an-engineering-journey-series-1-2241342d1c4c",
+      "sourceId": "slice",
+      "publishedAt": "2025-07-10T15:48:56.000Z",
+      "excerpt": "Building slice’s Chatbot: An Engineering Journey (Series 1) Tags: MQTT, EMQX, Kafka, Real-Time System, Event-Driven Systems Introduction As our chatbot requirements grew, we transitioned from a managed chatbot solution to an in-house system. This blog highlights the challenges…",
+      "content": "Building slice’s Chatbot: An Engineering Journey (Series 1) Tags: MQTT, EMQX, Kafka, Real-Time System, Event-Driven Systems Introduction As our chatbot requirements grew, we transitioned from a managed chatbot solution to an in-house system. This blog highlights the challenges that led to each migration, the benefits gained, and lessons learned. Initial Solution We initially adopted a well-known…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
       ]
     },
     {
@@ -2817,6 +3159,24 @@
       ]
     },
     {
+      "id": "eeb92ec939f426b4",
+      "title": "The Journey to Faster Android Builds: How We Slashed Our Build Times at slice",
+      "url": "https://slice-engineering.medium.com/the-journey-to-faster-android-builds-how-we-slashed-our-build-times-at-slice-4e1b47744fa2",
+      "sourceId": "slice",
+      "publishedAt": "2025-05-30T08:41:54.000Z",
+      "excerpt": "As an Android developer at slice, watching our app evolve from a simple financial product to a full fledged bank has been exciting. But this growth came with a challenge familiar to many developers: increasingly painful build times. What started as a minor inconvenience…",
+      "content": "As an Android developer at slice, watching our app evolve from a simple financial product to a full fledged bank has been exciting. But this growth came with a challenge familiar to many developers: increasingly painful build times. What started as a minor inconvenience gradually became a significant productivity blocker: CI builds meant long waits for PR feedback Local build times stretching…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "mobile"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
       "id": "8899e485fb44f76a",
       "title": "The Tale Before the Design System",
       "url": "https://tech.phonepe.com/the-tale-before-the-design-system",
@@ -2832,6 +3192,25 @@
       ],
       "authors": [
         "Muktha Tavane"
+      ]
+    },
+    {
+      "id": "ead1f0a993ca5f99",
+      "title": "Android Network Observability: Shedding Light on Performance Blind Spots",
+      "url": "https://slice-engineering.medium.com/android-network-observability-shedding-light-on-performance-blind-spots-91453458f301",
+      "sourceId": "slice",
+      "publishedAt": "2025-05-07T12:14:08.000Z",
+      "excerpt": "Introduction In Android development, network performance issues can be notoriously hard to debug. While tools like Firebase Performance Monitoring provide high-level insights like error rates and latency, they fall short in providing granular visibility into each stage of the…",
+      "content": "Introduction In Android development, network performance issues can be notoriously hard to debug. While tools like Firebase Performance Monitoring provide high-level insights like error rates and latency, they fall short in providing granular visibility into each stage of the network request lifecycle. Common blind spots include: Request Timeline Gaps: DNS Lookup — Time taken to resolve a domain…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "mobile",
+        "infrastructure"
+      ],
+      "authors": [
+        "slice engineering"
       ]
     },
     {
@@ -3028,6 +3407,24 @@
       ]
     },
     {
+      "id": "61f133629ce23c0a",
+      "title": "Seamlessly Migrating from MongoDB to PostgreSQL: Leveraging Data Platform for Scalable Success",
+      "url": "https://slice-engineering.medium.com/seamlessly-migrating-from-mongodb-to-postgresql-leveraging-data-platform-for-scalable-success-404e2577a47b",
+      "sourceId": "slice",
+      "publishedAt": "2025-02-10T11:43:37.000Z",
+      "excerpt": "Freaking hard Migration from MongoDB to PostgreSQL: Leveraging Data Platform for Scalable Success Introduction In today’s fast-paced digital landscape, selecting the right database technology is a crucial decision for any organisation’s success. Initially, MongoDB’s flexible…",
+      "content": "Freaking hard Migration from MongoDB to PostgreSQL: Leveraging Data Platform for Scalable Success Introduction In today’s fast-paced digital landscape, selecting the right database technology is a crucial decision for any organisation’s success. Initially, MongoDB’s flexible schema and ease of use aligned well with our startup’s needs. However, as our application scaled and data complexity…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "platform"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
       "id": "9a61a39f8ec249f7",
       "title": "Navigating data governance with Hasura: Building trust, streamlining operations, and powering AI",
       "url": "https://hasura.io/blog/navigating-data-governance-with-hasura-building-trust-streamlining-operations-and-powering-ai",
@@ -3079,6 +3476,25 @@
       ],
       "authors": [
         "Anshuman Singh"
+      ]
+    },
+    {
+      "id": "6a74b4076a27e1e2",
+      "title": "Size Recommendation System at Myntra",
+      "url": "https://medium.com/myntra-engineering/size-recommendation-system-at-myntra-58cb4870caa5",
+      "sourceId": "myntra",
+      "publishedAt": "2025-01-30T06:25:43.000Z",
+      "excerpt": "In recent years, online shopping has surged, revolutionizing how people purchase products and services. E-commerce’s convenience has reshaped consumer behaviour and the retail landscape. Unlike traditional stores, online shoppers often face sizing challenges, leading to…",
+      "content": "In recent years, online shopping has surged, revolutionizing how people purchase products and services. E-commerce’s convenience has reshaped consumer behaviour and the retail landscape. Unlike traditional stores, online shoppers often face sizing challenges, leading to hesitancy and missed sales. Myntra has been a pioneer in addressing size and fit challenges in India, leading the way with…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science",
+        "engineering",
+        "ai-ml"
+      ],
+      "authors": [
+        "Aayushi Das"
       ]
     },
     {
@@ -3412,6 +3828,23 @@
       ]
     },
     {
+      "id": "1795e42449c20964",
+      "title": "Unlock AKS Potential: Master Control Plane and Node Pools",
+      "url": "https://medium.com/myntra-engineering/unlock-aks-potential-master-control-plane-and-node-pools-0f7bf2eccb00",
+      "sourceId": "myntra",
+      "publishedAt": "2024-12-12T12:53:34.000Z",
+      "excerpt": "Introduction In this guide, we’ll explore the intricacies of configuring Azure Kubernetes Service (AKS) for optimal performance and scalability. As a fully managed container orchestration service by Microsoft Azure, AKS simplifies deploying, managing, and scaling containerized…",
+      "content": "Introduction In this guide, we’ll explore the intricacies of configuring Azure Kubernetes Service (AKS) for optimal performance and scalability. As a fully managed container orchestration service by Microsoft Azure, AKS simplifies deploying, managing, and scaling containerized applications using Kubernetes. Drawing from our extensive experience running AKS at scale, this blog aims to provide…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Sumit Prasad"
+      ]
+    },
+    {
       "id": "0e11e76978cc5d8b",
       "title": "Pride, prejudice, and active metadata: Why we haven't given up yet",
       "url": "https://hasura.io/blog/pride-prejudice-and-active-metadata-why-we-havent-given-up-yet",
@@ -3500,6 +3933,23 @@
       ]
     },
     {
+      "id": "83bb7c5bfb2ba25c",
+      "title": "Good Alerts",
+      "url": "https://slice-engineering.medium.com/good-alerts-f30d2e2246d1",
+      "sourceId": "slice",
+      "publishedAt": "2024-10-30T07:48:25.000Z",
+      "excerpt": "This is written by Sarthak – Staff engineer, BankingThis write up summarizes some Opinions™️ that I have around good alerts, particularly in the context of infrastructure and platforms. The advice in here doesn’t represent universal truths, merely my experience over being…",
+      "content": "This is written by Sarthak – Staff engineer, BankingThis write up summarizes some Opinions™️ that I have around good alerts, particularly in the context of infrastructure and platforms. The advice in here doesn’t represent universal truths, merely my experience over being on-call for systems both large and small, reliable and unreliable. The TL;DR is that a good alert is all three of the…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
       "id": "cc149b183ff1e47d",
       "title": "Modernizing API architecture: ISOS’s journey with Hasura",
       "url": "https://hasura.io/blog/modernizing-api-architecture-isoss-journey-with-hasura",
@@ -3514,6 +3964,23 @@
       ],
       "authors": [
         "Aditi Phadke"
+      ]
+    },
+    {
+      "id": "4f65675c22aff664",
+      "title": "Fact Evaluation in Millions: Scalable Rule Executor Service",
+      "url": "https://medium.com/myntra-engineering/fact-evaluation-in-millions-scalable-rule-executor-service-921a2a19068e",
+      "sourceId": "myntra",
+      "publishedAt": "2024-10-01T13:47:49.000Z",
+      "excerpt": "Overview The Rule Executor Service at Myntra stands out as a pivotal tool in the domain of rule engine. While, at a glance, one might wonder what sets it apart from the myriad of rule engines available today, the difference is profound. In Myntra ecosystem, supporting numerous…",
+      "content": "Overview The Rule Executor Service at Myntra stands out as a pivotal tool in the domain of rule engine. While, at a glance, one might wonder what sets it apart from the myriad of rule engines available today, the difference is profound. In Myntra ecosystem, supporting numerous pricing use cases necessitated building a capability that is engineered to handle vast volumes of rules, processing…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Nikhil Anand"
       ]
     },
     {
@@ -3994,6 +4461,23 @@
       ]
     },
     {
+      "id": "187b07d28aa0ddf5",
+      "title": "Future-Proof Your AKS Cluster with Strategic IP Address Planning",
+      "url": "https://medium.com/myntra-engineering/future-proof-your-aks-cluster-with-strategic-ip-address-planning-01e4ea04e197",
+      "sourceId": "myntra",
+      "publishedAt": "2024-06-25T09:12:09.000Z",
+      "excerpt": "Scaling Kubernetes efficiently is an art that blends strategic planning with technical expertise. In Azure Kubernetes Service (AKS), mastering the allocation of IP addresses is crucial for ensuring seamless scalability and optimal performance. When configuring an AKS cluster…",
+      "content": "Scaling Kubernetes efficiently is an art that blends strategic planning with technical expertise. In Azure Kubernetes Service (AKS), mastering the allocation of IP addresses is crucial for ensuring seamless scalability and optimal performance. When configuring an AKS cluster with default Azure CNI networking, it’s essential to address the nature of scaling Pods, Nodes, and internal…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Sumit Prasad"
+      ]
+    },
+    {
       "id": "a15ec3e3c0e1745a",
       "title": "From fragmented to federated: How a Fortune 100 org simplified data access",
       "url": "https://hasura.io/blog/from-fragmented-to-federated-how-a-fortune-100-org-simplified-data-access",
@@ -4059,6 +4543,24 @@
       ],
       "authors": [
         "Sampurna Mitra"
+      ]
+    },
+    {
+      "id": "6560560533a4860a",
+      "title": "Building Myntra’s Video Platform: Part 4",
+      "url": "https://medium.com/myntra-engineering/building-myntras-video-platform-part-4-dd6d582ce2ef",
+      "sourceId": "myntra",
+      "publishedAt": "2024-06-07T05:29:57.000Z",
+      "excerpt": "This article is the 4th one in the series ‘Building Myntra’s Video Platform’. In case you haven’t read the first three parts, you may want to read the same for better context. Building Myntra’s Video Platform: Part 1 Building Myntra’s Video Platform: Part 2 Building Myntra’s…",
+      "content": "This article is the 4th one in the series ‘Building Myntra’s Video Platform’. In case you haven’t read the first three parts, you may want to read the same for better context. Building Myntra’s Video Platform: Part 1 Building Myntra’s Video Platform: Part 2 Building Myntra’s Video Platform: Part 3 In this article we will dwell a bit more on the architecture aspects. We use our Video Platform for…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science",
+        "platform"
+      ],
+      "authors": [
+        "Shikhar Shrivastav"
       ]
     },
     {
@@ -4391,6 +4893,40 @@
       ],
       "authors": [
         "Hasura"
+      ]
+    },
+    {
+      "id": "92e05bc9ae2d2747",
+      "title": "Decoding the Regional Fashion Signatures using AI",
+      "url": "https://medium.com/myntra-engineering/decoding-the-fashion-signature-using-embeddings-b21221806b7d",
+      "sourceId": "myntra",
+      "publishedAt": "2024-04-22T11:25:37.000Z",
+      "excerpt": "Authored By Rohit Gupta & Siddhartha Devapujula Introduction Millions of users visit Myntra daily to upgrade their wardrobes and millions of items are listed on the platform at any given time. Users neither have the time nor the capability to scroll through this vast list of…",
+      "content": "Authored By Rohit Gupta & Siddhartha Devapujula Introduction Millions of users visit Myntra daily to upgrade their wardrobes and millions of items are listed on the platform at any given time. Users neither have the time nor the capability to scroll through this vast list of items. Even after applying category and attribute filters, usually the number of items is still in thousands. Hence it…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Siddhartha Devapujula"
+      ]
+    },
+    {
+      "id": "624aa6a58b96d17e",
+      "title": "Category Prediction for Search Query Understanding",
+      "url": "https://medium.com/myntra-engineering/category-prediction-for-search-query-understanding-f46283151c92",
+      "sourceId": "myntra",
+      "publishedAt": "2024-04-21T12:40:48.000Z",
+      "excerpt": "Navigating through online shopping platforms can sometimes feel like finding your way through a maze. Take the search bar, for example. You type in “winter upper wear,” hoping to find the perfect jacket or cozy sweatshirt. But here’s the tricky part: the search engine has to…",
+      "content": "Navigating through online shopping platforms can sometimes feel like finding your way through a maze. Take the search bar, for example. You type in “winter upper wear,” hoping to find the perfect jacket or cozy sweatshirt. But here’s the tricky part: the search engine has to decipher what you mean. Is it jackets you’re after? Or maybe sweatshirts? Or both? It gets even more confusing when you…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "music and waves"
       ]
     },
     {
