@@ -25,15 +25,23 @@ export type Topic = z.infer<typeof TopicSchema>;
  * How to read a source. `rss`/`atom` take a feed URL; `ghost` uses a Ghost
  * Content API endpoint (e.g. Meesho, which publishes no RSS) with its public
  * content key and an optional URL rewrite from the admin host to the public blog.
+ *
+ * `excludeCategories` (rss/atom) is an engineering-only guard for mixed feeds:
+ * an item is dropped when ANY of its feed categories matches an entry
+ * (case-insensitive, exact match — "ux" does not match "ux-design"). Items
+ * with no categories always pass. Opposite semantics from the sanity adapter's
+ * `categories`, which is an allowlist of what to fetch.
  */
 export const FeedSchema = z.discriminatedUnion("type", [
   z.object({
     type: z.literal("rss"),
     url: z.url(),
+    excludeCategories: z.array(z.string().min(1)).min(1).optional(),
   }),
   z.object({
     type: z.literal("atom"),
     url: z.url(),
+    excludeCategories: z.array(z.string().min(1)).min(1).optional(),
   }),
   z.object({
     type: z.literal("ghost"),

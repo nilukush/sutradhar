@@ -56,6 +56,18 @@ function ghostUrl(source: Source, limit: number, page: number): string {
   return `${url}${joiner}key=${encodeURIComponent(ghostKey)}&limit=${limit}&page=${page}&include=authors,tags&formats=plaintext`;
 }
 
+/**
+ * Engineering-only guard for mixed rss/atom feeds (see FeedSchema.excludeCategories):
+ * drop an item when any of its categories is denylisted. Case-insensitive exact
+ * match, trimmed; untagged items always pass — feed categories are an unreliable
+ * signal (measured: 4/10 Swiggy Bytes engineering posts carry none).
+ */
+function isExcludedByCategory(categories: string[], denylist: string[] | undefined): boolean {
+  if (!denylist || denylist.length === 0) return false;
+  const denied = new Set(denylist.map((c) => c.trim().toLowerCase()));
+  return categories.some((c) => denied.has(c.trim().toLowerCase()));
+}
+
 /** Fetch every source concurrently; per-source failures are recorded, never fatal. */
 export async function fetchAllSources(
   sources: Source[],
@@ -117,7 +129,11 @@ export async function fetchAllSources(
         retries,
       );
       const xml = await res.text();
-      return parseRssOrAtom(xml).map((item) => toArticle(source, item));
+      const exclude =
+        source.feed.type === "rss" || source.feed.type === "atom" ? source.feed.excludeCategories : undefined;
+      return parseRssOrAtom(xml)
+        .filter((item) => !isExcludedByCategory(item.categories, exclude))
+        .map((item) => toArticle(source, item));
     }),
   );
 

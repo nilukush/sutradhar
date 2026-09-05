@@ -56,6 +56,20 @@ const deadSource: Source = {
   feed: { type: "rss", url: "https://dead.example/feed" },
 };
 
+const RSS_WITH_CATEGORIES = `<?xml version="1.0"?><rss version="2.0"><channel><title>t</title>
+<item><title>Eng post</title><link>https://c.io/eng</link><pubDate>Thu, 20 Aug 2026 10:00:00 GMT</pubDate><description>body</description><category><![CDATA[Engineering]]></category></item>
+<item><title>Newsletter post</title><link>https://c.io/news</link><pubDate>Wed, 19 Aug 2026 10:00:00 GMT</pubDate><description>body</description><category><![CDATA[Newsletter]]></category></item>
+<item><title>Lowercase variant</title><link>https://c.io/news-lc</link><pubDate>Tue, 18 Aug 2026 10:00:00 GMT</pubDate><description>body</description><category><![CDATA[newsletter]]></category></item>
+<item><title>Untagged post</title><link>https://c.io/untagged</link><pubDate>Mon, 17 Aug 2026 10:00:00 GMT</pubDate><description>body</description></item>
+<item><title>ux-design post</title><link>https://c.io/uxd</link><pubDate>Sun, 16 Aug 2026 10:00:00 GMT</pubDate><description>body</description><category><![CDATA[ux-design]]></category></item>
+</channel></rss>`;
+
+const filteredSource: Source = {
+  ...rssSource,
+  id: "filtered",
+  feed: { type: "rss", url: "https://c.io/feed", excludeCategories: ["Newsletter", "ux"] },
+};
+
 function fixtureFetch(): typeof fetch {
   const seen: { url: string; headers: Record<string, string> }[] = [];
   const impl = ((async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -63,6 +77,7 @@ function fixtureFetch(): typeof fetch {
     seen.push({ url, headers: init?.headers as Record<string, string> });
     if (url.startsWith("https://a.io/")) return new Response(RSS, { status: 200 });
     if (url.startsWith("https://b.io/")) return new Response(ATOM, { status: 200 });
+    if (url.startsWith("https://c.io/")) return new Response(RSS_WITH_CATEGORIES, { status: 200 });
     if (url.includes("ghost/api")) return new Response(JSON.stringify(GHOST), { status: 200 });
     if (url.startsWith("https://dead.example/")) return new Response("gone", { status: 500 });
     throw new Error("unexpected url " + url);
@@ -101,6 +116,29 @@ describe("fetchAllSources", () => {
     expect(ghostCall.url).toContain("key=023c10be2282a550a5c7d1d75f");
     expect(ghostCall.url).toContain("limit=7");
     expect(ghostCall.url).toContain("formats=plaintext");
+  });
+});
+
+describe("excludeCategories (engineering-only guard on mixed feeds)", () => {
+  it("drops denylisted items case-insensitively, keeps untagged ones", async () => {
+    const res = await fetchAllSources([filteredSource], { fetchImpl: fixtureFetch() });
+    expect(res.errors).toEqual([]);
+    expect(res.articles.map((a) => a.url)).toEqual([
+      "https://c.io/eng",
+      "https://c.io/untagged",
+      "https://c.io/uxd",
+    ]);
+  });
+
+  it("matches categories exactly — 'ux' must not drop an item tagged 'ux-design'", async () => {
+    const res = await fetchAllSources([filteredSource], { fetchImpl: fixtureFetch() });
+    expect(res.articles.some((a) => a.url === "https://c.io/uxd")).toBe(true);
+  });
+
+  it("passes everything through when no denylist is configured", async () => {
+    const unfiltered: Source = { ...filteredSource, id: "open", feed: { type: "rss", url: "https://c.io/feed" } };
+    const res = await fetchAllSources([unfiltered], { fetchImpl: fixtureFetch() });
+    expect(res.articles).toHaveLength(5);
   });
 });
 

@@ -43,11 +43,20 @@ Add one entry to [`src/data/sources.ts`](src/data/sources.ts). Entries are Zod-v
 
 | `type` | Config | For |
 |---|---|---|
-| `rss` | `url` | RSS feeds (the common case) |
-| `atom` | `url` | Atom feeds (e.g. Wingify) |
+| `rss` | `url`, optional `excludeCategories: string[]` | RSS feeds (the common case) |
+| `atom` | `url`, optional `excludeCategories: string[]` | Atom feeds |
 | `ghost` | `url`, `ghostKey`, optional `urlRewrite: [from, to]` | sites with no feed but a public Ghost Content API (see Meesho — the content key ships in their client bundle) |
 | `juspay` | `urls: string[]` | HTML scraping of feedless sites — per-category ItemLists, per-post og tags, dates from sitemap `lastmod` (see Juspay) |
 | `sanity` | `projectId`, `dataset`, `categories[]`, `urlBase` | blogs whose CMS data is a public Sanity dataset (see ShareChat) |
+
+`excludeCategories` (rss/atom) is the engineering-only guard for mixed feeds: an item
+is dropped when any of its feed categories matches an entry — case-insensitive, exact
+match (`"ux"` does not drop `"ux-design"`); untagged items always pass. Prefer a small
+denylist of observed non-engineering tags (see BrowserStack/Jupiter in
+[`src/data/sources.ts`](src/data/sources.ts)) over an allowlist — many feeds leave
+engineering posts untagged. For Medium, use the **publication** feed
+(`medium.com/feed/<publication>`), never a tag feed (`medium.com/feed/tag/<tag>`) —
+tag feeds aggregate anyone's posts and drift into interview-prep/PM content.
 
 New adapter types need an implementation in [`src/lib/feeds.ts`](src/lib/feeds.ts) or
 [`src/lib/scrapers.ts`](src/lib/scrapers.ts) plus tests — open an issue first so we can
@@ -75,7 +84,7 @@ development — run them before pushing:
 
 ```bash
 pnpm install
-pnpm test            # 158 unit/integration tests
+pnpm test            # 165 unit/integration tests
 pnpm run fetch       # note: `pnpm fetch` runs pnpm's builtin — use `run` (-- --dry-run to preview)
 pnpm build           # static build → dist/ + pagefind search index
 pnpm verify:routes   # post-build route + SEO inventory gate

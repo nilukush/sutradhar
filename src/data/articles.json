@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T09:44:12.150Z",
+  "generatedAt": "2026-09-05T12:01:13.194Z",
   "articles": [
     {
       "id": "921cf539c2bc4d36",
@@ -127,24 +127,6 @@
       ]
     },
     {
-      "id": "8855e15bee8cecc5",
-      "title": "Swiggy Customer Support: From More Agents to Fewer Problems",
-      "url": "https://imharshal11.medium.com/swiggy-customer-support-from-more-agents-to-fewer-problems-1cd92d235b82",
-      "sourceId": "swiggy",
-      "publishedAt": "2026-08-07T16:46:08.000Z",
-      "excerpt": "A Product Manager’s approach to reducing customer support queries Continue reading on Medium »",
-      "content": "A Product Manager’s approach to reducing customer support queries Continue reading on Medium »",
-      "topics": [
-        "backend",
-        "scale",
-        "data-science",
-        "product-engineering"
-      ],
-      "authors": [
-        "Harshal S"
-      ]
-    },
-    {
       "id": "e521038bf11d3176",
       "title": "CI Doesn’t Need On-Demand: Moving Our Build Pipelines to Spot Instances",
       "url": "https://engineering.razorpay.com/ci-doesnt-need-on-demand-moving-our-build-pipelines-to-spot-instances-6fff1cd92ba8",
@@ -159,24 +141,6 @@
       ],
       "authors": [
         "Yuvraj Singh Singhel"
-      ]
-    },
-    {
-      "id": "9d2dfe92e374c643",
-      "title": "BrowserStack Newsletter July 2026",
-      "url": "https://www.browserstack.com/blog/browserstack-newsletter-july-2026",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-08-05T10:02:29.000Z",
-      "excerpt": "Read what's new at BrowserStack in July 2026 - New launches, product features, and more!",
-      "content": "What's in this edition Featured Content | Product Updates | Community Updates | BrowserStack Testimonials Featured Content Meet Test Companion: Agentic AI for Test Automation in the IDE [NEW LAUNCH] BrowserStack's newest AI addition sits in your IDE and covers the full test cycle: case generation, script authoring, execution, debugging, and maintenance. It adapts to Playwright, Selenium, Cypress,…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "product-engineering"
-      ],
-      "authors": [
-        "Devanshi Jain"
       ]
     },
     {
@@ -362,6 +326,57 @@
       ]
     },
     {
+      "id": "2ac5469188bfe169",
+      "title": "Decoding Customer Value: pLTV Models for India’s Quick Commerce Delivery Wars — part 1",
+      "url": "https://medium.com/swiggy-bytes/decoding-customer-value-pltv-models-for-indias-quick-commerce-delivery-wars-part-1-d01a3e6015ba",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-07-17T06:47:03.000Z",
+      "excerpt": "Author: Jayshmi A Special thanks to soumyajyoti banerjee , Meghana Negi, Shaik Masihullah, Akash Deep for their contributions throughout this project and Sunil Rathee for his guidance. The counterintuitive story of how 350+ carefully engineered features + a simple MLP matched…",
+      "content": "Author: Jayshmi A Special thanks to soumyajyoti banerjee , Meghana Negi, Shaik Masihullah, Akash Deep for their contributions throughout this project and Sunil Rathee for his guidance. The counterintuitive story of how 350+ carefully engineered features + a simple MLP matched industry leaders and what that says about where the real moat lives in ML.Introduction Predicted lifetime value is one of…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science"
+      ],
+      "authors": [
+        "Jayshmi A"
+      ]
+    },
+    {
+      "id": "b983de03c0c4e596",
+      "title": "DE Dost: Teaching Machines to Be a Friend on the Last Mile",
+      "url": "https://medium.com/swiggy-bytes/de-dost-teaching-machines-to-be-a-friend-on-the-last-mile-a4175e0f7066",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-07-17T06:26:37.000Z",
+      "excerpt": "Building Swiggy’s AI onboarding companion for delivery executives, where accuracy alone wasn’t enough and mentorship had to scale.For a new Delivery Executive (DE) joining Swiggy, the experience is often overwhelming, throwing a world of SOPs, incentive structures, zone…",
+      "content": "Building Swiggy’s AI onboarding companion for delivery executives, where accuracy alone wasn’t enough and mentorship had to scale.For a new Delivery Executive (DE) joining Swiggy, the experience is often overwhelming, throwing a world of SOPs, incentive structures, zone logistics, and app workflows at them all at once. This friction is evident in our metrics, but the drop-off isn’t due to…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science"
+      ],
+      "authors": [
+        "Aishwary Yadav"
+      ]
+    },
+    {
+      "id": "abfea3a530e0ff0e",
+      "title": "How We Made All Swiggy Apps Operations AI-Native",
+      "url": "https://medium.com/swiggy-bytes/how-we-made-all-swiggy-apps-operations-ai-native-1343612ec228",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-07-17T06:23:57.000Z",
+      "excerpt": "Engineering across all Swiggy Apps has always had a simple problem with a very large surface area: we ship fast, but every release, every production signal, and every operational review touches too many systems. For a single release manager or on-call engineer, the day could…",
+      "content": "Engineering across all Swiggy Apps has always had a simple problem with a very large surface area: we ship fast, but every release, every production signal, and every operational review touches too many systems. For a single release manager or on-call engineer, the day could start across Jira, Confluence, Bitrise, Play Console, Crashlytics, New Relic, Google Sheets, ImageKit dashboards, and Slack…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science"
+      ],
+      "authors": [
+        "Raj Gohil"
+      ]
+    },
+    {
       "id": "2de384f3cf7e1cf8",
       "title": "From Gatekeeper to Strategic Catalyst: How GenAI is Transforming Compliance at PhonePe",
       "url": "https://tech.phonepe.com/from-gatekeeper-to-strategic-catalyst-how-genai-is-transforming-compliance-at-phonepe",
@@ -486,6 +501,58 @@
       ]
     },
     {
+      "id": "128674b606afbc6f",
+      "title": "How Swiggy Saved 3.7 MB by Solving a Vector Drawable Mystery",
+      "url": "https://medium.com/swiggy-bytes/how-swiggy-saved-3-7-mb-by-solving-a-vector-drawable-mystery-d8561877dbca",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-07-10T05:14:55.000Z",
+      "excerpt": "🎭 The Mystery Begins Picture this: You’re a responsible Android developer. You’ve done everything right. You’ve replaced those bulky PNGs with lighter, elegant, scalable SVGs. You’ve patted yourself on the back. You’ve probably even tweeted about it. Then one day, you open the…",
+      "content": "🎭 The Mystery Begins Picture this: You’re a responsible Android developer. You’ve done everything right. You’ve replaced those bulky PNGs with lighter, elegant, scalable SVGs. You’ve patted yourself on the back. You’ve probably even tweeted about it. Then one day, you open the APK Analyzer and see a familiar face staring back at you — a PNG you never invited to the party. The Crime Scene We…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science"
+      ],
+      "authors": [
+        "Shivam Gupta"
+      ]
+    },
+    {
+      "id": "e56598bf5278d53f",
+      "title": "How Swiggy Migrated from protobuf-java to Square Wire",
+      "url": "https://medium.com/swiggy-bytes/how-swiggy-migrated-from-protobuf-java-to-square-wire-e97d435c86d3",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-07-10T05:14:44.000Z",
+      "excerpt": "At Swiggy, we use Protocol Buffers everywhere. Nearly every message exchanged between our backend services and our mobile apps is a protobuf. On Android, the default and most widely adopted way to work with those schemas was protobuf-java, Google’s official Java runtime, with…",
+      "content": "At Swiggy, we use Protocol Buffers everywhere. Nearly every message exchanged between our backend services and our mobile apps is a protobuf. On Android, the default and most widely adopted way to work with those schemas was protobuf-java, Google’s official Java runtime, with Java classes generated by protoc. It worked. But when we started profiling our app size, we found that protobuf-java and…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science"
+      ],
+      "authors": [
+        "Balvinder Gambhir"
+      ]
+    },
+    {
+      "id": "5a78eb0cef7f1f91",
+      "title": "Scaling Android CI: From 44 → 10 minutes — A Deep Dive into Build Time Optimization and Best…",
+      "url": "https://medium.com/swiggy-bytes/scaling-android-ci-from-44-10-minutes-a-deep-dive-into-build-time-optimization-and-best-ff93aec82f05",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-07-10T05:14:38.000Z",
+      "excerpt": "Scaling Android CI: From 44 → 10 minutes — A Deep Dive into Build Time Optimization and Best Practices Android monorepos get expensive and slow as they scale. We re-architected CI/CD caching, trimmed the Gradle graph, tuned the JVM, modernized the toolchain, and finally moved to…",
+      "content": "Scaling Android CI: From 44 → 10 minutes — A Deep Dive into Build Time Optimization and Best Practices Android monorepos get expensive and slow as they scale. We re-architected CI/CD caching, trimmed the Gradle graph, tuned the JVM, modernized the toolchain, and finally moved to Apple Silicon — plus specific configs and numbers you can replicate. Context and Baseline Our CI/CD pipeline started…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science",
+        "mobile"
+      ],
+      "authors": [
+        "Pratik Sahu"
+      ]
+    },
+    {
       "id": "7fb777d653789b1c",
       "title": "Inside Meesho’s Talent Engine: The Real Work Behind Talent Density",
       "url": "https://www.meesho.io/blog/inside-meeshos-talent-engine-the-real-work-behind-talent-density",
@@ -508,9 +575,9 @@
       "title": "Nostalgia, Coupons, and a State Machine: The Swiggy Mother’s Day Story",
       "url": "https://medium.com/swiggy-bytes/nostalgia-coupons-and-a-state-machine-the-swiggy-mothers-day-story-8e9a4df15a8f",
       "sourceId": "swiggy",
-      "publishedAt": "2026-07-09T05:53:56.000Z",
-      "excerpt": "You did something wrong as a kid. You knew you weren’t supposed to. And somewhere in the house, your mom just found out. Continue reading on Swiggy Bytes — Tech Blog »",
-      "content": "You did something wrong as a kid. You knew you weren’t supposed to. And somewhere in the house, your mom just found out. Continue reading on Swiggy Bytes —…",
+      "publishedAt": "2026-07-09T05:53:58.000Z",
+      "excerpt": "You did something wrong as a kid. You knew you weren’t supposed to. And somewhere in the house, your mom just found out. Your heart is going faster than it ever has. You’re calculating exit routes. And then you hear it: the slap of a chappal being picked up. You’ve accepted your…",
+      "content": "You did something wrong as a kid. You knew you weren’t supposed to. And somewhere in the house, your mom just found out. Your heart is going faster than it ever has. You’re calculating exit routes. And then you hear it: the slap of a chappal being picked up. You’ve accepted your fate. You’re bracing for impact. And then it lands. BOOM. Every Indian kid has lived this moment. That cocktail of…",
       "topics": [
         "backend",
         "scale",
@@ -643,24 +710,6 @@
       ]
     },
     {
-      "id": "2fcaa0be7b5837b3",
-      "title": "BrowserStack Newsletter May 2026",
-      "url": "https://www.browserstack.com/blog/browserstack-newsletter-may-2026",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-06-24T04:07:56.000Z",
-      "excerpt": "Read what's new at BrowserStack in May 2026 - New launches, product features, and more!",
-      "content": "What's in this edition Featured Content | Product Updates | Community Updates | BrowserStack Testimonials Featured Content How High-Performing QA Teams Are Adapting To AI [EVENT] The real challenge with AI isn't getting a demo to work. It's building quality workflows that teams can trust in production. At the QA Leadership Summit, engineering leaders and directors share how they're integrating AI…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "product-engineering"
-      ],
-      "authors": [
-        "Devanshi Jain"
-      ]
-    },
-    {
       "id": "a43766ba219e83d8",
       "title": "Building High Availability for Temporal Workflows",
       "url": "https://sharechat.com/blogs/engineering/Building%20High%20Availability%20for%20Temporal%20Workflows",
@@ -694,23 +743,6 @@
       "authors": []
     },
     {
-      "id": "5e62cc6748ddee13",
-      "title": "BrowserStack wins 2026 Top Rated Award from TrustRadius",
-      "url": "https://www.browserstack.com/blog/browserstack-wins-2026-top-rated-award-from-trustradius",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-06-18T08:37:16.000Z",
-      "excerpt": "We are so excited to share that authentic, verified feedback from our customers has earned us a 2026 Top Rated Award by TrustRadius!",
-      "content": "We're delighted to announce that BrowserStack has been recognized with the 2026 TrustRadius Top Rated Award. This marks our fourth consecutive win since 2023! With a trScore of 8.4 out of 10 and more than 260…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile"
-      ],
-      "authors": [
-        "BrowserStack Team"
-      ]
-    },
-    {
       "id": "4d5b2b957ad0a3ac",
       "title": "MetaStealer traffic, new DGAs and analyzing the “tracker” backdoor DGA with AI",
       "url": "https://medium.com/walmartglobaltech/metastealer-traffic-new-dgas-and-analyzing-the-tracker-backdoor-dga-with-ai-96ea63dc7c01",
@@ -728,20 +760,20 @@
       ]
     },
     {
-      "id": "9fe57866620bf20b",
-      "title": "#EngineeringIntelligence: How Women at BrowserStack are Redefining the AI-Augmented Engineering Era | INWED 2026",
-      "url": "https://www.browserstack.com/blog/engineeringintelligence-how-women-at-browserstack-are-redefining-the-ai-augmented-engineering-era-inwed-2026",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-06-17T12:40:50.000Z",
-      "excerpt": "This year, under the theme #EngineeringIntelligence, we are shining a spotlight on a powerful shift already happening across our teams: how women in tech are embedding artificial intelligence into their daily workflows as a core multiplier.",
-      "content": "On International Women in Engineering Day, the global tech community comes together to celebrate the problem-solvers, builders, and innovators shaping our digital world. This year, under the theme #EngineeringIntelligence, we are shining a spotlight on a powerful shift already happening across our teams: how women in tech are embedding artificial intelligence into their daily workflows as a core…",
+      "id": "ded266216072160b",
+      "title": "Building Production-Scale Visual AI for Claims and Returns at Swiggy Instamart",
+      "url": "https://medium.com/swiggy-bytes/building-production-scale-visual-ai-for-claims-and-returns-at-swiggy-instamart-a0918a0abf28",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-06-16T03:53:42.000Z",
+      "excerpt": "Introduction If you have ever filed a complaint on an e-commerce app — uploaded a photo of a damaged packet, reported a wrong item, or flagged an expired product — you were probably expecting a quick, fair resolution. You were not thinking about what happens on the other side.…",
+      "content": "Introduction If you have ever filed a complaint on an e-commerce app — uploaded a photo of a damaged packet, reported a wrong item, or flagged an expired product — you were probably expecting a quick, fair resolution. You were not thinking about what happens on the other side. But at scale, every wrong call on the other side either costs the business money or costs the customer their trust, and…",
       "topics": [
-        "platform",
-        "devops-sre",
-        "mobile"
+        "backend",
+        "scale",
+        "data-science"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Harshit Juneja"
       ]
     },
     {
@@ -835,24 +867,6 @@
       ]
     },
     {
-      "id": "da9f7c3c01cedcce",
-      "title": "Breakpoint 2026: Highlights from Day 3",
-      "url": "https://www.browserstack.com/blog/breakpoint-2026-highlights-from-day-3",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-06-02T13:03:05.000Z",
-      "excerpt": "All sessions, masterclasses, and lightning talks from Breakpoint 2026 Day 3, covering AI agent testing, test automation with LangChain and CrewAI, MCP-powered QA workflows, Playwright network interception, non-deterministic testing, and building production-grade AI systems.",
-      "content": "Day 3 of Breakpoint 2026 was built for execution. After two days of keynotes, debates, and product launches, the final day gave engineers and QA practitioners the technical blueprints to act on what they had heard. Two intensive masterclasses ran across the morning. Fourteen lightning talks ran alongside them, ten minutes each, practitioner to practitioner, covering everything from building…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "infrastructure"
-      ],
-      "authors": [
-        "Shweta Chhillar"
-      ]
-    },
-    {
       "id": "610ab87770c612c7",
       "title": "Goodbye ClickOps: Building GCP Load Balancers the Kube-Native Way",
       "url": "https://tech.groww.in/goodbye-clickops-building-gcp-load-balancers-the-kube-native-way-4fe1a5fa85f9",
@@ -887,41 +901,6 @@
       ]
     },
     {
-      "id": "bbaa7657026a1ad6",
-      "title": "Breakpoint 2026: Highlights from Day 2",
-      "url": "https://www.browserstack.com/blog/breakpoint-2026-highlights-from-day-2",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-06-01T11:42:52.000Z",
-      "excerpt": "Explore all sessions, speaker talks, and announcements from Breakpoint 2026 Day 2, covering AI in software testing, the future of test engineering, human-AI collaboration in QA, API testing with AI code assistants, accessibility, and sustaining quality in AI-driven systems.",
-      "content": "Day 2 of Breakpoint 2026 moved from concept to proof. Where Day 1 made the argument for AI-native quality engineering, Day 2 ran the benchmarks. Speakers from KPMG, UST, Capco, Microsoft, and CGI spent the day testing the uncomfortable questions — whether traditional test engineering still has a future, what AI actually changes in day-to-day QA work, and how teams sustain quality when building…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "backend"
-      ],
-      "authors": [
-        "Shweta Chhillar"
-      ]
-    },
-    {
-      "id": "85a1e034a91a8d4b",
-      "title": "Breakpoint 2026: Highlights from Day 1",
-      "url": "https://www.browserstack.com/blog/breakpoint-2026-highlights-from-day-1",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-06-01T09:25:38.000Z",
-      "excerpt": "Explore the biggest announcements, expert insights, and conversations from Breakpoint 2026 Day 1, covering AI in software testing, test automation, developer productivity, accessibility testing, and the future of intelligent testing workflows.",
-      "content": "Breakpoint 2026 opened on 12 May 2026 with an argument the QA community has been building toward for years: the speed-versus-quality trade-off in software testing is no longer a real constraint. Across the first day's keynotes, product launches, and fireside chats, engineering leaders from NVIDIA, Mastercard, Teladoc Health, Microsoft, Motorola Solutions, and Genpact made the same case from…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile"
-      ],
-      "authors": [
-        "Shweta Chhillar"
-      ]
-    },
-    {
       "id": "bc280c57b8f8b21f",
       "title": "AI Agents Take Autonomous Actions: Leveraging Apps through Marketplace MCP Gateway",
       "url": "https://medium.com/freshworks-engineering-blog/ai-agents-take-autonomous-actions-leveraging-apps-through-marketplace-mcp-gateway-93dbc408f87b",
@@ -936,6 +915,41 @@
       ],
       "authors": [
         "Freshworks Engineering"
+      ]
+    },
+    {
+      "id": "4c10ddad9cfc1046",
+      "title": "From Rigid Rules to Empathetic Agents: Rebuilding Swiggy’s Order Cancellation Experience with LLMs",
+      "url": "https://medium.com/swiggy-bytes/from-rigid-rules-to-empathetic-agents-rebuilding-swiggys-order-cancellation-experience-with-llms-6ab01cca1c08",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-05-29T11:34:08.000Z",
+      "excerpt": "IWTCIntroduction If you have ever typed “I want to cancel my order” into a support chat, you were probably not looking for a workflow. You were looking for clarity, speed, and some assurance that the platform understood what had gone wrong. At Swiggy, this seemingly simple…",
+      "content": "IWTCIntroduction If you have ever typed “I want to cancel my order” into a support chat, you were probably not looking for a workflow. You were looking for clarity, speed, and some assurance that the platform understood what had gone wrong. At Swiggy, this seemingly simple interaction sits at the intersection of multiple live systems and stakeholders: a customer waiting for resolution, a…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science"
+      ],
+      "authors": [
+        "Aishwary Yadav"
+      ]
+    },
+    {
+      "id": "01e983f0a961aade",
+      "title": "Explaining Every Rupee: How We Built Reliable LLM Support Bots for Delivery Partners",
+      "url": "https://medium.com/swiggy-bytes/explaining-every-rupee-how-we-built-reliable-llm-support-bots-for-delivery-partners-066c4f23e875",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-05-29T11:28:48.000Z",
+      "excerpt": "The Problem A Delivery Executive (DE) finishes their day, opens the app, and expects a clear breakdown of what they earned. Instead, they often see a payout that does not fully match their expectations — an incentive missing, a deduction they do not recognise, or a credited…",
+      "content": "The Problem A Delivery Executive (DE) finishes their day, opens the app, and expects a clear breakdown of what they earned. Instead, they often see a payout that does not fully match their expectations — an incentive missing, a deduction they do not recognise, or a credited amount lower than what they had mentally calculated. At Swiggy, these seemingly simple questions translated into a massive…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science",
+        "ai-ml"
+      ],
+      "authors": [
+        "Yash Khandelwal"
       ]
     },
     {
@@ -989,24 +1003,6 @@
       ],
       "authors": [
         "Meesho"
-      ]
-    },
-    {
-      "id": "f1e43c12fb187092",
-      "title": "BrowserStack Newsletter April 2026",
-      "url": "https://www.browserstack.com/blog/browserstack-newsletter-april-2026",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-05-26T10:50:54.000Z",
-      "excerpt": "Read what's new at BrowserStack in April 2026 - New launches, product features, and more!",
-      "content": "What's in this edition Featured Content | Product Updates | Community Updates | BrowserStack Testimonials Featured Content Breakpoint 2026: 50,000+ Attendees, 75+ Experts — Now On Demand [EVENT RECAP] One question ran through every session at Breakpoint 2026: what does AI-driven testing look like when it's working? Selenium founder Jason Huggins, KPMG's Keith Klain, and 70+ speakers answered from…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "product-engineering"
-      ],
-      "authors": [
-        "Devanshi Jain"
       ]
     },
     {
@@ -1222,41 +1218,6 @@
       "authors": []
     },
     {
-      "id": "0360983b5b3a2acc",
-      "title": "Breakpoint 2026 Speaker Spotlight: Andrew Knight",
-      "url": "https://www.browserstack.com/blog/breakpoint-2026-speaker-spotlight-andrew-knight",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-05-08T10:14:54.000Z",
-      "excerpt": "Explore how Andrew Knight is using AI, behavior-driven development, and context engineering to reshape enterprise software testing at BrowserStack Breakpoint 2026. This speaker spotlight dives into AI-powered QA, test automation, and the future of modern quality engineering.",
-      "content": "Most testing practitioners pick a side: open-source community work or enterprise platform building. Andrew Knight, Senior Director of Product Management at Cycle Labs, has spent his career refusing to. He builds enterprise automation platforms by day and stays one of the most visible open-source advocates in the testing community in the hours around it. The two…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile"
-      ],
-      "authors": [
-        "Shweta Chhillar"
-      ]
-    },
-    {
-      "id": "2fd16b300c4a2dec",
-      "title": "Breakpoint 2026 Speaker Spotlight: Julio de Lima",
-      "url": "https://www.browserstack.com/blog/breakpoint-2026-speaker-spotlight-julio-de-lima",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-05-07T08:42:40.000Z",
-      "excerpt": "Learn how Julio de Lima is using AI to transform software testing workflows at BrowserStack Breakpoint 2026. From API automation to responsible AI in QA, this speaker spotlight shares practical insights for modern testers and quality engineers.",
-      "content": "Our Breakpoint 2026 speaker spotlight series continues with Julio de Lima, QA Manager at Capco. By day, Julio leads QA at one of the world's largest tech consultancies. Outside business hours, he runs a YouTube channel teaching software testing to the Brazilian community and delivers tutorials at major industry events. He's been studying AI in testing since 2018, when he started his master's…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "backend"
-      ],
-      "authors": [
-        "Shweta Chhillar"
-      ]
-    },
-    {
       "id": "534d8900db0c50b2",
       "title": "Teaching a Machine to Read Indian Addresses: How We Built GeoIndia",
       "url": "https://www.meesho.io/blog/teaching-a-machine-to-read-indian-addresses-how-we-built-geoindia-2",
@@ -1272,24 +1233,6 @@
       ],
       "authors": [
         "Meesho"
-      ]
-    },
-    {
-      "id": "deaafd77aa972487",
-      "title": "Breakpoint 2026 Speaker Spotlight: Keith Klain",
-      "url": "https://www.browserstack.com/blog/breakpoint-2026-speaker-spotlight-keith-klain",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-05-06T06:14:24.000Z",
-      "excerpt": "Explore Keith Klain’s take on AI-first testing, risk-based quality engineering, and the future of test automation ahead of his Breakpoint 2026 session at BrowserStack’s global testing summit.",
-      "content": "Our Breakpoint 2026 speaker spotlight series continues with Keith Klain, Director of Quality Engineering at KPMG. Keith brings something the testing industry doesn't get enough of these days: 25+ years of pattern recognition. He's seen which \"next big things\" actually delivered, which ones quietly disappeared, and what it costs to bet on the wrong one. Most of his career has been inside the…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "security"
-      ],
-      "authors": [
-        "Shweta Chhillar"
       ]
     },
     {
@@ -1343,41 +1286,6 @@
       ],
       "authors": [
         "Meesho"
-      ]
-    },
-    {
-      "id": "1e75e2afe708f65b",
-      "title": "Breakpoint 2026 Speaker Spotlight: Brittany Stewart",
-      "url": "https://www.browserstack.com/blog/breakpoint-2026-speaker-spotlight-brittany-stewart",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-04-29T09:27:26.000Z",
-      "excerpt": "What happens when a designer becomes a QA engineer, and then builds a framework for how humans and AI should actually work together? Brittany Stewart, Senior QA Specialist at QualityWorks Consulting Group, shares her honest take ahead of Breakpoint 2026.",
-      "content": "Our Breakpoint 2026 speaker spotlight series continues with Brittany Stewart, Senior QA Specialist and Engineer at QualityWorks Consulting Group. Brittany brings a perspective you don't often see in this space: she came into testing through design, and that crossover shapes everything about how she works. She's spoken at TestBash World, SauceCon, and Agile Testing Days 2025 (where her session…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile"
-      ],
-      "authors": [
-        "Shweta Chhillar"
-      ]
-    },
-    {
-      "id": "c1de55e590a14e50",
-      "title": "BrowserStack Newsletter March 2026",
-      "url": "https://www.browserstack.com/blog/browserstack-newsletter-march-2026",
-      "sourceId": "browserstack",
-      "publishedAt": "2026-04-29T08:01:35.000Z",
-      "excerpt": "Read what's new at BrowserStack in March 2026 - New launches, product features, and more!",
-      "content": "What's in this edition Featured Content | Product Updates | Community Updates | BrowserStack Testimonials Featured Content Breakpoint 2026: The Playbook for AI-Driven Testing Is Being Written Right Now [EVENT] Most QA teams are navigating AI-driven testing without a clear roadmap. Breakpoint 2026 is where that changes — Selenium founder Jason Huggins, KPMG's Keith Klain, Ashley Hunsberger, and…",
-      "topics": [
-        "platform",
-        "devops-sre",
-        "mobile",
-        "product-engineering"
-      ],
-      "authors": [
-        "Devanshi Jain"
       ]
     },
     {
@@ -2501,39 +2409,6 @@
       ]
     },
     {
-      "id": "75b7b50163202689",
-      "title": "Swiggy: How Did We Reduced Required Instances by up to 40% for Running Event Ingestion Service at…",
-      "url": "https://maze-runner.medium.com/how-we-reduced-required-instances-by-up-to-40-for-running-event-ingestion-service-at-swiggy-983395e8dbee",
-      "sourceId": "swiggy",
-      "publishedAt": "2025-10-15T13:59:56.000Z",
-      "excerpt": "Swiggy’s Event Sink ingests up to 1 million events per second — delivering everything from order analytics to logistics signals. With high… Continue reading on Medium »",
-      "content": "Swiggy’s Event Sink ingests up to 1 million events per second — delivering everything from order analytics to logistics signals. With high… Continue reading on…",
-      "topics": [
-        "backend",
-        "scale",
-        "data-science"
-      ],
-      "authors": [
-        "Sundaram Dubey"
-      ]
-    },
-    {
-      "id": "9af54df24dd0c462",
-      "title": "Introducing XtraBoost: The smarter way to make your money work harder",
-      "url": "https://life.jupiter.money/introducing-xtraboost-the-smarter-way-to-make-your-money-work-harder-ef034a4cffda",
-      "sourceId": "jupiter",
-      "publishedAt": "2025-10-13T14:17:02.000Z",
-      "excerpt": "For years, we’ve all done the same thing — parked our extra cash in a savings account. For rent. For bills. For “just in case.” It’s safe. It’s familiar. It’s easy. But here’s the quiet truth: it doesn’t grow. While our lives move faster than ever, our money just… waits. Most…",
-      "content": "For years, we’ve all done the same thing — parked our extra cash in a savings account. For rent. For bills. For “just in case.” It’s safe. It’s familiar. It’s easy. But here’s the quiet truth: it doesn’t grow. While our lives move faster than ever, our money just… waits. Most savings accounts earn barely 2.75%, while…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "Jitender Singh"
-      ]
-    },
-    {
       "id": "409fb454dc7631c6",
       "title": "How we achieved 40% cloud cost reduction with Dragonfly Cloud",
       "url": "https://sharechat.com/blogs/engineering/how-we-achieved-40-cloud-cost-reduction-with-dragonfly-cloud",
@@ -2718,23 +2593,6 @@
       ]
     },
     {
-      "id": "3a02f5c53068c4e1",
-      "title": "The Swiggy Bug: How a Funny Glitch is Making Delivery Boys Suffer",
-      "url": "https://medium.com/@venkatsaireddy1234/the-swiggy-bug-how-a-funny-glitch-is-making-delivery-boys-suffer-2b9539f350df",
-      "sourceId": "swiggy",
-      "publishedAt": "2025-08-01T17:56:23.000Z",
-      "excerpt": "There’s an interesting, funny, yet serious production bug going on at Swiggy. Almost nobody knows about it — unless you are a regular… Continue reading on Medium »",
-      "content": "There’s an interesting, funny, yet serious production bug going on at Swiggy. Almost nobody knows about it — unless you are a regular… Continue reading on…",
-      "topics": [
-        "backend",
-        "scale",
-        "data-science"
-      ],
-      "authors": [
-        "Venkat Sai Reddy"
-      ]
-    },
-    {
       "id": "ba80dadc85edf88d",
       "title": "Revealing the Hidden Links: How We Break Down Complex Fraud Networks",
       "url": "https://www.meesho.io/blog/revealing-the-hidden-links-how-we-break-down-complex-fraud-networks",
@@ -2900,24 +2758,6 @@
       ]
     },
     {
-      "id": "9caffe90633144d8",
-      "title": "Introducing the Swiggy Clone App: Your Go-To Source for Food Delivery",
-      "url": "https://medium.com/@chirag.dave/introducing-the-swiggy-clone-app-your-go-to-source-for-food-delivery-aa9bc878c61b",
-      "sourceId": "swiggy",
-      "publishedAt": "2025-06-16T12:05:11.000Z",
-      "excerpt": "The food delivery industry has witnessed explosive growth, driven by evolving consumer habits and the convenience of on-demand services. Continue reading on Medium »",
-      "content": "The food delivery industry has witnessed explosive growth, driven by evolving consumer habits and the convenience of on-demand services. Continue reading on…",
-      "topics": [
-        "backend",
-        "scale",
-        "data-science",
-        "product-engineering"
-      ],
-      "authors": [
-        "Chirag Dave"
-      ]
-    },
-    {
       "id": "f12b7ccd58ba8251",
       "title": "Building Meesho’s ML Platform: From Chaos to Cutting-Edge (Part 1)",
       "url": "https://www.meesho.io/blog/building-meeshos-ml-platform-from-chaos-to-cutting-edge-part-1",
@@ -2989,23 +2829,6 @@
         "backend",
         "scale",
         "mobile"
-      ],
-      "authors": [
-        "Muktha Tavane"
-      ]
-    },
-    {
-      "id": "a1eff305f42d430b",
-      "title": "Introducing PhonePe 3.0: Reimagining Financial Empowerment for Every Indian",
-      "url": "https://tech.phonepe.com/introducing-phonepe-3-0-reimagining-financial-empowerment-for-every-indian",
-      "sourceId": "phonepe",
-      "publishedAt": "2025-04-22T06:43:18.000Z",
-      "excerpt": "At PhonePe, our journey began with a simple belief – that digital technology could fundamentally change how Indians interact with money, making payments simple and accessible for everyone. Seeing hundreds of millions of Indians embrace PhonePe has been a powerful validation of…",
-      "content": "At PhonePe, our journey began with a simple belief – that digital technology could fundamentally change how Indians interact with money, making payments simple…",
-      "topics": [
-        "fintech-payments",
-        "backend",
-        "scale"
       ],
       "authors": [
         "Muktha Tavane"
@@ -3406,23 +3229,6 @@
       ],
       "authors": [
         "Praveen Durairaju"
-      ]
-    },
-    {
-      "id": "23ec581932020230",
-      "title": "Central Platforms: Building Blocks for the PhonePe Group",
-      "url": "https://tech.phonepe.com/central-platforms-building-blocks-for-the-phonepe-group",
-      "sourceId": "phonepe",
-      "publishedAt": "2025-01-13T04:05:33.000Z",
-      "excerpt": "Imagine a world where building a consumer internet business is like assembling a Lego set – accessible components readily available, snapping together to form something exciting and new. The rise of open-source software and hosted pay-as-you-go business solutions have brought us…",
-      "content": "Imagine a world where building a consumer internet business is like assembling a Lego set – accessible components readily available, snapping together to form…",
-      "topics": [
-        "fintech-payments",
-        "backend",
-        "scale"
-      ],
-      "authors": [
-        "Muktha Tavane"
       ]
     },
     {
@@ -4170,25 +3976,6 @@
       ]
     },
     {
-      "id": "0a718647c3afb741",
-      "title": "Rollup: Managing 300 Billion Daily Metrics at PhonePe",
-      "url": "https://tech.phonepe.com/rollup-managing-300-billion-daily-metrics-at-phonepe",
-      "sourceId": "phonepe",
-      "publishedAt": "2024-07-02T01:00:49.000Z",
-      "excerpt": "Have you ever experienced an abrupt service shutdown in production due to the inability to monitor CPU utilization and memory spikes post-deployment? If so, you understand the critical importance of service metrics monitoring.",
-      "content": "Have you ever experienced an abrupt service shutdown in production due to the inability to monitor CPU utilization and memory spikes post-deployment? If so,…",
-      "topics": [
-        "fintech-payments",
-        "backend",
-        "scale",
-        "engineering",
-        "devops-sre"
-      ],
-      "authors": [
-        "Sampurna Mitra"
-      ]
-    },
-    {
       "id": "1dea53926dcbd590",
       "title": "A look inside Community Engineering at Hasura",
       "url": "https://hasura.io/blog/a-look-inside-community-engineering-at-hasura",
@@ -4343,118 +4130,6 @@
       ],
       "authors": [
         "Sampurna Mitra"
-      ]
-    },
-    {
-      "id": "49da9fac8e5f2c45",
-      "title": "Transparency over Everything",
-      "url": "https://life.jupiter.money/be-on-the-users-side-60e39fadbb90",
-      "sourceId": "jupiter",
-      "publishedAt": "2024-05-28T12:21:27.000Z",
-      "excerpt": "Designing India’s Most Loved Financial App — Part 6/6 As a financial wellness app, we know that money is extremely personal. People find it hard to talk about and harder to trust others with their money. That’s why one of our primary goals is to build trust, promise…",
-      "content": "Designing India’s Most Loved Financial App — Part 6/6 As a financial wellness app, we know that money is extremely personal. People find it hard to talk about and harder to trust others with their money. That’s why one of our primary goals is to build trust, promise transparency, and stand by it. All our…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "Heramb Khanvilkar"
-      ]
-    },
-    {
-      "id": "11b60832b63c7f77",
-      "title": "Think Like Marketers",
-      "url": "https://life.jupiter.money/think-like-marketers-1cb26cebac16",
-      "sourceId": "jupiter",
-      "publishedAt": "2024-05-28T12:19:35.000Z",
-      "excerpt": "Designing India’s Most Loved Financial App — Part 5/6 In May 2024, we launched the redesigned New User Experience Journey (NUX), which offered a simpler and more intuitive experience for users as they signed up for Jupiter, India’s most-loved financial wellness app. The result —…",
-      "content": "Designing India’s Most Loved Financial App — Part 5/6 In May 2024, we launched the redesigned New User Experience Journey (NUX), which offered a simpler and more intuitive experience for users as they signed up for Jupiter, India’s most-loved financial wellness app. The result — redesigning the onboarding experience, we got 1.5x more users to create an account on Jupiter So how did we achieve…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "Shriya Paranjpe"
-      ]
-    },
-    {
-      "id": "75ffcca7edb60537",
-      "title": "Be Bold and Confident",
-      "url": "https://life.jupiter.money/be-bold-and-confident-cfbca73ba624",
-      "sourceId": "jupiter",
-      "publishedAt": "2024-05-28T12:19:01.000Z",
-      "excerpt": "Designing India’s Most Loved Financial App — Part 4/6 At Jupiter, we want to improve people’s financial wellness by making mobile banking and personal finance management as simple as possible. To achieve this, our user experience has to be transparent and intuitive, inspiring…",
-      "content": "Designing India’s Most Loved Financial App — Part 4/6 At Jupiter, we want to improve people’s financial wellness by making mobile banking and personal finance management as simple as possible. To achieve this, our user experience has to be transparent and intuitive, inspiring…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "Pooja Metkar"
-      ]
-    },
-    {
-      "id": "b5e4bdadc4dede30",
-      "title": "Let there be Delight",
-      "url": "https://life.jupiter.money/let-there-be-delight-2854e8ad5f57",
-      "sourceId": "jupiter",
-      "publishedAt": "2024-05-28T12:18:23.000Z",
-      "excerpt": "Designing India’s Most Loved Financial App — Part 3/6 In the world of fintech, where everything is fast-paced, efficiency and functionality are often the most important principles, and rightly so. But this sometimes leads to user delight taking the backseat. The success of an…",
-      "content": "Designing India’s Most Loved Financial App — Part 3/6 In the world of fintech, where everything is fast-paced, efficiency and functionality are often the most important principles, and rightly so. But this sometimes leads to user delight taking the backseat. The success of an app doesn’t just lie in providing a service; it also lies in creating an experience that the user is able to connect with…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "Arif"
-      ]
-    },
-    {
-      "id": "c39424cf2f5018f0",
-      "title": "Design for Humans.",
-      "url": "https://life.jupiter.money/design-for-humans-3003a994faf1",
-      "sourceId": "jupiter",
-      "publishedAt": "2024-05-28T12:17:43.000Z",
-      "excerpt": "Designing India’s Most Loved Financial App — Part 2/6 Real users, Real data, Real problems, Real solutions! We at Jupiter are obsessed with quality and customer satisfaction. We know that ultimately we are building for real users and whatever we deliver needs to not just be…",
-      "content": "Designing India’s Most Loved Financial App — Part 2/6 Real users, Real data, Real problems, Real solutions! We at Jupiter are obsessed with quality and customer satisfaction. We know that ultimately we are building for real users and whatever we deliver needs to not just be perfectly usable, but bring delight and value to the user. At its core, user centricity embodies the philosophy of placing…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "vrishti jain"
-      ]
-    },
-    {
-      "id": "59f09530cf9ed22b",
-      "title": "Put Numbers in the Spotlight",
-      "url": "https://life.jupiter.money/put-numbers-in-the-spotlight-2ff555e71d1a",
-      "sourceId": "jupiter",
-      "publishedAt": "2024-05-28T12:14:15.000Z",
-      "excerpt": "Put Numbers in the spotlight Designing India’s Most Loved Financial App — Part 1/6 Bank balances. Investments. Credit limit. Monthly expenses. Each of these numbers makes us feel something — proud, anxious, confused, or confident. And how we feel about these numbers changes as…",
-      "content": "Put Numbers in the spotlight Designing India’s Most Loved Financial App — Part 1/6 Bank balances. Investments. Credit limit. Monthly expenses. Each of these numbers makes us feel something — proud, anxious, confused, or confident. And how we feel about these numbers changes as the month progresses. At Jupiter, numbers are at the heart of everything we do. That’s why while redesigning the app, we…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "Akshay kumawat"
-      ]
-    },
-    {
-      "id": "4405c6840effd965",
-      "title": "Design Principles at Jupiter",
-      "url": "https://life.jupiter.money/design-principles-at-jupiter-f783457c976d",
-      "sourceId": "jupiter",
-      "publishedAt": "2024-05-28T12:10:47.000Z",
-      "excerpt": "Designing India’s Most Loved Financial App Money can be intimidating. Often, anything related to banking and finance just feels like a task. We spend so much time thinking about money, yet managing it feels impersonal. We knew that to create the most-loved money management…",
-      "content": "Designing India’s Most Loved Financial App Money can be intimidating. Often, anything related to banking and finance just feels like a task. We spend so much time thinking about money, yet managing it feels impersonal. We knew that to create the most-loved money management experience, every feature must be personalized, easy to use, and help the user remove the stress, fear, and anxiety that come…",
-      "topics": [
-        "fintech-payments",
-        "data-science"
-      ],
-      "authors": [
-        "Aayush Jain"
       ]
     },
     {
@@ -4943,23 +4618,6 @@
       ],
       "authors": [
         "Muktha Tavane"
-      ]
-    },
-    {
-      "id": "663ba55b6591d3a1",
-      "title": "How To Onboard My Restaurant On Swiggy?",
-      "url": "https://medium.com/@bispendra1.suren/how-to-onboard-my-restaurant-on-swiggy-198c09947348",
-      "sourceId": "swiggy",
-      "publishedAt": "2024-03-08T08:15:40.000Z",
-      "excerpt": "Introduction Continue reading on Medium »",
-      "content": "Introduction Continue reading on Medium »",
-      "topics": [
-        "backend",
-        "scale",
-        "data-science"
-      ],
-      "authors": [
-        "Bispendra Suren1"
       ]
     },
     {
@@ -13946,24 +13604,6 @@
       ]
     },
     {
-      "id": "c76255186a5429ca",
-      "title": "Meet Radhika Tamvada, Product Head for Mutual Funds",
-      "url": "https://tech.phonepe.com/its-all-about-the-money",
-      "sourceId": "phonepe",
-      "publishedAt": "2019-09-24T00:33:56.000Z",
-      "excerpt": "It’s all about the money! With over 12 years of hands-on experience in building consumer products, Radhika led the launch of Tax Saving Funds at PhonePe – our first big leap in the Financial Services space. Prior to this, she was heading the Personalisation and Recommendations…",
-      "content": "It’s all about the money! With over 12 years of hands-on experience in building consumer products, Radhika led the launch of Tax Saving Funds at PhonePe – our…",
-      "topics": [
-        "fintech-payments",
-        "backend",
-        "scale",
-        "product-engineering"
-      ],
-      "authors": [
-        "sankalp.singh"
-      ]
-    },
-    {
       "id": "12f1eec630688614",
       "title": "Building a serverless Nuxt app using GraphQL and Hasura Remote Joins",
       "url": "https://hasura.io/blog/building-serverless-nuxt-app-graphql-hasura-remote-joins",
@@ -14189,23 +13829,6 @@
       ],
       "authors": [
         "Praveen Durairaju"
-      ]
-    },
-    {
-      "id": "bfc2c9c6f842d5f3",
-      "title": "Meet Vivek Soneja, Architect behind “Apps” on PhonePe",
-      "url": "https://tech.phonepe.com/meet-vivek-soneja",
-      "sourceId": "phonepe",
-      "publishedAt": "2019-08-05T08:27:48.000Z",
-      "excerpt": "“Mobile apps were just getting popular when I was in college back in 2008. I was lucky to get introduced to app development during a workshop. It felt like magic to learn how we could program everyday devices. Programming, I realised was a mix of all the things I liked; science,…",
-      "content": "“Mobile apps were just getting popular when I was in college back in 2008. I was lucky to get introduced to app development during a workshop. It felt like…",
-      "topics": [
-        "fintech-payments",
-        "backend",
-        "scale"
-      ],
-      "authors": [
-        "sankalp.singh"
       ]
     },
     {
@@ -14470,23 +14093,6 @@
       ],
       "authors": [
         "Sandip"
-      ]
-    },
-    {
-      "id": "9716d7f5addb5093",
-      "title": "Meet Santanu Sinha, Architect behind PhonePe’s central processing system",
-      "url": "https://tech.phonepe.com/meet-santanu-sinha-the-architect-behind-phonepes-central-processing-system",
-      "sourceId": "phonepe",
-      "publishedAt": "2019-06-07T06:22:05.000Z",
-      "excerpt": "Santanu loves scale! The whizz architect builds systems that can handle tens of thousands of requests per second. At PhonePe, he has built the central transaction processing system – and this is not his first rodeo! Having contributed to ebooks systems and the event storage…",
-      "content": "Santanu loves scale! The whizz architect builds systems that can handle tens of thousands of requests per second. At PhonePe, he has built the central…",
-      "topics": [
-        "fintech-payments",
-        "backend",
-        "scale"
-      ],
-      "authors": [
-        "sankalp.singh"
       ]
     },
     {

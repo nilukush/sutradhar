@@ -35,4 +35,26 @@ describe("source registry", () => {
       expect(meesho.feed.urlRewrite?.[1]).toBe("https://www.meesho.io/blog/");
     }
   });
+
+  it("tracks swiggy via the Swiggy Bytes publication feed, not the tag feed", () => {
+    const swiggy = SOURCES.find((s) => s.id === "swiggy");
+    expect(swiggy?.siteUrl).toBe("https://medium.com/swiggy-bytes");
+    if (swiggy?.feed.type === "rss") {
+      expect(swiggy.feed.url).toBe("https://medium.com/feed/swiggy-bytes");
+    }
+    // The tag feed aggregated third-party interview-prep/PM posts — keep it out.
+    expect(JSON.stringify(swiggy?.feed)).not.toContain("/feed/tag/");
+  });
+
+  it("applies engineering-only category exclusions to mixed-content feeds", () => {
+    const denylistOf = (id: string): string[] | undefined => {
+      const s = SOURCES.find((x) => x.id === id);
+      return s && (s.feed.type === "rss" || s.feed.type === "atom") ? s.feed.excludeCategories : undefined;
+    };
+    expect(denylistOf("browserstack")).toContain("Newsletter");
+    expect(denylistOf("phonepe")).toEqual(expect.arrayContaining(["Product", "People Stories"]));
+    expect(denylistOf("jupiter")).toEqual(expect.arrayContaining(["product-design", "ux", "ui"]));
+    // Mixed + effectively no engineering output → dormant (display flag).
+    expect(SOURCES.find((s) => s.id === "jupiter")?.dormant).toBe(true);
+  });
 });

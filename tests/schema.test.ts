@@ -48,6 +48,36 @@ describe("SourceSchema", () => {
     expect(SourceSchema.safeParse(s).success).toBe(false);
   });
 
+  it("accepts an optional excludeCategories denylist on rss and atom feeds", () => {
+    const rss = SourceSchema.safeParse({
+      ...validSource,
+      feed: { type: "rss", url: "https://a.io/feed", excludeCategories: ["Newsletter"] },
+    });
+    expect(rss.success).toBe(true);
+    if (rss.success) expect(rss.data.feed).toMatchObject({ excludeCategories: ["Newsletter"] });
+
+    const atom = SourceSchema.safeParse({
+      ...validSource,
+      feed: { type: "atom", url: "https://a.io/atom.xml", excludeCategories: ["Newsletter"] },
+    });
+    expect(atom.success).toBe(true);
+  });
+
+  it("rejects an empty or entry-less excludeCategories array", () => {
+    expect(
+      SourceSchema.safeParse({
+        ...validSource,
+        feed: { type: "rss", url: "https://a.io/feed", excludeCategories: [] },
+      }).success,
+    ).toBe(false);
+    expect(
+      SourceSchema.safeParse({
+        ...validSource,
+        feed: { type: "rss", url: "https://a.io/feed", excludeCategories: [""] },
+      }).success,
+    ).toBe(false);
+  });
+
   it("rejects malformed ids and urls", () => {
     expect(SourceSchema.safeParse({ ...validSource, id: "PhonePe!" }).success).toBe(false);
     expect(SourceSchema.safeParse({ ...validSource, siteUrl: "notaurl" }).success).toBe(false);
