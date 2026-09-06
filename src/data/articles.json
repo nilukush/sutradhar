@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T12:20:04.452Z",
+  "generatedAt": "2026-09-06T06:04:14.860Z",
   "articles": [
     {
       "id": "921cf539c2bc4d36",
@@ -17077,14 +17077,13 @@
       "url": "https://zerodha.tech/projects",
       "sourceId": "zerodha",
       "publishedAt": "2001-01-01T00:00:00.000Z",
-      "excerpt": "Apps oore.build ★ 27 Rust Self-hosted, Flutter-first mobile CI and internal app distribution platform. MIT License Last updated on August 29, 2026 libredesk ★ 2856 Go Open-source, self-hosted customer support desk in a single binary. A lightweight alternative to Intercom,…",
-      "content": "Apps oore.build ★ 27 Rust Self-hosted, Flutter-first mobile CI and internal app distribution platform. MIT License Last updated on August 29, 2026 libredesk ★…",
+      "excerpt": "Apps listmonk ★ 23281 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General Public License v3.0 Last updated on September 6, 2026 libredesk ★ 2880 Go Open-source, self-hosted customer support desk in…",
+      "content": "Apps listmonk ★ 23281 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General…",
       "topics": [
         "fintech-payments",
         "backend",
         "scale",
-        "mobile",
-        "platform"
+        "data-science"
       ],
       "authors": []
     },
