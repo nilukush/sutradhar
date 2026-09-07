@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-06T06:04:14.860Z",
+  "generatedAt": "2026-09-07T10:30:10.156Z",
   "articles": [
+    {
+      "id": "01d5562804a8f40f",
+      "title": "Five Years of Kafka at Razorpay’s UPI Switch",
+      "url": "https://engineering.razorpay.com/tryst-with-kafka-2f5cef766c45",
+      "sourceId": "razorpay",
+      "publishedAt": "2026-09-07T09:09:58.000Z",
+      "excerpt": "Preface The UPI Switch at Razorpay has evolved significantly in the five years since we started building it. The Switch is the platform that enables real-time payment processing with NPCI. When the team began, it was little more than an idea. Today it powers more than 70% of…",
+      "content": "Preface The UPI Switch at Razorpay has evolved significantly in the five years since we started building it. The Switch is the platform that enables real-time payment processing with NPCI. When the team began, it was little more than an idea. Today it powers more than 70% of Razorpay’s total UPI volume. Because UPI is inherently asynchronous, a messaging system sits at the heart of the Switch and…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science"
+      ],
+      "authors": [
+        "Kshitij Nawandar"
+      ]
+    },
     {
       "id": "921cf539c2bc4d36",
       "title": "The Meesho Mantras, Explained: The Operating Principles Behind How We Work",
