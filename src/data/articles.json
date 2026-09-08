@@ -1,6 +1,25 @@
 {
-  "generatedAt": "2026-09-07T10:30:10.156Z",
+  "generatedAt": "2026-09-08T09:51:09.299Z",
   "articles": [
+    {
+      "id": "77b8ea96d003a8fc",
+      "title": "Zoomable RecyclerView: Enabling Pinch-to-Zoom and Panning in Android RecyclerViews",
+      "url": "https://tech.phonepe.com/zoomable-recyclerview-enabling-pinch-to-zoom-and-panning-in-android-recyclerviews",
+      "sourceId": "phonepe",
+      "publishedAt": "2026-09-08T03:46:08.000Z",
+      "excerpt": "Introduction Android’s native RecyclerView is exceptionally efficient at handling large datasets through item recycling, but it lacks native support for spatial interactions like pinch-to-zoom and canvas-level panning. For complex layouts—such as interactive retail grids or…",
+      "content": "Introduction Android’s native RecyclerView is exceptionally efficient at handling large datasets through item recycling, but it lacks native support for…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "engineering",
+        "mobile"
+      ],
+      "authors": [
+        "akankshamishra"
+      ]
+    },
     {
       "id": "01d5562804a8f40f",
       "title": "Five Years of Kafka at Razorpay’s UPI Switch",
