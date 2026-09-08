@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-08T09:51:09.299Z",
+  "generatedAt": "2026-09-08T18:49:16.504Z",
   "articles": [
+    {
+      "id": "0cb2b80434e78861",
+      "title": "Groww Lite: Building a Disaster-Resilient Trading System",
+      "url": "https://tech.groww.in/groww-lite-building-a-disaster-resilient-trading-system-77146b174b9f",
+      "sourceId": "groww",
+      "publishedAt": "2026-09-08T14:37:20.000Z",
+      "excerpt": "How we built a minimal, independent path to the exchange that stays up even when the rest of Groww doesn’t. Why Groww Lite Exists Every large trading platform eventually runs into the same uncomfortable truth: A rich product experience might involve using multiple services. A…",
+      "content": "How we built a minimal, independent path to the exchange that stays up even when the rest of Groww doesn’t. Why Groww Lite Exists Every large trading platform eventually runs into the same uncomfortable truth: A rich product experience might involve using multiple services. A single order placement on the main Groww app might traverse authentication, risk checks, portfolio services, notification…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science"
+      ],
+      "authors": [
+        "Groww Engineering Team"
+      ]
+    },
     {
       "id": "77b8ea96d003a8fc",
       "title": "Zoomable RecyclerView: Enabling Pinch-to-Zoom and Panning in Android RecyclerViews",
