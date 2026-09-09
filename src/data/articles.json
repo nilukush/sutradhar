@@ -1,6 +1,40 @@
 {
-  "generatedAt": "2026-09-09T00:22:31.087Z",
+  "generatedAt": "2026-09-09T09:54:22.261Z",
   "articles": [
+    {
+      "id": "c88f3bc1a993c463",
+      "title": "See the Blast Radius, Ship Without the Fear!",
+      "url": "https://medium.com/freshworks-engineering-blog/see-the-blast-radius-ship-without-the-fear-afc46aa7945f",
+      "sourceId": "freshworks",
+      "publishedAt": "2026-09-09T05:00:11.000Z",
+      "excerpt": "by Govind Aadithya Sripada Every two weeks, Freshdesk shipped changes to production — and every two weeks, we did it scared. Hundreds of commits across Ruby, Java, Ember, React, and infrastructure, all merging at once, and we tested everything to cover ourselves — all 41,000…",
+      "content": "by Govind Aadithya Sripada Every two weeks, Freshdesk shipped changes to production — and every two weeks, we did it scared. Hundreds of commits across Ruby, Java, Ember, React, and infrastructure, all merging at once, and we tested everything to cover ourselves — all 41,000 cases, every single release, hotfix or feature drop alike. Days of it. And we still hit deploy while holding our breath. We…",
+      "topics": [
+        "platform",
+        "frontend",
+        "culture"
+      ],
+      "authors": [
+        "Freshworks Engineering"
+      ]
+    },
+    {
+      "id": "f14d786663a92a24",
+      "title": "Chunked Twice, Rejected Once: An Istio 502 Mystery",
+      "url": "https://medium.com/freshworks-engineering-blog/chunked-twice-rejected-once-an-istio-502-mystery-5c1bf7213e4a",
+      "sourceId": "freshworks",
+      "publishedAt": "2026-09-09T04:56:18.000Z",
+      "excerpt": "by Palak Bansal, Madhavi Madangopal Modern service architectures are full of well meaning intermediaries: proxies, gateways, sidecars, each one convinced it is helping, and touching your requests on the way through. What happens when those layers interact just slightly wrong? In…",
+      "content": "by Palak Bansal, Madhavi Madangopal Modern service architectures are full of well meaning intermediaries: proxies, gateways, sidecars, each one convinced it is helping, and touching your requests on the way through. What happens when those layers interact just slightly wrong? In our case, one application sat in front of another, acting as a proxy. The backend returned a perfectly valid response,…",
+      "topics": [
+        "platform",
+        "frontend",
+        "culture"
+      ],
+      "authors": [
+        "Freshworks Engineering"
+      ]
+    },
     {
       "id": "0cb2b80434e78861",
       "title": "Groww Lite: Building a Disaster-Resilient Trading System",
