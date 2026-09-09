@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-09T09:54:22.261Z",
+  "generatedAt": "2026-09-09T14:40:22.848Z",
   "articles": [
+    {
+      "id": "1e8fea5ddf501e0c",
+      "title": "Honoring #IconsOfQuality: Richard Bradshaw",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-richard-bradshaw",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-09T11:44:44.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Richard Bradshaw, widely known across…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
     {
       "id": "c88f3bc1a993c463",
       "title": "See the Blast Radius, Ship Without the Fear!",
