@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-10T09:51:25.458Z",
+  "generatedAt": "2026-09-10T14:31:27.446Z",
   "articles": [
+    {
+      "id": "2239947d53896445",
+      "title": "Honoring #IconsOfQuality: Keith Klain",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-keith-klain",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-10T11:56:43.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Keith Klain is a Technology Leader…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
     {
       "id": "b00be992f8421dbe",
       "title": "From Experimentation to Scale: PhonePe’s AI Journey in HR",
