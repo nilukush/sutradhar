@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-09-09T14:40:22.848Z",
+  "generatedAt": "2026-09-10T09:51:25.458Z",
   "articles": [
+    {
+      "id": "b00be992f8421dbe",
+      "title": "From Experimentation to Scale: PhonePe’s AI Journey in HR",
+      "url": "https://tech.phonepe.com/from-experimentation-to-scale-phonepes-ai-journey-in-hr",
+      "sourceId": "phonepe",
+      "publishedAt": "2026-09-10T01:08:21.000Z",
+      "excerpt": "At PhonePe, our strategy for AI in HR was never about deploying a single, generic solution. Instead, we set out to build a fit for purpose ecosystem prioritizing speed, flexibility, and accuracy embedded directly into daily workflows. AI Readiness began before AI. We have been…",
+      "content": "At PhonePe, our strategy for AI in HR was never about deploying a single, generic solution. Instead, we set out to build a fit for purpose ecosystem…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "product-engineering"
+      ],
+      "authors": [
+        "akankshamishra"
+      ]
+    },
     {
       "id": "1e8fea5ddf501e0c",
       "title": "Honoring #IconsOfQuality: Richard Bradshaw",
