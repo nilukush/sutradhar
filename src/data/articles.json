@@ -1,6 +1,40 @@
 {
-  "generatedAt": "2026-09-10T21:42:21.646Z",
+  "generatedAt": "2026-09-11T09:50:48.578Z",
   "articles": [
+    {
+      "id": "cd2dfc26e234c326",
+      "title": "Honoring #IconsOfQuality: Debbie O'Brien",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-debbie-obrien",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-11T09:21:23.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Debbie O'Brien is a true visionary…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
+    {
+      "id": "305bb8216dda345a",
+      "title": "AI x QA Leadership Summit 2026: Building the AI-Native QA Engine",
+      "url": "https://www.browserstack.com/blog/ai-x-qa-leadership-summit-2026",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-11T06:34:59.000Z",
+      "excerpt": "BrowserStack's 11th QA Leadership Summit runs 23 September 2026, free and virtual. Two tracks: AI strategy and governance for QA leaders, applied AI testing for practitioners. Speakers from AWS, Amazon, Atlassian, KPMG and S&P Global.",
+      "content": "For many QA teams, AI is already part of the day-to-day work. It helps write tests, investigate failures, and decide where engineers should spend their time. The harder question is what comes next. How much of the QA process should AI actually own? Where does it belong in the pipeline? What needs human oversight? And as the work changes, which skills should QA teams be building now? These are…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Shweta Chhillar"
+      ]
+    },
     {
       "id": "2239947d53896445",
       "title": "Honoring #IconsOfQuality: Keith Klain",
