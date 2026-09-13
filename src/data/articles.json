@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T09:50:48.578Z",
+  "generatedAt": "2026-09-13T06:19:36.722Z",
   "articles": [
     {
       "id": "cd2dfc26e234c326",
@@ -17269,8 +17269,8 @@
       "url": "https://zerodha.tech/projects",
       "sourceId": "zerodha",
       "publishedAt": "2001-01-01T00:00:00.000Z",
-      "excerpt": "Apps listmonk ★ 23281 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General Public License v3.0 Last updated on September 6, 2026 libredesk ★ 2880 Go Open-source, self-hosted customer support desk in…",
-      "content": "Apps listmonk ★ 23281 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General…",
+      "excerpt": "Apps whatomate ★ 1677 Go Whatomate is an open-source WhatsApp integration GNU Affero General Public License v3.0 Last updated on September 13, 2026 logchef ★ 891 Go Lightweight, single-binary log analytics interface for ClickHouse, focused on high-performance querying and…",
+      "content": "Apps whatomate ★ 1677 Go Whatomate is an open-source WhatsApp integration GNU Affero General Public License v3.0 Last updated on September 13, 2026 logchef ★…",
       "topics": [
         "fintech-payments",
         "backend",
