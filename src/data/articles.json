@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-13T06:19:36.722Z",
+  "generatedAt": "2026-09-14T14:15:21.223Z",
   "articles": [
+    {
+      "id": "fed78025bbc832c3",
+      "title": "Honoring #IconsOfQuality: Jesper Ottosen",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-jesper-ottosen",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-14T12:02:58.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Jesper Ottosen is a test strategy…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
     {
       "id": "cd2dfc26e234c326",
       "title": "Honoring #IconsOfQuality: Debbie O'Brien",
