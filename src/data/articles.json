@@ -1,6 +1,42 @@
 {
-  "generatedAt": "2026-09-14T14:15:21.223Z",
+  "generatedAt": "2026-09-15T13:41:23.936Z",
   "articles": [
+    {
+      "id": "d6d9587f8f11182a",
+      "title": "Honoring #IconsOfQuality: Gaurav Singh",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-gaurav-singh",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-15T11:29:38.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Gaurav Singh is a Senior Software…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
+    {
+      "id": "74ccbc9abbb2b0e9",
+      "title": "Scaling ML Model Inference through architectural separation",
+      "url": "https://engineering.cred.club/scaling-ml-model-inference-through-architectural-separation-32b2629f554a",
+      "sourceId": "cred",
+      "publishedAt": "2026-09-15T08:16:56.000Z",
+      "excerpt": "The model is only one part of the inference pipeline. At scale, the work happening around it, from routing requests to coordinating downstream dependencies, can have a much bigger impact on latency and efficiency. We addressed this by separating model execution from request…",
+      "content": "The model is only one part of the inference pipeline. At scale, the work happening around it, from routing requests to coordinating downstream dependencies, can have a much bigger impact on latency and efficiency. We addressed this by separating model execution from request orchestration into dedicated Hosting and Serving layers.Look at how most teams start serving a model. There is one service.…",
+      "topics": [
+        "backend",
+        "mobile",
+        "fintech-payments",
+        "ai-ml",
+        "scale"
+      ],
+      "authors": [
+        "Mudit Rathore"
+      ]
+    },
     {
       "id": "fed78025bbc832c3",
       "title": "Honoring #IconsOfQuality: Jesper Ottosen",
