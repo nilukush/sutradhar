@@ -1,6 +1,42 @@
 {
-  "generatedAt": "2026-09-15T13:41:23.936Z",
+  "generatedAt": "2026-09-16T06:10:47.466Z",
   "articles": [
+    {
+      "id": "094cd19902fe2fbc",
+      "title": "Moving from Panic to Process: Testing Your Way to a Successful K8s Migration",
+      "url": "https://medium.com/freshworks-engineering-blog/moving-from-panic-to-process-testing-your-way-to-a-successful-k8s-migration-9893a8ca7900",
+      "sourceId": "freshworks",
+      "publishedAt": "2026-09-16T05:57:15.000Z",
+      "excerpt": "by Keerthivaasan K In the season finale of Silicon Valley, there’s a classic scene: Pied Piper is live-streaming a rescue, traffic is melting the servers, and the team is pulling a “heroic save” at the 11th hour. It makes for great TV. It makes for a terrible career as an SRE.…",
+      "content": "by Keerthivaasan K In the season finale of Silicon Valley, there’s a classic scene: Pied Piper is live-streaming a rescue, traffic is melting the servers, and the team is pulling a “heroic save” at the 11th hour. It makes for great TV. It makes for a terrible career as an SRE. We’ve all been there. You’ve migrated 800+ resources to a new cluster. kubectl get pods shows a sea of green. You think…",
+      "topics": [
+        "platform",
+        "frontend",
+        "culture",
+        "infrastructure"
+      ],
+      "authors": [
+        "Freshworks Engineering"
+      ]
+    },
+    {
+      "id": "f9e69dfd98c86e24",
+      "title": "Making Karpenter More Reliable at Scale: Removing Its Dependency on CoreDNS",
+      "url": "https://medium.com/freshworks-engineering-blog/making-karpenter-more-reliable-at-scale-removing-its-dependency-on-coredns-063451f8436a",
+      "sourceId": "freshworks",
+      "publishedAt": "2026-09-16T05:20:48.000Z",
+      "excerpt": "How Freshworks evolved its Karpenter bootstrap architecture across 400+ EKS clusters — and what it’s paying off now. by Ebin Gladson At Freshworks, our applications run on AWS EKS. A while back, we moved from Cluster Autoscaler to Karpenter, and the switch paid off in several…",
+      "content": "How Freshworks evolved its Karpenter bootstrap architecture across 400+ EKS clusters — and what it’s paying off now. by Ebin Gladson At Freshworks, our applications run on AWS EKS. A while back, we moved from Cluster Autoscaler to Karpenter, and the switch paid off in several concrete ways: ~37% faster node provisioning Tighter bin-packing of EC2 nodes across the fleet Real, ongoing cost savings…",
+      "topics": [
+        "platform",
+        "frontend",
+        "culture",
+        "scale"
+      ],
+      "authors": [
+        "Freshworks Engineering"
+      ]
+    },
     {
       "id": "d6d9587f8f11182a",
       "title": "Honoring #IconsOfQuality: Gaurav Singh",
