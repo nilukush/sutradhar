@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-16T11:49:43.515Z",
+  "generatedAt": "2026-09-16T17:09:16.167Z",
   "articles": [
     {
       "id": "abd25c3be38985ec",
-      "title": "One Autovacuum Away: Partitioning slice’s Billion-Row Transaction Tables with No Planned Downtime",
+      "title": "One Autovacuum Away: Partitioning slice’s Billion-Row Transaction Tables Without Downtime",
       "url": "https://slice-engineering.medium.com/one-autovacuum-away-partitioning-slices-billion-row-transaction-tables-with-no-planned-downtime-e7bf69fc1d99",
       "sourceId": "slice",
       "publishedAt": "2026-09-16T09:29:05.000Z",
