@@ -1,6 +1,108 @@
 {
-  "generatedAt": "2026-09-16T06:10:47.466Z",
+  "generatedAt": "2026-09-16T11:49:43.515Z",
   "articles": [
+    {
+      "id": "abd25c3be38985ec",
+      "title": "One Autovacuum Away: Partitioning slice’s Billion-Row Transaction Tables with No Planned Downtime",
+      "url": "https://slice-engineering.medium.com/one-autovacuum-away-partitioning-slices-billion-row-transaction-tables-with-no-planned-downtime-e7bf69fc1d99",
+      "sourceId": "slice",
+      "publishedAt": "2026-09-16T09:29:05.000Z",
+      "excerpt": "Preface One evening Postgres ran a routine ANALYZE on one of our tables. Within minutes, one of our payment products was degraded. Nothing had been deployed. No migration, no config change, and traffic was normal. Yet the database writer was saturated, latency on the transaction…",
+      "content": "Preface One evening Postgres ran a routine ANALYZE on one of our tables. Within minutes, one of our payment products was degraded. Nothing had been deployed. No migration, no config change, and traffic was normal. Yet the database writer was saturated, latency on the transaction API had climbed into seconds, and pods were cycling through readiness checks. The slow log had one line worth reading:…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
+      "id": "ad6a3b5438473c07",
+      "title": "Honoring #IconsOfQuality: Priyanka Halder",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-priyanka-halder",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-16T08:22:04.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Priyanka Halder is a transformative…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
+    {
+      "id": "92cab48c6cf52841",
+      "title": "Honoring #IconsOfQuality: Huib Schoots",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-huib-schoots",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-16T08:21:48.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Huib Schoots is a consultant, coach,…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
+    {
+      "id": "0b441988a741ea52",
+      "title": "Honoring #IconsOfQuality: Ash Winter",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-ash-winter",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-16T08:21:31.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Ash Winter is a community-focused…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
+    {
+      "id": "07ab053e9ee986e1",
+      "title": "Honoring #IconsOfQuality: Pricilla Bilavendran",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-pricilla-bilavendran",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-16T08:21:09.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Pricilla Bilavendran is a passionate…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
+    {
+      "id": "4035a00135eca663",
+      "title": "Honoring #IconsOfQuality: Mark Hrynczak",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-mark-hrynczak",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-16T08:20:52.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Mark Hrynczak is an engineering…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
     {
       "id": "094cd19902fe2fbc",
       "title": "Moving from Panic to Process: Testing Your Way to a Successful K8s Migration",
