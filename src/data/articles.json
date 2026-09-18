@@ -1,6 +1,40 @@
 {
-  "generatedAt": "2026-09-16T17:09:16.167Z",
+  "generatedAt": "2026-09-18T16:34:15.701Z",
   "articles": [
+    {
+      "id": "8b6a5a9bce22059c",
+      "title": "Honoring #IconsOfQuality: Christine Pinto",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-christine-pinto",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-18T13:50:16.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and thought leadership. Christine Pinto is an award-winning…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
+    {
+      "id": "b14080e8216a3bef",
+      "title": "Honoring #IconsOfQuality: João Proença",
+      "url": "https://www.browserstack.com/blog/honoring-icons-of-quality-joao-proenca",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-09-18T13:49:07.000Z",
+      "excerpt": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour Icons of Quality.",
+      "content": "To celebrate the relentless passion and invaluable contributions of leaders in software quality, BrowserStack is proud to honour some of the icons in the testing space. These are the visionaries who not only push the industry forward with their expertise but also enrich the entire testing community by generously sharing their knowledge and…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Rajrupa Roychowdhury"
+      ]
+    },
     {
       "id": "abd25c3be38985ec",
       "title": "One Autovacuum Away: Partitioning slice’s Billion-Row Transaction Tables Without Downtime",
