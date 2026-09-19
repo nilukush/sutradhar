@@ -111,6 +111,14 @@ it — the next hourly run picks it up.
 
 ### Ops notes
 
+- **Web analytics** (owner decision 2026-09-19): the Cloudflare Web Analytics beacon is
+  on by default. The site's beacon token (a manual-mode property for
+  `sutradhar.nilukush.workers.dev`) is committed in `src/lib/analytics.ts` — the token is
+  public by design (it ships in every page's HTML), so committing it keeps local builds
+  and CI measuring the same property. `CF_ANALYTICS_TOKEN` overrides it at build time;
+  set it to an empty string to disable the beacon for a build. Cookieless and free —
+  chosen to see real visitors (direct, newsletter, AI-assistant), which Search Console
+  cannot measure.
 - If GitHub auto-disables the schedule after 60 days of repo inactivity (only possible when
   feeds are silent), re-run the workflow manually once or push any commit.
 - Meesho's Ghost content key is public (ships in their client bundle). If it rotates, update
