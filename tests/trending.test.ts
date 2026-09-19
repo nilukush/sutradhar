@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { trendingScore, trendingArticles, TIER_WEIGHTS } from "@/lib/trending";
+import { trendingScore, trendingArticles, trendingEligible, TIER_WEIGHTS, WINDOW_H } from "@/lib/trending";
 import type { Article, Source } from "@/lib/schema";
 
 const NOW = new Date("2026-08-24T12:00:00.000Z");
@@ -90,6 +90,29 @@ describe("trendingArticles", () => {
   it("ignores articles from unknown sources gracefully", () => {
     const out = trendingArticles([article("z", "ghost-source", 1)], sources, { now: NOW });
     expect(out).toEqual([]);
+  });
+});
+
+describe("trendingEligible (mirrors home-page eligibility at build time)", () => {
+  it("is false for an empty corpus", () => {
+    expect(trendingEligible([], NOW)).toBe(false);
+  });
+
+  it("is true when any article sits inside the window", () => {
+    expect(trendingEligible([article("a", "s1", 5)], NOW)).toBe(true);
+  });
+
+  it("is false for a stale corpus whose newest article is outside the window (regression: the route verifier measured age at corpus-generation time and expected trending from an old corpus)", () => {
+    expect(trendingEligible([article("a", "s1", WINDOW_H + 1), article("b", "s1", 24 * 17)], NOW)).toBe(false);
+  });
+
+  it("includes the exact window boundary", () => {
+    expect(trendingEligible([article("a", "s1", WINDOW_H)], NOW)).toBe(true);
+  });
+
+  it("ignores future-dated articles, matching trendingScore's age < 0 rejection", () => {
+    expect(trendingEligible([article("f", "s1", -3)], NOW)).toBe(false);
+    expect(trendingEligible([article("f", "s1", -3), article("a", "s1", 10)], NOW)).toBe(true);
   });
 });
 

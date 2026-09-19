@@ -26,6 +26,20 @@ export function trendingScore(article: Article, source: Source, now: Date): numb
   return TIER_WEIGHTS[source.tier] * Math.pow(2, -ageH / HALF_LIFE_H) * hnBoost(article.hn?.points);
 }
 
+/**
+ * Whether the home page will render a trending section at all: at least one
+ * article inside the window at `now`. Age is measured against the caller's
+ * clock — the route verifier passes the build-time now so its expectation can
+ * never drift from what trendingScore/trendingArticles actually render (they
+ * reject future-dated articles too, so this does as well).
+ */
+export function trendingEligible(articles: readonly { publishedAt: string }[], now: Date): boolean {
+  return articles.some((a) => {
+    const ageH = (now.getTime() - new Date(a.publishedAt).getTime()) / 3_600_000;
+    return !Number.isNaN(ageH) && ageH >= 0 && ageH <= WINDOW_H;
+  });
+}
+
 export interface TrendingOptions {
   now: Date;
   limit?: number;

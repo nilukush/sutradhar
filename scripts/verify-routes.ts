@@ -6,7 +6,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { SOURCES } from "../src/data/sources";
-import { WINDOW_H } from "../src/lib/trending";
+import { trendingEligible as trendingEligibleFn } from "../src/lib/trending";
 import { SITE } from "../src/lib/site";
 import { articleSlug } from "../src/lib/read";
 
@@ -96,15 +96,11 @@ const topicPage2 = topTopic && topTopic[1] > HUB_PAGE_SIZE ? existsSync(resolve(
 const sourcePage2 = topSource && topSource[1] > HUB_PAGE_SIZE ? existsSync(resolve(dist, "sources", topSource[0], "2", "index.html")) : true;
 
 // Trending section renders only when articles exist inside the eligibility
-// window — mirror that eligibility here so the check is data-aware, not
-// unconditional. (Math.MIN over ages = the NEWEST article's age; max would be
-// the oldest.) WINDOW_H is imported from the lib so the two cannot drift.
-const generatedAt = new Date(corpus.generatedAt).getTime();
-const newestAgeH =
-  corpus.articles.length > 0
-    ? Math.min(...corpus.articles.map((a) => (generatedAt - new Date(a.publishedAt).getTime()) / 3_600_000))
-    : Number.POSITIVE_INFINITY;
-const trendingEligible = newestAgeH <= WINDOW_H;
+// window at BUILD time. Eligibility comes from the same lib the page renders
+// with, measured against the current clock — measuring against the corpus's
+// generatedAt instead made a stale local corpus expect trending the page had
+// correctly dropped (regression, 2026-09-19).
+const trendingEligible = trendingEligibleFn(corpus.articles, new Date());
 
 const checks: [string, boolean][] = [
   ["home has canonical", home.includes('rel="canonical"')],
