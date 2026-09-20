@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T16:34:15.701Z",
+  "generatedAt": "2026-09-20T06:26:56.337Z",
   "articles": [
     {
       "id": "8b6a5a9bce22059c",
@@ -17494,13 +17494,12 @@
       "url": "https://zerodha.tech/projects",
       "sourceId": "zerodha",
       "publishedAt": "2001-01-01T00:00:00.000Z",
-      "excerpt": "Apps whatomate ★ 1677 Go Whatomate is an open-source WhatsApp integration GNU Affero General Public License v3.0 Last updated on September 13, 2026 logchef ★ 891 Go Lightweight, single-binary log analytics interface for ClickHouse, focused on high-performance querying and…",
-      "content": "Apps whatomate ★ 1677 Go Whatomate is an open-source WhatsApp integration GNU Affero General Public License v3.0 Last updated on September 13, 2026 logchef ★…",
+      "excerpt": "Apps libredesk ★ 2944 Go Open-source, self-hosted customer support desk in a single binary. A lightweight alternative to Intercom, Zendesk, Chatwoot. GNU Affero General Public License v3.0 Last updated on September 19, 2026 flowctl ★ 340 Go An open source self-service workflow…",
+      "content": "Apps libredesk ★ 2944 Go Open-source, self-hosted customer support desk in a single binary. A lightweight alternative to Intercom, Zendesk, Chatwoot. GNU…",
       "topics": [
         "fintech-payments",
         "backend",
-        "scale",
-        "data-science"
+        "scale"
       ],
       "authors": []
     },
