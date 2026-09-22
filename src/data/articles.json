@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-20T06:26:56.337Z",
+  "generatedAt": "2026-09-22T07:48:20.955Z",
   "articles": [
+    {
+      "id": "81ff805949dca8e0",
+      "title": "Compass: an AI navigation agent for everyone",
+      "url": "https://tech.groww.in/compass-an-ai-navigation-agent-for-everyone-369fd0de52f1",
+      "sourceId": "groww",
+      "publishedAt": "2026-09-22T06:34:36.000Z",
+      "excerpt": "You already have the data. Compass is how everyone asks it. You already know the question. What was DAU today? What’s the order's success rate over the last few months. How many new users did X and Y, and are they sitting at the stage of doing Z? This escalation just landed.…",
+      "content": "You already have the data. Compass is how everyone asks it. You already know the question. What was DAU today? What’s the order's success rate over the last few months. How many new users did X and Y, and are they sitting at the stage of doing Z? This escalation just landed. What bug has this user already gone through. Those used to be four tools, four people, and a Slack thread that started with…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science"
+      ],
+      "authors": [
+        "Vedant Rathi"
+      ]
+    },
     {
       "id": "8b6a5a9bce22059c",
       "title": "Honoring #IconsOfQuality: Christine Pinto",
