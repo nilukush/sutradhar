@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-09-22T07:48:20.955Z",
+  "generatedAt": "2026-09-23T11:51:37.602Z",
   "articles": [
+    {
+      "id": "ffefe8becec400e3",
+      "title": "The 9-Second Delay: How a Default Kubernetes Setting Choked Our CoreDNS",
+      "url": "https://medium.com/freshworks-engineering-blog/the-9-second-delay-how-a-default-kubernetes-setting-choked-our-coredns-932b3f09f2cc",
+      "sourceId": "freshworks",
+      "publishedAt": "2026-09-23T09:43:43.000Z",
+      "excerpt": "by Divakar Raju The panicked messages started rolling in from all our dev and application teams, outbound calls in our staging environment were randomly timing out, and some external requests were inexplicably taking over 9 seconds to complete. In a modern microservices…",
+      "content": "by Divakar Raju The panicked messages started rolling in from all our dev and application teams, outbound calls in our staging environment were randomly timing out, and some external requests were inexplicably taking over 9 seconds to complete. In a modern microservices architecture, 9 seconds is an eternity. Our initial instinct was to blame the downstream services. However, when we dove into…",
+      "topics": [
+        "platform",
+        "frontend",
+        "culture",
+        "infrastructure"
+      ],
+      "authors": [
+        "Freshworks Engineering"
+      ]
+    },
     {
       "id": "81ff805949dca8e0",
       "title": "Compass: an AI navigation agent for everyone",
