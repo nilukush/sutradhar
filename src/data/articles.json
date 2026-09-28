@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-28T07:03:59.318Z",
+  "generatedAt": "2026-09-28T15:39:39.299Z",
   "articles": [
+    {
+      "id": "424d282902f9c11c",
+      "title": "What We Learned from Benchmarking Knowledge Bases for Coding Agents",
+      "url": "https://blog.hotstar.com/what-we-learned-from-benchmarking-knowledge-bases-for-coding-agents-6bbdd9e53727",
+      "sourceId": "jiohotstar",
+      "publishedAt": "2026-09-28T12:03:06.000Z",
+      "excerpt": "Introduction/TL;DR At JioHotstar, we have been thinking a lot about how to give developers a better AI-assisted engineering experience. Once coding agents started becoming useful for day-to-day work, the next natural question was: how do we help those agents understand our…",
+      "content": "Introduction/TL;DR At JioHotstar, we have been thinking a lot about how to give developers a better AI-assisted engineering experience. Once coding agents started becoming useful for day-to-day work, the next natural question was: how do we help those agents understand our codebases better? That led us into the world of knowledge bases, repo indexers, code graphs, and semantic search tools.…",
+      "topics": [
+        "scale",
+        "infrastructure",
+        "mobile"
+      ],
+      "authors": [
+        "Abhishek Bansal"
+      ]
+    },
     {
       "id": "f8c0f9d49be29426",
       "title": "Migrating Swiggy Partner App’s Deep Link Engine at Scale",
@@ -16,6 +33,25 @@
       ],
       "authors": [
         "Shubham Singla"
+      ]
+    },
+    {
+      "id": "4f8d452382531cee",
+      "title": "From Tool-Hopping to Talking: Reimagining Datacenter Observability with NETRA",
+      "url": "https://tech.phonepe.com/from-tool-hopping-to-talking-reimagining-datacenter-observability-with-netra",
+      "sourceId": "phonepe",
+      "publishedAt": "2026-09-28T04:28:16.000Z",
+      "excerpt": "It’s 3:00 AM. The glare of a monitor cuts through a pitch-black room as a critical alert pierces your sleep. Seconds later, you’re locked in a familiar, exhausting ritual: eight browser tabs open, bouncing frantically from Grafana metrics to Loki log streams, then over to Jira…",
+      "content": "It’s 3:00 AM. The glare of a monitor cuts through a pitch-black room as a critical alert pierces your sleep. Seconds later, you’re locked in a familiar,…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "frontend",
+        "devops-sre"
+      ],
+      "authors": [
+        "akankshamishra"
       ]
     },
     {
