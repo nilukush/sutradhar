@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-09-28T15:39:39.299Z",
+  "generatedAt": "2026-09-30T00:35:04.726Z",
   "articles": [
+    {
+      "id": "4316b37a3318e135",
+      "title": "Kafka Inconsistencies and the Silent Failures Behind Real-Time Decision Platforms",
+      "url": "https://medium.com/walmartglobaltech/kafka-inconsistencies-and-the-silent-failures-behind-real-time-decision-platforms-f6db55156286",
+      "sourceId": "walmart-global-tech",
+      "publishedAt": "2026-09-30T00:21:42.000Z",
+      "excerpt": "A field guide to the duplicate events, stale state, rebalances, and deployment traps that quietly distort real-time decisions — told through one decision that should have fired and didn’t. Note: This piece assumes working familiarity with Kafka and event-streaming fundamentals —…",
+      "content": "A field guide to the duplicate events, stale state, rebalances, and deployment traps that quietly distort real-time decisions — told through one decision that should have fired and didn’t. Note: This piece assumes working familiarity with Kafka and event-streaming fundamentals — topics, partitions, offsets, consumer groups, and delivery semantics. Terms are expanded on first use where it helps,…",
+      "topics": [
+        "data-science",
+        "platform",
+        "scale",
+        "backend"
+      ],
+      "authors": [
+        "Pranav patil"
+      ]
+    },
     {
       "id": "424d282902f9c11c",
       "title": "What We Learned from Benchmarking Knowledge Bases for Coding Agents",
