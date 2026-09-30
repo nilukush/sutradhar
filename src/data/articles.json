@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-30T00:35:04.726Z",
+  "generatedAt": "2026-09-30T19:30:05.461Z",
   "articles": [
+    {
+      "id": "84e039c476b67a64",
+      "title": "Building Scalable Real-Time Live Streaming Systems",
+      "url": "https://medium.com/walmartglobaltech/building-scalable-real-time-live-streaming-systems-9be510b75566",
+      "sourceId": "walmart-global-tech",
+      "publishedAt": "2026-09-30T18:09:28.000Z",
+      "excerpt": "Synchronizing Video, Audio, Whiteboard Events, and Distributed Backends at Scale What happens when thousands of students join a live classroom, rewind a lecture by 30 seconds, and still expect the teacher’s whiteboard drawings, voice, and video to remain perfectly…",
+      "content": "Synchronizing Video, Audio, Whiteboard Events, and Distributed Backends at Scale What happens when thousands of students join a live classroom, rewind a lecture by 30 seconds, and still expect the teacher’s whiteboard drawings, voice, and video to remain perfectly synchronized?That challenge sits at the heart of modern real-time streaming systems.Live streaming today is no longer limited to…",
+      "topics": [
+        "data-science",
+        "platform",
+        "scale"
+      ],
+      "authors": [
+        "Utkarsha Anand"
+      ]
+    },
     {
       "id": "4316b37a3318e135",
       "title": "Kafka Inconsistencies and the Silent Failures Behind Real-Time Decision Platforms",
