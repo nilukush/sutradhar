@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-09-30T19:30:05.461Z",
+  "generatedAt": "2026-10-01T06:10:22.077Z",
   "articles": [
+    {
+      "id": "22ff38ef47ecdb93",
+      "title": "Beyond compliance to readiness: What EN 301 549 v4.1.1 means for your accessibility strategy",
+      "url": "https://www.browserstack.com/blog/what-en-301-549-v4-1-1-means-for-your-accessibility-strategy",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-10-01T05:58:58.000Z",
+      "excerpt": "Europe’s EN 301 549 v4.1.1 update adopts WCAG 2.2 across web and mobile ICT. Learn what changed, why leading teams are building readiness before formal mandates, and how BrowserStack helps validate accessibility across real devices and testing workflows.",
+      "content": "Europe’s digital accessibility baseline took a major step forward with the publication of EN 301 549 v4.1.1. Finalized by ETSI and formally delivered to the European Commission, this updated standard upgrades European ICT accessibility guidance from WCAG 2.1 to WCAG 2.2 across websites, native software, and electronic documents. While this publication sets the future trajectory for European…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "Sugandha Lahoti"
+      ]
+    },
     {
       "id": "84e039c476b67a64",
       "title": "Building Scalable Real-Time Live Streaming Systems",
