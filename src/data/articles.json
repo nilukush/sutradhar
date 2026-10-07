@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-10-04T08:32:42.976Z",
+  "generatedAt": "2026-10-07T16:40:58.085Z",
   "articles": [
+    {
+      "id": "4f2d823a6ec9759b",
+      "title": "Solving for better issue triage and prioritization with the unified Table View",
+      "url": "https://www.browserstack.com/blog/solving-for-better-issue-triage-and-prioritization-with-the-unified-table-view",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-10-07T09:50:29.000Z",
+      "excerpt": "Automated scans flood teams with thousands of duplicate accessibility violations. Our overhauled Table View eliminates triage fatigue with component-level aggregation, unified workflows, and inline confidence scores. Stop managing issue bloat and start fixing accessibility…",
+      "content": "In our previous post, we explored the industry-wide challenge of issue over-reporting; how automated site scans often report thousands of violations, overwhelming QA and engineering teams and creating a heavy administrative burden. The triage fatigue caused by multi-queue workflows and scattered context makes it difficult…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "BrowserStack Team"
+      ]
+    },
     {
       "id": "22ff38ef47ecdb93",
       "title": "Beyond compliance to readiness: What EN 301 549 v4.1.1 means for your accessibility strategy",
@@ -155,7 +172,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -172,7 +189,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -206,7 +223,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -223,7 +240,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -240,7 +257,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -257,7 +274,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -274,7 +291,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -327,7 +344,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -363,7 +380,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -380,7 +397,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -414,7 +431,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
@@ -449,7 +466,7 @@
         "mobile"
       ],
       "authors": [
-        "Rajrupa Roychowdhury"
+        "Ghost Owner"
       ]
     },
     {
