@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-10-07T16:40:58.085Z",
+  "generatedAt": "2026-10-08T09:09:50.333Z",
   "articles": [
+    {
+      "id": "c4ab44708b480757",
+      "title": "Solving Regional Consistency of Delivery ETA with a Deep Probabilistic Framework",
+      "url": "https://medium.com/swiggy-bytes/solving-regional-consistency-of-delivery-eta-with-a-deep-probabilistic-framework-8d82d6abdf41",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-10-08T08:15:48.000Z",
+      "excerpt": "1. Introduction In the on-demand food delivery ecosystem, an app’s Expected Time of Arrival (ETA) is the foundation of customer trust. Promise 25 minutes for a 40-minute delivery, and you leave a customer frustrated. Show 50 minutes for a 30-minute delivery, and that customer…",
+      "content": "1. Introduction In the on-demand food delivery ecosystem, an app’s Expected Time of Arrival (ETA) is the foundation of customer trust. Promise 25 minutes for a 40-minute delivery, and you leave a customer frustrated. Show 50 minutes for a 30-minute delivery, and that customer might abandon their cart entirely. Balancing under- and over-prediction is a delicate trade-off. To maintain operational…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science",
+        "platform"
+      ],
+      "authors": [
+        "Parag Bhandarkar"
+      ]
+    },
     {
       "id": "4f2d823a6ec9759b",
       "title": "Solving for better issue triage and prioritization with the unified Table View",
