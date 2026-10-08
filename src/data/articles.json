@@ -1,6 +1,42 @@
 {
-  "generatedAt": "2026-10-08T09:09:50.333Z",
+  "generatedAt": "2026-10-08T16:38:28.346Z",
   "articles": [
+    {
+      "id": "48b27a3ab9c71b7f",
+      "title": "GCP Storage Pools: Cheap Boot Disks, emptyDir Vol & FSTRIM/DISCARD",
+      "url": "https://tech.groww.in/gcp-storage-pools-cheap-boot-disks-emptydir-vol-fstrim-discard-765ba89123f7",
+      "sourceId": "groww",
+      "publishedAt": "2026-10-08T10:41:02.000Z",
+      "excerpt": "This article explains how a Storage Pool absorbed the boot disks and made them almost free. The same boot disks also became home to ephemeral data such as Trino cache, task spill, and Spark shuffle through emptyDir. But this introduced an unexpected problem: deleted transient…",
+      "content": "This article explains how a Storage Pool absorbed the boot disks and made them almost free. The same boot disks also became home to ephemeral data such as Trino cache, task spill, and Spark shuffle through emptyDir. But this introduced an unexpected problem: deleted transient data left behind ghost blocks. FSTRIM/DISCARD is what allows those blocks to be reclaimed. Transient workloads spilling…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science",
+        "infrastructure"
+      ],
+      "authors": [
+        "Abhay Verma"
+      ]
+    },
+    {
+      "id": "657cf10881e2ad26",
+      "title": "Cost-Optimized Kafka Architecture on GCP Storage Pools",
+      "url": "https://tech.groww.in/cost-optimized-kafka-architecture-on-gcp-storage-pools-51eeb5f048bd",
+      "sourceId": "groww",
+      "publishedAt": "2026-10-08T10:16:26.000Z",
+      "excerpt": "This article explains how multiple Kafka clusters went on a storage diet when we moved from a traditional fixed-cost disk architecture to a Storage Pool model. We will follow Kafka from its recovery and performance requirements through Strimzi KafkaNodePools, zonal placement,…",
+      "content": "This article explains how multiple Kafka clusters went on a storage diet when we moved from a traditional fixed-cost disk architecture to a Storage Pool model. We will follow Kafka from its recovery and performance requirements through Strimzi KafkaNodePools, zonal placement, measured Hyperdisk provisioning, and a storage bill reduced by about 50%. When Kafka Outgrew Fixed Disks Kafka brokers…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science",
+        "infrastructure"
+      ],
+      "authors": [
+        "Abhay Verma"
+      ]
+    },
     {
       "id": "c4ab44708b480757",
       "title": "Solving Regional Consistency of Delivery ETA with a Deep Probabilistic Framework",
