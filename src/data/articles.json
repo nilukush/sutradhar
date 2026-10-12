@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T09:04:05.432Z",
+  "generatedAt": "2026-10-12T18:02:45.977Z",
   "articles": [
     {
       "id": "48b27a3ab9c71b7f",
@@ -12,8 +12,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "data-science",
-        "infrastructure"
+        "data-science"
       ],
       "authors": [
         "Abhay Verma"
@@ -30,8 +29,7 @@
       "topics": [
         "fintech-payments",
         "backend",
-        "data-science",
-        "infrastructure"
+        "data-science"
       ],
       "authors": [
         "Abhay Verma"
