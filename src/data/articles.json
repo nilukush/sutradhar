@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-10-12T18:02:45.977Z",
+  "generatedAt": "2026-10-13T16:07:41.843Z",
   "articles": [
+    {
+      "id": "2e65a95bbe5c8117",
+      "title": "Inside Razorpay’s RTO Model: The Engineering Behind its ML Lifecycle",
+      "url": "https://engineering.razorpay.com/inside-razorpays-rto-model-the-engineering-behind-its-ml-lifecycle-999fe75e66ec",
+      "sourceId": "razorpay",
+      "publishedAt": "2026-10-13T10:00:32.000Z",
+      "excerpt": "Contributor: Abhik Debnath Continue reading on Razorpay Engineering »",
+      "content": "Contributor: Abhik Debnath Continue reading on Razorpay Engineering »",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science",
+        "ai-ml"
+      ],
+      "authors": [
+        "Ankur Ranjan"
+      ]
+    },
     {
       "id": "48b27a3ab9c71b7f",
       "title": "GCP Storage Pools: Cheap Boot Disks, emptyDir Vol & FSTRIM/DISCARD",
