@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-10-13T16:07:41.843Z",
+  "generatedAt": "2026-10-14T17:22:13.082Z",
   "articles": [
+    {
+      "id": "02ba16856cb8873d",
+      "title": "Introducing BrowserStack Load Testing",
+      "url": "https://www.browserstack.com/blog/introducing-browserstack-load-testing",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-10-14T13:00:00.000Z",
+      "excerpt": "BrowserStack Load Testing runs real browsers and API traffic in one test, so you can see how your web app holds up for real users before your busiest day.",
+      "content": "Every team that runs a busy website knows the feeling before a big sale or launch. The load test has passed, the dashboards look fine, and still nobody is fully sure the site will hold up. Too often, the real answer arrives on the day itself, from customers. Today we're launching BrowserStack Load Testing, now generally available, to give teams that answer weeks earlier. Get started for free Why…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile",
+        "backend"
+      ],
+      "authors": [
+        "Shweta Chhillar"
+      ]
+    },
     {
       "id": "2e65a95bbe5c8117",
       "title": "Inside Razorpay’s RTO Model: The Engineering Behind its ML Lifecycle",
