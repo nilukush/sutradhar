@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T17:22:13.082Z",
+  "generatedAt": "2026-10-16T12:35:07.178Z",
   "articles": [
     {
       "id": "02ba16856cb8873d",
@@ -25,8 +25,8 @@
       "url": "https://engineering.razorpay.com/inside-razorpays-rto-model-the-engineering-behind-its-ml-lifecycle-999fe75e66ec",
       "sourceId": "razorpay",
       "publishedAt": "2026-10-13T10:00:32.000Z",
-      "excerpt": "Contributor: Abhik Debnath Continue reading on Razorpay Engineering »",
-      "content": "Contributor: Abhik Debnath Continue reading on Razorpay Engineering »",
+      "excerpt": "Contributor: Abhik Debnath In this article, we use Razorpay’s Return to Origin (RTO) risk model to explain the ML lifecycle: how we build a reproducible release, deploy it into checkout, monitor its behaviour, and use later outcomes to evaluate whether it needs retraining. We…",
+      "content": "Contributor: Abhik Debnath In this article, we use Razorpay’s Return to Origin (RTO) risk model to explain the ML lifecycle: how we build a reproducible release, deploy it into checkout, monitor its behaviour, and use later outcomes to evaluate whether it needs retraining. We connect these stages through one decision: whether cash on delivery should be available to a customer. A customer reaches…",
       "topics": [
         "fintech-payments",
         "backend",
