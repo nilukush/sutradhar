@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T12:35:07.178Z",
+  "generatedAt": "2026-10-18T06:04:28.725Z",
   "articles": [
     {
       "id": "02ba16856cb8873d",
@@ -17739,13 +17739,14 @@
       "url": "https://zerodha.tech/projects",
       "sourceId": "zerodha",
       "publishedAt": "2001-01-01T00:00:00.000Z",
-      "excerpt": "Apps listmonk ★ 23741 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General Public License v3.0 Last updated on October 11, 2026 libredesk ★ 3020 Go Open-source, self-hosted customer support desk in a…",
-      "content": "Apps listmonk ★ 23741 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General…",
+      "excerpt": "Apps listmonk ★ 23824 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General Public License v3.0 Last updated on October 18, 2026 bureaucat ★ 56 Vue An Open Source. Self Hosted. No-Nonsense Task…",
+      "content": "Apps listmonk ★ 23824 Go High performance, self-hosted, newsletter and mailing list manager with a modern dashboard. Single binary app. GNU Affero General…",
       "topics": [
         "fintech-payments",
         "backend",
         "scale",
-        "data-science"
+        "data-science",
+        "frontend"
       ],
       "authors": []
     },
