@@ -1,6 +1,41 @@
 {
-  "generatedAt": "2026-10-18T06:04:28.725Z",
+  "generatedAt": "2026-10-19T10:57:08.601Z",
   "articles": [
+    {
+      "id": "5a698572c2ab6977",
+      "title": "BrowserStack Recognized as a Challenger in the 2026 Gartner® Magic Quadrant™ for Digital Accessibility",
+      "url": "https://www.browserstack.com/blog/browserstack-recognized-as-a-challenger-in-the-2026-gartner-magic-quadrant-for-digital-accessibility",
+      "sourceId": "browserstack",
+      "publishedAt": "2026-10-19T10:54:23.000Z",
+      "excerpt": "BrowserStack has been recognized as a Challenger in the 2026 Gartner® Magic Quadrant™ for Digital Accessibility. Discover how we're transforming accessibility into a continuous, automated workflow with real-device testing and shift-left developer tools.",
+      "content": "At BrowserStack, we believe that digital accessibility shouldn't be a post-launch compliance checkbox or a series of periodic manual audits. To build truly accessible digital experiences, accessibility testing must be automated, continuous, and embedded directly into every phase of the software development lifecycle. We are excited to share that BrowserStack has been recognized as a Challenger in…",
+      "topics": [
+        "platform",
+        "devops-sre",
+        "mobile"
+      ],
+      "authors": [
+        "BrowserStack Team"
+      ]
+    },
+    {
+      "id": "92ac94f392b4ce16",
+      "title": "The Kafka Optimization That Saved Us $350K a Year",
+      "url": "https://blog.hotstar.com/the-kafka-optimization-that-saved-us-350k-a-year-48a0e05c3c08",
+      "sourceId": "jiohotstar",
+      "publishedAt": "2026-10-19T07:37:31.000Z",
+      "excerpt": "The JioHotstar platform receives in excess of 40TB data every day. At 2.1 million messages per second. At this scale, every superflous byte is costly, like real money costly. In this blog, we cover strategies that helped us optimise our ingest workflow which ultimately saved…",
+      "content": "The JioHotstar platform receives in excess of 40TB data every day. At 2.1 million messages per second. At this scale, every superflous byte is costly, like real money costly. In this blog, we cover strategies that helped us optimise our ingest workflow which ultimately saved real money. The Waste Our video streaming platform emits a telemetry heartbeat for every active playback session — a rich,…",
+      "topics": [
+        "scale",
+        "infrastructure",
+        "mobile",
+        "backend"
+      ],
+      "authors": [
+        "Mayank"
+      ]
+    },
     {
       "id": "02ba16856cb8873d",
       "title": "Introducing BrowserStack Load Testing",
