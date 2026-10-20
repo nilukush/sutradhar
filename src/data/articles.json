@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-10-19T10:57:08.601Z",
+  "generatedAt": "2026-10-20T13:40:47.491Z",
   "articles": [
+    {
+      "id": "7f1662097c0989a3",
+      "title": "How We Deploy Reliably at Razorpay",
+      "url": "https://engineering.razorpay.com/how-we-deploy-reliably-at-razorpay-52ddf676caf8",
+      "sourceId": "razorpay",
+      "publishedAt": "2026-10-20T08:20:57.000Z",
+      "excerpt": "Most production incidents do not begin with a server dying. They begin with a deployment: dozens a day, across hundreds of services, each the moment risk enters the system. We run payments infrastructure at Razorpay. When a payments system degrades, transactions fail: merchants…",
+      "content": "Most production incidents do not begin with a server dying. They begin with a deployment: dozens a day, across hundreds of services, each the moment risk enters the system. We run payments infrastructure at Razorpay. When a payments system degrades, transactions fail: merchants lose revenue, customers lose trust, and someone’s checkout page spins at the worst possible moment. Reliability is not a…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science"
+      ],
+      "authors": [
+        "Anusha Musthaphak"
+      ]
+    },
     {
       "id": "5a698572c2ab6977",
       "title": "BrowserStack Recognized as a Challenger in the 2026 Gartner® Magic Quadrant™ for Digital Accessibility",
