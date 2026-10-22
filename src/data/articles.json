@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-10-20T13:40:47.491Z",
+  "generatedAt": "2026-10-22T07:45:34.954Z",
   "articles": [
+    {
+      "id": "9691d95c5dc8daf8",
+      "title": "Nobody Knows What's in the Wire: How Groww Moves Money Between India and Wall Street",
+      "url": "https://tech.groww.in/nobody-knows-whats-in-the-wire-how-groww-moves-money-between-india-and-wall-street-dbe31b46bf88",
+      "sourceId": "groww",
+      "publishedAt": "2026-10-22T05:15:47.000Z",
+      "excerpt": "How Groww tracks cross-border payments between India and the US, ensuring every dollar is accounted for. Author: Aditi Gour Introduction Every business day, SWIFT wires cross between India and the US, and each one carries many people's money in a single lump. Deposits travel out…",
+      "content": "How Groww tracks cross-border payments between India and the US, ensuring every dollar is accounted for. Author: Aditi Gour Introduction Every business day, SWIFT wires cross between India and the US, and each one carries many people's money in a single lump. Deposits travel out to our US broker (the registered broker-dealer that holds users' US shares and dollars) in one wire; withdrawals come…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science"
+      ],
+      "authors": [
+        "Groww Engineering Team"
+      ]
+    },
     {
       "id": "7f1662097c0989a3",
       "title": "How We Deploy Reliably at Razorpay",
