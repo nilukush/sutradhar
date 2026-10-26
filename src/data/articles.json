@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-10-25T04:57:12.572Z",
+  "generatedAt": "2026-10-26T14:24:44.057Z",
   "articles": [
+    {
+      "id": "e4f702be64d569b7",
+      "title": "How Razorpay Moved 2,500 DAGs to Airflow 3, One DAG at a Time",
+      "url": "https://engineering.razorpay.com/how-razorpay-moved-2-500-dags-to-airflow-3-one-dag-at-a-time-71419355a07b",
+      "sourceId": "razorpay",
+      "publishedAt": "2026-10-26T10:23:23.000Z",
+      "excerpt": "Airflow, the scheduler behind Razorpay’s batch data pipelines, now runs on version 3.3, and we led the move from 2.10. It runs more than 2,700 DAGs and about 11,000 task runs a day, and we got there without a big-bang cutover. The official upgrade guide is the place to start for…",
+      "content": "Airflow, the scheduler behind Razorpay’s batch data pipelines, now runs on version 3.3, and we led the move from 2.10. It runs more than 2,700 DAGs and about 11,000 task runs a day, and we got there without a big-bang cutover. The official upgrade guide is the place to start for code changes. This post is about what happened when we ran Airflow 3 at that scale: the architecture change behind most…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science"
+      ],
+      "authors": [
+        "Manish Kumar Gupta"
+      ]
+    },
     {
       "id": "9691d95c5dc8daf8",
       "title": "Nobody Knows What's in the Wire: How Groww Moves Money Between India and Wall Street",
