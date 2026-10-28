@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-10-26T14:24:44.057Z",
+  "generatedAt": "2026-10-28T09:51:49.714Z",
   "articles": [
+    {
+      "id": "57adafa5c3502ebb",
+      "title": "Search That Gets You: Inside Instamart’s LLM-Powered Search",
+      "url": "https://medium.com/swiggy-bytes/search-that-gets-you-inside-instamarts-llm-powered-search-b95b6a93ed60",
+      "sourceId": "swiggy",
+      "publishedAt": "2026-10-28T04:28:58.000Z",
+      "excerpt": "How large language models help shoppers find what they mean, not just what they type. Author: Aarav Nigam Introduction Every search box eventually hits a wall where traditional search stops being useful. Searching tide powder 100g on Instamart works seamlessly. Exact keywords…",
+      "content": "How large language models help shoppers find what they mean, not just what they type. Author: Aarav Nigam Introduction Every search box eventually hits a wall where traditional search stops being useful. Searching tide powder 100g on Instamart works seamlessly. Exact keywords match product titles — a problem classical search solved decades ago. Then someone types this: Get me ready for beach…",
+      "topics": [
+        "backend",
+        "scale",
+        "data-science",
+        "ai-ml"
+      ],
+      "authors": [
+        "Aarav Nigam"
+      ]
+    },
     {
       "id": "e4f702be64d569b7",
       "title": "How Razorpay Moved 2,500 DAGs to Airflow 3, One DAG at a Time",
