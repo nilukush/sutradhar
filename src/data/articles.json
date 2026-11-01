@@ -1,6 +1,24 @@
 {
-  "generatedAt": "2026-11-01T07:40:38.923Z",
+  "generatedAt": "2026-11-01T15:18:05.762Z",
   "articles": [
+    {
+      "id": "206bdf774bc29caa",
+      "title": "How Apache YuniKorn Taught Our Kubernetes Cluster to Play Tetris",
+      "url": "https://slice-engineering.medium.com/how-apache-yunikorn-taught-our-kubernetes-cluster-to-play-tetris-70532db04c5e",
+      "sourceId": "slice",
+      "publishedAt": "2026-11-01T14:14:55.000Z",
+      "excerpt": "A story about Spark, scheduling, and a cloud bill that refused to make sense. Chapter 1: A Fresh Start on Kubernetes Every migration story starts with optimism, and ours was no different. We had just moved our Spark workloads from EMR to Kubernetes (EKS). On paper, it was…",
+      "content": "A story about Spark, scheduling, and a cloud bill that refused to make sense. Chapter 1: A Fresh Start on Kubernetes Every migration story starts with optimism, and ours was no different. We had just moved our Spark workloads from EMR to Kubernetes (EKS). On paper, it was everything we wanted: greater flexibility, advanced feature support, easier integrations with the rest of our platform, and a…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "infrastructure"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
     {
       "id": "4b7ca44607c05c3b",
       "title": "Compass: an AI navigation agent for everyone",
