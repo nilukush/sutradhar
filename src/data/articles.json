@@ -1,6 +1,57 @@
 {
-  "generatedAt": "2026-11-01T15:18:05.762Z",
+  "generatedAt": "2026-11-02T17:14:42.265Z",
   "articles": [
+    {
+      "id": "77b2275d53a8417b",
+      "title": "How We Load-Test 700+ Independently-Owned Services Without Touching Production",
+      "url": "https://medium.com/myntra-engineering/how-we-load-test-700-independently-owned-services-without-touching-production-5a48f6bf89ce",
+      "sourceId": "myntra",
+      "publishedAt": "2026-11-02T14:01:26.000Z",
+      "excerpt": "The problem with testing at scale, the routing trick that solved it, and the UI that made it something any team could use on their own At Myntra, reliability on a sale day is the priority. When marquee events like Big Fashion Festival (BFF), End of Reason Sale (EORS), or Myntra…",
+      "content": "The problem with testing at scale, the routing trick that solved it, and the UI that made it something any team could use on their own At Myntra, reliability on a sale day is the priority. When marquee events like Big Fashion Festival (BFF), End of Reason Sale (EORS), or Myntra Birthday Bash land, hundreds of thousands of customers show up within the same few hours, and every one of those…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Vasuman Mishra"
+      ]
+    },
+    {
+      "id": "01f2e64fc277081a",
+      "title": "Load Testing Without Touching Production: Header-Based Routing with Linkerd",
+      "url": "https://medium.com/myntra-engineering/load-testing-without-touching-production-header-based-routing-with-linkerd-4d0442c27a73",
+      "sourceId": "myntra",
+      "publishedAt": "2026-11-02T14:01:13.000Z",
+      "excerpt": "How we built a parallel load-test environment for 700+ independently-owned microservices, without standing up a second cluster This is the deep dive into our routing internals. If you haven’t read the overview yet — covering the problem, the high-level architecture, and the UI…",
+      "content": "How we built a parallel load-test environment for 700+ independently-owned microservices, without standing up a second cluster This is the deep dive into our routing internals. If you haven’t read the overview yet — covering the problem, the high-level architecture, and the UI built on top of it — start with Part 1; as this piece builds directly on it.Below, we break down the routing mechanism…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Vasuman Mishra"
+      ]
+    },
+    {
+      "id": "bf2c8b1ef93e8c55",
+      "title": "From kubectl and Slack Threads to One Click: Building a Self-Serve NFR Environment",
+      "url": "https://medium.com/myntra-engineering/from-kubectl-and-slack-threads-to-one-click-building-a-self-serve-nfr-environment-b1b3c42b173b",
+      "sourceId": "myntra",
+      "publishedAt": "2026-11-02T14:01:01.000Z",
+      "excerpt": "How we turned a manual, easy-to-break load-test setup into a UI any engineering manager can run themselves Part 1 covers why the old kubectl-and-Slack process for NFR testing didn’t scale. This piece is about what replaced it.We support 700+ NFR-deployable services, and a single…",
+      "content": "How we turned a manual, easy-to-break load-test setup into a UI any engineering manager can run themselves Part 1 covers why the old kubectl-and-Slack process for NFR testing didn’t scale. This piece is about what replaced it.We support 700+ NFR-deployable services, and a single sale-readiness window can touch dozens of them at once. So we built a self-serve UI that lets any Engineering Manager…",
+      "topics": [
+        "backend",
+        "mobile",
+        "data-science"
+      ],
+      "authors": [
+        "Vasuman Mishra"
+      ]
+    },
     {
       "id": "206bdf774bc29caa",
       "title": "How Apache YuniKorn Taught Our Kubernetes Cluster to Play Tetris",
