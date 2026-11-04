@@ -1,6 +1,43 @@
 {
-  "generatedAt": "2026-11-02T17:14:42.265Z",
+  "generatedAt": "2026-11-04T09:29:59.112Z",
   "articles": [
+    {
+      "id": "4a3472d5292db94d",
+      "title": "Engineering Real-Time Features at Scale: State, Reliability and Performance",
+      "url": "https://tech.groww.in/engineering-real-time-features-at-scale-state-reliability-and-performance-f284a1f734c5",
+      "sourceId": "groww",
+      "publishedAt": "2026-11-04T09:16:10.000Z",
+      "excerpt": "Author: Dipesh Chandra Maurya How Groww keeps real-time features reliable with overlapping windows, checkpointing, Kafka backpressure, and feature-group observabilityThis is Part 2 of our deep dive into Groww’s Feature Store. In Part 1, we followed a customer event through…",
+      "content": "Author: Dipesh Chandra Maurya How Groww keeps real-time features reliable with overlapping windows, checkpointing, Kafka backpressure, and feature-group observabilityThis is Part 2 of our deep dive into Groww’s Feature Store. In Part 1, we followed a customer event through Kafka, Spark Structured Streaming, the Serving Processor, Aerospike, and Broker Service. Here, we’ll explore what it takes to…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science",
+        "devops-sre",
+        "scale"
+      ],
+      "authors": [
+        "Groww Engineering Team"
+      ]
+    },
+    {
+      "id": "a2a0ce06ec639aaa",
+      "title": "From Customer Events to Real-Time Intelligence: Engineering Groww’s Feature Store at Scale",
+      "url": "https://tech.groww.in/from-customer-events-to-real-time-intelligence-engineering-growws-feature-store-at-scale-c0ebb2746d11",
+      "sourceId": "groww",
+      "publishedAt": "2026-11-04T09:13:45.000Z",
+      "excerpt": "Author: Dipesh Chandra Maurya How Groww turns customer events into online features using Kafka, Spark Structured Streaming, Aerospike, and Broker ServiceEvery interaction on a financial platform leaves behind a signal. A customer logs in, searches for a stock, views a portfolio,…",
+      "content": "Author: Dipesh Chandra Maurya How Groww turns customer events into online features using Kafka, Spark Structured Streaming, Aerospike, and Broker ServiceEvery interaction on a financial platform leaves behind a signal. A customer logs in, searches for a stock, views a portfolio, places an order, or taps on a notification. Each action creates data that can help us understand customer behaviour a…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "data-science",
+        "scale"
+      ],
+      "authors": [
+        "Groww Engineering Team"
+      ]
+    },
     {
       "id": "77b2275d53a8417b",
       "title": "How We Load-Test 700+ Independently-Owned Services Without Touching Production",
