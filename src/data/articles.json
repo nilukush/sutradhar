@@ -1,6 +1,25 @@
 {
-  "generatedAt": "2026-11-08T07:31:20.829Z",
+  "generatedAt": "2026-11-13T17:53:43.369Z",
   "articles": [
+    {
+      "id": "88d4afecc45b6fcd",
+      "title": "How We Fixed Training-Serving Skew in Our ML Models",
+      "url": "https://tech.phonepe.com/how-we-fixed-training-serving-skew-in-our-ml-models",
+      "sourceId": "phonepe",
+      "publishedAt": "2026-11-13T05:01:43.000Z",
+      "excerpt": "Ask a data science team how long they take to go from “we have a model idea” to “the model scores live traffic.” The honest answer rarely involves the model. You fit a gradient-boosted tree or a GLM in an afternoon. A few lines of a well-documented library, a grid search, done.…",
+      "content": "Ask a data science team how long they take to go from “we have a model idea” to “the model scores live traffic.” The honest answer rarely involves the model.…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "ai-ml",
+        "data-science"
+      ],
+      "authors": [
+        "akankshamishra"
+      ]
+    },
     {
       "id": "4a3472d5292db94d",
       "title": "Engineering Real-Time Features at Scale: State, Reliability and Performance",
