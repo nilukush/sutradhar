@@ -1,6 +1,27 @@
 {
-  "generatedAt": "2026-11-17T14:41:41.220Z",
+  "generatedAt": "2026-11-19T13:33:46.409Z",
   "articles": [
+    {
+      "id": "72325a4421307cb9",
+      "title": "Distributed, high-performance blob storage on SQLite",
+      "url": "https://zerodha.tech/blog/high-performance-distributed-blob-storage",
+      "sourceId": "zerodha",
+      "publishedAt": "2026-11-19T06:30:00.000Z",
+      "excerpt": "TLDR; We built Blobasaur, a sharded, distributed, lightweight blob storage server on top of SQLite to solve our high-throughput blob read/write usecase. JSON blobs varying from a few KBs to MBs are now written and read thousands of times per second on commodity hardware while…",
+      "content": "TLDR; We built Blobasaur, a sharded, distributed, lightweight blob storage server on top of SQLite to solve our high-throughput blob read/write usecase. JSON…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [],
+      "hn": {
+        "points": 123,
+        "comments": 22,
+        "storyId": "50557537",
+        "matchedAt": "2026-11-19T13:33:45.587Z"
+      }
+    },
     {
       "id": "0e532465b048a70d",
       "title": "Migrating Swiggy Partner App’s Deep Link Engine at Scale",
