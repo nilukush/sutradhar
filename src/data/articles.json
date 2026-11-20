@@ -1,6 +1,41 @@
 {
-  "generatedAt": "2026-11-20T03:33:53.382Z",
+  "generatedAt": "2026-11-20T13:14:22.755Z",
   "articles": [
+    {
+      "id": "3d9c5f94f0f6e167",
+      "title": "Lessons from Building a Self-Serve Rule Engine",
+      "url": "https://slice-engineering.medium.com/lessons-from-building-a-self-serve-rule-engine-c807791d520c",
+      "sourceId": "slice",
+      "publishedAt": "2026-11-20T08:03:55.000Z",
+      "excerpt": "Loan rules used to live in code. How we let analysts change them on their own, and what the engine underneath had to do to keep decisions fast. The change that took a day A customer opens the app and applies for a loan. Between tapping Apply and seeing an answer, we have to…",
+      "content": "Loan rules used to live in code. How we let analysts change them on their own, and what the engine underneath had to do to keep decisions fast. The change that took a day A customer opens the app and applies for a loan. Between tapping Apply and seeing an answer, we have to decide whether to lend, and that call is made by a rule engine. It runs through hundreds of checks and comes back with a…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale"
+      ],
+      "authors": [
+        "slice engineering"
+      ]
+    },
+    {
+      "id": "65b811854ab7bbb7",
+      "title": "IgnisMQ: Running Thousands of Ephemeral, Isolated Queues on Aerospike at Scale",
+      "url": "https://tech.phonepe.com/ignismq-running-thousands-of-ephemeral-isolated-queues-on-aerospike-at-scale",
+      "sourceId": "phonepe",
+      "publishedAt": "2026-11-20T01:14:35.000Z",
+      "excerpt": "Over the past decade, PhonePe has expanded rapidly to serve over 730 million registered users and more than 160 million daily active users. Operating at this immense scale continuously reveals unique distributed systems challenges, particularly around workload isolation and…",
+      "content": "Over the past decade, PhonePe has expanded rapidly to serve over 730 million registered users and more than 160 million daily active users. Operating at this…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "engineering"
+      ],
+      "authors": [
+        "akankshamishra"
+      ]
+    },
     {
       "id": "72325a4421307cb9",
       "title": "Distributed, high-performance blob storage on SQLite",
@@ -16,10 +51,10 @@
       ],
       "authors": [],
       "hn": {
-        "points": 268,
-        "comments": 70,
+        "points": 282,
+        "comments": 72,
         "storyId": "50557537",
-        "matchedAt": "2026-11-20T03:33:52.664Z"
+        "matchedAt": "2026-11-20T13:14:21.391Z"
       }
     },
     {
