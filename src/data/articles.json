@@ -1,6 +1,45 @@
 {
-  "generatedAt": "2026-11-25T05:31:29.196Z",
+  "generatedAt": "2026-11-25T17:26:54.487Z",
   "articles": [
+    {
+      "id": "9ad2a8a135ec7bdb",
+      "title": "BigQuery let us move fast. Here's how we kept it affordable.",
+      "url": "https://sharechat.com/blogs/engineering/bigquery-let-us-move-fast-here-s-how-we-kept-it-affordable",
+      "sourceId": "sharechat",
+      "publishedAt": "2026-11-25T07:16:52.610Z",
+      "excerpt": "How a small platform team ran an 11 PB warehouse for dozens of teams without running clusters, and what we built when the bill grew.",
+      "content": "How a small platform team ran an 11 PB warehouse for dozens of teams without running clusters, and what we built when the bill grew.",
+      "topics": [
+        "backend",
+        "data-science",
+        "mobile",
+        "ai-ml",
+        "platform"
+      ],
+      "authors": [
+        "Brijesh Savaliya",
+        "Rushabh Shroff"
+      ]
+    },
+    {
+      "id": "17c0831a5030359e",
+      "title": "Bolt: Bi-directional Realtime Streaming Platform",
+      "url": "https://tech.phonepe.com/bolt-bi-directional-realtime-streaming-platform",
+      "sourceId": "phonepe",
+      "publishedAt": "2026-11-25T07:12:16.000Z",
+      "excerpt": "When we started building PhonePe Invest, PhonePe’s stockbroking and mutual funds distribution platform, we needed a system that could power real-time features such as charts, prices, order updates, notifications, and so on. Here are some of the key use cases we wanted the…",
+      "content": "When we started building PhonePe Invest, PhonePe’s stockbroking and mutual funds distribution platform, we needed a system that could power real-time features…",
+      "topics": [
+        "fintech-payments",
+        "backend",
+        "scale",
+        "engineering",
+        "platform"
+      ],
+      "authors": [
+        "akankshamishra"
+      ]
+    },
     {
       "id": "3d9c5f94f0f6e167",
       "title": "Lessons from Building a Self-Serve Rule Engine",
@@ -54,7 +93,7 @@
         "points": 286,
         "comments": 72,
         "storyId": "50557537",
-        "matchedAt": "2026-11-25T05:31:27.874Z"
+        "matchedAt": "2026-11-25T17:26:53.032Z"
       }
     },
     {
