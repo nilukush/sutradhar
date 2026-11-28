@@ -1,6 +1,23 @@
 {
-  "generatedAt": "2026-11-28T04:00:59.057Z",
+  "generatedAt": "2026-11-28T13:18:12.619Z",
   "articles": [
+    {
+      "id": "97f40fa7da92ec41",
+      "title": "20s to 4s: How Query Categorization Fixed Text2SQL at Scale",
+      "url": "https://blog.hotstar.com/20s-to-4s-how-query-categorization-fixed-text2sql-at-scale-3c0e7d4ed452",
+      "sourceId": "jiohotstar",
+      "publishedAt": "2026-11-28T10:43:06.000Z",
+      "excerpt": "Context & Problem Statement LLMs by nature are non-deterministic. In the game of cricket, factual correctness and accuracy with respect to historical stats, player records, and ball-by-ball updates demand absolute precision. Score updates, player stats, and match predictions…",
+      "content": "Context & Problem Statement LLMs by nature are non-deterministic. In the game of cricket, factual correctness and accuracy with respect to historical stats, player records, and ball-by-ball updates demand absolute precision. Score updates, player stats, and match predictions need high accuracy and low hallucinations at blazing-fast speed. Fig 1: Building Reliable Text2SQL at ScaleWhy Text2SQL?…",
+      "topics": [
+        "scale",
+        "infrastructure",
+        "mobile"
+      ],
+      "authors": [
+        "Nitesh Tiwari"
+      ]
+    },
     {
       "id": "9ad2a8a135ec7bdb",
       "title": "BigQuery let us move fast. Here's how we kept it affordable.",
@@ -93,7 +110,7 @@
         "points": 286,
         "comments": 72,
         "storyId": "50557537",
-        "matchedAt": "2026-11-28T04:00:38.368Z"
+        "matchedAt": "2026-11-28T13:18:11.264Z"
       }
     },
     {
